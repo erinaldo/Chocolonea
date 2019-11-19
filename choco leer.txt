@@ -1,3 +1,2 @@
-este repositorio lo cree , usando la funcion clonar
-
+este repositorio lo cree usando la funcion clonar de las git extension.
 fecha: 19-11-2019
