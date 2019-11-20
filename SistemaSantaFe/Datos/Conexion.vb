@@ -17,5 +17,7 @@ Public Class Conexion
     'Conexion Servidor la Delfina(remota)
     'Public dbconn As New OleDb.OleDbConnection("Provider=SQLOLEDB.1;Password=choco2304;Persist Security Info=True;User ID=sa;Initial Catalog=HamerBD;Data Source=25.48.241.89\LADELFINA-\SQLEXPRESS")
 
-
+    '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+    'CHOCO PUTO FIJATE SI ANDA BIEN ESTA PORQUERIA QUE VOS LA ROMPISTE !!!!!!!!!!!!!!!
+    '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 End Class

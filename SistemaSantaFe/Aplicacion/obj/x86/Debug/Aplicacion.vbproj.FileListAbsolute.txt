@@ -1540,3 +1540,7 @@ C:\GIT\Proyectos_VisualStudio\SistemaSantaFe\Aplicacion\obj\x86\Debug\Aplicacion
 C:\GIT\Proyectos_VisualStudio\SistemaSantaFe\Aplicacion\obj\x86\Debug\Aplicacion.US_Empleado_stock.resources
 C:\GIT\Proyectos_VisualStudio\SistemaSantaFe\Aplicacion\obj\x86\Debug\Aplicacion.US_Pedidos.resources
 C:\GIT\Proyectos_VisualStudio\SistemaSantaFe\Aplicacion\obj\x86\Debug\Aplicacion.vbproj.GenerateResource.Cache
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\Chocolonea\SistemaSantaFe\Aplicacion\bin\Debug\Aplicacion.exe.config
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\Chocolonea\SistemaSantaFe\Aplicacion\obj\x86\Debug\Aplicacion.exe
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\Chocolonea\SistemaSantaFe\Aplicacion\obj\x86\Debug\Aplicacion.xml
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\Chocolonea\SistemaSantaFe\Aplicacion\obj\x86\Debug\Aplicacion.pdb
