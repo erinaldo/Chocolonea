@@ -1,0 +1,15 @@
+USE [SantaFe]
+GO
+/****** Object:  StoredProcedure [dbo].[Pedidos_Detalle_Alta]    Script Date: 06/17/2019 20:23:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER  Procedure [dbo].[Pedidos_Detalle_Alta]
+@PedidosDet_Pedidos_ID int,
+@PedidosDet_Prov_Prod_Com_id int,
+@PedidosDet_Cantida decimal(38,2),
+@PedidosDet_Total decimal(38,2)
+as
+insert Pedidos_Detalle(PedidosDet_Pedidos_ID, PedidosDet_Prov_Prod_Com_id,	PedidosDet_Cantida,PedidosDet_Total)
+values (@PedidosDet_Pedidos_ID, @PedidosDet_Prov_Prod_Com_id, @PedidosDet_Cantida, @PedidosDet_Total)

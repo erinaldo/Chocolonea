@@ -1,0 +1,37 @@
+USE [SantaFe]
+GO
+/****** Object:  StoredProcedure [dbo].[Caja_consultar_caja_sucursal]    Script Date: 09/05/2019 12:21:52 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+ ALTER procedure [dbo].[Caja_consultar_caja_sucursal]
+  @sucursal_id int,
+  @fecha_desde date,
+  @fecha_hasta date
+  
+  as
+  select
+  Caja_id, caja_apertura, CAJA_cierre, CAJA_montoinicial,CAJA_montoingresosefectivo,CAJA_montoegresos,CAJA_montoingresostarjeta, CAJA_montoneto,Usuario.USU_ape +', '+Usuario.USU_nom as 'Usuario_nombre'
+  from Caja inner join Usuario on Caja.USU_id= Usuario.USU_id where  
+  (Caja.CAJA_apertura between @fecha_desde and DATEADD(day, 1,@fecha_hasta ))
+and 
+usuario.sucursal_id= @sucursal_id  
+  order by Caja.CAJA_apertura asc
+  
+   
+  
+  
+--  DATEPART(YEAR , Caja.CAJA_apertura ) >= DATEPART(year , @fecha_desde)
+--and
+--DATEPART(MONTH, Caja.CAJA_apertura) >= DATEPART(MONTH , @fecha_desde)
+--and
+--DATEPART(DAY, Caja.CAJA_apertura) >= DATEPART(DAY , @fecha_desde)
+--and
+--DATEPART(year, Caja.CAJA_apertura) <= DATEPART(year , @fecha_hasta)
+--and
+--DATEPART(MONTH, Caja.CAJA_apertura) <= DATEPART(MONTH , @fecha_hasta)
+--and
+--DATEPART(DAY, Caja.CAJA_apertura) <= DATEPART(DAY , @fecha_hasta)
+

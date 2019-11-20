@@ -1,0 +1,7 @@
+create procedure Venta_obtener_nrofactura
+
+as
+
+select top 1 * from Venta_Producto order by Venta_Producto.ventaprod_id desc
+
+go

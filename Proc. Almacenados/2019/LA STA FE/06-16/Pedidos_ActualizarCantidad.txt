@@ -1,0 +1,18 @@
+USE [SantaFe]
+GO
+/****** Object:  StoredProcedure [dbo].[Pedidos_ActualizarCantidad]    Script Date: 06/18/2019 00:53:24 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER procedure [dbo].[Pedidos_ActualizarCantidad]
+@PedidosDet_id int,
+@PedidosDet_cantidad int,
+@PedidosDet_Total decimal(38, 2),
+@PedidoDet_CantRecibida int
+as
+
+update Pedidos_Detalle 
+set PedidosDet_Cantida = @PedidosDet_cantidad, PedidosDet_Total = @PedidosDet_Total,
+PedidoDet_CantRecibida=@PedidoDet_CantRecibida 
+where PedidosDet_ID = @PedidosDet_id

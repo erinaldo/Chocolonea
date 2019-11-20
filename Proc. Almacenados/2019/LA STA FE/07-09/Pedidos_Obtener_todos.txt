@@ -1,0 +1,16 @@
+USE [SantaFe]
+GO
+/****** Object:  StoredProcedure [dbo].[Pedidos_Obtener_todos]    Script Date: 07/09/2019 12:47:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER Procedure [dbo].[Pedidos_Obtener_todos]
+as
+
+SELECT     dbo.Pedidos.Pedidos_Estado, dbo.Pedidos.Pedidos_ID, dbo.Pedidos.Pedidos_Cod, dbo.Pedidos.Pedidos_Fecha, dbo.Pedidos.Pedidos_Cod_Prov, dbo.Pedidos.Pedidos_Total, 
+                      dbo.PedidoEstado.PEDIDO_EST_nom, Prov_nombre
+FROM         dbo.PedidoEstado INNER JOIN 
+                      dbo.Pedidos ON dbo.PedidoEstado.PEDIDO_EST_id = dbo.Pedidos.Pedidos_Estado
+                       inner join Proveedor on  Pedidos.Pedidos_Cod_Prov=Proveedor.Prov_id
+order by Pedidos_Cod asc

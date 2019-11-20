@@ -1,0 +1,18 @@
+USE [SantaFe]
+GO
+ Object  StoredProcedure [dbo].[Movimiento_Mercaderia_Detalle_alta]    Script Date 06152019 174001 
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER procedure [dbo].[Movimiento_Mercaderia_Detalle_alta]
+
+@MovMerDet_Cantidad int,
+@MovMer_id int,
+@prod_codinterno int
+as
+
+insert Movimiento_Mercaderia_Detalle (MovMerDet_Cantidad,MovMer_id,prod_codinterno)
+
+values (@MovMerDet_Cantidad,@MovMer_id,@prod_codinterno)
+

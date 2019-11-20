@@ -1,0 +1,46 @@
+USE [fitfaBD]
+GO
+/****** Object:  StoredProcedure [dbo].[Reporte_listado_inscriptos]    Script Date: 06/06/2019 11:18:53 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER procedure [dbo].[Reporte_listado_inscriptos]
+
+@usuario_id int,
+@evento_id int
+as
+select 
+usuario.usuario_id,
+usuario.usuario_apellido +', '+ usuario.usuario_nombre as 'ApellidoyNombre', 
+instructor.instructor_id,
+evento.evento_descripcion as 'Evento',
+evento.evento_fecha,
+inscripciones_x_torneo.categoria_id,
+categoria.categoria_tipo,
+categoria.categoria_gradinicial,
+categoria.categoria_gradfinal,
+categoria.categoria_edadinicial,
+categoria.categoria_edadfinal,
+categoria.categoria_peso_inical,
+categoria.categoria_peso_Final,
+categoria.categoria_sexo,
+usuario.graduacion_id,
+(cast(datediff(dd, usuario.usuario_fechanac ,GETDATE()) / 365.25 as int)) as Edad
+from inscripcion inner join inscripciones_x_torneo on inscripcion.inscripcion_id=inscripciones_x_torneo.inscripcion_id 
+inner join usuario on inscripcion.usuario_id=usuario.usuario_id
+inner join instructor on inscripcion.inscripcion_instructor_id = instructor.instructor_id
+inner join evento on inscripcion.evento_id = evento.evento_id
+inner join categoria on inscripciones_x_torneo.categoria_id=categoria.categoria_id
+where evento.evento_id = @evento_id and instructor.usuario_id = @usuario_id 
+
+select * from graduacion order by graduacion.graduacion_id asc
+
+select 
+usuario.usuario_apellido+usuario.usuario_nombre as 'Instructor_apenom',
+usuario.usuario_doc,
+graduacion.graduacion_desc 
+from instructor inner join usuario on instructor.usuario_id=usuario.usuario_id 
+inner join graduacion on usuario.graduacion_id=graduacion.graduacion_id 
+where instructor.instructor_id = instructor_id 
+

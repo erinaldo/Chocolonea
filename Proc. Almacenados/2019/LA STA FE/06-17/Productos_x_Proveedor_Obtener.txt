@@ -1,0 +1,22 @@
+	USE [SantaFe]
+	GO
+	/****** Object:  StoredProcedure [dbo].[Productos_x_Proveedor_Obtener]    Script Date: 06/17/2019 20:05:15 ******/
+	SET ANSI_NULLS ON
+	GO
+	SET QUOTED_IDENTIFIER ON
+	GO
+	ALTER Procedure [dbo].[Productos_x_Proveedor_Obtener]
+	@Prov_id int
+	as
+	SELECT     dbo.Producto.prod_id, 
+	dbo.Producto.prod_descripcion, 
+	dbo.Producto.prod_codinterno, 
+	--dbo.ProveedorProducto.Prov_id,
+	dbo.Producto.prod_precio_vta, 
+	Producto.prod_precio_vta_May, 
+	Producto.prod_codbarra,
+	Producto.prod_tipo 
+	FROM         dbo.Producto INNER JOIN
+						  dbo.ProveedorProducto ON dbo.Producto.prod_id = dbo.ProveedorProducto.prod_id
+	where ProveedorProducto.Prov_id=@Prov_id and Producto.prod_eliminado='no'                 
+
