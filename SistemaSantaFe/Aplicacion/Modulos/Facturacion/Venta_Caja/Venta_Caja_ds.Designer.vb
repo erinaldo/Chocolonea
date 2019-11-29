@@ -915,6 +915,8 @@ Partial Public Class Venta_Caja_ds
         
         Private columnTURNO_id As Global.System.Data.DataColumn
         
+        Private columndescuento As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -1023,6 +1025,14 @@ Partial Public Class Venta_Caja_ds
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property descuentoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columndescuento
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1059,9 +1069,9 @@ Partial Public Class Venta_Caja_ds
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddProducto_agregadoRow(ByVal PROD_id As String, ByVal codinterno As String, ByVal descripcion As String, ByVal detalle As String, ByVal cantidad As Decimal, ByVal precio_unitario As Decimal, ByVal precio_subtotal As Decimal, ByVal codbarra As String, ByVal TURNO_id As String) As Producto_agregadoRow
+        Public Overloads Function AddProducto_agregadoRow(ByVal PROD_id As String, ByVal codinterno As String, ByVal descripcion As String, ByVal detalle As String, ByVal cantidad As Decimal, ByVal precio_unitario As Decimal, ByVal precio_subtotal As Decimal, ByVal codbarra As String, ByVal TURNO_id As String, ByVal descuento As Decimal) As Producto_agregadoRow
             Dim rowProducto_agregadoRow As Producto_agregadoRow = CType(Me.NewRow,Producto_agregadoRow)
-            Dim columnValuesArray() As Object = New Object() {PROD_id, codinterno, descripcion, detalle, cantidad, precio_unitario, precio_subtotal, codbarra, TURNO_id}
+            Dim columnValuesArray() As Object = New Object() {PROD_id, codinterno, descripcion, detalle, cantidad, precio_unitario, precio_subtotal, codbarra, TURNO_id, descuento}
             rowProducto_agregadoRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowProducto_agregadoRow)
             Return rowProducto_agregadoRow
@@ -1093,6 +1103,7 @@ Partial Public Class Venta_Caja_ds
             Me.columnprecio_subtotal = MyBase.Columns("precio_subtotal")
             Me.columncodbarra = MyBase.Columns("codbarra")
             Me.columnTURNO_id = MyBase.Columns("TURNO_id")
+            Me.columndescuento = MyBase.Columns("descuento")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1116,6 +1127,8 @@ Partial Public Class Venta_Caja_ds
             MyBase.Columns.Add(Me.columncodbarra)
             Me.columnTURNO_id = New Global.System.Data.DataColumn("TURNO_id", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTURNO_id)
+            Me.columndescuento = New Global.System.Data.DataColumn("descuento", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndescuento)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3487,6 +3500,21 @@ Partial Public Class Venta_Caja_ds
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property descuento() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableProducto_agregado.descuentoColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'descuento' de la tabla 'Producto_agregado' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableProducto_agregado.descuentoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsPROD_idNull() As Boolean
             Return Me.IsNull(Me.tableProducto_agregado.PROD_idColumn)
         End Function
@@ -3591,6 +3619,18 @@ Partial Public Class Venta_Caja_ds
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetTURNO_idNull()
             Me(Me.tableProducto_agregado.TURNO_idColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsdescuentoNull() As Boolean
+            Return Me.IsNull(Me.tableProducto_agregado.descuentoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetdescuentoNull()
+            Me(Me.tableProducto_agregado.descuentoColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
