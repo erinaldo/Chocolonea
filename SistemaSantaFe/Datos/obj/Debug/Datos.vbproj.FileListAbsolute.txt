@@ -171,3 +171,11 @@ C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub
 C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\Chocolonea\SistemaSantaFe\Datos\obj\Debug\Datos.dll
 C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\Chocolonea\SistemaSantaFe\Datos\obj\Debug\Datos.xml
 C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\Chocolonea\SistemaSantaFe\Datos\obj\Debug\Datos.pdb
+C:\Git repo nuevo\Chocolonea\SistemaSantaFe\Datos\bin\Debug\Datos.dll
+C:\Git repo nuevo\Chocolonea\SistemaSantaFe\Datos\bin\Debug\Datos.pdb
+C:\Git repo nuevo\Chocolonea\SistemaSantaFe\Datos\bin\Debug\Datos.xml
+C:\Git repo nuevo\Chocolonea\SistemaSantaFe\Datos\obj\Debug\Datos.Resources.resources
+C:\Git repo nuevo\Chocolonea\SistemaSantaFe\Datos\obj\Debug\Datos.vbproj.GenerateResource.Cache
+C:\Git repo nuevo\Chocolonea\SistemaSantaFe\Datos\obj\Debug\Datos.dll
+C:\Git repo nuevo\Chocolonea\SistemaSantaFe\Datos\obj\Debug\Datos.xml
+C:\Git repo nuevo\Chocolonea\SistemaSantaFe\Datos\obj\Debug\Datos.pdb

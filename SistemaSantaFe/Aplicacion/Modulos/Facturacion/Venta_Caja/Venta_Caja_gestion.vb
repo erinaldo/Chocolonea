@@ -517,7 +517,7 @@
         Dim ii As Integer = 0
         While ii < DataGridView1.Rows.Count   'DataG_lista.Rows.Count
             Dim precio_subtotal = DataGridView1.Rows(ii).Cells("columna_precio_subtotal").Value
-            If precio_subtotal <> "" Then 'fila vacia
+            If CStr(precio_subtotal) <> "" Then 'fila vacia
                 sumar = sumar + CDec(DataGridView1.Rows(ii).Cells("columna_precio_subtotal").Value)
             End If
 
