@@ -48,6 +48,7 @@ Partial Class Cliente_alta_New
         Me.lb_dni = New System.Windows.Forms.Label()
         Me.lb_mail = New System.Windows.Forms.Label()
         Me.lb_tel = New System.Windows.Forms.Label()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -79,6 +80,7 @@ Partial Class Cliente_alta_New
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.CheckBox1)
         Me.GroupBox1.Controls.Add(Me.error_dni)
         Me.GroupBox1.Controls.Add(Me.error_razonsocial)
         Me.GroupBox1.Controls.Add(Me.tb_Dni_Cuit)
@@ -317,6 +319,16 @@ Partial Class Cliente_alta_New
         Me.lb_tel.TabIndex = 241
         Me.lb_tel.Text = "Dirección / Domicilio:"
         '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(85, 389)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(95, 20)
+        Me.CheckBox1.TabIndex = 265
+        Me.CheckBox1.Text = "CheckBox1"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
         'Cliente_alta_New
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -361,4 +373,5 @@ Partial Class Cliente_alta_New
     Friend WithEvents tb_Dni_Cuit As System.Windows.Forms.TextBox
     Friend WithEvents error_dni As System.Windows.Forms.Label
     Friend WithEvents error_razonsocial As System.Windows.Forms.Label
+    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
 End Class
