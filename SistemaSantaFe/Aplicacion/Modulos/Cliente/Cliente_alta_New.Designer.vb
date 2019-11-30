@@ -28,6 +28,7 @@ Partial Class Cliente_alta_New
         Me.btn_Cancelar = New System.Windows.Forms.Button()
         Me.btn_Aceptar = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.error_dni = New System.Windows.Forms.Label()
         Me.error_razonsocial = New System.Windows.Forms.Label()
         Me.tb_Dni_Cuit = New System.Windows.Forms.TextBox()
@@ -48,7 +49,6 @@ Partial Class Cliente_alta_New
         Me.lb_dni = New System.Windows.Forms.Label()
         Me.lb_mail = New System.Windows.Forms.Label()
         Me.lb_tel = New System.Windows.Forms.Label()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -110,6 +110,16 @@ Partial Class Cliente_alta_New
         Me.GroupBox1.TabIndex = 4
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Ingrese los datos personales del Cliente:"
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(57, 389)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(95, 20)
+        Me.CheckBox1.TabIndex = 265
+        Me.CheckBox1.Text = "CheckBox1"
+        Me.CheckBox1.UseVisualStyleBackColor = True
         '
         'error_dni
         '
@@ -318,16 +328,6 @@ Partial Class Cliente_alta_New
         Me.lb_tel.Size = New System.Drawing.Size(154, 20)
         Me.lb_tel.TabIndex = 241
         Me.lb_tel.Text = "Dirección / Domicilio:"
-        '
-        'CheckBox1
-        '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(85, 389)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(95, 20)
-        Me.CheckBox1.TabIndex = 265
-        Me.CheckBox1.Text = "CheckBox1"
-        Me.CheckBox1.UseVisualStyleBackColor = True
         '
         'Cliente_alta_New
         '
