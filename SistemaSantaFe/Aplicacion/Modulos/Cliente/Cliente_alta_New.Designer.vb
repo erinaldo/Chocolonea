@@ -114,7 +114,7 @@ Partial Class Cliente_alta_New
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(57, 389)
+        Me.CheckBox1.Location = New System.Drawing.Point(234, 389)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(95, 20)
         Me.CheckBox1.TabIndex = 265
