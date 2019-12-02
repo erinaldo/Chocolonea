@@ -28,6 +28,7 @@ Partial Class Cliente_alta_New
         Me.btn_Cancelar = New System.Windows.Forms.Button()
         Me.btn_Aceptar = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.error_dni = New System.Windows.Forms.Label()
         Me.error_razonsocial = New System.Windows.Forms.Label()
         Me.tb_Dni_Cuit = New System.Windows.Forms.TextBox()
@@ -79,6 +80,7 @@ Partial Class Cliente_alta_New
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.CheckBox1)
         Me.GroupBox1.Controls.Add(Me.error_dni)
         Me.GroupBox1.Controls.Add(Me.error_razonsocial)
         Me.GroupBox1.Controls.Add(Me.tb_Dni_Cuit)
@@ -108,6 +110,16 @@ Partial Class Cliente_alta_New
         Me.GroupBox1.TabIndex = 4
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Ingrese los datos personales del Cliente:"
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(234, 389)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(95, 20)
+        Me.CheckBox1.TabIndex = 265
+        Me.CheckBox1.Text = "CheckBox1"
+        Me.CheckBox1.UseVisualStyleBackColor = True
         '
         'error_dni
         '
@@ -361,4 +373,5 @@ Partial Class Cliente_alta_New
     Friend WithEvents tb_Dni_Cuit As System.Windows.Forms.TextBox
     Friend WithEvents error_dni As System.Windows.Forms.Label
     Friend WithEvents error_razonsocial As System.Windows.Forms.Label
+    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
 End Class
