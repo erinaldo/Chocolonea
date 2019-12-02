@@ -122,6 +122,7 @@
             row_prodADD("precio_subtotal") = CDec(ds_venta.Tables(2).Rows(i).Item("ventaprod_subtotal"))
             row_prodADD("codbarra") = ""
             row_prodADD("TURNO_id") = ""
+            row_prodADD("descuento") = CDec(ds_venta.Tables(2).Rows(i).Item("descuento"))
             Facturacion_ds_report.Tables("Producto_agregado").Rows.Add(row_prodADD)
             i = i + 1
         End While
@@ -253,6 +254,9 @@
             row_prodADD("precio_subtotal") = CDec(ds_venta.Tables(2).Rows(i).Item("ventaprod_subtotal"))
             row_prodADD("codbarra") = ""
             row_prodADD("TURNO_id") = ""
+            '/choco modificacion: 02-12-2019, agrego columna descuento
+            row_prodADD("descuento") = CDec(ds_venta.Tables(2).Rows(i).Item("descuento"))
+            '/////////////////fin modificacion/////////////////////////
             Venta_consulta_ds.Tables("Productos_detalle_consulta").Rows.Add(row_prodADD) 'choco edition
             i = i + 1
         End While

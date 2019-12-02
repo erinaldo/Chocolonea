@@ -109,7 +109,7 @@ Public Class Pago_caja
                         'GUARDAR EN TABLA "Venta_Producto_detalle"
                         For Each row As DataGridViewRow In Venta_Caja_gestion.DataGridView1.Rows
                             If row.Cells("columna_prod_id").Value <> 0 Then
-                                DAventa.VentaProductoDetalle_alta(ventaprod_id, row.Cells(1).Value, row.Cells(5).Value, CDec(row.Cells(6).Value), CDec(row.Cells(7).Value), row.Cells(3).Value, row.Cells(2).Value, 0)
+                                DAventa.VentaProductoDetalle_alta(ventaprod_id, row.Cells(1).Value, row.Cells(5).Value, CDec(row.Cells(7).Value), CDec(row.Cells(8).Value), row.Cells(3).Value, row.Cells(2).Value, 0, CDec(row.Cells(6).Value))
                             End If
                         Next
 
@@ -263,9 +263,9 @@ Public Class Pago_caja
             Else
                 'Dim ds_cliente As DataSet = DAcliente.Cliente_ObtenerDni(CInt(Venta_Caja_gestion.lb_dni_clie.Text))
                 Dim row_cliente As DataRow = facturacion_ds_report.Tables("Cliente").NewRow()
-                row_cliente("fantasia") = Venta_Caja_gestion.lb_fantasia.Text
-                row_cliente("dni") = Venta_Caja_gestion.lb_dni_clie.Text
-                row_cliente("telefono") = Venta_Caja_gestion.lb_telef_clie.Text
+                row_cliente("fantasia") = "" 'Venta_Caja_gestion.lb_fantasia.Text
+                row_cliente("dni") = "" 'Venta_Caja_gestion.lb_dni_clie.Text
+                row_cliente("telefono") = "" 'Venta_Caja_gestion.lb_telef_clie.Text
                 row_cliente("mail") = Venta_Caja_gestion.lb_mail_clie.Text
                 row_cliente("direccion") = ""
                 row_cliente("localidad") = ""
@@ -331,6 +331,8 @@ Public Class Pago_caja
                     row_prodADD("precio_subtotal") = CDec(Venta_Caja_gestion.DataGridView1.Rows(i).Cells("columna_precio_subtotal").Value)
                     row_prodADD("codbarra") = ""
                     row_prodADD("TURNO_id") = ""
+                    '/choco modificacion 01-12-2019: agrego columna descuento
+                    row_prodADD("descuento") = CDec(Venta_Caja_gestion.DataGridView1.Rows(i).Cells("descuento").Value)
                     facturacion_ds_report.Tables("Producto_agregado").Rows.Add(row_prodADD)
                 End If
                 i = i + 1

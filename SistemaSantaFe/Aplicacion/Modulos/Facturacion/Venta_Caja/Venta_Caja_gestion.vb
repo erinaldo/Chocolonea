@@ -18,7 +18,14 @@
                 DataGridView1.Rows(i).Cells("columna_cantidad").Value = CDec(DataGridView1.Rows(i).Cells("columna_cantidad").Value) + 1
                 Dim cantidad As Decimal = CDec(DataGridView1.Rows(i).Cells("columna_cantidad").Value)
                 Dim precio_unitario As Decimal = CDec(DataGridView1.Rows(i).Cells("columna_precio_unitario").Value)
-                DataGridView1.Rows(i).Cells("columna_precio_subtotal").Value = precio_unitario * cantidad
+                'choco: 30-11-2019, agregamos la columna descuento
+                '//////////////////////////////////////////////////////////////////////////////////////////
+                Dim precio As Decimal = precio_unitario * cantidad
+                Dim descuento As Decimal = CDec(DataGridView1.Rows(i).Cells("descuento").Value)
+                descuento = (descuento * precio) / 100
+                precio = CDec(precio) - descuento
+                DataGridView1.Rows(i).Cells("columna_precio_subtotal").Value = CDec(precio) 'CDec(Math.Round(precio, 2)).ToString("N2")
+                '//////////////////////////////////////////////////////////////////////////////////////////
                 existe_en_grilla = "si"
                 Exit While
             End If
@@ -70,6 +77,7 @@
                             total = CDec(VentaGestion_DS_PROD.Tables(1).Rows(i).Item("prod_precio_vta"))
                             DataGridView1.CurrentRow.Cells("columna_precio_subtotal").Value = CDec(total)   'CDec(Math.Round(total, 2)).ToString("N2")
                             DataGridView1.CurrentRow.Cells("columna_codbarra").Value = VentaGestion_DS_PROD.Tables(1).Rows(i).Item("prod_codbarra").ToString
+                            DataGridView1.CurrentRow.Cells("descuento").Value = CInt(0) 'descuento % en 0
                         End If
 
 
@@ -110,6 +118,7 @@
                     DataGridView1.CurrentRow.Cells("columna_descripcion").Value = ""
                     DataGridView1.CurrentRow.Cells("columna_detalle").Value = ""
                     DataGridView1.CurrentRow.Cells("columna_cantidad").Value = ""
+                    DataGridView1.CurrentRow.Cells("descuento").Value = ""
                     DataGridView1.CurrentRow.Cells("columna_precio_unitario").Value = ""
                     DataGridView1.CurrentRow.Cells("columna_precio_subtotal").Value = ""
                     DataGridView1.CurrentRow.Cells("columna_codbarra").Value = ""
@@ -164,6 +173,7 @@
                             total = CDec(VentaGestion_DS_PROD.Tables(1).Rows(i).Item("prod_precio_vta_May"))
                             DataGridView1.CurrentRow.Cells("columna_precio_subtotal").Value = CDec(total)   'CDec(Math.Round(total, 2)).ToString("N2")
                             DataGridView1.CurrentRow.Cells("columna_codbarra").Value = VentaGestion_DS_PROD.Tables(1).Rows(i).Item("prod_codbarra").ToString
+                            DataGridView1.CurrentRow.Cells("descuento").Value = CInt(0) 'descuento % en 0
                         End If
                         Encontrado = "si"
                         i = VentaGestion_DS_PROD.Tables(1).Rows.Count
@@ -187,7 +197,6 @@
                             total = CDec(VentaGestion_ds_PROMO.Tables(0).Rows(i).Item("LISTA_total"))
                             DataGridView1.CurrentRow.Cells("columna_precio_subtotal").Value = CDec(total) 'CDec(Math.Round(total, 2)).ToString("N2")
                             DataGridView1.CurrentRow.Cells("columna_codbarra").Value = " "
-
                             Encontrado = "si"
                             i = VentaGestion_ds_PROMO.Tables(0).Rows.Count
                         End If
@@ -202,10 +211,10 @@
                     DataGridView1.CurrentRow.Cells("columna_descripcion").Value = ""
                     DataGridView1.CurrentRow.Cells("columna_detalle").Value = ""
                     DataGridView1.CurrentRow.Cells("columna_cantidad").Value = ""
+                    DataGridView1.CurrentRow.Cells("descuento").Value = ""
                     DataGridView1.CurrentRow.Cells("columna_precio_unitario").Value = ""
                     DataGridView1.CurrentRow.Cells("columna_precio_subtotal").Value = ""
                     DataGridView1.CurrentRow.Cells("columna_codbarra").Value = ""
-
                     MessageBox.Show("No Existe el Producto", "Sistema de Gestión")
                 Else
                     calcular_totales()
@@ -229,7 +238,6 @@
         '    If RB_No.Checked = True Then 'ESTO LO HAGO X Q EN EL MISMO DATA SET para los productos comunes es table 1, y para las lista regular seleccionada es table 0
         '        T = 1
         '    End If
-
         '    While i < VentaGestion_DS_PROD.Tables(T).Rows.Count
         '        Dim cod_interno As String = VentaGestion_DS_PROD.Tables(T).Rows(i).Item("prod_codinterno").ToString
         '        If TX_busc_codinterno.Text = cod_interno Then
@@ -272,7 +280,6 @@
         '                Dim a As Integer = DataG_lista.Rows.Count
         '                DataG_lista.Rows(a - 1).Cells(0).Value = a
         '            Else
-
         '                'edito una fila existente, solo si el usuario lo desea, pregunta!!!
         '                'Dim result As DialogResult
         '                'result = MessageBox.Show("Ya esta agregado ¿Desea modificar?", "Sistema de Gestion.", MessageBoxButtons.OKCancel)
@@ -396,9 +403,9 @@
                 SendKeys.Send("{TAB}")
             Case 3
                 SendKeys.Send("{LEFT}")
-            Case 6
-                SendKeys.Send("{LEFT}")
             Case 7
+                SendKeys.Send("{LEFT}")
+            Case 8
                 SendKeys.Send("{LEFT}")
                 SendKeys.Send("{LEFT}")
         End Select
@@ -418,6 +425,11 @@
 
                 listo = "no"
             End If
+
+            If listo = "pasar a descuento" Then
+                DataGridView1.CurrentCell = DataGridView1(6, fila_mover)
+            End If
+
             If listo = "si, sig fila" Then
                 'valido que no sea la ultima fila de la grilla - choco: 25-06-2019
                 'If DataGridView1.CurrentRow.Index <> DataGridView1.Rows.Count - 1 Then 'si no estoy en la ultima fila, salto a la siguiente
@@ -439,8 +451,6 @@
             listo = "no"
         End If
 
-
-
     End Sub
 
     Private Sub DataGridView1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles DataGridView1.KeyDown
@@ -453,7 +463,15 @@
                 SendKeys.Send("{TAB}")
             End If
         End If
-        If DataGridView1.CurrentCell.ColumnIndex = 5 Then
+        If DataGridView1.CurrentCell.ColumnIndex = 5 Then 'columna cantidad, un TAB para pasar a descuento
+            If e.KeyCode = Keys.Enter Then
+                e.SuppressKeyPress = True
+                SendKeys.Send("{TAB}")
+            End If
+        End If
+
+
+        If DataGridView1.CurrentCell.ColumnIndex = 6 Then 'columna descuento, se hacen varios TAB hasta pasar a la siguiente fila
             If e.KeyCode = Keys.Enter Then
                 e.SuppressKeyPress = True
                 SendKeys.Send("{TAB}")
@@ -491,20 +509,51 @@
             fila_mover = DataGridView1.CurrentRow.Index
             listo = "si"
         End If
-        If DataGridView1.CurrentCell.ColumnIndex = 5 Then 'la columna 5 es Cantidad
+        If DataGridView1.CurrentCell.ColumnIndex = 5 Then 'la columna 5 es Cantidad, la columna 6 es descuento
             If DataGridView1.CurrentCell.Value Is DBNull.Value Then
-                DataGridView1.CurrentCell.Value = 1
+
+                    DataGridView1.CurrentCell.Value = 1
             End If
             Dim precio As Decimal = 0
             'Dim cantidad As Integer = CInt(DataGridView1.CurrentRow.Cells("columna_cantidad").Value)
             Dim cantidad As Decimal = CDec(DataGridView1.CurrentRow.Cells("columna_cantidad").Value)
             precio = cantidad * CDec(DataGridView1.CurrentRow.Cells("columna_precio_unitario").Value)
+            'choco: 30-11-2019 .ahora tenemos columna descuento, si aplica lo calculamos para modificar el subtotal
+            '///////////////////////////////////
+            Dim descuento As Decimal = CDec(DataGridView1.CurrentRow.Cells("descuento").Value)
+            descuento = (descuento * precio) / 100
+            precio = CDec(precio) - descuento
+            '///////////////////////////////////
+            DataGridView1.CurrentRow.Cells("columna_precio_subtotal").Value = CDec(precio) 'CDec(Math.Round(precio, 2)).ToString("N2")
+            fila_mover = DataGridView1.CurrentRow.Index
+            calcular_totales()
+            aplicar_iva()
+            'listo = "si, sig fila"
+            listo = "pasar a descuento"
+        End If
+
+
+        If DataGridView1.CurrentCell.ColumnIndex = 6 Then 'la columna 6 es descuento
+            If DataGridView1.CurrentCell.Value Is DBNull.Value Then
+                DataGridView1.CurrentCell.Value = CDec(0)
+            End If
+            Dim precio As Decimal = 0
+            'Dim cantidad As Integer = CInt(DataGridView1.CurrentRow.Cells("columna_cantidad").Value)
+            Dim cantidad As Decimal = CDec(DataGridView1.CurrentRow.Cells("columna_cantidad").Value)
+            precio = cantidad * CDec(DataGridView1.CurrentRow.Cells("columna_precio_unitario").Value)
+            'choco: 30-11-2019 .ahora tenemos columna descuento, si aplica lo calculamos para modificar el subtotal
+            '///////////////////////////////////
+            Dim descuento As Decimal = CDec(DataGridView1.CurrentRow.Cells("descuento").Value)
+            descuento = (descuento * precio) / 100
+            precio = CDec(precio) - descuento
+            '///////////////////////////////////
             DataGridView1.CurrentRow.Cells("columna_precio_subtotal").Value = CDec(precio) 'CDec(Math.Round(precio, 2)).ToString("N2")
             fila_mover = DataGridView1.CurrentRow.Index
             calcular_totales()
             aplicar_iva()
             listo = "si, sig fila"
         End If
+
 
 
     End Sub
@@ -1971,7 +2020,7 @@
 
         Dim variasdasd = DataGridView1.CurrentRow.Cells("columna_codinterno").Value
 
-        If CStr(DataGridView1.CurrentRow.Cells("columna_codinterno").Value) = "" And columna = 5 Then
+        If CStr(DataGridView1.CurrentRow.Cells("columna_codinterno").Value) = "" And (columna = 5 Or columna = 6) Then 'la columna 5 es Cantidad, la columna 6 es descuento
             'If IsDBNull(DataGridView1.CurrentRow.Cells("columna_codinterno").Value) And columna = 5 Then
             e.Handled = True
         Else
@@ -2024,6 +2073,25 @@
                         Else
                             e.Handled = True
                         End If
+                    End If
+                End If
+                If columna = 6 Then 'la columna 6 es descuento, que acepta decimales
+                    Dim caracter As Char = e.KeyChar
+                    '        'referencia a la celda
+                    Dim txt As TextBox = CType(sender, TextBox)
+                    'aqui pongo el codigo para remplazar el punto por una coma
+                    If txt.ToString() = "." Then
+                        txt.Text = ","
+                    End If
+                    If caracter.ToString() = "." Then
+                        caracter = ","
+                    End If
+                    'comprobar si el caracter es un número o el retroceso, si el caracter es un separador decimal y que no contiene ya el separador
+                    If (Char.IsNumber(caracter)) Or (caracter = ChrW(Keys.Back)) Or (caracter = ",") And (txt.Text.Contains(",") = False) Then
+                        e.KeyChar = caracter
+                        e.Handled = False
+                    Else
+                        e.Handled = True
                     End If
                 End If
             End If
@@ -2254,4 +2322,6 @@
             MessageBox.Show("Error, ingrese un valor no nulo")
         End If
     End Sub
+
+
 End Class

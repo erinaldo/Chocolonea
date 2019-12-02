@@ -120,18 +120,21 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="Button3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAK/wAA
-        Cv8BNGKaggAAAUNJREFUSEvt1z9KA0EYh+FYW9iLaK0IgkERCVgIFuoVLLyCF8g1LKy8R+y0EQVBtNLC
-        QhAxCf5BFHR8fzIrYdjMzDorNlM8TWbme5MlCbsNY8y3l93pkHF08IBeBTfYwxR+erHhCZzBJLjGZJWw
-        3uk5igGXWKxgG/fQ2f3YcBMXKKJyjLK9Porr7F1MeBV9DEblBGX7fZahs/1QeA1PcKPym/AKdLbrC6/j
-        GW6w8CfhHbzaTcPo2z2CwcEh3nDbLoYcwB0c4g0/2kWfKyzBHRziDetfRotbWID7e9RrY3CHxogKz8A9
-        mCoqPA/3YKoczuEcrk0O5/D/hIsbuzm4B1O1oNm9snDXLuqeyz2YahNDP7EeT7R4ilmM1kSzNFOzO2Vh
-        XY43u+ETtzX5gGa+o1UWFl3mQ+iRQ7e4ddCsI2zA9kzjCyjfiBlmOQNnAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAr/AAAK/wE0YpqCAAABQ0lE
+        QVRIS+3XP0oDQRiH4Vhb2ItorQiCQREJWAgW6hUsvIIXyDUsrLxH7LQRBUG00sJCEDEJ/kEUdHx/Mith
+        2MzMOis2UzxNZuZ7kyUJuw1jzLeX3emQcXTwgF4FN9jDFH56seEJnMEkuMZklbDe6TmKAZdYrGAb99DZ
+        /dhwExcoonKMsr0+iuvsXUx4FX0MRuUEZft9lqGz/VB4DU9wo/Kb8Ap0tusLr+MZbrDwJ+EdvNpNw+jb
+        PYLBwSHecNsuhhzAHRziDT/aRZ8rLMEdHOIN619Gi1tYgPt71GtjcIfGiArPwD2YKio8D/dgqhzO4Ryu
+        TQ7n8P+Eixu7ObgHU7Wg2b2ycNcu6p7LPZhqE0M/sR5PtHiKWYzWRLM0U7M7ZWFdjje74RO3NfmAZr6j
+        VRYWXeZD6JFDt7h10KwjbMD2TOMLKN+IGWY5A2cAAAAASUVORK5CYII=
 </value>
   </data>
   <metadata name="ToolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>591, 17</value>
+  </metadata>
+  <metadata name="descuento.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
   <metadata name="ProductosdetalleconsultaBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>881, 17</value>

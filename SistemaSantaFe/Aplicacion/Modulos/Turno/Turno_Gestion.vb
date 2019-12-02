@@ -457,7 +457,7 @@
                                           Venta_Caja_ds.Tables("Producto_agregado").Rows(0).Item(6),
                                           Venta_Caja_ds.Tables("Producto_agregado").Rows(0).Item(2),
                                           Venta_Caja_ds.Tables("Producto_agregado").Rows(0).Item(1),
-                                          Venta_Caja_ds.Tables("Producto_agregado").Rows(0).Item(8))
+                                          Venta_Caja_ds.Tables("Producto_agregado").Rows(0).Item(8), CDec(0))
 
 
         Mesas_gestion_2.Deshabilitar_mesas()

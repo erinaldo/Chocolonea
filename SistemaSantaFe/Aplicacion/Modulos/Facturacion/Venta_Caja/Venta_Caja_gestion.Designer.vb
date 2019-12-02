@@ -39,6 +39,7 @@ Partial Class Venta_Caja_gestion
         Me.ProductoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.label_hora = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -135,6 +136,9 @@ Partial Class Venta_Caja_gestion
         Me.Button3 = New System.Windows.Forms.Button()
         Me.GroupBox12 = New System.Windows.Forms.GroupBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.ProductoagregadoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.ProductosCombosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.columna_item = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.columna_prod_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.columna_codinterno = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -146,10 +150,6 @@ Partial Class Venta_Caja_gestion
         Me.columna_precio_subtotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.columna_codbarra = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.ProductoagregadoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.ProductosCombosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.Venta_ds, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProductoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
@@ -223,6 +223,17 @@ Partial Class Venta_Caja_gestion
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Venta en Caja: Cliente"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.Red
+        Me.Button1.Location = New System.Drawing.Point(894, 35)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(149, 61)
+        Me.Button1.TabIndex = 255
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'Button4
         '
@@ -1381,6 +1392,16 @@ Partial Class Venta_Caja_gestion
         Me.DataGridView1.Size = New System.Drawing.Size(1193, 269)
         Me.DataGridView1.TabIndex = 0
         '
+        'ProductoagregadoBindingSource
+        '
+        Me.ProductoagregadoBindingSource.DataMember = "Producto_agregado"
+        Me.ProductoagregadoBindingSource.DataSource = Me.Venta_Caja_ds
+        '
+        'ProductosCombosBindingSource
+        '
+        Me.ProductosCombosBindingSource.DataMember = "Productos_Combos"
+        Me.ProductosCombosBindingSource.DataSource = Me.Venta_Caja_ds
+        '
         'columna_item
         '
         DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
@@ -1446,10 +1467,10 @@ Partial Class Venta_Caja_gestion
         '
         Me.descuento.DataPropertyName = "descuento"
         DataGridViewCellStyle7.Format = "N2"
-        DataGridViewCellStyle7.NullValue = "0"
         Me.descuento.DefaultCellStyle = DataGridViewCellStyle7
         Me.descuento.HeaderText = "Descuento(%)"
         Me.descuento.Name = "descuento"
+        Me.descuento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         '
         'columna_precio_unitario
         '
@@ -1489,27 +1510,6 @@ Partial Class Venta_Caja_gestion
         Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.Column1.HeaderText = "Quitar"
         Me.Column1.Name = "Column1"
-        '
-        'ProductoagregadoBindingSource
-        '
-        Me.ProductoagregadoBindingSource.DataMember = "Producto_agregado"
-        Me.ProductoagregadoBindingSource.DataSource = Me.Venta_Caja_ds
-        '
-        'ProductosCombosBindingSource
-        '
-        Me.ProductosCombosBindingSource.DataMember = "Productos_Combos"
-        Me.ProductosCombosBindingSource.DataSource = Me.Venta_Caja_ds
-        '
-        'Button1
-        '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.Red
-        Me.Button1.Location = New System.Drawing.Point(894, 35)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(149, 61)
-        Me.Button1.TabIndex = 255
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'Venta_Caja_gestion
         '
@@ -1673,6 +1673,7 @@ Partial Class Venta_Caja_gestion
     Friend WithEvents txt_descuento As System.Windows.Forms.TextBox
     Friend WithEvents Label23 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents columna_item As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents columna_prod_id As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents columna_codinterno As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -1684,5 +1685,4 @@ Partial Class Venta_Caja_gestion
     Friend WithEvents columna_precio_subtotal As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents columna_codbarra As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column1 As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents Button1 As System.Windows.Forms.Button
 End Class

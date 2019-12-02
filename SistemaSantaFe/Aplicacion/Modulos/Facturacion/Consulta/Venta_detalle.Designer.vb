@@ -25,6 +25,7 @@ Partial Class Venta_detalle
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Venta_detalle))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
@@ -46,8 +47,6 @@ Partial Class Venta_detalle
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.DG_ventas = New System.Windows.Forms.DataGridView()
-        Me.ProductosdetalleconsultaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Venta_consulta_ds = New Aplicacion.Venta_consulta_ds()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.TextBox_fecha = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -67,11 +66,14 @@ Partial Class Venta_detalle
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.ProductosdetalleconsultaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Venta_consulta_ds = New Aplicacion.Venta_consulta_ds()
         Me.PRODidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CodinternoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DescripcionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DetalleDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CantidadDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.descuento = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PreciounitarioDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PreciosubtotalDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CodbarraDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -82,10 +84,10 @@ Partial Class Venta_detalle
         Me.GroupBox_tarjeta.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DG_ventas, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ProductosdetalleconsultaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Venta_consulta_ds, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.ProductosdetalleconsultaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Venta_consulta_ds, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -322,7 +324,7 @@ Partial Class Venta_detalle
         Me.DG_ventas.BackgroundColor = System.Drawing.Color.White
         Me.DG_ventas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.DG_ventas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DG_ventas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.PRODidDataGridViewTextBoxColumn, Me.CodinternoDataGridViewTextBoxColumn, Me.DescripcionDataGridViewTextBoxColumn, Me.DetalleDataGridViewTextBoxColumn, Me.CantidadDataGridViewTextBoxColumn, Me.PreciounitarioDataGridViewTextBoxColumn, Me.PreciosubtotalDataGridViewTextBoxColumn, Me.CodbarraDataGridViewTextBoxColumn, Me.TURNOidDataGridViewTextBoxColumn})
+        Me.DG_ventas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.PRODidDataGridViewTextBoxColumn, Me.CodinternoDataGridViewTextBoxColumn, Me.DescripcionDataGridViewTextBoxColumn, Me.DetalleDataGridViewTextBoxColumn, Me.CantidadDataGridViewTextBoxColumn, Me.descuento, Me.PreciounitarioDataGridViewTextBoxColumn, Me.PreciosubtotalDataGridViewTextBoxColumn, Me.CodbarraDataGridViewTextBoxColumn, Me.TURNOidDataGridViewTextBoxColumn})
         Me.DG_ventas.DataSource = Me.ProductosdetalleconsultaBindingSource
         Me.DG_ventas.Location = New System.Drawing.Point(7, 22)
         Me.DG_ventas.Margin = New System.Windows.Forms.Padding(4)
@@ -334,16 +336,6 @@ Partial Class Venta_detalle
         Me.DG_ventas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DG_ventas.Size = New System.Drawing.Size(791, 159)
         Me.DG_ventas.TabIndex = 243
-        '
-        'ProductosdetalleconsultaBindingSource
-        '
-        Me.ProductosdetalleconsultaBindingSource.DataMember = "Productos_detalle_consulta"
-        Me.ProductosdetalleconsultaBindingSource.DataSource = Me.Venta_consulta_ds
-        '
-        'Venta_consulta_ds
-        '
-        Me.Venta_consulta_ds.DataSetName = "Venta_consulta_ds"
-        Me.Venta_consulta_ds.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'GroupBox3
         '
@@ -543,6 +535,16 @@ Partial Class Venta_detalle
         '
         Me.ToolTip1.ToolTipTitle = "V"
         '
+        'ProductosdetalleconsultaBindingSource
+        '
+        Me.ProductosdetalleconsultaBindingSource.DataMember = "Productos_detalle_consulta"
+        Me.ProductosdetalleconsultaBindingSource.DataSource = Me.Venta_consulta_ds
+        '
+        'Venta_consulta_ds
+        '
+        Me.Venta_consulta_ds.DataSetName = "Venta_consulta_ds"
+        Me.Venta_consulta_ds.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'PRODidDataGridViewTextBoxColumn
         '
         Me.PRODidDataGridViewTextBoxColumn.DataPropertyName = "PROD_id"
@@ -553,17 +555,22 @@ Partial Class Venta_detalle
         '
         'CodinternoDataGridViewTextBoxColumn
         '
+        Me.CodinternoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
         Me.CodinternoDataGridViewTextBoxColumn.DataPropertyName = "codinterno"
-        Me.CodinternoDataGridViewTextBoxColumn.HeaderText = "codinterno"
+        Me.CodinternoDataGridViewTextBoxColumn.FillWeight = 89.54314!
+        Me.CodinternoDataGridViewTextBoxColumn.HeaderText = "Cód. interno"
         Me.CodinternoDataGridViewTextBoxColumn.Name = "CodinternoDataGridViewTextBoxColumn"
         Me.CodinternoDataGridViewTextBoxColumn.ReadOnly = True
+        Me.CodinternoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         '
         'DescripcionDataGridViewTextBoxColumn
         '
         Me.DescripcionDataGridViewTextBoxColumn.DataPropertyName = "descripcion"
-        Me.DescripcionDataGridViewTextBoxColumn.HeaderText = "descripcion"
+        Me.DescripcionDataGridViewTextBoxColumn.FillWeight = 89.54314!
+        Me.DescripcionDataGridViewTextBoxColumn.HeaderText = "Descripcion"
         Me.DescripcionDataGridViewTextBoxColumn.Name = "DescripcionDataGridViewTextBoxColumn"
         Me.DescripcionDataGridViewTextBoxColumn.ReadOnly = True
+        Me.DescripcionDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         '
         'DetalleDataGridViewTextBoxColumn
         '
@@ -575,27 +582,51 @@ Partial Class Venta_detalle
         '
         'CantidadDataGridViewTextBoxColumn
         '
+        Me.CantidadDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
         Me.CantidadDataGridViewTextBoxColumn.DataPropertyName = "cantidad"
         DataGridViewCellStyle1.Format = "N2"
         DataGridViewCellStyle1.NullValue = Nothing
         Me.CantidadDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle1
-        Me.CantidadDataGridViewTextBoxColumn.HeaderText = "cantidad"
+        Me.CantidadDataGridViewTextBoxColumn.FillWeight = 152.2843!
+        Me.CantidadDataGridViewTextBoxColumn.HeaderText = "Cantidad"
         Me.CantidadDataGridViewTextBoxColumn.Name = "CantidadDataGridViewTextBoxColumn"
         Me.CantidadDataGridViewTextBoxColumn.ReadOnly = True
+        Me.CantidadDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'descuento
+        '
+        Me.descuento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.descuento.DataPropertyName = "descuento"
+        DataGridViewCellStyle2.Format = "N2"
+        DataGridViewCellStyle2.NullValue = Nothing
+        Me.descuento.DefaultCellStyle = DataGridViewCellStyle2
+        Me.descuento.FillWeight = 89.54314!
+        Me.descuento.HeaderText = "Descuento(%)"
+        Me.descuento.Name = "descuento"
+        Me.descuento.ReadOnly = True
+        Me.descuento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         '
         'PreciounitarioDataGridViewTextBoxColumn
         '
+        Me.PreciounitarioDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
         Me.PreciounitarioDataGridViewTextBoxColumn.DataPropertyName = "precio_unitario"
-        Me.PreciounitarioDataGridViewTextBoxColumn.HeaderText = "precio_unitario"
+        Me.PreciounitarioDataGridViewTextBoxColumn.FillWeight = 89.54314!
+        Me.PreciounitarioDataGridViewTextBoxColumn.HeaderText = "Precio unitario"
         Me.PreciounitarioDataGridViewTextBoxColumn.Name = "PreciounitarioDataGridViewTextBoxColumn"
         Me.PreciounitarioDataGridViewTextBoxColumn.ReadOnly = True
+        Me.PreciounitarioDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.PreciounitarioDataGridViewTextBoxColumn.Width = 117
         '
         'PreciosubtotalDataGridViewTextBoxColumn
         '
+        Me.PreciosubtotalDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
         Me.PreciosubtotalDataGridViewTextBoxColumn.DataPropertyName = "precio_subtotal"
-        Me.PreciosubtotalDataGridViewTextBoxColumn.HeaderText = "precio_subtotal"
+        Me.PreciosubtotalDataGridViewTextBoxColumn.FillWeight = 89.54314!
+        Me.PreciosubtotalDataGridViewTextBoxColumn.HeaderText = "Precio subtotal"
         Me.PreciosubtotalDataGridViewTextBoxColumn.Name = "PreciosubtotalDataGridViewTextBoxColumn"
         Me.PreciosubtotalDataGridViewTextBoxColumn.ReadOnly = True
+        Me.PreciosubtotalDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.PreciosubtotalDataGridViewTextBoxColumn.Width = 118
         '
         'CodbarraDataGridViewTextBoxColumn
         '
@@ -633,12 +664,12 @@ Partial Class Venta_detalle
         Me.GroupBox_tarjeta.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         CType(Me.DG_ventas, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ProductosdetalleconsultaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Venta_consulta_ds, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        CType(Me.ProductosdetalleconsultaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Venta_consulta_ds, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -689,6 +720,7 @@ Partial Class Venta_detalle
     Friend WithEvents DescripcionDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DetalleDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents CantidadDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents descuento As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents PreciounitarioDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents PreciosubtotalDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents CodbarraDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
