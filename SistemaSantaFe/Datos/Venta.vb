@@ -520,7 +520,8 @@ Public Class Venta
                                          ByVal ventaprod_subtotal As Decimal,
                                          ByVal ventaprod_descripcion As String,
                                          ByVal codigointerno As String,
-                                         ByVal TURNO_id As Integer)
+                                         ByVal TURNO_id As Integer,
+                                         ByVal descuento As Decimal)
         Try
             dbconn.Open()
         Catch ex As Exception
@@ -537,6 +538,7 @@ Public Class Venta
         comando.Parameters.Add(New OleDb.OleDbParameter("@ventaprod_descripcion", ventaprod_descripcion))
         comando.Parameters.Add(New OleDb.OleDbParameter("@codigointerno", codigointerno))
         comando.Parameters.Add(New OleDb.OleDbParameter("@TURNO_id", TURNO_id))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@descuento", descuento))
 
         'el tipo de venta es cliente o consumidor final
         'el id del cliente es 0 en caso de ser consumidor final

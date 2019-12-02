@@ -57,7 +57,7 @@
                     'GUARDAR EN TABLA "Venta_Producto_detalle"
                     For Each row As DataGridViewRow In Venta_Caja_gestion.DataGridView1.Rows
                         If row.Cells("columna_prod_id").Value <> 0 Then
-                            DAventa.VentaProductoDetalle_alta(ventaprod_id, row.Cells(1).Value, row.Cells(5).Value, CDec(row.Cells(6).Value), CDec(row.Cells(7).Value), row.Cells(3).Value, row.Cells(2).Value, 0)
+                            DAventa.VentaProductoDetalle_alta(ventaprod_id, row.Cells(1).Value, row.Cells(5).Value, CDec(row.Cells(7).Value), CDec(row.Cells(8).Value), row.Cells(3).Value, row.Cells(2).Value, 0, CDec(row.Cells(6).Value))
                         End If
                     Next
 
@@ -209,9 +209,9 @@
             Else
                 'Dim ds_cliente As DataSet = DAcliente.Cliente_ObtenerDni(CInt(Venta_Caja_gestion.lb_dni_clie.Text))
                 Dim row_cliente As DataRow = facturacion_ds_report.Tables("Cliente").NewRow()
-                row_cliente("fantasia") = Venta_Caja_gestion.lb_fantasia.Text
-                row_cliente("dni") = Venta_Caja_gestion.lb_dni_clie.Text
-                row_cliente("telefono") = Venta_Caja_gestion.lb_telef_clie.Text
+                row_cliente("fantasia") = "" 'Venta_Caja_gestion.lb_fantasia.Text
+                row_cliente("dni") = "" 'Venta_Caja_gestion.lb_dni_clie.Text
+                row_cliente("telefono") = "" 'Venta_Caja_gestion.lb_telef_clie.Text
                 row_cliente("mail") = Venta_Caja_gestion.lb_mail_clie.Text
                 row_cliente("direccion") = ""
                 row_cliente("localidad") = ""

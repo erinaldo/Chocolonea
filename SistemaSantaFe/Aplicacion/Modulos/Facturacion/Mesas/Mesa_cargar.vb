@@ -67,7 +67,7 @@
         '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         'GUARDAR EN TABLA "Venta_Producto_detalle"
         For Each row As DataGridViewRow In DataG_lista.Rows
-            DAventa.VentaProductoDetalle_alta(ventaprod_id, row.Cells(1).Value, row.Cells(5).Value, CDec(row.Cells(6).Value), CDec(row.Cells(7).Value), row.Cells(3).Value, row.Cells(2).Value, row.Cells(9).Value)
+            DAventa.VentaProductoDetalle_alta(ventaprod_id, row.Cells(1).Value, row.Cells(5).Value, CDec(row.Cells(6).Value), CDec(row.Cells(7).Value), row.Cells(3).Value, row.Cells(2).Value, row.Cells(9).Value, CDec(0))
         Next
 
         'actualizo estado de mesa, y relaciono con venta
@@ -1288,7 +1288,7 @@
             '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             'GUARDAR EN TABLA "Venta_Producto_detalle"
             For Each row As DataGridViewRow In DataG_lista.Rows
-                DAventa.VentaProductoDetalle_alta(Ventaprod_id, row.Cells(1).Value, row.Cells(5).Value, CDec(row.Cells(6).Value), CDec(row.Cells(7).Value), row.Cells(3).Value, row.Cells(2).Value, row.Cells(9).Value)
+                DAventa.VentaProductoDetalle_alta(Ventaprod_id, row.Cells(1).Value, row.Cells(5).Value, CDec(row.Cells(6).Value), CDec(row.Cells(7).Value), row.Cells(3).Value, row.Cells(2).Value, row.Cells(9).Value, CDec(0))
             Next
 
 
