@@ -18,6 +18,21 @@ Public Class CuentaCorriente
         Return ds_JE
     End Function
 
+    Public Function CtaCte_obtenertodo_Clientes() As DataSet
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+
+        Dim comando As New OleDbCommand("CtaCte_obtenertodo_Clientes", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        Dim ds_JE As New DataSet()
+        Dim da_JE As New OleDbDataAdapter(comando)
+        da_JE.Fill(ds_JE, "CtaCte")
+        dbconn.Close()
+        Return ds_JE
+    End Function
+
     Public Sub CteCte_alta(ByVal CLI_id As Integer,
                                 ByVal fechaalta As DateTime,
                                 ByVal total As Decimal,

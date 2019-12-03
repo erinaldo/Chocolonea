@@ -220,6 +220,12 @@
     <Compile Include="Modulos\Cliente\Cliente_alta.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Modulos\Cliente\Cliente_Cta_Cte_Buscar.Designer.vb">
+      <DependentUpon>Cliente_Cta_Cte_Buscar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Cliente\Cliente_Cta_Cte_Buscar.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Modulos\Cliente\Cliente_ds.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1078,6 +1084,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modulos\Cliente\Cliente_alta.resx">
       <DependentUpon>Cliente_alta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulos\Cliente\Cliente_Cta_Cte_Buscar.resx">
+      <DependentUpon>Cliente_Cta_Cte_Buscar.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modulos\Cliente\Cliente_modificar.resx">
       <DependentUpon>Cliente_modificar.vb</DependentUpon>

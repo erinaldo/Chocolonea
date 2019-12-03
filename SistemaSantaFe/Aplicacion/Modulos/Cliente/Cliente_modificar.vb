@@ -36,6 +36,7 @@ Public Class Cliente_modificar
     '--------choco 19-10-2018---------
     Dim ds_clie As DataSet
     'recupero todos los clientes
+
     Public Sub Obtener_Clientes()
         ds_clie = DAcliente.Cliente_obtenertodo()
         If ds_clie.Tables(0).Rows.Count <> 0 Then
@@ -78,6 +79,21 @@ Public Class Cliente_modificar
             MsgBox("Seleccione un cliente", MsgBoxStyle.Information)
         End If
     End Sub
+    
+
+    
+    
+    Private Sub BO_cliente_nuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BO_cliente_nuevo.Click
+        Me.Close()
+        Cliente_alta_New.Close() 'lo cierro antes, porque uso el mismo form para editar
+        Cliente_alta_New.apertura = "formulario modificar"
+        Cliente_alta_New.Show()
+    End Sub
+
+    Private Sub TextBox1_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles TextBox1.LostFocus
+        TextBox1.BackColor = Color.White
+    End Sub
+
     '--------------------------------------
 
 
@@ -313,17 +329,4 @@ Public Class Cliente_modificar
     '        End If
     '    End If
     'End Sub
-
-    
-    
-    Private Sub BO_cliente_nuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BO_cliente_nuevo.Click
-        Me.Close()
-        Cliente_alta_New.Close() 'lo cierro antes, porque uso el mismo form para editar
-        Cliente_alta_New.apertura = "formulario modificar"
-        Cliente_alta_New.Show()
-    End Sub
-
-    Private Sub TextBox1_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles TextBox1.LostFocus
-        TextBox1.BackColor = Color.White
-    End Sub
 End Class

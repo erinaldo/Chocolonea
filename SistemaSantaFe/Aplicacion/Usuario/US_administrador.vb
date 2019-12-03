@@ -801,4 +801,9 @@ Public Property EnabledCerrar() As Boolean
         Vendedor_alta.Close()
         Vendedor_alta.Show()
     End Sub
+
+    Private Sub CuentaCorrienteToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CuentaCorrienteToolStripMenuItem.Click
+        Cliente_Cta_Cte_Buscar.Close()
+        Cliente_Cta_Cte_Buscar.Show()
+    End Sub
 End Class
