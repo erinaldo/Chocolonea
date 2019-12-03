@@ -3,6 +3,7 @@ Imports System.Data.OleDb
 
 Public Class Cliente_alta_New
     Dim DAcliente As New Datos.Cliente
+    Dim DActacte As New Datos.CuentaCorriente
     Public cliente_id As Integer
     Public form_procedencia As String = "alta"
     Public apertura As String = "menu_alta" 'esta variable me sirve para saber desde donde lo abro, si lo abro a la "Alta" desde el menu...el boton cancelar...solo borra lo q se escribe en los textbox.
@@ -36,7 +37,28 @@ Public Class Cliente_alta_New
             combo_Prov.SelectedValue = ds_clie_recu.Tables(1).Rows(0).Item("CLI_Id_Prov")
             Combo_Loc.SelectedValue = ds_clie_recu.Tables(1).Rows(0).Item("localidad_id")
             tx_mail.Text = ds_clie_recu.Tables(1).Rows(0).Item("CLI_mail")
+
+            'si tiene cuenta corriente cargamos los datos, solo se podra modificar el limite de deuda. choco: 02-12-2019.
+            If ds_clie_recu.Tables(2).Rows.Count <> 0 Then
+                CheckBox_habilitar_ctacte.Checked = True
+                CheckBox_habilitar_ctacte.Enabled = False
+                txt_ctacte.Text = ds_clie_recu.Tables(2).Rows(0).Item("CtaCte_id")
+                txt_limitedeuda.Text = CDec(ds_clie_recu.Tables(2).Rows(0).Item("CtaCte_limitedeuda"))
+                CheckBox_estado.Visible = True
+                If CStr(ds_clie_recu.Tables(2).Rows(0).Item("CtaCte_estado")) = "Activo" Then
+                    CheckBox_estado.Checked = True
+                    CheckBox_estado.ForeColor = Color.Green
+                    CheckBox_estado.Text = "Activo"
+                Else
+                    CheckBox_estado.Checked = False
+                    CheckBox_estado.ForeColor = Color.Red
+                    CheckBox_estado.Text = "Inactivo"
+                End If
+                Label_fechaalta.Text = "Fecha de alta: " + CDate(ds_clie_recu.Tables(2).Rows(0).Item("CtaCte_fechaalta"))
+                Label_fechaalta.Visible = True
+            End If
         End If
+
     End Sub
 
 
@@ -154,6 +176,11 @@ Public Class Cliente_alta_New
         form_procedencia = "alta"
         error_razonsocial.Visible = False
         error_dni.Visible = False
+        CheckBox_habilitar_ctacte.Checked = False
+        CheckBox_habilitar_ctacte.Enabled = True
+
+        Label_fechaalta.Visible = False
+        CheckBox_estado.Visible = False
     End Sub
 
     Private Sub Label1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label1.Click
@@ -172,11 +199,30 @@ Public Class Cliente_alta_New
 
     Private Sub Modificar()
         Dim result As DialogResult
-        result = MessageBox.Show("¿Desea modificar el Cliente?", "Sistema de Gestión", MessageBoxButtons.OKCancel)
+        result = MessageBox.Show("¿Desea modificar el Cliente?", "Sistema de Gestión", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
         If result = DialogResult.OK Then
             DAcliente.Cliente_Modificar(cliente_id, tx_Fan.Text, tb_Dni_Cuit.Text, Combo_Iva.SelectedValue, tx_tel.Text, tx_dir.Text, tx_Cp.Text, combo_Prov.SelectedValue, Combo_Loc.SelectedValue, tx_mail.Text)
+
+            'ahora veo si doy de alta una cta cte o bien modifico una existente ligada a un cliente.
+            If CheckBox_habilitar_ctacte.Checked = True Then
+                Dim ds_ctacte As DataSet = DActacte.CtaCte_buscar_id(CInt(txt_ctacte.Text))
+                If ds_ctacte.Tables(0).Rows.Count = 0 Then
+                    'no existe, doy de alta
+                    If txt_limitedeuda.Text = "" Then
+                        txt_limitedeuda.Text = "0"
+                    End If
+                    DActacte.CteCte_alta(cliente_id, Now, CDec(0), CDec(txt_limitedeuda.Text))
+                Else
+                    'existe, entonces modifico.
+                    If txt_limitedeuda.Text = "" Then
+                        txt_limitedeuda.Text = "0"
+                    End If
+                    DActacte.CtaCte_modificar(CInt(txt_ctacte.Text), CheckBox_estado.Text, CDec(txt_limitedeuda.Text))
+                End If
+            End If
+
             Venta_Caja_gestion.Obtener_Clientes()
-            MessageBox.Show("El Cliente se modificó correctamente.", "Sistema de Gestión")
+            MessageBox.Show("El Cliente se modificó correctamente.", "Sistema de Gestión.", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Cliente_modificar.Obtener_Clientes()
             Me.Close()
             Cliente_modificar.Close()
@@ -189,17 +235,30 @@ Public Class Cliente_alta_New
     Private Sub alta()
         If tb_Dni_Cuit.Text <> "" And tx_Fan.Text <> "" Then
             Dim result As DialogResult
-            result = MessageBox.Show("¿Desea dar de alta al Cliente?", "Sistema de Gestión", MessageBoxButtons.OKCancel)
+            result = MessageBox.Show("¿Desea dar de alta al Cliente?.", "Sistema de Gestión.", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
             If result = DialogResult.OK Then
 
 
                 Dim ds_CLI_dni As DataSet = DAcliente.Cliente_VerificarDni(tb_Dni_Cuit.Text)
                 With ds_CLI_dni.Tables(0).Rows
                     If .Count = 0 Then
-                        DAcliente.Cliente_Alta_new(tx_Fan.Text, tb_Dni_Cuit.Text, Combo_Iva.SelectedValue, tx_tel.Text, tx_dir.Text, tx_Cp.Text, combo_Prov.SelectedValue, Combo_Loc.SelectedValue, tx_mail.Text)
+
+                        Dim ds_cliente_alta As DataSet = DAcliente.Cliente_Alta_new(tx_Fan.Text, tb_Dni_Cuit.Text, Combo_Iva.SelectedValue, tx_tel.Text, tx_dir.Text, tx_Cp.Text, combo_Prov.SelectedValue, Combo_Loc.SelectedValue, tx_mail.Text)
+
+                        'choco: 02-12-2019 ////////////cuenta corriente
+                        If CheckBox_habilitar_ctacte.Checked = True Then
+                            'creamos un registro en la tabla cuentacorriente
+                            Dim CLI_id As Integer = CInt(ds_cliente_alta.Tables(0).Rows(0).Item("CLI_id"))
+                            If txt_limitedeuda.Text = "" Then
+                                txt_limitedeuda.Text = "0"
+                            End If
+                            DActacte.CteCte_alta(CLI_id, Now, CDec(0), CDec(txt_limitedeuda.Text))
+                        End If
+
+
                         Venta_Caja_gestion.Obtener_Clientes()
                         Cliente_modificar.Obtener_Clientes()
-                        MessageBox.Show("El Cliente fue dado de alta correctamente.", "Sistema de Gestión")
+                        MessageBox.Show("El Cliente fue dado de alta correctamente.", "Sistema de Gestión.", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         'aqui veo si cierro el form y abro modificar, o blanqueo todo y sigo agregando
                         If apertura = "menu_alta" Then
                             limpiar_deshabilitar()
@@ -210,17 +269,16 @@ Public Class Cliente_alta_New
                             Cliente_modificar.Show()
                         End If
                     Else
-                        MessageBox.Show("Error, el Cliente ya existe.", "Sistema de Gestión.")
+                        MessageBox.Show("Error, el Cliente ya existe.", "Sistema de Gestión.", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         tb_Dni_Cuit.Focus()
                         tb_Dni_Cuit.SelectAll()
                     End If
                 End With
             End If
         Else
-            MessageBox.Show("Error, Ingrese los campos obligatorios", "Sistema de Gestión.")
+            MessageBox.Show("Error, Ingrese los campos obligatorios", "Sistema de Gestión.", MessageBoxButtons.OK, MessageBoxIcon.Error)
             error_razonsocial.Visible = True
             error_dni.Visible = True
-
         End If
 
 
@@ -383,4 +441,49 @@ Public Class Cliente_alta_New
         tx_mail.BackColor = Color.White
     End Sub
 
+    Private Sub txt_ctacte_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txt_ctacte.KeyPress
+        e.Handled = True
+    End Sub
+
+    Private Sub CheckBox_habilitar_ctacte_CheckedChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles CheckBox_habilitar_ctacte.CheckedChanged
+        If CheckBox_habilitar_ctacte.Checked = True Then
+            'aqui busco en la bd el ultimo nro de ctacte y cargo el proximo nro.
+            'o sea genero de manera incrementa.
+            txt_ctacte.Enabled = True
+
+            Dim ds_ctacte As DataSet = DActacte.CtaCte_obtenertodo()
+            Dim nro_ctacta As Integer
+            If ds_ctacte.Tables(0).Rows.Count <> 0 Then
+                nro_ctacta = CInt(ds_ctacte.Tables(0).Rows(0).Item("ID")) + 1
+            Else
+                nro_ctacta = 1
+            End If
+            txt_ctacte.Text = nro_ctacta
+
+            'tambien habilito el textbox para colocar el limite de credito permitido.
+            txt_limitedeuda.Enabled = True
+            txt_limitedeuda.Focus()
+        Else
+            txt_ctacte.Enabled = False
+
+            'tambien habilito el textbox para colocar el limite de credito permitido.
+            txt_limitedeuda.Enabled = False
+            txt_limitedeuda.Text = "0"
+
+        End If
+    End Sub
+
+    Private Sub txt_limitedeuda_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txt_limitedeuda.KeyPress
+        validaciones.Restricciones_textbox(e, "Decimal", txt_limitedeuda)
+    End Sub
+
+    Private Sub CheckBox_estado_CheckedChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles CheckBox_estado.CheckedChanged
+        If CheckBox_estado.Checked = True Then
+            CheckBox_estado.ForeColor = Color.Green
+            CheckBox_estado.Text = "Activo"
+        Else
+            CheckBox_estado.ForeColor = Color.Red
+            CheckBox_estado.Text = "Inactivo"
+        End If
+    End Sub
 End Class

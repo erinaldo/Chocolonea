@@ -69,6 +69,7 @@
     <Compile Include="Categoria.vb" />
     <Compile Include="Cliente.vb" />
     <Compile Include="Conexion.vb" />
+    <Compile Include="CuentaCorriente.vb" />
     <Compile Include="Egresos.vb" />
     <Compile Include="Email.vb" />
     <Compile Include="Empleado.vb" />
@@ -99,6 +100,7 @@
     <Compile Include="Terminal.vb" />
     <Compile Include="Turno.vb" />
     <Compile Include="Usuario.vb" />
+    <Compile Include="Vendedor.vb" />
     <Compile Include="Venta.vb" />
   </ItemGroup>
   <ItemGroup>

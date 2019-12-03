@@ -888,6 +888,23 @@
     <Compile Include="Modulos\Turno_nuevo_diseño\Turno_comun.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Modulos\Vendedor\DS_vendedor.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_vendedor.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Vendedor\Vendedor_alta.Designer.vb">
+      <DependentUpon>Vendedor_alta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Vendedor\Vendedor_alta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulos\Vendedor\Vendedor_modificar.Designer.vb">
+      <DependentUpon>Vendedor_modificar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Vendedor\Vendedor_modificar.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Modulos\Venta\VentaProd_alta.Designer.vb">
       <DependentUpon>VentaProd_alta.vb</DependentUpon>
     </Compile>
@@ -1331,6 +1348,12 @@
     <EmbeddedResource Include="Modulos\Turno_nuevo_diseño\Turno_comun.resx">
       <DependentUpon>Turno_comun.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modulos\Vendedor\Vendedor_alta.resx">
+      <DependentUpon>Vendedor_alta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulos\Vendedor\Vendedor_modificar.resx">
+      <DependentUpon>Vendedor_modificar.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modulos\Venta\VentaProd_alta.resx">
       <DependentUpon>VentaProd_alta.vb</DependentUpon>
     </EmbeddedResource>
@@ -1644,6 +1667,17 @@
     </None>
     <None Include="Modulos\Turno\Turno_ds.xss">
       <DependentUpon>Turno_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Modulos\Vendedor\DS_vendedor.xsc">
+      <DependentUpon>DS_vendedor.xsd</DependentUpon>
+    </None>
+    <None Include="Modulos\Vendedor\DS_vendedor.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_vendedor.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Modulos\Vendedor\DS_vendedor.xss">
+      <DependentUpon>DS_vendedor.xsd</DependentUpon>
     </None>
     <None Include="Modulos\Venta\Venta_ds.xsc">
       <DependentUpon>Venta_ds.xsd</DependentUpon>
