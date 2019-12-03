@@ -12,8 +12,6 @@ Public Class Usuario_alta
         ComboBox_Sucursal.DataSource = ds.Tables(0)
         ComboBox_Sucursal.DisplayMember = "sucursal_nombre"
         ComboBox_Sucursal.ValueMember = "sucursal_id"
-
-
     End Sub
     Public Sub usuario_inicio()
         ds_usuariotipo = dausuario.UsuarioTipo_obtener

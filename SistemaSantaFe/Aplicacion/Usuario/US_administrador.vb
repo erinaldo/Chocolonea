@@ -796,4 +796,9 @@ Public Property EnabledCerrar() As Boolean
         End If
 
     End Sub
+
+    Private Sub VendedorNuevoToolStripMenuitem_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles VendedorNuevoToolStripMenuitem.Click
+        Vendedor_alta.Close()
+        Vendedor_alta.Show()
+    End Sub
 End Class

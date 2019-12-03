@@ -125,7 +125,7 @@ Partial Class Usuario_alta
         Me.GroupBox9.Size = New System.Drawing.Size(375, 200)
         Me.GroupBox9.TabIndex = 121
         Me.GroupBox9.TabStop = False
-        Me.GroupBox9.Text = "Datos personales:"
+        Me.GroupBox9.Text = "Ingrese los datos personales:"
         '
         'error_nombre
         '
@@ -338,6 +338,7 @@ Partial Class Usuario_alta
         '
         'GroupBox1
         '
+        Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.TX_USU_contr2)
         Me.GroupBox1.Controls.Add(Me.error_contraseña)
@@ -405,6 +406,7 @@ Partial Class Usuario_alta
         '
         'GroupBox2
         '
+        Me.GroupBox2.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox2.Controls.Add(Me.COM_UT_dep)
         Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.Controls.Add(Me.Label21)
@@ -418,6 +420,7 @@ Partial Class Usuario_alta
         '
         'GroupBox3
         '
+        Me.GroupBox3.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox3.Controls.Add(Me.Bo_exportar)
         Me.GroupBox3.Controls.Add(Me.Bo_deshacer)
         Me.GroupBox3.Controls.Add(Me.PictureBox2)
@@ -498,6 +501,7 @@ Partial Class Usuario_alta
         '
         'GroupBox4
         '
+        Me.GroupBox4.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox4.Controls.Add(Me.Bo_cancelar)
         Me.GroupBox4.Controls.Add(Me.Bo_guardar)
         Me.GroupBox4.Location = New System.Drawing.Point(13, 431)
@@ -513,7 +517,7 @@ Partial Class Usuario_alta
         'Usuario_alta
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
-        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
+        Me.BackgroundImage = Global.Aplicacion.My.Resources.Resources.silver_3
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(668, 505)
         Me.Controls.Add(Me.GroupBox4)
@@ -542,12 +546,9 @@ Partial Class Usuario_alta
     Friend WithEvents TX_USU_contr As System.Windows.Forms.TextBox
     Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents TX_USU_nom As System.Windows.Forms.TextBox
-    Friend WithEvents GroupBox9 As System.Windows.Forms.GroupBox
     Friend WithEvents TX_USU_usuario As System.Windows.Forms.TextBox
     Friend WithEvents Label13 As System.Windows.Forms.Label
-    Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents TX_USU_ape As System.Windows.Forms.TextBox
-    Friend WithEvents Label20 As System.Windows.Forms.Label
     Friend WithEvents COM_UT_dep As System.Windows.Forms.ComboBox
     Friend WithEvents Label21 As System.Windows.Forms.Label
     Friend WithEvents ComboBox_Sucursal As System.Windows.Forms.ComboBox
@@ -557,15 +558,10 @@ Partial Class Usuario_alta
     Friend WithEvents TX_USU_domicilio As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents TX_USU_dni As System.Windows.Forms.TextBox
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
-    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents Bo_exportar As System.Windows.Forms.Button
     Friend WithEvents Bo_deshacer As System.Windows.Forms.Button
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
-    Friend WithEvents Bo_guardar As System.Windows.Forms.Button
-    Friend WithEvents Bo_cancelar As System.Windows.Forms.Button
     Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
     Friend WithEvents error_nombre As System.Windows.Forms.Label
     Friend WithEvents error_apellido As System.Windows.Forms.Label
@@ -575,4 +571,12 @@ Partial Class Usuario_alta
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents TX_USU_contr2 As System.Windows.Forms.TextBox
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
+    Private WithEvents Label10 As System.Windows.Forms.Label
+    Private WithEvents Label20 As System.Windows.Forms.Label
+    Private WithEvents Label2 As System.Windows.Forms.Label
+    Private WithEvents GroupBox9 As System.Windows.Forms.GroupBox
+    Public WithEvents GroupBox2 As System.Windows.Forms.GroupBox
+    Public WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Public WithEvents Bo_guardar As System.Windows.Forms.Button
+    Public WithEvents Bo_cancelar As System.Windows.Forms.Button
 End Class

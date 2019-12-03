@@ -1790,3 +1790,7 @@ C:\Git repo nuevo\Chocolonea\SistemaSantaFe\Aplicacion\obj\x86\Debug\Aplicacion.
 C:\Git repo nuevo\Chocolonea\SistemaSantaFe\Aplicacion\obj\x86\Debug\Aplicacion.US_Empleado_stock.resources
 C:\Git repo nuevo\Chocolonea\SistemaSantaFe\Aplicacion\obj\x86\Debug\Aplicacion.US_Pedidos.resources
 C:\Git repo nuevo\Chocolonea\SistemaSantaFe\Aplicacion\obj\x86\Debug\Aplicacion.vbproj.GenerateResource.Cache
+C:\Git repo nuevo\Chocolonea\SistemaSantaFe\Aplicacion\obj\x86\Debug\Aplicacion.Vendedor_alta.resources
+C:\Git repo nuevo\Chocolonea\SistemaSantaFe\Aplicacion\obj\x86\Debug\Aplicacion.Vendedor_modificar.resources
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\Chocolonea\SistemaSantaFe\Aplicacion\obj\x86\Debug\Aplicacion.Vendedor_alta.resources
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\Chocolonea\SistemaSantaFe\Aplicacion\obj\x86\Debug\Aplicacion.Vendedor_modificar.resources

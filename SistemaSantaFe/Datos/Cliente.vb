@@ -5,7 +5,7 @@ Imports System.Data.DataRow
 Public Class Cliente
     Inherits Datos.Conexion
     'Cliente_Alta_new
-    Public Sub Cliente_Alta_new(ByVal CLI_Fan As String,
+    Public Function Cliente_Alta_new(ByVal CLI_Fan As String,
                                 ByVal CLI_dni_cuit As String,
                                 ByVal CLI_tipoiva As String,
                                 ByVal CLI_tel As String,
@@ -13,7 +13,7 @@ Public Class Cliente
                                 ByVal CLI_CP As String,
                                 ByVal CLI_Id_Prov As String,
                                 ByVal CLI_Id_Loc As String,
-                                ByVal CLI_mail As String)
+                                ByVal CLI_mail As String) As DataSet
         Try
             dbconn.Open()
         Catch ex As Exception
@@ -37,7 +37,8 @@ Public Class Cliente
         Dim da_JE As New OleDbDataAdapter(comando)
         da_JE.Fill(ds_JE, "Cliente")
         dbconn.Close()
-    End Sub
+        Return ds_JE
+    End Function
 
 
 
