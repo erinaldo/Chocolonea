@@ -231,6 +231,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Cliente_ds.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Modulos\Cliente\Cliente_ds.vb">
+      <DependentUpon>Cliente_ds.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Modulos\Cliente\Cliente_modificar.Designer.vb">
       <DependentUpon>Cliente_modificar.vb</DependentUpon>
     </Compile>
