@@ -1,5 +1,6 @@
 ﻿Public Class Venta_Caja_gestion
     Dim DAcliente As New Datos.Cliente
+    Dim DActacte As New Datos.CuentaCorriente
     Dim DAlista As New Datos.Lista
     Dim DAventa As New Datos.Venta
     Dim DAproducto As New Datos.Producto
@@ -673,12 +674,31 @@
                 lb_telef_clie.Text = ds.Tables(0).Rows(0).Item("CLI_tel").ToString
                 lb_mail_clie.Text = ds.Tables(0).Rows(0).Item("CLI_mail").ToString
                 lb_tipoIVA_clie.Text = ds.Tables(0).Rows(0).Item("IVA_Descripcion").ToString
+
+                'choco: 03-12-2019, si tiene cuenta corriente, muestro saldo y un label que diga que es cta cte.
+                Dim ds_ctacte As DataSet = DActacte.CtaCte_buscar_Cliente(CInt(DG_clientes.CurrentRow.Cells("CLIidDataGridViewTextBoxColumn").Value))
+                If ds_ctacte.Tables(0).Rows.Count <> 0 Then
+                    If ds_ctacte.Tables(0).Rows(0).Item("CtaCte_estado") = "Activo" Then
+                        'si tiene cta activa, pongo sus datos en el label
+                        Label_ctacte.Text = "Cuenta Corriente: " + CStr(ds_ctacte.Tables(0).Rows(0).Item("CtaCte_id"))
+                        Label_saldo.Text = "Saldo: " + CStr(ds_ctacte.Tables(0).Rows(0).Item("CtaCte_total"))
+                    Else
+                        Label_ctacte.Text = "Cuenta Corriente:"
+                        Label_saldo.Text = "Saldo:"
+                    End If
+                Else
+                    Label_ctacte.Text = "Cuenta Corriente:"
+                    Label_saldo.Text = "Saldo:"
+                End If
             Else
                 lb_fantasia.Text = "- - - -"
                 lb_dni_clie.Text = "- - - -"
                 lb_telef_clie.Text = "- - - -"
                 lb_mail_clie.Text = "- - - -"
                 lb_tipoIVA_clie.Text = "- - - -"
+                Label_ctacte.Text = "Cuenta Corriente:"
+                Label_saldo.Text = "Saldo:"
+
             End If
         End If
 
@@ -1034,6 +1054,8 @@
         'descuentos
         txt_desc_pesos.Text = CDec(0)
         txt_desc_porc.Text = CDec(0)
+
+        
     End Sub
 
 #End Region

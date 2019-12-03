@@ -107,6 +107,8 @@ Partial Class Venta_Caja_gestion
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.GroupBox11 = New System.Windows.Forms.GroupBox()
+        Me.Label_saldo = New System.Windows.Forms.Label()
+        Me.Label_ctacte = New System.Windows.Forms.Label()
         Me.lb_tipoIVA_clie = New System.Windows.Forms.Label()
         Me.lb_mail_clie = New System.Windows.Forms.Label()
         Me.lb_telef_clie = New System.Windows.Forms.Label()
@@ -136,9 +138,6 @@ Partial Class Venta_Caja_gestion
         Me.Button3 = New System.Windows.Forms.Button()
         Me.GroupBox12 = New System.Windows.Forms.GroupBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.ProductoagregadoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.ProductosCombosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.columna_item = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.columna_prod_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.columna_codinterno = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -150,6 +149,14 @@ Partial Class Venta_Caja_gestion
         Me.columna_precio_subtotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.columna_codbarra = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.ProductoagregadoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.ProductosCombosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Groupbox_vendedor = New System.Windows.Forms.GroupBox()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.ComboBox_vendedor = New System.Windows.Forms.ComboBox()
+        Me.Btn_Vendedor_buscar = New System.Windows.Forms.Button()
         CType(Me.Venta_ds, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProductoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
@@ -177,6 +184,7 @@ Partial Class Venta_Caja_gestion
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProductoagregadoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProductosCombosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Groupbox_vendedor.SuspendLayout()
         Me.SuspendLayout()
         '
         'Venta_ds
@@ -598,7 +606,7 @@ Partial Class Venta_Caja_gestion
         Me.GroupBox8.Controls.Add(Me.GroupBox_pagar)
         Me.GroupBox8.Controls.Add(Me.DataG_listaTotal)
         Me.GroupBox8.Controls.Add(Me.GroupBox9)
-        Me.GroupBox8.Location = New System.Drawing.Point(16, 456)
+        Me.GroupBox8.Location = New System.Drawing.Point(16, 389)
         Me.GroupBox8.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox8.Name = "GroupBox8"
         Me.GroupBox8.Padding = New System.Windows.Forms.Padding(4)
@@ -1017,6 +1025,8 @@ Partial Class Venta_Caja_gestion
         'GroupBox11
         '
         Me.GroupBox11.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.GroupBox11.Controls.Add(Me.Label_saldo)
+        Me.GroupBox11.Controls.Add(Me.Label_ctacte)
         Me.GroupBox11.Controls.Add(Me.lb_tipoIVA_clie)
         Me.GroupBox11.Controls.Add(Me.lb_mail_clie)
         Me.GroupBox11.Controls.Add(Me.lb_telef_clie)
@@ -1036,6 +1046,28 @@ Partial Class Venta_Caja_gestion
         Me.GroupBox11.TabIndex = 273
         Me.GroupBox11.TabStop = False
         Me.GroupBox11.Text = "Cliente"
+        '
+        'Label_saldo
+        '
+        Me.Label_saldo.AutoSize = True
+        Me.Label_saldo.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_saldo.Location = New System.Drawing.Point(242, 60)
+        Me.Label_saldo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label_saldo.Name = "Label_saldo"
+        Me.Label_saldo.Size = New System.Drawing.Size(42, 15)
+        Me.Label_saldo.TabIndex = 274
+        Me.Label_saldo.Text = "Saldo:"
+        '
+        'Label_ctacte
+        '
+        Me.Label_ctacte.AutoSize = True
+        Me.Label_ctacte.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_ctacte.Location = New System.Drawing.Point(242, 39)
+        Me.Label_ctacte.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label_ctacte.Name = "Label_ctacte"
+        Me.Label_ctacte.Size = New System.Drawing.Size(102, 15)
+        Me.Label_ctacte.TabIndex = 273
+        Me.Label_ctacte.Text = "Cuenta Corriente:"
         '
         'lb_tipoIVA_clie
         '
@@ -1061,7 +1093,7 @@ Partial Class Venta_Caja_gestion
         '
         Me.lb_telef_clie.AutoSize = True
         Me.lb_telef_clie.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lb_telef_clie.Location = New System.Drawing.Point(307, 60)
+        Me.lb_telef_clie.Location = New System.Drawing.Point(307, 78)
         Me.lb_telef_clie.Name = "lb_telef_clie"
         Me.lb_telef_clie.Size = New System.Drawing.Size(32, 15)
         Me.lb_telef_clie.TabIndex = 270
@@ -1113,7 +1145,7 @@ Partial Class Venta_Caja_gestion
         '
         Me.Label16.AutoSize = True
         Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(242, 60)
+        Me.Label16.Location = New System.Drawing.Point(242, 78)
         Me.Label16.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(58, 15)
@@ -1281,15 +1313,16 @@ Partial Class Venta_Caja_gestion
         'GroupBox4
         '
         Me.GroupBox4.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox4.Controls.Add(Me.Groupbox_vendedor)
         Me.GroupBox4.Controls.Add(Me.Label6)
         Me.GroupBox4.Controls.Add(Me.Guardar)
         Me.GroupBox4.Controls.Add(Me.Quitar)
         Me.GroupBox4.Controls.Add(Me.Button3)
-        Me.GroupBox4.Location = New System.Drawing.Point(16, 565)
+        Me.GroupBox4.Location = New System.Drawing.Point(16, 528)
         Me.GroupBox4.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox4.Size = New System.Drawing.Size(1216, 67)
+        Me.GroupBox4.Size = New System.Drawing.Size(1216, 104)
         Me.GroupBox4.TabIndex = 238
         Me.GroupBox4.TabStop = False
         '
@@ -1306,7 +1339,7 @@ Partial Class Venta_Caja_gestion
         '
         Me.Guardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Guardar.Image = CType(resources.GetObject("Guardar.Image"), System.Drawing.Image)
-        Me.Guardar.Location = New System.Drawing.Point(1062, 11)
+        Me.Guardar.Location = New System.Drawing.Point(1048, 33)
         Me.Guardar.Margin = New System.Windows.Forms.Padding(4)
         Me.Guardar.Name = "Guardar"
         Me.Guardar.Size = New System.Drawing.Size(124, 43)
@@ -1320,7 +1353,7 @@ Partial Class Venta_Caja_gestion
         '
         Me.Quitar.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Quitar.Image = Global.Aplicacion.My.Resources.Resources.menos
-        Me.Quitar.Location = New System.Drawing.Point(798, 11)
+        Me.Quitar.Location = New System.Drawing.Point(784, 33)
         Me.Quitar.Margin = New System.Windows.Forms.Padding(4)
         Me.Quitar.Name = "Quitar"
         Me.Quitar.Size = New System.Drawing.Size(124, 43)
@@ -1334,7 +1367,7 @@ Partial Class Venta_Caja_gestion
         '
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.Image = Global.Aplicacion.My.Resources.Resources.Limpiar
-        Me.Button3.Location = New System.Drawing.Point(930, 11)
+        Me.Button3.Location = New System.Drawing.Point(916, 33)
         Me.Button3.Margin = New System.Windows.Forms.Padding(4)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(124, 43)
@@ -1355,7 +1388,7 @@ Partial Class Venta_Caja_gestion
         Me.GroupBox12.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox12.Name = "GroupBox12"
         Me.GroupBox12.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox12.Size = New System.Drawing.Size(1216, 296)
+        Me.GroupBox12.Size = New System.Drawing.Size(1216, 227)
         Me.GroupBox12.TabIndex = 237
         Me.GroupBox12.TabStop = False
         Me.GroupBox12.Text = "Productos agregados"
@@ -1389,18 +1422,8 @@ Partial Class Venta_Caja_gestion
         Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle11
         Me.DataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(1193, 269)
+        Me.DataGridView1.Size = New System.Drawing.Size(1193, 200)
         Me.DataGridView1.TabIndex = 0
-        '
-        'ProductoagregadoBindingSource
-        '
-        Me.ProductoagregadoBindingSource.DataMember = "Producto_agregado"
-        Me.ProductoagregadoBindingSource.DataSource = Me.Venta_Caja_ds
-        '
-        'ProductosCombosBindingSource
-        '
-        Me.ProductosCombosBindingSource.DataMember = "Productos_Combos"
-        Me.ProductosCombosBindingSource.DataSource = Me.Venta_Caja_ds
         '
         'columna_item
         '
@@ -1511,6 +1534,63 @@ Partial Class Venta_Caja_gestion
         Me.Column1.HeaderText = "Quitar"
         Me.Column1.Name = "Column1"
         '
+        'ProductoagregadoBindingSource
+        '
+        Me.ProductoagregadoBindingSource.DataMember = "Producto_agregado"
+        Me.ProductoagregadoBindingSource.DataSource = Me.Venta_Caja_ds
+        '
+        'ProductosCombosBindingSource
+        '
+        Me.ProductosCombosBindingSource.DataMember = "Productos_Combos"
+        Me.ProductosCombosBindingSource.DataSource = Me.Venta_Caja_ds
+        '
+        'Groupbox_vendedor
+        '
+        Me.Groupbox_vendedor.Controls.Add(Me.Btn_Vendedor_buscar)
+        Me.Groupbox_vendedor.Controls.Add(Me.ComboBox_vendedor)
+        Me.Groupbox_vendedor.Controls.Add(Me.TextBox1)
+        Me.Groupbox_vendedor.Controls.Add(Me.Label25)
+        Me.Groupbox_vendedor.Location = New System.Drawing.Point(394, 11)
+        Me.Groupbox_vendedor.Name = "Groupbox_vendedor"
+        Me.Groupbox_vendedor.Size = New System.Drawing.Size(310, 86)
+        Me.Groupbox_vendedor.TabIndex = 263
+        Me.Groupbox_vendedor.TabStop = False
+        Me.Groupbox_vendedor.Text = "Vendedor"
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Location = New System.Drawing.Point(20, 22)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(43, 20)
+        Me.Label25.TabIndex = 0
+        Me.Label25.Text = "Cód."
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(69, 21)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(161, 26)
+        Me.TextBox1.TabIndex = 1
+        '
+        'ComboBox_vendedor
+        '
+        Me.ComboBox_vendedor.FormattingEnabled = True
+        Me.ComboBox_vendedor.Location = New System.Drawing.Point(69, 50)
+        Me.ComboBox_vendedor.Name = "ComboBox_vendedor"
+        Me.ComboBox_vendedor.Size = New System.Drawing.Size(225, 28)
+        Me.ComboBox_vendedor.TabIndex = 2
+        '
+        'Btn_Vendedor_buscar
+        '
+        Me.Btn_Vendedor_buscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btn_Vendedor_buscar.Location = New System.Drawing.Point(235, 18)
+        Me.Btn_Vendedor_buscar.Name = "Btn_Vendedor_buscar"
+        Me.Btn_Vendedor_buscar.Size = New System.Drawing.Size(59, 30)
+        Me.Btn_Vendedor_buscar.TabIndex = 3
+        Me.Btn_Vendedor_buscar.Text = "..."
+        Me.Btn_Vendedor_buscar.UseVisualStyleBackColor = True
+        '
         'Venta_Caja_gestion
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -1567,6 +1647,8 @@ Partial Class Venta_Caja_gestion
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ProductoagregadoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ProductosCombosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Groupbox_vendedor.ResumeLayout(False)
+        Me.Groupbox_vendedor.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1685,4 +1767,11 @@ Partial Class Venta_Caja_gestion
     Friend WithEvents columna_precio_subtotal As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents columna_codbarra As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column1 As System.Windows.Forms.DataGridViewCheckBoxColumn
+    Friend WithEvents Label_ctacte As System.Windows.Forms.Label
+    Friend WithEvents Label_saldo As System.Windows.Forms.Label
+    Friend WithEvents Groupbox_vendedor As System.Windows.Forms.GroupBox
+    Friend WithEvents Btn_Vendedor_buscar As System.Windows.Forms.Button
+    Friend WithEvents ComboBox_vendedor As System.Windows.Forms.ComboBox
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents Label25 As System.Windows.Forms.Label
 End Class

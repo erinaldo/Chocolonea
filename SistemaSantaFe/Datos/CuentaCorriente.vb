@@ -74,5 +74,20 @@ Public Class CuentaCorriente
         dbconn.Close()
     End Sub
 
+    Public Function CtaCte_buscar_Cliente(ByVal cliente_id As Integer) As DataSet
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("CtaCte_buscar_Cliente", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        comando.Parameters.Add(New OleDb.OleDbParameter("@CLI_id", cliente_id))
+        Dim ds_JE As New DataSet()
+        Dim da_JE As New OleDbDataAdapter(comando)
+        da_JE.Fill(ds_JE, "CuentaCorriente")
+        dbconn.Close()
+        Return ds_JE
+    End Function
+
 
 End Class

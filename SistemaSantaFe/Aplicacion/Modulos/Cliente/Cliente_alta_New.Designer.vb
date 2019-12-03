@@ -29,6 +29,8 @@ Partial Class Cliente_alta_New
         Me.btn_Aceptar = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Label_fechaalta = New System.Windows.Forms.Label()
+        Me.CheckBox_estado = New System.Windows.Forms.CheckBox()
         Me.txt_limitedeuda = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -54,8 +56,6 @@ Partial Class Cliente_alta_New
         Me.lb_dni = New System.Windows.Forms.Label()
         Me.lb_mail = New System.Windows.Forms.Label()
         Me.lb_tel = New System.Windows.Forms.Label()
-        Me.CheckBox_estado = New System.Windows.Forms.CheckBox()
-        Me.Label_fechaalta = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -64,7 +64,7 @@ Partial Class Cliente_alta_New
         '
         Me.btn_Cancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_Cancelar.Image = Global.Aplicacion.My.Resources.Resources.Limpiar1
-        Me.btn_Cancelar.Location = New System.Drawing.Point(335, 544)
+        Me.btn_Cancelar.Location = New System.Drawing.Point(335, 500)
         Me.btn_Cancelar.Name = "btn_Cancelar"
         Me.btn_Cancelar.Size = New System.Drawing.Size(124, 43)
         Me.btn_Cancelar.TabIndex = 11
@@ -77,7 +77,7 @@ Partial Class Cliente_alta_New
         '
         Me.btn_Aceptar.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_Aceptar.Image = Global.Aplicacion.My.Resources.Resources.Guardar
-        Me.btn_Aceptar.Location = New System.Drawing.Point(465, 544)
+        Me.btn_Aceptar.Location = New System.Drawing.Point(465, 500)
         Me.btn_Aceptar.Name = "btn_Aceptar"
         Me.btn_Aceptar.Size = New System.Drawing.Size(124, 43)
         Me.btn_Aceptar.TabIndex = 10
@@ -114,7 +114,7 @@ Partial Class Cliente_alta_New
         Me.GroupBox1.ForeColor = System.Drawing.Color.DarkSlateGray
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(633, 604)
+        Me.GroupBox1.Size = New System.Drawing.Size(633, 555)
         Me.GroupBox1.TabIndex = 4
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Ingrese los datos personales del Cliente:"
@@ -130,18 +130,40 @@ Partial Class Cliente_alta_New
         Me.GroupBox2.Controls.Add(Me.CheckBox_habilitar_ctacte)
         Me.GroupBox2.Location = New System.Drawing.Point(11, 381)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(578, 157)
+        Me.GroupBox2.Size = New System.Drawing.Size(578, 110)
         Me.GroupBox2.TabIndex = 9
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Opcional:"
         '
+        'Label_fechaalta
+        '
+        Me.Label_fechaalta.AutoSize = True
+        Me.Label_fechaalta.Location = New System.Drawing.Point(356, 36)
+        Me.Label_fechaalta.Name = "Label_fechaalta"
+        Me.Label_fechaalta.Size = New System.Drawing.Size(115, 20)
+        Me.Label_fechaalta.TabIndex = 268
+        Me.Label_fechaalta.Text = "Fecha de alta:"
+        Me.Label_fechaalta.Visible = False
+        '
+        'CheckBox_estado
+        '
+        Me.CheckBox_estado.AutoSize = True
+        Me.CheckBox_estado.ForeColor = System.Drawing.Color.Green
+        Me.CheckBox_estado.Location = New System.Drawing.Point(262, 35)
+        Me.CheckBox_estado.Name = "CheckBox_estado"
+        Me.CheckBox_estado.Size = New System.Drawing.Size(77, 24)
+        Me.CheckBox_estado.TabIndex = 267
+        Me.CheckBox_estado.Text = "Activo"
+        Me.CheckBox_estado.UseVisualStyleBackColor = True
+        Me.CheckBox_estado.Visible = False
+        '
         'txt_limitedeuda
         '
         Me.txt_limitedeuda.Enabled = False
-        Me.txt_limitedeuda.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txt_limitedeuda.Location = New System.Drawing.Point(241, 100)
+        Me.txt_limitedeuda.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.txt_limitedeuda.Location = New System.Drawing.Point(240, 67)
         Me.txt_limitedeuda.Name = "txt_limitedeuda"
-        Me.txt_limitedeuda.Size = New System.Drawing.Size(207, 26)
+        Me.txt_limitedeuda.Size = New System.Drawing.Size(207, 30)
         Me.txt_limitedeuda.TabIndex = 2
         Me.txt_limitedeuda.Text = "0"
         Me.txt_limitedeuda.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -149,7 +171,7 @@ Partial Class Cliente_alta_New
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(56, 103)
+        Me.Label8.Location = New System.Drawing.Point(55, 70)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(184, 20)
         Me.Label8.TabIndex = 266
@@ -158,21 +180,23 @@ Partial Class Cliente_alta_New
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(56, 68)
+        Me.Label7.Location = New System.Drawing.Point(22, 119)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(106, 20)
         Me.Label7.TabIndex = 0
         Me.Label7.Text = "Nro. Cta.Cte:"
+        Me.Label7.Visible = False
         '
         'txt_ctacte
         '
         Me.txt_ctacte.Enabled = False
         Me.txt_ctacte.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txt_ctacte.Location = New System.Drawing.Point(167, 65)
+        Me.txt_ctacte.Location = New System.Drawing.Point(133, 116)
         Me.txt_ctacte.Name = "txt_ctacte"
         Me.txt_ctacte.Size = New System.Drawing.Size(377, 26)
         Me.txt_ctacte.TabIndex = 1
         Me.txt_ctacte.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txt_ctacte.Visible = False
         '
         'CheckBox_habilitar_ctacte
         '
@@ -392,34 +416,12 @@ Partial Class Cliente_alta_New
         Me.lb_tel.TabIndex = 241
         Me.lb_tel.Text = "Dirección / Domicilio:"
         '
-        'CheckBox_estado
-        '
-        Me.CheckBox_estado.AutoSize = True
-        Me.CheckBox_estado.ForeColor = System.Drawing.Color.Green
-        Me.CheckBox_estado.Location = New System.Drawing.Point(262, 35)
-        Me.CheckBox_estado.Name = "CheckBox_estado"
-        Me.CheckBox_estado.Size = New System.Drawing.Size(77, 24)
-        Me.CheckBox_estado.TabIndex = 267
-        Me.CheckBox_estado.Text = "Activo"
-        Me.CheckBox_estado.UseVisualStyleBackColor = True
-        Me.CheckBox_estado.Visible = False
-        '
-        'Label_fechaalta
-        '
-        Me.Label_fechaalta.AutoSize = True
-        Me.Label_fechaalta.Location = New System.Drawing.Point(356, 36)
-        Me.Label_fechaalta.Name = "Label_fechaalta"
-        Me.Label_fechaalta.Size = New System.Drawing.Size(115, 20)
-        Me.Label_fechaalta.TabIndex = 268
-        Me.Label_fechaalta.Text = "Fecha de alta:"
-        Me.Label_fechaalta.Visible = False
-        '
         'Cliente_alta_New
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(651, 628)
+        Me.ClientSize = New System.Drawing.Size(651, 572)
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
