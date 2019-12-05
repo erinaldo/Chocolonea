@@ -1547,7 +1547,15 @@ Row event argument class
 	<summary>
 Row event argument class
 </summary>
+<<<<<<< HEAD
 </member><member name="T:Aplicacion.TurnoConsulta_ds.C3SeptimoRowChangeEvent">
+=======
+</member><member name="T:Aplicacion.Cliente_ds.Cliente_CtaCteDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Aplicacion.Cliente_ds.ClienteRow">
+>>>>>>> 657cc02e53ab2312b8534f19909068705f0db960
 	<summary>
 Row event argument class
 </summary>
@@ -1559,7 +1567,15 @@ Row event argument class
 	<summary>
 Row event argument class
 </summary>
+<<<<<<< HEAD
 </member><member name="T:Aplicacion.TurnoConsulta_ds.C4TerceroRowChangeEvent">
+=======
+</member><member name="T:Aplicacion.Cliente_ds.Cliente_CtaCteRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Aplicacion.Cliente_ds.ClienteRowChangeEvent">
+>>>>>>> 657cc02e53ab2312b8534f19909068705f0db960
 	<summary>
 Row event argument class
 </summary>
@@ -1571,6 +1587,7 @@ Row event argument class
 	<summary>
 Row event argument class
 </summary>
+<<<<<<< HEAD
 </member><member name="T:Aplicacion.TurnoConsulta_ds.C4SextoRowChangeEvent">
 	<summary>
 Row event argument class
@@ -1580,6 +1597,13 @@ Row event argument class
 Row event argument class
 </summary>
 </member><member name="T:Aplicacion.TurnoConsulta_ds">
+=======
+</member><member name="T:Aplicacion.Cliente_ds.Cliente_CtaCteRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Aplicacion.Cliente_ds">
+>>>>>>> 657cc02e53ab2312b8534f19909068705f0db960
 	<summary>
 Represents a strongly typed in-memory cache of data.
 </summary>

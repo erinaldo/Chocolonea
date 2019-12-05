@@ -14,8 +14,8 @@ Public Class Cliente_Cta_Cte_Buscar
     Public Sub Obtener_Clientes()
         ds_clie = DAcliente.CtaCte_obtenertodo_Clientes()
         If ds_clie.Tables(0).Rows.Count <> 0 Then
-            Cliente_ds.Tables("Cliente1").Rows.Clear() 'borro el contenido del dataset.datatable clientes
-            Cliente_ds.Tables("Cliente1").Merge(ds_clie.Tables(0)) '' al combinarla con el dataset "cliente" ya puedo filtrar
+            Cliente_ds.Tables("Cliente_CtaCte").Rows.Clear() 'borro el contenido del dataset.datatable clientes
+            Cliente_ds.Tables("Cliente_CtaCte").Merge(ds_clie.Tables(0)) '' al combinarla con el dataset "cliente" ya puedo filtrar
             'DG_clientes.DataSource = ds_clie.Tables(0)
             'DG_clientes_old.DataSource = ds_clie.Tables(0)
         End If
@@ -53,7 +53,7 @@ Public Class Cliente_Cta_Cte_Buscar
     Private Sub TextBox1_KeyPress1(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox1.KeyPress
         Dim Filtro
         Filtro = String.Format("{0} LIKE '%{1}%'", "CLI_Fan", TextBox1.Text) 'esto para campos strings, FUNCIONA PERFECTO
-        Cliente1BindingSource.Filter = Filtro
+        ClienteCtaCteBindingSource.Filter = Filtro
     End Sub
 
 

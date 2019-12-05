@@ -31,6 +31,8 @@ Partial Public Class Cliente_ds
     
     Private tableCliente1 As Cliente1DataTable
     
+    Private tableCliente_CtaCte As Cliente_CtaCteDataTable
+    
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -68,6 +70,9 @@ Partial Public Class Cliente_ds
             End If
             If (Not (ds.Tables("Cliente1")) Is Nothing) Then
                 MyBase.Tables.Add(New Cliente1DataTable(ds.Tables("Cliente1")))
+            End If
+            If (Not (ds.Tables("Cliente_CtaCte")) Is Nothing) Then
+                MyBase.Tables.Add(New Cliente_CtaCteDataTable(ds.Tables("Cliente_CtaCte")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -113,6 +118,16 @@ Partial Public Class Cliente_ds
     Public ReadOnly Property Cliente1() As Cliente1DataTable
         Get
             Return Me.tableCliente1
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property Cliente_CtaCte() As Cliente_CtaCteDataTable
+        Get
+            Return Me.tableCliente_CtaCte
         End Get
     End Property
     
@@ -192,6 +207,9 @@ Partial Public Class Cliente_ds
             If (Not (ds.Tables("Cliente1")) Is Nothing) Then
                 MyBase.Tables.Add(New Cliente1DataTable(ds.Tables("Cliente1")))
             End If
+            If (Not (ds.Tables("Cliente_CtaCte")) Is Nothing) Then
+                MyBase.Tables.Add(New Cliente_CtaCteDataTable(ds.Tables("Cliente_CtaCte")))
+            End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
             Me.Namespace = ds.Namespace
@@ -242,6 +260,12 @@ Partial Public Class Cliente_ds
                 Me.tableCliente1.InitVars
             End If
         End If
+        Me.tableCliente_CtaCte = CType(MyBase.Tables("Cliente_CtaCte"),Cliente_CtaCteDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableCliente_CtaCte) Is Nothing) Then
+                Me.tableCliente_CtaCte.InitVars
+            End If
+        End If
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -258,6 +282,8 @@ Partial Public Class Cliente_ds
         MyBase.Tables.Add(Me.tablePagos)
         Me.tableCliente1 = New Cliente1DataTable()
         MyBase.Tables.Add(Me.tableCliente1)
+        Me.tableCliente_CtaCte = New Cliente_CtaCteDataTable()
+        MyBase.Tables.Add(Me.tableCliente_CtaCte)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -275,6 +301,12 @@ Partial Public Class Cliente_ds
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Private Function ShouldSerializeCliente1() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Private Function ShouldSerializeCliente_CtaCte() As Boolean
         Return false
     End Function
     
@@ -344,6 +376,9 @@ Partial Public Class Cliente_ds
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Delegate Sub Cliente1RowChangeEventHandler(ByVal sender As Object, ByVal e As Cliente1RowChangeEvent)
+    
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Public Delegate Sub Cliente_CtaCteRowChangeEventHandler(ByVal sender As Object, ByVal e As Cliente_CtaCteRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -1366,6 +1401,440 @@ Partial Public Class Cliente_ds
     End Class
     
     '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class Cliente_CtaCteDataTable
+        Inherits Global.System.Data.TypedTableBase(Of Cliente_CtaCteRow)
+        
+        Private columnCLI_id As Global.System.Data.DataColumn
+        
+        Private columnCLI_ape As Global.System.Data.DataColumn
+        
+        Private columnCLI_nom As Global.System.Data.DataColumn
+        
+        Private columnCLI_dni As Global.System.Data.DataColumn
+        
+        Private columnCLI_fnac As Global.System.Data.DataColumn
+        
+        Private columnCLI_tel As Global.System.Data.DataColumn
+        
+        Private columnCLI_mail As Global.System.Data.DataColumn
+        
+        Private columnCLI_Fan As Global.System.Data.DataColumn
+        
+        Private columnCLI_observaciones As Global.System.Data.DataColumn
+        
+        Private columndireccion As Global.System.Data.DataColumn
+        
+        Private columnCtaCte_id As Global.System.Data.DataColumn
+        
+        Private columnCtaCte_estado As Global.System.Data.DataColumn
+        
+        Private columnCtaCte_fechaalta As Global.System.Data.DataColumn
+        
+        Private columnCtaCte_limitedeuda As Global.System.Data.DataColumn
+        
+        Private columnCtaCte_total As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "Cliente_CtaCte"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CLI_idColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCLI_id
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CLI_apeColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCLI_ape
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CLI_nomColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCLI_nom
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CLI_dniColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCLI_dni
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CLI_fnacColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCLI_fnac
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CLI_telColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCLI_tel
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CLI_mailColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCLI_mail
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CLI_FanColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCLI_Fan
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CLI_observacionesColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCLI_observaciones
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property direccionColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columndireccion
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CtaCte_idColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCtaCte_id
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CtaCte_estadoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCtaCte_estado
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CtaCte_fechaaltaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCtaCte_fechaalta
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CtaCte_limitedeudaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCtaCte_limitedeuda
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CtaCte_totalColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCtaCte_total
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As Cliente_CtaCteRow
+            Get
+                Return CType(Me.Rows(index),Cliente_CtaCteRow)
+            End Get
+        End Property
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event Cliente_CtaCteRowChanging As Cliente_CtaCteRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event Cliente_CtaCteRowChanged As Cliente_CtaCteRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event Cliente_CtaCteRowDeleting As Cliente_CtaCteRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event Cliente_CtaCteRowDeleted As Cliente_CtaCteRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overloads Sub AddCliente_CtaCteRow(ByVal row As Cliente_CtaCteRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overloads Function AddCliente_CtaCteRow(ByVal CLI_id As Integer, ByVal CLI_ape As String, ByVal CLI_nom As String, ByVal CLI_dni As String, ByVal CLI_fnac As Date, ByVal CLI_tel As String, ByVal CLI_mail As String, ByVal CLI_Fan As String, ByVal CLI_observaciones As String, ByVal direccion As String, ByVal CtaCte_id As Integer, ByVal CtaCte_estado As String, ByVal CtaCte_fechaalta As Date, ByVal CtaCte_limitedeuda As Decimal, ByVal CtaCte_total As Decimal) As Cliente_CtaCteRow
+            Dim rowCliente_CtaCteRow As Cliente_CtaCteRow = CType(Me.NewRow,Cliente_CtaCteRow)
+            Dim columnValuesArray() As Object = New Object() {CLI_id, CLI_ape, CLI_nom, CLI_dni, CLI_fnac, CLI_tel, CLI_mail, CLI_Fan, CLI_observaciones, direccion, CtaCte_id, CtaCte_estado, CtaCte_fechaalta, CtaCte_limitedeuda, CtaCte_total}
+            rowCliente_CtaCteRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowCliente_CtaCteRow)
+            Return rowCliente_CtaCteRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As Cliente_CtaCteDataTable = CType(MyBase.Clone,Cliente_CtaCteDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New Cliente_CtaCteDataTable()
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub InitVars()
+            Me.columnCLI_id = MyBase.Columns("CLI_id")
+            Me.columnCLI_ape = MyBase.Columns("CLI_ape")
+            Me.columnCLI_nom = MyBase.Columns("CLI_nom")
+            Me.columnCLI_dni = MyBase.Columns("CLI_dni")
+            Me.columnCLI_fnac = MyBase.Columns("CLI_fnac")
+            Me.columnCLI_tel = MyBase.Columns("CLI_tel")
+            Me.columnCLI_mail = MyBase.Columns("CLI_mail")
+            Me.columnCLI_Fan = MyBase.Columns("CLI_Fan")
+            Me.columnCLI_observaciones = MyBase.Columns("CLI_observaciones")
+            Me.columndireccion = MyBase.Columns("direccion")
+            Me.columnCtaCte_id = MyBase.Columns("CtaCte_id")
+            Me.columnCtaCte_estado = MyBase.Columns("CtaCte_estado")
+            Me.columnCtaCte_fechaalta = MyBase.Columns("CtaCte_fechaalta")
+            Me.columnCtaCte_limitedeuda = MyBase.Columns("CtaCte_limitedeuda")
+            Me.columnCtaCte_total = MyBase.Columns("CtaCte_total")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitClass()
+            Me.columnCLI_id = New Global.System.Data.DataColumn("CLI_id", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCLI_id)
+            Me.columnCLI_ape = New Global.System.Data.DataColumn("CLI_ape", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCLI_ape)
+            Me.columnCLI_nom = New Global.System.Data.DataColumn("CLI_nom", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCLI_nom)
+            Me.columnCLI_dni = New Global.System.Data.DataColumn("CLI_dni", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCLI_dni)
+            Me.columnCLI_fnac = New Global.System.Data.DataColumn("CLI_fnac", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCLI_fnac)
+            Me.columnCLI_tel = New Global.System.Data.DataColumn("CLI_tel", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCLI_tel)
+            Me.columnCLI_mail = New Global.System.Data.DataColumn("CLI_mail", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCLI_mail)
+            Me.columnCLI_Fan = New Global.System.Data.DataColumn("CLI_Fan", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCLI_Fan)
+            Me.columnCLI_observaciones = New Global.System.Data.DataColumn("CLI_observaciones", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCLI_observaciones)
+            Me.columndireccion = New Global.System.Data.DataColumn("direccion", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndireccion)
+            Me.columnCtaCte_id = New Global.System.Data.DataColumn("CtaCte_id", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCtaCte_id)
+            Me.columnCtaCte_estado = New Global.System.Data.DataColumn("CtaCte_estado", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCtaCte_estado)
+            Me.columnCtaCte_fechaalta = New Global.System.Data.DataColumn("CtaCte_fechaalta", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCtaCte_fechaalta)
+            Me.columnCtaCte_limitedeuda = New Global.System.Data.DataColumn("CtaCte_limitedeuda", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCtaCte_limitedeuda)
+            Me.columnCtaCte_total = New Global.System.Data.DataColumn("CtaCte_total", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCtaCte_total)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function NewCliente_CtaCteRow() As Cliente_CtaCteRow
+            Return CType(Me.NewRow,Cliente_CtaCteRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New Cliente_CtaCteRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(Cliente_CtaCteRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.Cliente_CtaCteRowChangedEvent) Is Nothing) Then
+                RaiseEvent Cliente_CtaCteRowChanged(Me, New Cliente_CtaCteRowChangeEvent(CType(e.Row,Cliente_CtaCteRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.Cliente_CtaCteRowChangingEvent) Is Nothing) Then
+                RaiseEvent Cliente_CtaCteRowChanging(Me, New Cliente_CtaCteRowChangeEvent(CType(e.Row,Cliente_CtaCteRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.Cliente_CtaCteRowDeletedEvent) Is Nothing) Then
+                RaiseEvent Cliente_CtaCteRowDeleted(Me, New Cliente_CtaCteRowChangeEvent(CType(e.Row,Cliente_CtaCteRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.Cliente_CtaCteRowDeletingEvent) Is Nothing) Then
+                RaiseEvent Cliente_CtaCteRowDeleting(Me, New Cliente_CtaCteRowChangeEvent(CType(e.Row,Cliente_CtaCteRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub RemoveCliente_CtaCteRow(ByVal row As Cliente_CtaCteRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As Cliente_ds = New Cliente_ds()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "Cliente_CtaCteDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
     Partial Public Class ClienteRow
@@ -2035,6 +2504,430 @@ Partial Public Class Cliente_ds
     End Class
     
     '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class Cliente_CtaCteRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tableCliente_CtaCte As Cliente_CtaCteDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableCliente_CtaCte = CType(Me.Table,Cliente_CtaCteDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property CLI_id() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableCliente_CtaCte.CLI_idColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'CLI_id' de la tabla 'Cliente_CtaCte' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCliente_CtaCte.CLI_idColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property CLI_ape() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableCliente_CtaCte.CLI_apeColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'CLI_ape' de la tabla 'Cliente_CtaCte' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCliente_CtaCte.CLI_apeColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property CLI_nom() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableCliente_CtaCte.CLI_nomColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'CLI_nom' de la tabla 'Cliente_CtaCte' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCliente_CtaCte.CLI_nomColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property CLI_dni() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableCliente_CtaCte.CLI_dniColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'CLI_dni' de la tabla 'Cliente_CtaCte' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCliente_CtaCte.CLI_dniColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property CLI_fnac() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableCliente_CtaCte.CLI_fnacColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'CLI_fnac' de la tabla 'Cliente_CtaCte' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCliente_CtaCte.CLI_fnacColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property CLI_tel() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableCliente_CtaCte.CLI_telColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'CLI_tel' de la tabla 'Cliente_CtaCte' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCliente_CtaCte.CLI_telColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property CLI_mail() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableCliente_CtaCte.CLI_mailColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'CLI_mail' de la tabla 'Cliente_CtaCte' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCliente_CtaCte.CLI_mailColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property CLI_Fan() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableCliente_CtaCte.CLI_FanColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'CLI_Fan' de la tabla 'Cliente_CtaCte' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCliente_CtaCte.CLI_FanColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property CLI_observaciones() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableCliente_CtaCte.CLI_observacionesColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'CLI_observaciones' de la tabla 'Cliente_CtaCte' es DBNull"& _ 
+                            ".", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCliente_CtaCte.CLI_observacionesColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property direccion() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableCliente_CtaCte.direccionColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'direccion' de la tabla 'Cliente_CtaCte' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCliente_CtaCte.direccionColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property CtaCte_id() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableCliente_CtaCte.CtaCte_idColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'CtaCte_id' de la tabla 'Cliente_CtaCte' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCliente_CtaCte.CtaCte_idColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property CtaCte_estado() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableCliente_CtaCte.CtaCte_estadoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'CtaCte_estado' de la tabla 'Cliente_CtaCte' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCliente_CtaCte.CtaCte_estadoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property CtaCte_fechaalta() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableCliente_CtaCte.CtaCte_fechaaltaColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'CtaCte_fechaalta' de la tabla 'Cliente_CtaCte' es DBNull."& _ 
+                            "", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCliente_CtaCte.CtaCte_fechaaltaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property CtaCte_limitedeuda() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableCliente_CtaCte.CtaCte_limitedeudaColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'CtaCte_limitedeuda' de la tabla 'Cliente_CtaCte' es DBNul"& _ 
+                            "l.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCliente_CtaCte.CtaCte_limitedeudaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property CtaCte_total() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableCliente_CtaCte.CtaCte_totalColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'CtaCte_total' de la tabla 'Cliente_CtaCte' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCliente_CtaCte.CtaCte_totalColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsCLI_idNull() As Boolean
+            Return Me.IsNull(Me.tableCliente_CtaCte.CLI_idColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetCLI_idNull()
+            Me(Me.tableCliente_CtaCte.CLI_idColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsCLI_apeNull() As Boolean
+            Return Me.IsNull(Me.tableCliente_CtaCte.CLI_apeColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetCLI_apeNull()
+            Me(Me.tableCliente_CtaCte.CLI_apeColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsCLI_nomNull() As Boolean
+            Return Me.IsNull(Me.tableCliente_CtaCte.CLI_nomColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetCLI_nomNull()
+            Me(Me.tableCliente_CtaCte.CLI_nomColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsCLI_dniNull() As Boolean
+            Return Me.IsNull(Me.tableCliente_CtaCte.CLI_dniColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetCLI_dniNull()
+            Me(Me.tableCliente_CtaCte.CLI_dniColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsCLI_fnacNull() As Boolean
+            Return Me.IsNull(Me.tableCliente_CtaCte.CLI_fnacColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetCLI_fnacNull()
+            Me(Me.tableCliente_CtaCte.CLI_fnacColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsCLI_telNull() As Boolean
+            Return Me.IsNull(Me.tableCliente_CtaCte.CLI_telColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetCLI_telNull()
+            Me(Me.tableCliente_CtaCte.CLI_telColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsCLI_mailNull() As Boolean
+            Return Me.IsNull(Me.tableCliente_CtaCte.CLI_mailColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetCLI_mailNull()
+            Me(Me.tableCliente_CtaCte.CLI_mailColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsCLI_FanNull() As Boolean
+            Return Me.IsNull(Me.tableCliente_CtaCte.CLI_FanColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetCLI_FanNull()
+            Me(Me.tableCliente_CtaCte.CLI_FanColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsCLI_observacionesNull() As Boolean
+            Return Me.IsNull(Me.tableCliente_CtaCte.CLI_observacionesColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetCLI_observacionesNull()
+            Me(Me.tableCliente_CtaCte.CLI_observacionesColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsdireccionNull() As Boolean
+            Return Me.IsNull(Me.tableCliente_CtaCte.direccionColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetdireccionNull()
+            Me(Me.tableCliente_CtaCte.direccionColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsCtaCte_idNull() As Boolean
+            Return Me.IsNull(Me.tableCliente_CtaCte.CtaCte_idColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetCtaCte_idNull()
+            Me(Me.tableCliente_CtaCte.CtaCte_idColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsCtaCte_estadoNull() As Boolean
+            Return Me.IsNull(Me.tableCliente_CtaCte.CtaCte_estadoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetCtaCte_estadoNull()
+            Me(Me.tableCliente_CtaCte.CtaCte_estadoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsCtaCte_fechaaltaNull() As Boolean
+            Return Me.IsNull(Me.tableCliente_CtaCte.CtaCte_fechaaltaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetCtaCte_fechaaltaNull()
+            Me(Me.tableCliente_CtaCte.CtaCte_fechaaltaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsCtaCte_limitedeudaNull() As Boolean
+            Return Me.IsNull(Me.tableCliente_CtaCte.CtaCte_limitedeudaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetCtaCte_limitedeudaNull()
+            Me(Me.tableCliente_CtaCte.CtaCte_limitedeudaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsCtaCte_totalNull() As Boolean
+            Return Me.IsNull(Me.tableCliente_CtaCte.CtaCte_totalColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetCtaCte_totalNull()
+            Me(Me.tableCliente_CtaCte.CtaCte_totalColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+    
+    '''<summary>
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -2128,6 +3021,42 @@ Partial Public Class Cliente_ds
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property Row() As Cliente1Row
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Public Class Cliente_CtaCteRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As Cliente_CtaCteRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New(ByVal row As Cliente_CtaCteRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Row() As Cliente_CtaCteRow
             Get
                 Return Me.eventRow
             End Get
