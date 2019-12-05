@@ -2,7 +2,7 @@
     Dim DAventa As New Datos.Venta
     Dim DAsucursal As New Datos.Sucursal
     Dim Venta_Caja_ds As New Venta_Caja_ds
-
+    Public procedencia As String = "Venta_Caja_Gestion"
     Private Sub Venta_Caja_seleccion_tipo_vta_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Me.Show()
         'veo que sucursal esta cargada, eso depende del usuario logueado
@@ -34,9 +34,26 @@
         ComboBox1.Focus()
     End Sub
 
+    Dim remito_form As New Venta_Caja_gestion
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-        Venta_Caja_gestion.Show()
-        Venta_Caja_gestion.tipo_vta = ComboBox1.Text
-        Me.Close()
+
+        If procedencia = "Venta_Caja_Gestion" Then
+            Venta_Caja_gestion.Close()
+            Venta_Caja_gestion.tipo_vta = ComboBox1.Text
+            Venta_Caja_gestion.procedencia = "Venta_Caja_Gestion"
+            Venta_Caja_gestion.Show()
+            Me.Close()
+        Else
+            Venta_Caja_gestion.Close()
+            Venta_Caja_gestion.tipo_vta = ComboBox1.Text
+            Venta_Caja_gestion.procedencia = "Remito nuevo"
+            Venta_Caja_gestion.Text = "Nuevo Remito"
+            Venta_Caja_gestion.RB_Consumidor.Enabled = False
+            Venta_Caja_gestion.RB_Cliente.Checked = True
+            Venta_Caja_gestion.TabPage1.Text = "Generar remito: Cliente con Cuenta Corriente"
+            Venta_Caja_gestion.TabPage2.Text = "Generar remito: Productos"
+            Venta_Caja_gestion.Show()
+            Me.Close()
+        End If
     End Sub
 End Class

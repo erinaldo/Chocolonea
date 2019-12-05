@@ -29,7 +29,6 @@
 
     Private Sub buscar_ventas(ByVal var_inicial As String)
         Dim ds_ventas As DataSet = DAventa.Venta_consultar_recaudacion_sucursal(DateTimePicker_desde.Value, DateTimePicker_hasta.Value, sucursal_id)
-
         If ds_ventas.Tables(0).Rows.Count <> 0 Then
             DG_ventas.DataSource = ds_ventas.Tables(0)
             GroupBox1.Text = "Ventas desde : " + DateTimePicker_desde.Text + " hasta el: " + DateTimePicker_hasta.Text
@@ -237,7 +236,7 @@
                 Venta_detalle_servicio.Show()
             Else
                 'tomo valor de la fila seleccionada y recupero de la BD el detalle para mostrarlo en un reporte
-                Dim ventaprod_id As Integer = CInt(DG_ventas.CurrentRow.Cells("VentaprodidColumn").Value)
+                Dim ventaprod_id As Integer = CInt(DG_ventas.CurrentRow.Cells("ventaprod_id").Value)
 
 
                 Venta_detalle.ventaprod_id = ventaprod_id

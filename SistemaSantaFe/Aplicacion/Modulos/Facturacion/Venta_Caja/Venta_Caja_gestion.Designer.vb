@@ -23,18 +23,18 @@ Partial Class Venta_Caja_gestion
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle122 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle124 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle123 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Venta_Caja_gestion))
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle131 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle132 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle125 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle126 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle127 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle128 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle129 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle130 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Venta_ds = New Aplicacion.Venta_ds()
         Me.ProductoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TabControl1 = New System.Windows.Forms.TabControl()
@@ -73,7 +73,6 @@ Partial Class Venta_Caja_gestion
         Me.RB_Consumidor = New System.Windows.Forms.RadioButton()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.GroupBox8 = New System.Windows.Forms.GroupBox()
-        Me.BO_promocion = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.txt_impuesto_aplicado = New System.Windows.Forms.TextBox()
         Me.Label24 = New System.Windows.Forms.Label()
@@ -84,7 +83,6 @@ Partial Class Venta_Caja_gestion
         Me.GroupBox15 = New System.Windows.Forms.GroupBox()
         Me.ComboBox_iva = New System.Windows.Forms.ComboBox()
         Me.Label19 = New System.Windows.Forms.Label()
-        Me.BO_buscar = New System.Windows.Forms.Button()
         Me.GroupBox_pagar = New System.Windows.Forms.GroupBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.txt_total = New System.Windows.Forms.TextBox()
@@ -97,6 +95,10 @@ Partial Class Venta_Caja_gestion
         Me.txt_desc_porc = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.ComboBox_vendedor = New System.Windows.Forms.ComboBox()
+        Me.Btn_Vendedor_buscar = New System.Windows.Forms.Button()
+        Me.txt_vendedor_codigo = New System.Windows.Forms.TextBox()
         Me.GroupBox13 = New System.Windows.Forms.GroupBox()
         Me.lb_tipo_vta = New System.Windows.Forms.Label()
         Me.lb_vendedor_vta = New System.Windows.Forms.Label()
@@ -115,9 +117,9 @@ Partial Class Venta_Caja_gestion
         Me.lb_dni_clie = New System.Windows.Forms.Label()
         Me.lb_fantasia = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox10 = New System.Windows.Forms.GroupBox()
         Me.lb_mail_sucursal = New System.Windows.Forms.Label()
@@ -152,11 +154,7 @@ Partial Class Venta_Caja_gestion
         Me.ProductoagregadoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.ProductosCombosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Groupbox_vendedor = New System.Windows.Forms.GroupBox()
         Me.Label25 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.ComboBox_vendedor = New System.Windows.Forms.ComboBox()
-        Me.Btn_Vendedor_buscar = New System.Windows.Forms.Button()
         CType(Me.Venta_ds, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProductoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
@@ -176,6 +174,7 @@ Partial Class Venta_Caja_gestion
         CType(Me.DataG_listaTotal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox9.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
+        Me.Panel3.SuspendLayout()
         Me.GroupBox13.SuspendLayout()
         Me.GroupBox11.SuspendLayout()
         Me.GroupBox10.SuspendLayout()
@@ -184,7 +183,6 @@ Partial Class Venta_Caja_gestion
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProductoagregadoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProductosCombosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Groupbox_vendedor.SuspendLayout()
         Me.SuspendLayout()
         '
         'Venta_ds
@@ -440,10 +438,10 @@ Partial Class Venta_Caja_gestion
         Me.DG_clientes.ReadOnly = True
         Me.DG_clientes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         Me.DG_clientes.RowHeadersVisible = False
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black
-        Me.DG_clientes.RowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle122.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle122.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption
+        DataGridViewCellStyle122.SelectionForeColor = System.Drawing.Color.Black
+        Me.DG_clientes.RowsDefaultCellStyle = DataGridViewCellStyle122
         Me.DG_clientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DG_clientes.Size = New System.Drawing.Size(1201, 398)
         Me.DG_clientes.TabIndex = 239
@@ -599,32 +597,18 @@ Partial Class Venta_Caja_gestion
         '
         'GroupBox8
         '
-        Me.GroupBox8.Controls.Add(Me.BO_promocion)
         Me.GroupBox8.Controls.Add(Me.Panel1)
         Me.GroupBox8.Controls.Add(Me.GroupBox15)
-        Me.GroupBox8.Controls.Add(Me.BO_buscar)
         Me.GroupBox8.Controls.Add(Me.GroupBox_pagar)
         Me.GroupBox8.Controls.Add(Me.DataG_listaTotal)
         Me.GroupBox8.Controls.Add(Me.GroupBox9)
-        Me.GroupBox8.Location = New System.Drawing.Point(16, 389)
+        Me.GroupBox8.Location = New System.Drawing.Point(16, 459)
         Me.GroupBox8.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox8.Name = "GroupBox8"
         Me.GroupBox8.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox8.Size = New System.Drawing.Size(1216, 108)
         Me.GroupBox8.TabIndex = 262
         Me.GroupBox8.TabStop = False
-        '
-        'BO_promocion
-        '
-        Me.BO_promocion.Location = New System.Drawing.Point(390, 63)
-        Me.BO_promocion.Margin = New System.Windows.Forms.Padding(4)
-        Me.BO_promocion.Name = "BO_promocion"
-        Me.BO_promocion.Size = New System.Drawing.Size(165, 32)
-        Me.BO_promocion.TabIndex = 7
-        Me.BO_promocion.Text = "Buscar promoción (F2)"
-        Me.ToolTip1.SetToolTip(Me.BO_promocion, "Buscar promoción (F2)")
-        Me.BO_promocion.UseVisualStyleBackColor = True
-        Me.BO_promocion.Visible = False
         '
         'Panel1
         '
@@ -636,16 +620,16 @@ Partial Class Venta_Caja_gestion
         Me.Panel1.Controls.Add(Me.txt_descuento)
         Me.Panel1.Controls.Add(Me.Label23)
         Me.Panel1.ForeColor = System.Drawing.Color.Black
-        Me.Panel1.Location = New System.Drawing.Point(592, 14)
+        Me.Panel1.Location = New System.Drawing.Point(462, 10)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(293, 91)
+        Me.Panel1.Size = New System.Drawing.Size(332, 91)
         Me.Panel1.TabIndex = 259
         '
         'txt_impuesto_aplicado
         '
         Me.txt_impuesto_aplicado.BackColor = System.Drawing.SystemColors.Info
         Me.txt_impuesto_aplicado.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_impuesto_aplicado.Location = New System.Drawing.Point(171, 64)
+        Me.txt_impuesto_aplicado.Location = New System.Drawing.Point(208, 57)
         Me.txt_impuesto_aplicado.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_impuesto_aplicado.Name = "txt_impuesto_aplicado"
         Me.txt_impuesto_aplicado.ReadOnly = True
@@ -657,20 +641,20 @@ Partial Class Venta_Caja_gestion
         'Label24
         '
         Me.Label24.AutoSize = True
-        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 4.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label24.Location = New System.Drawing.Point(39, 70)
+        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label24.Location = New System.Drawing.Point(17, 57)
         Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(126, 12)
+        Me.Label24.Size = New System.Drawing.Size(155, 17)
         Me.Label24.TabIndex = 273
         Me.Label24.Text = "IMPUESTO APLICADO:"
         '
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 4.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label20.Location = New System.Drawing.Point(16, 11)
+        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.Location = New System.Drawing.Point(16, 10)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(149, 12)
+        Me.Label20.Size = New System.Drawing.Size(191, 17)
         Me.Label20.TabIndex = 269
         Me.Label20.Text = "SUBTOTAL DE ARTICULOS:"
         '
@@ -678,7 +662,7 @@ Partial Class Venta_Caja_gestion
         '
         Me.txt_subtotal.BackColor = System.Drawing.SystemColors.Info
         Me.txt_subtotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_subtotal.Location = New System.Drawing.Point(171, 5)
+        Me.txt_subtotal.Location = New System.Drawing.Point(208, 7)
         Me.txt_subtotal.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_subtotal.Name = "txt_subtotal"
         Me.txt_subtotal.ReadOnly = True
@@ -691,7 +675,7 @@ Partial Class Venta_Caja_gestion
         '
         Me.txt_descuento.BackColor = System.Drawing.SystemColors.Info
         Me.txt_descuento.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_descuento.Location = New System.Drawing.Point(171, 34)
+        Me.txt_descuento.Location = New System.Drawing.Point(208, 32)
         Me.txt_descuento.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_descuento.Name = "txt_descuento"
         Me.txt_descuento.ReadOnly = True
@@ -703,10 +687,10 @@ Partial Class Venta_Caja_gestion
         'Label23
         '
         Me.Label23.AutoSize = True
-        Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 4.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label23.Location = New System.Drawing.Point(89, 41)
+        Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.Location = New System.Drawing.Point(17, 32)
         Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(76, 12)
+        Me.Label23.Size = New System.Drawing.Size(98, 17)
         Me.Label23.TabIndex = 271
         Me.Label23.Text = "DESCUENTO:"
         '
@@ -715,7 +699,7 @@ Partial Class Venta_Caja_gestion
         Me.GroupBox15.BackColor = System.Drawing.Color.WhiteSmoke
         Me.GroupBox15.Controls.Add(Me.ComboBox_iva)
         Me.GroupBox15.Controls.Add(Me.Label19)
-        Me.GroupBox15.Location = New System.Drawing.Point(221, 14)
+        Me.GroupBox15.Location = New System.Drawing.Point(280, 14)
         Me.GroupBox15.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox15.Name = "GroupBox15"
         Me.GroupBox15.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -729,7 +713,7 @@ Partial Class Venta_Caja_gestion
         Me.ComboBox_iva.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox_iva.FormattingEnabled = True
         Me.ComboBox_iva.Items.AddRange(New Object() {"0", "10,5", "21"})
-        Me.ComboBox_iva.Location = New System.Drawing.Point(70, 28)
+        Me.ComboBox_iva.Location = New System.Drawing.Point(72, 34)
         Me.ComboBox_iva.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ComboBox_iva.Name = "ComboBox_iva"
         Me.ComboBox_iva.Size = New System.Drawing.Size(64, 28)
@@ -739,23 +723,11 @@ Partial Class Venta_Caja_gestion
         '
         Me.Label19.AutoSize = True
         Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(5, 31)
+        Me.Label19.Location = New System.Drawing.Point(7, 37)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(59, 17)
         Me.Label19.TabIndex = 11
         Me.Label19.Text = "IVA (%):"
-        '
-        'BO_buscar
-        '
-        Me.BO_buscar.Location = New System.Drawing.Point(390, 23)
-        Me.BO_buscar.Margin = New System.Windows.Forms.Padding(4)
-        Me.BO_buscar.Name = "BO_buscar"
-        Me.BO_buscar.Size = New System.Drawing.Size(165, 32)
-        Me.BO_buscar.TabIndex = 6
-        Me.BO_buscar.Text = "Buscar productos (F1)"
-        Me.ToolTip1.SetToolTip(Me.BO_buscar, "Buscar productos (F1)")
-        Me.BO_buscar.UseVisualStyleBackColor = True
-        Me.BO_buscar.Visible = False
         '
         'GroupBox_pagar
         '
@@ -803,14 +775,14 @@ Partial Class Venta_Caja_gestion
         Me.DataG_listaTotal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataG_listaTotal.ColumnHeadersVisible = False
         Me.DataG_listaTotal.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn3})
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.DarkSlateGray
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataG_listaTotal.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle124.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle124.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle124.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle124.ForeColor = System.Drawing.Color.DarkSlateGray
+        DataGridViewCellStyle124.SelectionBackColor = System.Drawing.Color.White
+        DataGridViewCellStyle124.SelectionForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle124.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataG_listaTotal.DefaultCellStyle = DataGridViewCellStyle124
         Me.DataG_listaTotal.Location = New System.Drawing.Point(8, 100)
         Me.DataG_listaTotal.Margin = New System.Windows.Forms.Padding(4)
         Me.DataG_listaTotal.Name = "DataG_listaTotal"
@@ -830,10 +802,10 @@ Partial Class Venta_Caja_gestion
         '
         'DataGridViewTextBoxColumn3
         '
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.Format = "N2"
-        DataGridViewCellStyle2.NullValue = "0"
-        Me.DataGridViewTextBoxColumn3.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle123.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle123.Format = "N2"
+        DataGridViewCellStyle123.NullValue = "0"
+        Me.DataGridViewTextBoxColumn3.DefaultCellStyle = DataGridViewCellStyle123
         Me.DataGridViewTextBoxColumn3.HeaderText = "Valor total"
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
         Me.DataGridViewTextBoxColumn3.ReadOnly = True
@@ -847,11 +819,11 @@ Partial Class Venta_Caja_gestion
         Me.GroupBox9.Controls.Add(Me.txt_desc_porc)
         Me.GroupBox9.Controls.Add(Me.Label11)
         Me.GroupBox9.ForeColor = System.Drawing.Color.Black
-        Me.GroupBox9.Location = New System.Drawing.Point(7, 14)
+        Me.GroupBox9.Location = New System.Drawing.Point(24, 14)
         Me.GroupBox9.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox9.Name = "GroupBox9"
         Me.GroupBox9.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GroupBox9.Size = New System.Drawing.Size(208, 79)
+        Me.GroupBox9.Size = New System.Drawing.Size(202, 79)
         Me.GroupBox9.TabIndex = 12
         Me.GroupBox9.TabStop = False
         Me.GroupBox9.Text = "Aplicar descuento"
@@ -860,7 +832,7 @@ Partial Class Venta_Caja_gestion
         '
         Me.txt_desc_pesos.BackColor = System.Drawing.SystemColors.Info
         Me.txt_desc_pesos.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_desc_pesos.Location = New System.Drawing.Point(133, 46)
+        Me.txt_desc_pesos.Location = New System.Drawing.Point(117, 46)
         Me.txt_desc_pesos.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_desc_pesos.Name = "txt_desc_pesos"
         Me.txt_desc_pesos.Size = New System.Drawing.Size(65, 22)
@@ -872,7 +844,7 @@ Partial Class Venta_Caja_gestion
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(5, 18)
+        Me.Label10.Location = New System.Drawing.Point(5, 22)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(106, 17)
         Me.Label10.TabIndex = 10
@@ -882,7 +854,7 @@ Partial Class Venta_Caja_gestion
         '
         Me.txt_desc_porc.BackColor = System.Drawing.SystemColors.Info
         Me.txt_desc_porc.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_desc_porc.Location = New System.Drawing.Point(133, 14)
+        Me.txt_desc_porc.Location = New System.Drawing.Point(117, 20)
         Me.txt_desc_porc.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_desc_porc.Name = "txt_desc_porc"
         Me.txt_desc_porc.Size = New System.Drawing.Size(65, 22)
@@ -894,7 +866,7 @@ Partial Class Venta_Caja_gestion
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(5, 49)
+        Me.Label11.Location = New System.Drawing.Point(5, 48)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(102, 17)
         Me.Label11.TabIndex = 11
@@ -903,6 +875,7 @@ Partial Class Venta_Caja_gestion
         'GroupBox7
         '
         Me.GroupBox7.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox7.Controls.Add(Me.Panel3)
         Me.GroupBox7.Controls.Add(Me.GroupBox13)
         Me.GroupBox7.Controls.Add(Me.GroupBox11)
         Me.GroupBox7.Controls.Add(Me.GroupBox10)
@@ -913,9 +886,52 @@ Partial Class Venta_Caja_gestion
         Me.GroupBox7.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox7.Name = "GroupBox7"
         Me.GroupBox7.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox7.Size = New System.Drawing.Size(1216, 149)
+        Me.GroupBox7.Size = New System.Drawing.Size(1216, 188)
         Me.GroupBox7.TabIndex = 261
         Me.GroupBox7.TabStop = False
+        '
+        'Panel3
+        '
+        Me.Panel3.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.Panel3.Controls.Add(Me.Label25)
+        Me.Panel3.Controls.Add(Me.ComboBox_vendedor)
+        Me.Panel3.Controls.Add(Me.Btn_Vendedor_buscar)
+        Me.Panel3.Controls.Add(Me.txt_vendedor_codigo)
+        Me.Panel3.Location = New System.Drawing.Point(13, 144)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(1196, 37)
+        Me.Panel3.TabIndex = 275
+        Me.ToolTip1.SetToolTip(Me.Panel3, "ingrese cód. vendedor")
+        '
+        'ComboBox_vendedor
+        '
+        Me.ComboBox_vendedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox_vendedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox_vendedor.FormattingEnabled = True
+        Me.ComboBox_vendedor.Location = New System.Drawing.Point(209, 7)
+        Me.ComboBox_vendedor.Name = "ComboBox_vendedor"
+        Me.ComboBox_vendedor.Size = New System.Drawing.Size(203, 24)
+        Me.ComboBox_vendedor.TabIndex = 2
+        '
+        'Btn_Vendedor_buscar
+        '
+        Me.Btn_Vendedor_buscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btn_Vendedor_buscar.Location = New System.Drawing.Point(163, 6)
+        Me.Btn_Vendedor_buscar.Name = "Btn_Vendedor_buscar"
+        Me.Btn_Vendedor_buscar.Size = New System.Drawing.Size(40, 24)
+        Me.Btn_Vendedor_buscar.TabIndex = 3
+        Me.Btn_Vendedor_buscar.Text = "..."
+        Me.ToolTip1.SetToolTip(Me.Btn_Vendedor_buscar, "ver detalle")
+        Me.Btn_Vendedor_buscar.UseVisualStyleBackColor = True
+        '
+        'txt_vendedor_codigo
+        '
+        Me.txt_vendedor_codigo.BackColor = System.Drawing.SystemColors.Info
+        Me.txt_vendedor_codigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_vendedor_codigo.Location = New System.Drawing.Point(92, 7)
+        Me.txt_vendedor_codigo.Name = "txt_vendedor_codigo"
+        Me.txt_vendedor_codigo.Size = New System.Drawing.Size(65, 22)
+        Me.txt_vendedor_codigo.TabIndex = 1
         '
         'GroupBox13
         '
@@ -928,12 +944,12 @@ Partial Class Venta_Caja_gestion
         Me.GroupBox13.Controls.Add(Me.Label14)
         Me.GroupBox13.Controls.Add(Me.Label13)
         Me.GroupBox13.Controls.Add(Me.Label12)
-        Me.GroupBox13.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox13.Location = New System.Drawing.Point(842, 43)
         Me.GroupBox13.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox13.Name = "GroupBox13"
         Me.GroupBox13.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GroupBox13.Size = New System.Drawing.Size(367, 99)
+        Me.GroupBox13.Size = New System.Drawing.Size(367, 96)
         Me.GroupBox13.TabIndex = 274
         Me.GroupBox13.TabStop = False
         Me.GroupBox13.Text = "Venta"
@@ -941,84 +957,89 @@ Partial Class Venta_Caja_gestion
         'lb_tipo_vta
         '
         Me.lb_tipo_vta.AutoSize = True
-        Me.lb_tipo_vta.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lb_tipo_vta.Location = New System.Drawing.Point(100, 78)
+        Me.lb_tipo_vta.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lb_tipo_vta.Location = New System.Drawing.Point(129, 68)
         Me.lb_tipo_vta.Name = "lb_tipo_vta"
-        Me.lb_tipo_vta.Size = New System.Drawing.Size(98, 15)
+        Me.lb_tipo_vta.Size = New System.Drawing.Size(111, 17)
         Me.lb_tipo_vta.TabIndex = 272
         Me.lb_tipo_vta.Text = "consumidor final"
+        Me.lb_tipo_vta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lb_vendedor_vta
         '
         Me.lb_vendedor_vta.AutoSize = True
-        Me.lb_vendedor_vta.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lb_vendedor_vta.Location = New System.Drawing.Point(78, 59)
+        Me.lb_vendedor_vta.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lb_vendedor_vta.Location = New System.Drawing.Point(83, 178)
         Me.lb_vendedor_vta.Name = "lb_vendedor_vta"
-        Me.lb_vendedor_vta.Size = New System.Drawing.Size(52, 15)
+        Me.lb_vendedor_vta.Size = New System.Drawing.Size(59, 17)
         Me.lb_vendedor_vta.TabIndex = 271
         Me.lb_vendedor_vta.Text = "Label21"
+        Me.lb_vendedor_vta.Visible = False
         '
         'lb_fecha_vta
         '
         Me.lb_fecha_vta.AutoSize = True
-        Me.lb_fecha_vta.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lb_fecha_vta.Location = New System.Drawing.Point(55, 38)
+        Me.lb_fecha_vta.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lb_fecha_vta.Location = New System.Drawing.Point(81, 48)
         Me.lb_fecha_vta.Name = "lb_fecha_vta"
-        Me.lb_fecha_vta.Size = New System.Drawing.Size(69, 15)
+        Me.lb_fecha_vta.Size = New System.Drawing.Size(80, 17)
         Me.lb_fecha_vta.TabIndex = 270
         Me.lb_fecha_vta.Text = "00/00/0000"
+        Me.lb_fecha_vta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lb_factura_vta
         '
         Me.lb_factura_vta.AutoSize = True
-        Me.lb_factura_vta.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lb_factura_vta.Location = New System.Drawing.Point(81, 17)
+        Me.lb_factura_vta.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lb_factura_vta.Location = New System.Drawing.Point(109, 26)
         Me.lb_factura_vta.Name = "lb_factura_vta"
-        Me.lb_factura_vta.Size = New System.Drawing.Size(35, 15)
+        Me.lb_factura_vta.Size = New System.Drawing.Size(40, 17)
         Me.lb_factura_vta.TabIndex = 269
         Me.lb_factura_vta.Text = "0000"
+        Me.lb_factura_vta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(7, 78)
+        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Location = New System.Drawing.Point(23, 68)
         Me.Label15.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(83, 15)
+        Me.Label15.Size = New System.Drawing.Size(99, 17)
         Me.Label15.TabIndex = 268
         Me.Label15.Text = "Tipo de venta:"
         '
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(7, 58)
+        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(12, 177)
         Me.Label14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(63, 15)
+        Me.Label14.Size = New System.Drawing.Size(74, 17)
         Me.Label14.TabIndex = 267
         Me.Label14.Text = "Vendedor:"
+        Me.Label14.Visible = False
         '
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(7, 38)
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(23, 48)
         Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(44, 15)
+        Me.Label13.Size = New System.Drawing.Size(51, 17)
         Me.Label13.TabIndex = 266
         Me.Label13.Text = "Fecha:"
         '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(7, 17)
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(23, 26)
         Me.Label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(67, 15)
+        Me.Label12.Size = New System.Drawing.Size(79, 17)
         Me.Label12.TabIndex = 265
         Me.Label12.Text = "Nº Factura:"
         '
@@ -1033,16 +1054,16 @@ Partial Class Venta_Caja_gestion
         Me.GroupBox11.Controls.Add(Me.lb_dni_clie)
         Me.GroupBox11.Controls.Add(Me.lb_fantasia)
         Me.GroupBox11.Controls.Add(Me.Label18)
+        Me.GroupBox11.Controls.Add(Me.Label2)
         Me.GroupBox11.Controls.Add(Me.Label17)
         Me.GroupBox11.Controls.Add(Me.Label16)
-        Me.GroupBox11.Controls.Add(Me.Label2)
         Me.GroupBox11.Controls.Add(Me.Label4)
-        Me.GroupBox11.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox11.Location = New System.Drawing.Point(404, 43)
         Me.GroupBox11.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox11.Name = "GroupBox11"
         Me.GroupBox11.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GroupBox11.Size = New System.Drawing.Size(432, 99)
+        Me.GroupBox11.Size = New System.Drawing.Size(432, 96)
         Me.GroupBox11.TabIndex = 273
         Me.GroupBox11.TabStop = False
         Me.GroupBox11.Text = "Cliente"
@@ -1050,127 +1071,138 @@ Partial Class Venta_Caja_gestion
         'Label_saldo
         '
         Me.Label_saldo.AutoSize = True
-        Me.Label_saldo.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_saldo.Location = New System.Drawing.Point(242, 60)
+        Me.Label_saldo.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_saldo.Location = New System.Drawing.Point(285, 68)
         Me.Label_saldo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label_saldo.Name = "Label_saldo"
-        Me.Label_saldo.Size = New System.Drawing.Size(42, 15)
+        Me.Label_saldo.Size = New System.Drawing.Size(48, 17)
         Me.Label_saldo.TabIndex = 274
         Me.Label_saldo.Text = "Saldo:"
         '
         'Label_ctacte
         '
         Me.Label_ctacte.AutoSize = True
-        Me.Label_ctacte.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_ctacte.Location = New System.Drawing.Point(242, 39)
+        Me.Label_ctacte.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_ctacte.Location = New System.Drawing.Point(26, 68)
         Me.Label_ctacte.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label_ctacte.Name = "Label_ctacte"
-        Me.Label_ctacte.Size = New System.Drawing.Size(102, 15)
+        Me.Label_ctacte.Size = New System.Drawing.Size(119, 17)
         Me.Label_ctacte.TabIndex = 273
         Me.Label_ctacte.Text = "Cuenta Corriente:"
         '
         'lb_tipoIVA_clie
         '
         Me.lb_tipoIVA_clie.AutoSize = True
-        Me.lb_tipoIVA_clie.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lb_tipoIVA_clie.Location = New System.Drawing.Point(95, 80)
+        Me.lb_tipoIVA_clie.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lb_tipoIVA_clie.Location = New System.Drawing.Point(180, 151)
         Me.lb_tipoIVA_clie.Name = "lb_tipoIVA_clie"
-        Me.lb_tipoIVA_clie.Size = New System.Drawing.Size(32, 15)
+        Me.lb_tipoIVA_clie.Size = New System.Drawing.Size(40, 17)
         Me.lb_tipoIVA_clie.TabIndex = 272
         Me.lb_tipoIVA_clie.Text = "- - - -"
+        Me.lb_tipoIVA_clie.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lb_tipoIVA_clie.Visible = False
         '
         'lb_mail_clie
         '
         Me.lb_mail_clie.AutoSize = True
-        Me.lb_mail_clie.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lb_mail_clie.Location = New System.Drawing.Point(50, 60)
+        Me.lb_mail_clie.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lb_mail_clie.Location = New System.Drawing.Point(131, 131)
         Me.lb_mail_clie.Name = "lb_mail_clie"
-        Me.lb_mail_clie.Size = New System.Drawing.Size(32, 15)
+        Me.lb_mail_clie.Size = New System.Drawing.Size(40, 17)
         Me.lb_mail_clie.TabIndex = 271
         Me.lb_mail_clie.Text = "- - - -"
+        Me.lb_mail_clie.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lb_mail_clie.Visible = False
         '
         'lb_telef_clie
         '
         Me.lb_telef_clie.AutoSize = True
-        Me.lb_telef_clie.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lb_telef_clie.Location = New System.Drawing.Point(307, 78)
+        Me.lb_telef_clie.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lb_telef_clie.Location = New System.Drawing.Point(163, 174)
         Me.lb_telef_clie.Name = "lb_telef_clie"
-        Me.lb_telef_clie.Size = New System.Drawing.Size(32, 15)
+        Me.lb_telef_clie.Size = New System.Drawing.Size(40, 17)
         Me.lb_telef_clie.TabIndex = 270
         Me.lb_telef_clie.Text = "- - - -"
+        Me.lb_telef_clie.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lb_telef_clie.Visible = False
         '
         'lb_dni_clie
         '
         Me.lb_dni_clie.AutoSize = True
-        Me.lb_dni_clie.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lb_dni_clie.Location = New System.Drawing.Point(106, 39)
+        Me.lb_dni_clie.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lb_dni_clie.Location = New System.Drawing.Point(131, 48)
         Me.lb_dni_clie.Name = "lb_dni_clie"
-        Me.lb_dni_clie.Size = New System.Drawing.Size(32, 15)
+        Me.lb_dni_clie.Size = New System.Drawing.Size(40, 17)
         Me.lb_dni_clie.TabIndex = 269
         Me.lb_dni_clie.Text = "- - - -"
+        Me.lb_dni_clie.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lb_fantasia
         '
         Me.lb_fantasia.AutoSize = True
-        Me.lb_fantasia.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lb_fantasia.Location = New System.Drawing.Point(165, 17)
+        Me.lb_fantasia.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lb_fantasia.Location = New System.Drawing.Point(196, 26)
         Me.lb_fantasia.Name = "lb_fantasia"
-        Me.lb_fantasia.Size = New System.Drawing.Size(32, 15)
+        Me.lb_fantasia.Size = New System.Drawing.Size(40, 17)
         Me.lb_fantasia.TabIndex = 268
         Me.lb_fantasia.Text = "- - - -"
+        Me.lb_fantasia.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(11, 80)
+        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.Location = New System.Drawing.Point(88, 151)
         Me.Label18.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(71, 15)
+        Me.Label18.Size = New System.Drawing.Size(85, 17)
         Me.Label18.TabIndex = 267
         Me.Label18.Text = "Tipo de IVA:"
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(12, 60)
-        Me.Label17.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(34, 15)
-        Me.Label17.TabIndex = 266
-        Me.Label17.Text = "Mail:"
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(242, 78)
-        Me.Label16.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(58, 15)
-        Me.Label16.TabIndex = 265
-        Me.Label16.Text = "Teléfono:"
+        Me.Label18.Visible = False
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(11, 17)
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(26, 26)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(141, 15)
+        Me.Label2.Size = New System.Drawing.Size(163, 17)
         Me.Label2.TabIndex = 263
         Me.Label2.Text = "Fantasía o Razon social:"
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.Location = New System.Drawing.Point(87, 131)
+        Me.Label17.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(37, 17)
+        Me.Label17.TabIndex = 266
+        Me.Label17.Text = "Mail:"
+        Me.Label17.Visible = False
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Location = New System.Drawing.Point(88, 173)
+        Me.Label16.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(68, 17)
+        Me.Label16.TabIndex = 265
+        Me.Label16.Text = "Teléfono:"
+        Me.Label16.Visible = False
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(12, 39)
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(27, 48)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(83, 15)
+        Me.Label4.Size = New System.Drawing.Size(97, 17)
         Me.Label4.TabIndex = 264
         Me.Label4.Text = "DNI / Nº CUIT:"
         '
@@ -1185,12 +1217,12 @@ Partial Class Venta_Caja_gestion
         Me.GroupBox10.Controls.Add(Me.Label7)
         Me.GroupBox10.Controls.Add(Me.lb_nombre_sucursal)
         Me.GroupBox10.Controls.Add(Me.lb)
-        Me.GroupBox10.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox10.Location = New System.Drawing.Point(13, 44)
+        Me.GroupBox10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox10.Location = New System.Drawing.Point(15, 43)
         Me.GroupBox10.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox10.Name = "GroupBox10"
         Me.GroupBox10.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GroupBox10.Size = New System.Drawing.Size(385, 99)
+        Me.GroupBox10.Size = New System.Drawing.Size(385, 96)
         Me.GroupBox10.TabIndex = 272
         Me.GroupBox10.TabStop = False
         Me.GroupBox10.Text = "Datos comerciales"
@@ -1198,88 +1230,94 @@ Partial Class Venta_Caja_gestion
         'lb_mail_sucursal
         '
         Me.lb_mail_sucursal.AutoSize = True
-        Me.lb_mail_sucursal.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lb_mail_sucursal.Location = New System.Drawing.Point(49, 77)
+        Me.lb_mail_sucursal.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lb_mail_sucursal.Location = New System.Drawing.Point(73, 88)
         Me.lb_mail_sucursal.Name = "lb_mail_sucursal"
-        Me.lb_mail_sucursal.Size = New System.Drawing.Size(32, 15)
+        Me.lb_mail_sucursal.Size = New System.Drawing.Size(40, 17)
         Me.lb_mail_sucursal.TabIndex = 274
         Me.lb_mail_sucursal.Text = "- - - -"
+        Me.lb_mail_sucursal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lb_mail_sucursal.Visible = False
         '
         'lb_telefono_sucursal
         '
         Me.lb_telefono_sucursal.AutoSize = True
-        Me.lb_telefono_sucursal.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lb_telefono_sucursal.Location = New System.Drawing.Point(76, 57)
+        Me.lb_telefono_sucursal.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lb_telefono_sucursal.Location = New System.Drawing.Point(107, 68)
         Me.lb_telefono_sucursal.Name = "lb_telefono_sucursal"
-        Me.lb_telefono_sucursal.Size = New System.Drawing.Size(32, 15)
+        Me.lb_telefono_sucursal.Size = New System.Drawing.Size(40, 17)
         Me.lb_telefono_sucursal.TabIndex = 273
         Me.lb_telefono_sucursal.Text = "- - - -"
+        Me.lb_telefono_sucursal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lb_direccion_sucursal
         '
         Me.lb_direccion_sucursal.AutoSize = True
-        Me.lb_direccion_sucursal.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lb_direccion_sucursal.Location = New System.Drawing.Point(85, 36)
+        Me.lb_direccion_sucursal.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lb_direccion_sucursal.Location = New System.Drawing.Point(107, 48)
         Me.lb_direccion_sucursal.Name = "lb_direccion_sucursal"
-        Me.lb_direccion_sucursal.Size = New System.Drawing.Size(32, 15)
+        Me.lb_direccion_sucursal.Size = New System.Drawing.Size(40, 17)
         Me.lb_direccion_sucursal.TabIndex = 272
         Me.lb_direccion_sucursal.Text = "- - - -"
+        Me.lb_direccion_sucursal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label22
         '
         Me.Label22.AutoSize = True
-        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label22.Location = New System.Drawing.Point(11, 77)
+        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.Location = New System.Drawing.Point(30, 88)
         Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(34, 15)
+        Me.Label22.Size = New System.Drawing.Size(37, 17)
         Me.Label22.TabIndex = 271
         Me.Label22.Text = "Mail:"
+        Me.Label22.Visible = False
         '
         'Label21
         '
         Me.Label21.AutoSize = True
-        Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label21.Location = New System.Drawing.Point(11, 57)
+        Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.Location = New System.Drawing.Point(30, 68)
         Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(58, 15)
+        Me.Label21.Size = New System.Drawing.Size(68, 17)
         Me.Label21.TabIndex = 270
         Me.Label21.Text = "Teléfono:"
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(11, 36)
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(30, 48)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(62, 15)
+        Me.Label7.Size = New System.Drawing.Size(71, 17)
         Me.Label7.TabIndex = 269
         Me.Label7.Text = "Dirección:"
         '
         'lb_nombre_sucursal
         '
         Me.lb_nombre_sucursal.AutoSize = True
-        Me.lb_nombre_sucursal.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lb_nombre_sucursal.Location = New System.Drawing.Point(76, 17)
+        Me.lb_nombre_sucursal.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lb_nombre_sucursal.Location = New System.Drawing.Point(107, 26)
         Me.lb_nombre_sucursal.Name = "lb_nombre_sucursal"
-        Me.lb_nombre_sucursal.Size = New System.Drawing.Size(32, 15)
+        Me.lb_nombre_sucursal.Size = New System.Drawing.Size(40, 17)
         Me.lb_nombre_sucursal.TabIndex = 268
         Me.lb_nombre_sucursal.Text = "- - - -"
+        Me.lb_nombre_sucursal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lb
         '
         Me.lb.AutoSize = True
-        Me.lb.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lb.Location = New System.Drawing.Point(11, 17)
+        Me.lb.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lb.Location = New System.Drawing.Point(30, 26)
         Me.lb.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lb.Name = "lb"
-        Me.lb.Size = New System.Drawing.Size(58, 15)
+        Me.lb.Size = New System.Drawing.Size(67, 17)
         Me.lb.TabIndex = 267
         Me.lb.Text = "Sucursal:"
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(1059, 20)
+        Me.Label8.Location = New System.Drawing.Point(1039, 20)
         Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(166, 20)
@@ -1302,7 +1340,7 @@ Partial Class Venta_Caja_gestion
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(952, 20)
+        Me.Label5.Location = New System.Drawing.Point(932, 20)
         Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(111, 20)
@@ -1313,23 +1351,22 @@ Partial Class Venta_Caja_gestion
         'GroupBox4
         '
         Me.GroupBox4.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox4.Controls.Add(Me.Groupbox_vendedor)
         Me.GroupBox4.Controls.Add(Me.Label6)
         Me.GroupBox4.Controls.Add(Me.Guardar)
         Me.GroupBox4.Controls.Add(Me.Quitar)
         Me.GroupBox4.Controls.Add(Me.Button3)
-        Me.GroupBox4.Location = New System.Drawing.Point(16, 528)
+        Me.GroupBox4.Location = New System.Drawing.Point(16, 570)
         Me.GroupBox4.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox4.Size = New System.Drawing.Size(1216, 104)
+        Me.GroupBox4.Size = New System.Drawing.Size(1216, 60)
         Me.GroupBox4.TabIndex = 238
         Me.GroupBox4.TabStop = False
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(11, 32)
+        Me.Label6.Location = New System.Drawing.Point(7, 28)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(381, 20)
         Me.Label6.TabIndex = 3
@@ -1339,7 +1376,7 @@ Partial Class Venta_Caja_gestion
         '
         Me.Guardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Guardar.Image = CType(resources.GetObject("Guardar.Image"), System.Drawing.Image)
-        Me.Guardar.Location = New System.Drawing.Point(1048, 33)
+        Me.Guardar.Location = New System.Drawing.Point(1073, 14)
         Me.Guardar.Margin = New System.Windows.Forms.Padding(4)
         Me.Guardar.Name = "Guardar"
         Me.Guardar.Size = New System.Drawing.Size(124, 43)
@@ -1353,7 +1390,7 @@ Partial Class Venta_Caja_gestion
         '
         Me.Quitar.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Quitar.Image = Global.Aplicacion.My.Resources.Resources.menos
-        Me.Quitar.Location = New System.Drawing.Point(784, 33)
+        Me.Quitar.Location = New System.Drawing.Point(809, 14)
         Me.Quitar.Margin = New System.Windows.Forms.Padding(4)
         Me.Quitar.Name = "Quitar"
         Me.Quitar.Size = New System.Drawing.Size(124, 43)
@@ -1367,7 +1404,7 @@ Partial Class Venta_Caja_gestion
         '
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.Image = Global.Aplicacion.My.Resources.Resources.Limpiar
-        Me.Button3.Location = New System.Drawing.Point(916, 33)
+        Me.Button3.Location = New System.Drawing.Point(941, 14)
         Me.Button3.Margin = New System.Windows.Forms.Padding(4)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(124, 43)
@@ -1384,11 +1421,11 @@ Partial Class Venta_Caja_gestion
         Me.GroupBox12.Enabled = False
         Me.GroupBox12.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox12.ForeColor = System.Drawing.Color.DarkSlateGray
-        Me.GroupBox12.Location = New System.Drawing.Point(16, 152)
+        Me.GroupBox12.Location = New System.Drawing.Point(16, 198)
         Me.GroupBox12.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox12.Name = "GroupBox12"
         Me.GroupBox12.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox12.Size = New System.Drawing.Size(1216, 227)
+        Me.GroupBox12.Size = New System.Drawing.Size(1216, 260)
         Me.GroupBox12.TabIndex = 237
         Me.GroupBox12.TabStop = False
         Me.GroupBox12.Text = "Productos agregados"
@@ -1402,33 +1439,33 @@ Partial Class Venta_Caja_gestion
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.columna_item, Me.columna_prod_id, Me.columna_codinterno, Me.columna_descripcion, Me.columna_detalle, Me.columna_cantidad, Me.descuento, Me.columna_precio_unitario, Me.columna_precio_subtotal, Me.columna_codbarra, Me.Column1})
         Me.DataGridView1.DataSource = Me.ProductoagregadoBindingSource
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle10.ForeColor = System.Drawing.Color.DarkSlateGray
-        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Transparent
-        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.WindowFrame
-        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle10
-        Me.DataGridView1.Location = New System.Drawing.Point(4, 19)
+        DataGridViewCellStyle131.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle131.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle131.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle131.ForeColor = System.Drawing.Color.DarkSlateGray
+        DataGridViewCellStyle131.SelectionBackColor = System.Drawing.Color.Transparent
+        DataGridViewCellStyle131.SelectionForeColor = System.Drawing.SystemColors.WindowFrame
+        DataGridViewCellStyle131.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle131
+        Me.DataGridView1.Location = New System.Drawing.Point(4, 21)
         Me.DataGridView1.Margin = New System.Windows.Forms.Padding(4)
         Me.DataGridView1.MultiSelect = False
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersVisible = False
-        DataGridViewCellStyle11.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption
-        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black
-        Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle132.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle132.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle132.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption
+        DataGridViewCellStyle132.SelectionForeColor = System.Drawing.Color.Black
+        Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle132
         Me.DataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(1193, 200)
+        Me.DataGridView1.Size = New System.Drawing.Size(1193, 230)
         Me.DataGridView1.TabIndex = 0
         '
         'columna_item
         '
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.columna_item.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle125.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.columna_item.DefaultCellStyle = DataGridViewCellStyle125
         Me.columna_item.FillWeight = 106.599!
         Me.columna_item.HeaderText = "Item"
         Me.columna_item.Name = "columna_item"
@@ -1456,8 +1493,8 @@ Partial Class Venta_Caja_gestion
         'columna_descripcion
         '
         Me.columna_descripcion.DataPropertyName = "descripcion"
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.columna_descripcion.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle126.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.columna_descripcion.DefaultCellStyle = DataGridViewCellStyle126
         Me.columna_descripcion.FillWeight = 98.90017!
         Me.columna_descripcion.HeaderText = "Descripción"
         Me.columna_descripcion.Name = "columna_descripcion"
@@ -1477,9 +1514,9 @@ Partial Class Venta_Caja_gestion
         'columna_cantidad
         '
         Me.columna_cantidad.DataPropertyName = "cantidad"
-        DataGridViewCellStyle6.Format = "N2"
-        DataGridViewCellStyle6.NullValue = Nothing
-        Me.columna_cantidad.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle127.Format = "N2"
+        DataGridViewCellStyle127.NullValue = Nothing
+        Me.columna_cantidad.DefaultCellStyle = DataGridViewCellStyle127
         Me.columna_cantidad.FillWeight = 98.90017!
         Me.columna_cantidad.HeaderText = "Cantidad"
         Me.columna_cantidad.Name = "columna_cantidad"
@@ -1489,8 +1526,8 @@ Partial Class Venta_Caja_gestion
         'descuento
         '
         Me.descuento.DataPropertyName = "descuento"
-        DataGridViewCellStyle7.Format = "N2"
-        Me.descuento.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle128.Format = "N2"
+        Me.descuento.DefaultCellStyle = DataGridViewCellStyle128
         Me.descuento.HeaderText = "Descuento(%)"
         Me.descuento.Name = "descuento"
         Me.descuento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
@@ -1498,9 +1535,9 @@ Partial Class Venta_Caja_gestion
         'columna_precio_unitario
         '
         Me.columna_precio_unitario.DataPropertyName = "precio_unitario"
-        DataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        DataGridViewCellStyle8.Format = "N2"
-        Me.columna_precio_unitario.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle129.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        DataGridViewCellStyle129.Format = "N2"
+        Me.columna_precio_unitario.DefaultCellStyle = DataGridViewCellStyle129
         Me.columna_precio_unitario.FillWeight = 98.90017!
         Me.columna_precio_unitario.HeaderText = "Precio U."
         Me.columna_precio_unitario.Name = "columna_precio_unitario"
@@ -1511,9 +1548,9 @@ Partial Class Venta_Caja_gestion
         'columna_precio_subtotal
         '
         Me.columna_precio_subtotal.DataPropertyName = "precio_subtotal"
-        DataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        DataGridViewCellStyle9.Format = "N2"
-        Me.columna_precio_subtotal.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle130.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        DataGridViewCellStyle130.Format = "N2"
+        Me.columna_precio_subtotal.DefaultCellStyle = DataGridViewCellStyle130
         Me.columna_precio_subtotal.FillWeight = 98.90017!
         Me.columna_precio_subtotal.HeaderText = "Subtotal"
         Me.columna_precio_subtotal.Name = "columna_precio_subtotal"
@@ -1544,52 +1581,15 @@ Partial Class Venta_Caja_gestion
         Me.ProductosCombosBindingSource.DataMember = "Productos_Combos"
         Me.ProductosCombosBindingSource.DataSource = Me.Venta_Caja_ds
         '
-        'Groupbox_vendedor
-        '
-        Me.Groupbox_vendedor.Controls.Add(Me.Btn_Vendedor_buscar)
-        Me.Groupbox_vendedor.Controls.Add(Me.ComboBox_vendedor)
-        Me.Groupbox_vendedor.Controls.Add(Me.TextBox1)
-        Me.Groupbox_vendedor.Controls.Add(Me.Label25)
-        Me.Groupbox_vendedor.Location = New System.Drawing.Point(394, 11)
-        Me.Groupbox_vendedor.Name = "Groupbox_vendedor"
-        Me.Groupbox_vendedor.Size = New System.Drawing.Size(310, 86)
-        Me.Groupbox_vendedor.TabIndex = 263
-        Me.Groupbox_vendedor.TabStop = False
-        Me.Groupbox_vendedor.Text = "Vendedor"
-        '
         'Label25
         '
         Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(20, 22)
+        Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label25.Location = New System.Drawing.Point(16, 10)
         Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(43, 20)
-        Me.Label25.TabIndex = 0
-        Me.Label25.Text = "Cód."
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(69, 21)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(161, 26)
-        Me.TextBox1.TabIndex = 1
-        '
-        'ComboBox_vendedor
-        '
-        Me.ComboBox_vendedor.FormattingEnabled = True
-        Me.ComboBox_vendedor.Location = New System.Drawing.Point(69, 50)
-        Me.ComboBox_vendedor.Name = "ComboBox_vendedor"
-        Me.ComboBox_vendedor.Size = New System.Drawing.Size(225, 28)
-        Me.ComboBox_vendedor.TabIndex = 2
-        '
-        'Btn_Vendedor_buscar
-        '
-        Me.Btn_Vendedor_buscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn_Vendedor_buscar.Location = New System.Drawing.Point(235, 18)
-        Me.Btn_Vendedor_buscar.Name = "Btn_Vendedor_buscar"
-        Me.Btn_Vendedor_buscar.Size = New System.Drawing.Size(59, 30)
-        Me.Btn_Vendedor_buscar.TabIndex = 3
-        Me.Btn_Vendedor_buscar.Text = "..."
-        Me.Btn_Vendedor_buscar.UseVisualStyleBackColor = True
+        Me.Label25.Size = New System.Drawing.Size(74, 17)
+        Me.Label25.TabIndex = 4
+        Me.Label25.Text = "Vendedor:"
         '
         'Venta_Caja_gestion
         '
@@ -1635,6 +1635,8 @@ Partial Class Venta_Caja_gestion
         Me.GroupBox9.PerformLayout()
         Me.GroupBox7.ResumeLayout(False)
         Me.GroupBox7.PerformLayout()
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
         Me.GroupBox13.ResumeLayout(False)
         Me.GroupBox13.PerformLayout()
         Me.GroupBox11.ResumeLayout(False)
@@ -1647,8 +1649,6 @@ Partial Class Venta_Caja_gestion
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ProductoagregadoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ProductosCombosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Groupbox_vendedor.ResumeLayout(False)
-        Me.Groupbox_vendedor.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1671,12 +1671,10 @@ Partial Class Venta_Caja_gestion
     Friend WithEvents RB_Consumidor As System.Windows.Forms.RadioButton
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
     Friend WithEvents GroupBox12 As System.Windows.Forms.GroupBox
-    Friend WithEvents BO_buscar As System.Windows.Forms.Button
     Friend WithEvents Quitar As System.Windows.Forms.Button
     Friend WithEvents Guardar As System.Windows.Forms.Button
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents ProductoagregadoBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents BO_promocion As System.Windows.Forms.Button
     Friend WithEvents ProductosCombosBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
@@ -1769,9 +1767,9 @@ Partial Class Venta_Caja_gestion
     Friend WithEvents Column1 As System.Windows.Forms.DataGridViewCheckBoxColumn
     Friend WithEvents Label_ctacte As System.Windows.Forms.Label
     Friend WithEvents Label_saldo As System.Windows.Forms.Label
-    Friend WithEvents Groupbox_vendedor As System.Windows.Forms.GroupBox
     Friend WithEvents Btn_Vendedor_buscar As System.Windows.Forms.Button
     Friend WithEvents ComboBox_vendedor As System.Windows.Forms.ComboBox
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents txt_vendedor_codigo As System.Windows.Forms.TextBox
+    Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents Label25 As System.Windows.Forms.Label
 End Class

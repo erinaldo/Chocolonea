@@ -479,7 +479,7 @@ Public Class Venta
     Public Function VentaProducto_alta(ByVal ventaprod_total As Decimal, ByVal ventaprod_fecha As Date, ByVal usuario_id As Integer, ByVal ventaprod_tipovta As String, ByVal cliente_id As Integer,
                                        ByVal ventaprod_subtotal As Decimal, ByVal ventaprod_descuento_pesos As Decimal, ByVal ventaprod_descuento_porcentaje As Decimal,
                                        ByVal ventaprod_iva_porcentaje As Decimal, ByVal ventaprod_iva_pesos As Decimal, ByVal ventaprod_observacion As String,
-                                       ByVal Servicio_id As Integer) As DataSet
+                                       ByVal Servicio_id As Integer, ByVal vendedor_id As Integer, ByVal ventaprod_estado As String) As DataSet
 
         Try
             dbconn.Open()
@@ -501,6 +501,8 @@ Public Class Venta
         comando.Parameters.Add(New OleDb.OleDbParameter("@ventaprod_iva_pesos", ventaprod_iva_pesos))
         comando.Parameters.Add(New OleDb.OleDbParameter("@ventaprod_observacion", ventaprod_observacion))
         comando.Parameters.Add(New OleDb.OleDbParameter("@Servicio_id", Servicio_id))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@vendedor_id", vendedor_id))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@ventaprod_estado", ventaprod_estado))
 
         'el tipo de venta es cliente o consumidor final
         'el id del cliente es 0 en caso de ser consumidor final
@@ -611,6 +613,25 @@ Public Class Venta
         dbconn.Close()
         Return ds_JE
     End Function
+
+    Public Function obtener_ultimo_nroremito() As DataSet
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+
+        Dim comando As New OleDbCommand("Venta_obtener_nroremito", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+
+        'comando.Parameters.Add(New OleDb.OleDbParameter("@sucursal_id", sucursal_id))
+        Dim ds_JE As New DataSet()
+        Dim da_JE As New OleDbDataAdapter(comando)
+        da_JE.Fill(ds_JE, "Venta")
+        dbconn.Close()
+        Return ds_JE
+    End Function
+
+
 
 
     Public Function Producto_x_Sucursal_obtener_todo_marca(ByVal Sucursal_id As Integer, ByVal marca_id As Integer) As DataSet
@@ -852,7 +873,55 @@ Public Class Venta
 
 #End Region
 
+#Region "Generar Factura"
+    Public Function Factura_alta(ByVal ventaprod_id As Integer, ByVal factura_fecha As DateTime) As DataSet
 
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+
+        Dim comando As New OleDbCommand("Factura_alta", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+
+        comando.Parameters.Add(New OleDb.OleDbParameter("@ventaprod_id", ventaprod_id))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@factura_fecha", factura_fecha))
+
+        'el tipo de venta es cliente o consumidor final
+        'el id del cliente es 0 en caso de ser consumidor final
+
+        Dim ds_JE As New DataSet()
+        Dim da_JE As New OleDbDataAdapter(comando)
+        da_JE.Fill(ds_JE, "Factura")
+        dbconn.Close()
+        Return ds_JE
+    End Function
+#End Region
+
+#Region "Generar Remito"
+    Public Function Remito_alta(ByVal ventaprod_id As Integer, ByVal remito_fecha As DateTime, ByVal remito_estado As String) As DataSet
+
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+
+        Dim comando As New OleDbCommand("Remito_alta", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+
+        comando.Parameters.Add(New OleDb.OleDbParameter("@ventaprod_id", ventaprod_id))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@remito_fecha", remito_fecha))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@remito_estado", remito_estado))
+        'el tipo de venta es cliente o consumidor final
+        'el id del cliente es 0 en caso de ser consumidor final
+
+        Dim ds_JE As New DataSet()
+        Dim da_JE As New OleDbDataAdapter(comando)
+        da_JE.Fill(ds_JE, "Remito")
+        dbconn.Close()
+        Return ds_JE
+    End Function
+#End Region
 
 
 

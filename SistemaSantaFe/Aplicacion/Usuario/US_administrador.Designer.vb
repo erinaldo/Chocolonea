@@ -47,6 +47,7 @@ Partial Class US_administrador
         Me.NuevoClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClienteInformeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BusquedaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CuentaCorrienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripDropDownButton4 = New System.Windows.Forms.ToolStripDropDownButton()
         Me.ListaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListaNuevaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -100,6 +101,9 @@ Partial Class US_administrador
         Me.CajaConsultaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SucursalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EmpresaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.VendedorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.VendedorNuevoToolStripMenuitem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.VendedorActualizarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripDropDownButton3 = New System.Windows.Forms.ToolStripDropDownButton()
         Me.HeladeraGondolaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -119,9 +123,7 @@ Partial Class US_administrador
         Me.Btn_corte_caja = New System.Windows.Forms.Button()
         Me.Label_Suc = New System.Windows.Forms.Label()
         Me.Lbl_Terminal = New System.Windows.Forms.Label()
-        Me.VendedorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.VendedorNuevoToolStripMenuitem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.VendedorActualizarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RemitoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -136,14 +138,14 @@ Partial Class US_administrador
         Me.ToolStrip1.Location = New System.Drawing.Point(7, 68)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
-        Me.ToolStrip1.Size = New System.Drawing.Size(24, 44)
+        Me.ToolStrip1.Size = New System.Drawing.Size(81, 648)
         Me.ToolStrip1.TabIndex = 54
         Me.ToolStrip1.Text = "ToolStrip1"
         '
         'ToolStripSeparator10
         '
         Me.ToolStripSeparator10.Name = "ToolStripSeparator10"
-        Me.ToolStripSeparator10.Size = New System.Drawing.Size(22, 6)
+        Me.ToolStripSeparator10.Size = New System.Drawing.Size(79, 6)
         '
         'ToolStripSeparator4
         '
@@ -262,7 +264,7 @@ Partial Class US_administrador
         '
         Me.ToolStripDropDownButton2.AutoSize = False
         Me.ToolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripDropDownButton2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoClienteToolStripMenuItem, Me.ClienteInformeToolStripMenuItem, Me.BusquedaToolStripMenuItem})
+        Me.ToolStripDropDownButton2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoClienteToolStripMenuItem, Me.ClienteInformeToolStripMenuItem, Me.BusquedaToolStripMenuItem, Me.CuentaCorrienteToolStripMenuItem})
         Me.ToolStripDropDownButton2.Image = CType(resources.GetObject("ToolStripDropDownButton2.Image"), System.Drawing.Image)
         Me.ToolStripDropDownButton2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.ToolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta
@@ -291,6 +293,12 @@ Partial Class US_administrador
         Me.BusquedaToolStripMenuItem.Size = New System.Drawing.Size(194, 24)
         Me.BusquedaToolStripMenuItem.Text = "Actualizar Cliente"
         Me.BusquedaToolStripMenuItem.Visible = False
+        '
+        'CuentaCorrienteToolStripMenuItem
+        '
+        Me.CuentaCorrienteToolStripMenuItem.Name = "CuentaCorrienteToolStripMenuItem"
+        Me.CuentaCorrienteToolStripMenuItem.Size = New System.Drawing.Size(194, 24)
+        Me.CuentaCorrienteToolStripMenuItem.Text = "Cuenta Corriente"
         '
         'ToolStripDropDownButton4
         '
@@ -412,13 +420,13 @@ Partial Class US_administrador
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(22, 6)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(79, 6)
         '
         'ToolStripDropDownButton6
         '
         Me.ToolStripDropDownButton6.AutoSize = False
         Me.ToolStripDropDownButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripDropDownButton6.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentaEnCajaToolStripMenuItem, Me.VentaEnMesas2ToolStripMenuItem, Me.VentasConsultasToolStripMenuItem, Me.CalculadoraDelSistemaToolStripMenuItem, Me.MenuMesasNEWToolStripMenuItem, Me.CierreDeCajaToolStripMenuItem})
+        Me.ToolStripDropDownButton6.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentaEnCajaToolStripMenuItem, Me.VentaEnMesas2ToolStripMenuItem, Me.VentasConsultasToolStripMenuItem, Me.CalculadoraDelSistemaToolStripMenuItem, Me.MenuMesasNEWToolStripMenuItem, Me.CierreDeCajaToolStripMenuItem, Me.RemitoToolStripMenuItem})
         Me.ToolStripDropDownButton6.Image = CType(resources.GetObject("ToolStripDropDownButton6.Image"), System.Drawing.Image)
         Me.ToolStripDropDownButton6.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.ToolStripDropDownButton6.ImageTransparentColor = System.Drawing.Color.Magenta
@@ -472,7 +480,7 @@ Partial Class US_administrador
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(22, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(79, 6)
         '
         'ToolStripDropDownButton7
         '
@@ -511,7 +519,7 @@ Partial Class US_administrador
         'ToolStripSeparator6
         '
         Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
-        Me.ToolStripSeparator6.Size = New System.Drawing.Size(22, 6)
+        Me.ToolStripSeparator6.Size = New System.Drawing.Size(79, 6)
         '
         'ToolStripDropDownButtonServicios
         '
@@ -543,7 +551,7 @@ Partial Class US_administrador
         'ToolStripSeparator7
         '
         Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
-        Me.ToolStripSeparator7.Size = New System.Drawing.Size(22, 6)
+        Me.ToolStripSeparator7.Size = New System.Drawing.Size(79, 6)
         '
         'ToolStripDropDownButton8
         '
@@ -582,7 +590,7 @@ Partial Class US_administrador
         'ToolStripSeparator8
         '
         Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
-        Me.ToolStripSeparator8.Size = New System.Drawing.Size(22, 6)
+        Me.ToolStripSeparator8.Size = New System.Drawing.Size(79, 6)
         '
         'ToolStripDropDownButtonConfiguracion
         '
@@ -647,21 +655,21 @@ Partial Class US_administrador
         'NuevoUsuarioToolStripMenuItem
         '
         Me.NuevoUsuarioToolStripMenuItem.Name = "NuevoUsuarioToolStripMenuItem"
-        Me.NuevoUsuarioToolStripMenuItem.Size = New System.Drawing.Size(152, 24)
+        Me.NuevoUsuarioToolStripMenuItem.Size = New System.Drawing.Size(144, 24)
         Me.NuevoUsuarioToolStripMenuItem.Text = "Nuevo"
         Me.NuevoUsuarioToolStripMenuItem.Visible = False
         '
         'UsuarioActualizarToolStripMenuItem
         '
         Me.UsuarioActualizarToolStripMenuItem.Name = "UsuarioActualizarToolStripMenuItem"
-        Me.UsuarioActualizarToolStripMenuItem.Size = New System.Drawing.Size(152, 24)
+        Me.UsuarioActualizarToolStripMenuItem.Size = New System.Drawing.Size(144, 24)
         Me.UsuarioActualizarToolStripMenuItem.Text = "Actualizar"
         Me.UsuarioActualizarToolStripMenuItem.Visible = False
         '
         'PermisosToolStripMenuItem
         '
         Me.PermisosToolStripMenuItem.Name = "PermisosToolStripMenuItem"
-        Me.PermisosToolStripMenuItem.Size = New System.Drawing.Size(152, 24)
+        Me.PermisosToolStripMenuItem.Size = New System.Drawing.Size(144, 24)
         Me.PermisosToolStripMenuItem.Text = "Permisos"
         Me.PermisosToolStripMenuItem.Visible = False
         '
@@ -685,6 +693,25 @@ Partial Class US_administrador
         Me.EmpresaToolStripMenuItem.Size = New System.Drawing.Size(166, 24)
         Me.EmpresaToolStripMenuItem.Text = "Empresa"
         Me.EmpresaToolStripMenuItem.Visible = False
+        '
+        'VendedorToolStripMenuItem
+        '
+        Me.VendedorToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VendedorNuevoToolStripMenuitem, Me.VendedorActualizarToolStripMenuItem})
+        Me.VendedorToolStripMenuItem.Name = "VendedorToolStripMenuItem"
+        Me.VendedorToolStripMenuItem.Size = New System.Drawing.Size(166, 24)
+        Me.VendedorToolStripMenuItem.Text = "Vendedor"
+        '
+        'VendedorNuevoToolStripMenuitem
+        '
+        Me.VendedorNuevoToolStripMenuitem.Name = "VendedorNuevoToolStripMenuitem"
+        Me.VendedorNuevoToolStripMenuitem.Size = New System.Drawing.Size(144, 24)
+        Me.VendedorNuevoToolStripMenuitem.Text = "Nuevo"
+        '
+        'VendedorActualizarToolStripMenuItem
+        '
+        Me.VendedorActualizarToolStripMenuItem.Name = "VendedorActualizarToolStripMenuItem"
+        Me.VendedorActualizarToolStripMenuItem.Size = New System.Drawing.Size(144, 24)
+        Me.VendedorActualizarToolStripMenuItem.Text = "Actualizar"
         '
         'ToolStripSeparator5
         '
@@ -714,7 +741,7 @@ Partial Class US_administrador
         'ToolStripSeparator9
         '
         Me.ToolStripSeparator9.Name = "ToolStripSeparator9"
-        Me.ToolStripSeparator9.Size = New System.Drawing.Size(22, 6)
+        Me.ToolStripSeparator9.Size = New System.Drawing.Size(79, 6)
         '
         'PN_Entrada
         '
@@ -894,24 +921,11 @@ Partial Class US_administrador
         Me.Lbl_Terminal.Text = "Lbl_Terminal"
         Me.Lbl_Terminal.Visible = False
         '
-        'VendedorToolStripMenuItem
+        'RemitoToolStripMenuItem
         '
-        Me.VendedorToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VendedorNuevoToolStripMenuitem, Me.VendedorActualizarToolStripMenuItem})
-        Me.VendedorToolStripMenuItem.Name = "VendedorToolStripMenuItem"
-        Me.VendedorToolStripMenuItem.Size = New System.Drawing.Size(166, 24)
-        Me.VendedorToolStripMenuItem.Text = "Vendedor"
-        '
-        'VendedorNuevoToolStripMenuitem
-        '
-        Me.VendedorNuevoToolStripMenuitem.Name = "VendedorNuevoToolStripMenuitem"
-        Me.VendedorNuevoToolStripMenuitem.Size = New System.Drawing.Size(152, 24)
-        Me.VendedorNuevoToolStripMenuitem.Text = "Nuevo"
-        '
-        'VendedorActualizarToolStripMenuItem
-        '
-        Me.VendedorActualizarToolStripMenuItem.Name = "VendedorActualizarToolStripMenuItem"
-        Me.VendedorActualizarToolStripMenuItem.Size = New System.Drawing.Size(152, 24)
-        Me.VendedorActualizarToolStripMenuItem.Text = "Actualizar"
+        Me.RemitoToolStripMenuItem.Name = "RemitoToolStripMenuItem"
+        Me.RemitoToolStripMenuItem.Size = New System.Drawing.Size(238, 24)
+        Me.RemitoToolStripMenuItem.Text = "Remito"
         '
         'US_administrador
         '
@@ -1043,4 +1057,6 @@ Partial Class US_administrador
     Friend WithEvents VendedorToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents VendedorNuevoToolStripMenuitem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents VendedorActualizarToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents CuentaCorrienteToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents RemitoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

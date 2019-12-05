@@ -67,21 +67,20 @@
 
         If ds_venta.Tables(0).Rows.Count <> 0 Then
             Dim row_venta As DataRow = Facturacion_ds_report.Tables("venta").NewRow()
-            row_venta("nro_factura") = ds_venta.Tables(0).Rows(0).Item("ventaprod_id")
-            row_venta("fecha") = ds_venta.Tables(0).Rows(0).Item("fecha")
+            row_venta("nro_factura") = ds_venta.Tables(0).Rows(0).Item("factura_id") 'aqui el id de la factura.
+            row_venta("fecha") = ds_venta.Tables(0).Rows(0).Item("factura_fecha") 'aqui va la fecha de la factura
             row_venta("vendedor") = ds_venta.Tables(0).Rows(0).Item("vendedor")
             row_venta("tipo_venta") = ds_venta.Tables(0).Rows(0).Item("ventaprod_tipovta")
             Facturacion_ds_report.Tables("venta").Rows.Add(row_venta)
         Else
             'esta en tabla 1, es consumidor final
             Dim row_venta As DataRow = Facturacion_ds_report.Tables("venta").NewRow()
-            row_venta("nro_factura") = ds_venta.Tables(1).Rows(0).Item("ventaprod_id")
-            row_venta("fecha") = ds_venta.Tables(1).Rows(0).Item("fecha")
+            row_venta("nro_factura") = ds_venta.Tables(1).Rows(0).Item("factura_id")
+            row_venta("fecha") = ds_venta.Tables(1).Rows(0).Item("factura_fecha")
             row_venta("vendedor") = ds_venta.Tables(1).Rows(0).Item("vendedor")
             row_venta("tipo_venta") = ds_venta.Tables(1).Rows(0).Item("ventaprod_tipovta")
             Facturacion_ds_report.Tables("venta").Rows.Add(row_venta)
         End If
-
 
 
         '///////////////TABLA TOTALES APLICADOS//////////////////////////////////'
@@ -183,8 +182,8 @@
         '///////////////TABLA VENTA//////////////////////////////////'
         'pregunto por el estado de los table 0 y 1, si 0 esta vacio, los datos estan en table 1, q es consumidor final
         If ds_venta.Tables(0).Rows.Count <> 0 Then
-            TextBox_factura.Text = ds_venta.Tables(0).Rows(0).Item("ventaprod_id")
-            TextBox_fecha.Text = ds_venta.Tables(0).Rows(0).Item("fecha")
+            TextBox_factura.Text = ds_venta.Tables(0).Rows(0).Item("factura_id")
+            TextBox_fecha.Text = ds_venta.Tables(0).Rows(0).Item("factura_fecha")
             TextBox_vendedor.Text = ds_venta.Tables(0).Rows(0).Item("vendedor")
             TextBox_tipovta.Text = ds_venta.Tables(0).Rows(0).Item("ventaprod_tipovta")
             'Dim row_venta As DataRow = Facturacion_ds_report.Tables("venta").NewRow()
@@ -194,8 +193,8 @@
             'row_venta("tipo_venta") = ds_venta.Tables(0).Rows(0).Item("ventaprod_tipovta")
             'Facturacion_ds_report.Tables("venta").Rows.Add(row_venta)
         Else
-            TextBox_factura.Text = ds_venta.Tables(1).Rows(0).Item("ventaprod_id")
-            TextBox_fecha.Text = ds_venta.Tables(1).Rows(0).Item("fecha")
+            TextBox_factura.Text = ds_venta.Tables(1).Rows(0).Item("factura_id")
+            TextBox_fecha.Text = ds_venta.Tables(1).Rows(0).Item("factura_fecha")
             TextBox_vendedor.Text = ds_venta.Tables(1).Rows(0).Item("vendedor")
             TextBox_tipovta.Text = ds_venta.Tables(1).Rows(0).Item("ventaprod_tipovta")
             ''esta en tabla 1, es consumidor final

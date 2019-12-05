@@ -163,7 +163,7 @@ Public Class Vendedor_alta
             vendedor_AltaLimpiar()
             MessageBox.Show("El Vendedor fue modificado correctamente.", "Sistema de Gestión", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Me.Close()
-            Usuario_modificar.Show()
+            Vendedor_modificar.Show()
         End If
     End Sub
 #End Region

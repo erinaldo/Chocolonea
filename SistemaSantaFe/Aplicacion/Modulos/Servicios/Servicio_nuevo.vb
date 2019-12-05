@@ -526,7 +526,8 @@
                     tipo_vta = "Consumidor Final"
                     cliente_id = 0
                     venta_tipo_descripcion = "Servicio"
-                    Dim ds_Venta As DataSet = DAventa.VentaProducto_alta(sin_anticipo, Now, usuario_id, tipo_vta, cliente_id, 0, 0, 0, 0, 0, venta_tipo_descripcion, Label_Cod.Text)
+                    Dim vendedor_id As Integer = 0 'ojo pongo esto, porque no defino vendedores, se puede poner un combo con los vendedores para elegir, si no hay cargar uno por Defecto en la BD. 
+                    Dim ds_Venta As DataSet = DAventa.VentaProducto_alta(sin_anticipo, Now, usuario_id, tipo_vta, cliente_id, 0, 0, 0, 0, 0, venta_tipo_descripcion, Label_Cod.Text, vendedor_id, "Cobrado")
                     'NO SE ACTUALIZA EN CAJA
                     'Me.Close()
                     finalizar("boton_guardar_cambios")
