@@ -707,12 +707,6 @@ Public Class Venta
         Return ds_JE
     End Function
 
-
-
-
-
-
-
     'Venta_obtenerProducto_listaregular
     Public Function Venta_obtenerProducto_listaregular(ByVal Lista_id As Integer) As DataSet
 
@@ -898,7 +892,7 @@ Public Class Venta
     End Function
 #End Region
 
-#Region "Generar Remito"
+#Region "Gestión Remito"
     Public Function Remito_alta(ByVal ventaprod_id As Integer, ByVal remito_fecha As DateTime, ByVal remito_estado As String) As DataSet
 
         Try
@@ -921,6 +915,24 @@ Public Class Venta
         dbconn.Close()
         Return ds_JE
     End Function
+
+    Public Function Remito_recuperar_todos() As DataSet
+
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+
+        Dim comando As New OleDbCommand("Remito_recuperar_todos", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+
+        Dim ds_JE As New DataSet()
+        Dim da_JE As New OleDbDataAdapter(comando)
+        da_JE.Fill(ds_JE, "Remito")
+        dbconn.Close()
+        Return ds_JE
+    End Function
+
 #End Region
 
 

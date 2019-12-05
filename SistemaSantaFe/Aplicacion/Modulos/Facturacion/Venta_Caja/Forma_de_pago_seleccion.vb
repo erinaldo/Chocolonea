@@ -51,7 +51,7 @@
                         DAcuentacorriente.CtaCte_registrar_egreso(CtaCte_id, deuda)
                         DAcuentacorriente.Venta_CtaCte_alta(factura_id, CtaCte_id)
                         Dim concepto As String = "Comprobante Nº: " + CStr(factura_id)
-                        DAcuentacorriente.CtaCte_movimiento_alta(CtaCte_id, "Egreso", concepto, CDec(Venta_Caja_gestion.txt_total.Text), Now)
+                        DAcuentacorriente.CtaCte_movimiento_alta(CtaCte_id, "Ingreso", concepto, CDec(Venta_Caja_gestion.txt_total.Text), Now)
                         '//////////////////////////////////////////////////////////////////////////////////
                         'GUARDAR EN TABLA "Venta_Producto_detalle"
                         For Each row As DataGridViewRow In Venta_Caja_gestion.DataGridView1.Rows

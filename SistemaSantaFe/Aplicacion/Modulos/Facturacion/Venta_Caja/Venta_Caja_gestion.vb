@@ -1054,6 +1054,8 @@
 
     End Sub
     Public Sub Limpiar()
+        Encontrado = "no"
+        listo = "no"
         'primero lo de la pagina 2
         'TX_busc_codinterno.Clear()
         'tx_cantidad.Clear()
@@ -1080,8 +1082,7 @@
         txt_desc_pesos.Text = CDec(0)
         txt_desc_porc.Text = CDec(0)
 
-        Encontrado = "no"
-        listo = "no"
+        
         
     End Sub
 
