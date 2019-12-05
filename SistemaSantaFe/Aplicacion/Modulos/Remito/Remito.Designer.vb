@@ -25,15 +25,9 @@ Partial Class Remito
         Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Remito))
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button_nuevo = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.RemitoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DS_remito = New Aplicacion.DS_remito()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.BO_cliente_modificar = New System.Windows.Forms.Button()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Busqueda = New System.Windows.Forms.TextBox()
         Me.ColumnaEditar = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.RemitoidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.RemitoestadoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -43,6 +37,12 @@ Partial Class Remito
         Me.CtaCteidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ventaprod_total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.RemitofechaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RemitoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DS_remito = New Aplicacion.DS_remito()
+        Me.Button_imprimir = New System.Windows.Forms.Button()
+        Me.Button_editar = New System.Windows.Forms.Button()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Busqueda = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RemitoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -50,18 +50,18 @@ Partial Class Remito
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
-        'Button1
+        'Button_nuevo
         '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Image = Global.Aplicacion.My.Resources.Resources.mas30x30
-        Me.Button1.Location = New System.Drawing.Point(13, 13)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(105, 49)
-        Me.Button1.TabIndex = 17
-        Me.Button1.Text = "Nuevo"
-        Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button_nuevo.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_nuevo.Image = Global.Aplicacion.My.Resources.Resources.mas30x30
+        Me.Button_nuevo.Location = New System.Drawing.Point(13, 13)
+        Me.Button_nuevo.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button_nuevo.Name = "Button_nuevo"
+        Me.Button_nuevo.Size = New System.Drawing.Size(105, 49)
+        Me.Button_nuevo.TabIndex = 17
+        Me.Button_nuevo.Text = "Nuevo"
+        Me.Button_nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Button_nuevo.UseVisualStyleBackColor = True
         '
         'GroupBox1
         '
@@ -98,59 +98,6 @@ Partial Class Remito
         Me.DataGridView1.Size = New System.Drawing.Size(893, 239)
         Me.DataGridView1.StandardTab = True
         Me.DataGridView1.TabIndex = 11
-        '
-        'RemitoBindingSource
-        '
-        Me.RemitoBindingSource.DataMember = "Remito"
-        Me.RemitoBindingSource.DataSource = Me.DS_remito
-        '
-        'DS_remito
-        '
-        Me.DS_remito.DataSetName = "DS_remito"
-        Me.DS_remito.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'Button3
-        '
-        Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
-        Me.Button3.Location = New System.Drawing.Point(126, 13)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(53, 49)
-        Me.Button3.TabIndex = 240
-        Me.Button3.TabStop = False
-        Me.Button3.UseVisualStyleBackColor = True
-        '
-        'BO_cliente_modificar
-        '
-        Me.BO_cliente_modificar.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BO_cliente_modificar.Image = Global.Aplicacion.My.Resources.Resources.Pasar
-        Me.BO_cliente_modificar.Location = New System.Drawing.Point(187, 13)
-        Me.BO_cliente_modificar.Margin = New System.Windows.Forms.Padding(4)
-        Me.BO_cliente_modificar.Name = "BO_cliente_modificar"
-        Me.BO_cliente_modificar.Size = New System.Drawing.Size(105, 49)
-        Me.BO_cliente_modificar.TabIndex = 248
-        Me.BO_cliente_modificar.Text = "Editar"
-        Me.BO_cliente_modificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.BO_cliente_modificar.UseVisualStyleBackColor = True
-        '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Me.Busqueda)
-        Me.GroupBox2.Location = New System.Drawing.Point(13, 69)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(934, 72)
-        Me.GroupBox2.TabIndex = 249
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Buscar por Nº remito / Nº Cta.Cte. / Razon Social:"
-        '
-        'Busqueda
-        '
-        Me.Busqueda.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Busqueda.Location = New System.Drawing.Point(16, 26)
-        Me.Busqueda.Margin = New System.Windows.Forms.Padding(4)
-        Me.Busqueda.Name = "Busqueda"
-        Me.Busqueda.Size = New System.Drawing.Size(893, 30)
-        Me.Busqueda.TabIndex = 241
         '
         'ColumnaEditar
         '
@@ -222,15 +169,68 @@ Partial Class Remito
         Me.RemitofechaDataGridViewTextBoxColumn.ReadOnly = True
         Me.RemitofechaDataGridViewTextBoxColumn.Width = 130
         '
+        'RemitoBindingSource
+        '
+        Me.RemitoBindingSource.DataMember = "Remito"
+        Me.RemitoBindingSource.DataSource = Me.DS_remito
+        '
+        'DS_remito
+        '
+        Me.DS_remito.DataSetName = "DS_remito"
+        Me.DS_remito.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'Button_imprimir
+        '
+        Me.Button_imprimir.Image = CType(resources.GetObject("Button_imprimir.Image"), System.Drawing.Image)
+        Me.Button_imprimir.Location = New System.Drawing.Point(126, 13)
+        Me.Button_imprimir.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button_imprimir.Name = "Button_imprimir"
+        Me.Button_imprimir.Size = New System.Drawing.Size(53, 49)
+        Me.Button_imprimir.TabIndex = 240
+        Me.Button_imprimir.TabStop = False
+        Me.Button_imprimir.UseVisualStyleBackColor = True
+        '
+        'Button_editar
+        '
+        Me.Button_editar.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_editar.Image = Global.Aplicacion.My.Resources.Resources.Pasar
+        Me.Button_editar.Location = New System.Drawing.Point(187, 13)
+        Me.Button_editar.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button_editar.Name = "Button_editar"
+        Me.Button_editar.Size = New System.Drawing.Size(105, 49)
+        Me.Button_editar.TabIndex = 248
+        Me.Button_editar.Text = "Editar"
+        Me.Button_editar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Button_editar.UseVisualStyleBackColor = True
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.Busqueda)
+        Me.GroupBox2.Location = New System.Drawing.Point(13, 69)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(934, 72)
+        Me.GroupBox2.TabIndex = 249
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Buscar por Nº remito / Nº Cta.Cte. / Razon Social:"
+        '
+        'Busqueda
+        '
+        Me.Busqueda.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Busqueda.Location = New System.Drawing.Point(16, 26)
+        Me.Busqueda.Margin = New System.Windows.Forms.Padding(4)
+        Me.Busqueda.Name = "Busqueda"
+        Me.Busqueda.Size = New System.Drawing.Size(893, 30)
+        Me.Busqueda.TabIndex = 241
+        '
         'Remito
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.ClientSize = New System.Drawing.Size(965, 519)
         Me.Controls.Add(Me.GroupBox2)
-        Me.Controls.Add(Me.BO_cliente_modificar)
-        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.Button_editar)
+        Me.Controls.Add(Me.Button_imprimir)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.Button_nuevo)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MinimizeBox = False
         Me.Name = "Remito"
@@ -245,11 +245,11 @@ Partial Class Remito
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents Button_nuevo As System.Windows.Forms.Button
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Public WithEvents DataGridView1 As System.Windows.Forms.DataGridView
-    Friend WithEvents Button3 As System.Windows.Forms.Button
-    Friend WithEvents BO_cliente_modificar As System.Windows.Forms.Button
+    Friend WithEvents Button_imprimir As System.Windows.Forms.Button
+    Friend WithEvents Button_editar As System.Windows.Forms.Button
     Friend WithEvents RemitoBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents DS_remito As Aplicacion.DS_remito
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
