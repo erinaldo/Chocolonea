@@ -61,4 +61,7 @@ Public Class Cliente_Cta_Cte_Buscar
         TextBox1.BackColor = Color.White
     End Sub
 
+    Private Sub BO_cliente_modificar_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BO_cliente_modificar.Click
+
+    End Sub
 End Class

@@ -1,6 +1,6 @@
 ﻿Public Class Remito
     Dim DAventa As New Datos.Venta
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button_nuevo.Click
 
         Venta_Caja_seleccion_tipo_vta.Show()
         Venta_Caja_seleccion_tipo_vta.procedencia = "Remito nuevo"
@@ -45,6 +45,41 @@
                 i = i + 1
             End While
             DataGridView1.Rows(fila).Cells(0).Value = True
+        End If
+    End Sub
+
+    Private Sub Button_imprimir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button_imprimir.Click
+        Dim encontrado = "no"
+        Dim i As Integer = 0
+        While i < DataGridView1.Rows.Count
+            If DataGridView1.Rows(i).Cells(0).Value = True Then
+                MessageBox.Show("Imprimo remito Nº: " + CStr(DataGridView1.Rows(i).Cells(1).Value), "Sistema de Gestión", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                encontrado = "si"
+                Exit While
+            End If
+            i = i + 1
+        End While
+        If encontrado = "no" Then
+            MessageBox.Show("Error, Debe seleccionar un remito.", "Sistema de Gestión.", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
+    End Sub
+
+    Private Sub Button_editar_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles Button_editar.Click
+        Dim encontrado = "no"
+        Dim i As Integer = 0
+        While i < DataGridView1.Rows.Count
+            If DataGridView1.Rows(i).Cells(0).Value = True Then
+                'aqui va la llamada al formulario de venta_caja_gestion, pero recuperando un remito existente.
+
+
+                'MessageBox.Show("Imprimo remito Nº: " + CStr(DataGridView1.Rows(i).Cells(1).Value), "Sistema de Gestión", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                encontrado = "si"
+                Exit While
+            End If
+            i = i + 1
+        End While
+        If encontrado = "no" Then
+            MessageBox.Show("Error, Debe seleccionar un remito.", "Sistema de Gestión.", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
 End Class
