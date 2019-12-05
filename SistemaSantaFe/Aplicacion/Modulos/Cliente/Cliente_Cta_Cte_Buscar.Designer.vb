@@ -24,9 +24,19 @@ Partial Class Cliente_Cta_Cte_Buscar
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.BO_cliente_modificar = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.DG_clientes = New System.Windows.Forms.DataGridView()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lbl_total = New System.Windows.Forms.Label()
+        Me.limite = New System.Windows.Forms.Label()
+        Me.lbl_limite = New System.Windows.Forms.Label()
+        Me.DG_Detalle = New System.Windows.Forms.DataGridView()
         Me.CtaCteidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CLIFanDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CLIidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -44,21 +54,31 @@ Partial Class Cliente_Cta_Cte_Buscar
         Me.CtaCtetotalDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ClienteCtaCteBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Cliente_ds = New Aplicacion.Cliente_ds()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.MovimientosCtaCtefechaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MovimientosCtaCteconceptoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DebeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.HaberDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SaldoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DetalleCtaCteBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox1.SuspendLayout()
         CType(Me.DG_clientes, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabControl1.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
+        Me.TabPage2.SuspendLayout()
+        CType(Me.DG_Detalle, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClienteCtaCteBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Cliente_ds, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DetalleCtaCteBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'BO_cliente_modificar
         '
         Me.BO_cliente_modificar.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BO_cliente_modificar.Image = Global.Aplicacion.My.Resources.Resources.Pasar
-        Me.BO_cliente_modificar.Location = New System.Drawing.Point(1297, 606)
-        Me.BO_cliente_modificar.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.BO_cliente_modificar.Location = New System.Drawing.Point(975, 507)
+        Me.BO_cliente_modificar.Margin = New System.Windows.Forms.Padding(4)
         Me.BO_cliente_modificar.Name = "BO_cliente_modificar"
-        Me.BO_cliente_modificar.Size = New System.Drawing.Size(165, 53)
+        Me.BO_cliente_modificar.Size = New System.Drawing.Size(124, 43)
         Me.BO_cliente_modificar.TabIndex = 249
         Me.BO_cliente_modificar.Text = "Ver"
         Me.BO_cliente_modificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -70,11 +90,11 @@ Partial Class Cliente_Cta_Cte_Buscar
         Me.GroupBox1.Controls.Add(Me.TextBox1)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.ForeColor = System.Drawing.Color.DarkSlateGray
-        Me.GroupBox1.Location = New System.Drawing.Point(5, 16)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.GroupBox1.Location = New System.Drawing.Point(7, 7)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(5, 5, 5, 5)
-        Me.GroupBox1.Size = New System.Drawing.Size(1473, 580)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
+        Me.GroupBox1.Size = New System.Drawing.Size(1076, 435)
         Me.GroupBox1.TabIndex = 248
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Buscar cliente por nombre (Fantasía o Razón Social): "
@@ -91,8 +111,8 @@ Partial Class Cliente_Cta_Cte_Buscar
         Me.DG_clientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DG_clientes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CtaCteidDataGridViewTextBoxColumn, Me.CLIFanDataGridViewTextBoxColumn, Me.CLIidDataGridViewTextBoxColumn, Me.CLIapeDataGridViewTextBoxColumn, Me.CLInomDataGridViewTextBoxColumn, Me.CLIdniDataGridViewTextBoxColumn, Me.DireccionDataGridViewTextBoxColumn, Me.CLIfnacDataGridViewTextBoxColumn, Me.CLItelDataGridViewTextBoxColumn, Me.CLImailDataGridViewTextBoxColumn, Me.CLIobservacionesDataGridViewTextBoxColumn, Me.CtaCteestadoDataGridViewTextBoxColumn, Me.CtaCtefechaaltaDataGridViewTextBoxColumn, Me.CtaCtelimitedeudaDataGridViewTextBoxColumn, Me.CtaCtetotalDataGridViewTextBoxColumn})
         Me.DG_clientes.DataSource = Me.ClienteCtaCteBindingSource
-        Me.DG_clientes.Location = New System.Drawing.Point(16, 60)
-        Me.DG_clientes.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.DG_clientes.Location = New System.Drawing.Point(12, 49)
+        Me.DG_clientes.Margin = New System.Windows.Forms.Padding(4)
         Me.DG_clientes.MultiSelect = False
         Me.DG_clientes.Name = "DG_clientes"
         Me.DG_clientes.ReadOnly = True
@@ -103,9 +123,122 @@ Partial Class Cliente_Cta_Cte_Buscar
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black
         Me.DG_clientes.RowsDefaultCellStyle = DataGridViewCellStyle1
         Me.DG_clientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DG_clientes.Size = New System.Drawing.Size(1419, 479)
+        Me.DG_clientes.Size = New System.Drawing.Size(1052, 376)
         Me.DG_clientes.StandardTab = True
         Me.DG_clientes.TabIndex = 241
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(12, 22)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(1052, 22)
+        Me.TextBox1.TabIndex = 240
+        '
+        'TabControl1
+        '
+        Me.TabControl1.Controls.Add(Me.TabPage1)
+        Me.TabControl1.Controls.Add(Me.TabPage2)
+        Me.TabControl1.Location = New System.Drawing.Point(12, 12)
+        Me.TabControl1.Name = "TabControl1"
+        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.Size = New System.Drawing.Size(1102, 476)
+        Me.TabControl1.TabIndex = 250
+        '
+        'TabPage1
+        '
+        Me.TabPage1.Controls.Add(Me.GroupBox1)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(1094, 450)
+        Me.TabPage1.TabIndex = 0
+        Me.TabPage1.Text = "TabPage1"
+        Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'TabPage2
+        '
+        Me.TabPage2.Controls.Add(Me.DG_Detalle)
+        Me.TabPage2.Controls.Add(Me.lbl_limite)
+        Me.TabPage2.Controls.Add(Me.limite)
+        Me.TabPage2.Controls.Add(Me.lbl_total)
+        Me.TabPage2.Controls.Add(Me.Label1)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(1094, 450)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "TabPage2"
+        Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(20, 52)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(54, 20)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Total:"
+        '
+        'lbl_total
+        '
+        Me.lbl_total.AutoSize = True
+        Me.lbl_total.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_total.ForeColor = System.Drawing.Color.Red
+        Me.lbl_total.Location = New System.Drawing.Point(80, 52)
+        Me.lbl_total.Name = "lbl_total"
+        Me.lbl_total.Size = New System.Drawing.Size(54, 20)
+        Me.lbl_total.TabIndex = 2
+        Me.lbl_total.Text = "Total:"
+        '
+        'limite
+        '
+        Me.limite.AutoSize = True
+        Me.limite.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.limite.Location = New System.Drawing.Point(251, 52)
+        Me.limite.Name = "limite"
+        Me.limite.Size = New System.Drawing.Size(62, 20)
+        Me.limite.TabIndex = 3
+        Me.limite.Text = "Limite:"
+        '
+        'lbl_limite
+        '
+        Me.lbl_limite.AutoSize = True
+        Me.lbl_limite.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_limite.ForeColor = System.Drawing.Color.Red
+        Me.lbl_limite.Location = New System.Drawing.Point(311, 52)
+        Me.lbl_limite.Name = "lbl_limite"
+        Me.lbl_limite.Size = New System.Drawing.Size(54, 20)
+        Me.lbl_limite.TabIndex = 4
+        Me.lbl_limite.Text = "Total:"
+        '
+        'DG_Detalle
+        '
+        Me.DG_Detalle.AllowUserToAddRows = False
+        Me.DG_Detalle.AllowUserToDeleteRows = False
+        Me.DG_Detalle.AllowUserToResizeRows = False
+        Me.DG_Detalle.AutoGenerateColumns = False
+        Me.DG_Detalle.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DG_Detalle.BackgroundColor = System.Drawing.Color.White
+        Me.DG_Detalle.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.DG_Detalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DG_Detalle.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.MovimientosCtaCtefechaDataGridViewTextBoxColumn, Me.MovimientosCtaCteconceptoDataGridViewTextBoxColumn, Me.DebeDataGridViewTextBoxColumn, Me.HaberDataGridViewTextBoxColumn, Me.SaldoDataGridViewTextBoxColumn})
+        Me.DG_Detalle.DataSource = Me.DetalleCtaCteBindingSource
+        Me.DG_Detalle.Location = New System.Drawing.Point(7, 94)
+        Me.DG_Detalle.Margin = New System.Windows.Forms.Padding(4)
+        Me.DG_Detalle.MultiSelect = False
+        Me.DG_Detalle.Name = "DG_Detalle"
+        Me.DG_Detalle.ReadOnly = True
+        Me.DG_Detalle.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        Me.DG_Detalle.RowHeadersVisible = False
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black
+        Me.DG_Detalle.RowsDefaultCellStyle = DataGridViewCellStyle2
+        Me.DG_Detalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DG_Detalle.Size = New System.Drawing.Size(919, 257)
+        Me.DG_Detalle.StandardTab = True
+        Me.DG_Detalle.TabIndex = 242
         '
         'CtaCteidDataGridViewTextBoxColumn
         '
@@ -229,29 +362,66 @@ Partial Class Cliente_Cta_Cte_Buscar
         Me.Cliente_ds.DataSetName = "Cliente_ds"
         Me.Cliente_ds.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'TextBox1
+        'MovimientosCtaCtefechaDataGridViewTextBoxColumn
         '
-        Me.TextBox1.Location = New System.Drawing.Point(16, 27)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(1417, 26)
-        Me.TextBox1.TabIndex = 240
+        Me.MovimientosCtaCtefechaDataGridViewTextBoxColumn.DataPropertyName = "MovimientosCtaCte_fecha"
+        Me.MovimientosCtaCtefechaDataGridViewTextBoxColumn.HeaderText = "FECHA"
+        Me.MovimientosCtaCtefechaDataGridViewTextBoxColumn.Name = "MovimientosCtaCtefechaDataGridViewTextBoxColumn"
+        Me.MovimientosCtaCtefechaDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'MovimientosCtaCteconceptoDataGridViewTextBoxColumn
+        '
+        Me.MovimientosCtaCteconceptoDataGridViewTextBoxColumn.DataPropertyName = "MovimientosCtaCte_concepto"
+        Me.MovimientosCtaCteconceptoDataGridViewTextBoxColumn.HeaderText = "CONCEPTO"
+        Me.MovimientosCtaCteconceptoDataGridViewTextBoxColumn.Name = "MovimientosCtaCteconceptoDataGridViewTextBoxColumn"
+        Me.MovimientosCtaCteconceptoDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'DebeDataGridViewTextBoxColumn
+        '
+        Me.DebeDataGridViewTextBoxColumn.DataPropertyName = "Debe"
+        Me.DebeDataGridViewTextBoxColumn.HeaderText = "DEBE"
+        Me.DebeDataGridViewTextBoxColumn.Name = "DebeDataGridViewTextBoxColumn"
+        Me.DebeDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'HaberDataGridViewTextBoxColumn
+        '
+        Me.HaberDataGridViewTextBoxColumn.DataPropertyName = "Haber"
+        Me.HaberDataGridViewTextBoxColumn.HeaderText = "HABER"
+        Me.HaberDataGridViewTextBoxColumn.Name = "HaberDataGridViewTextBoxColumn"
+        Me.HaberDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'SaldoDataGridViewTextBoxColumn
+        '
+        Me.SaldoDataGridViewTextBoxColumn.DataPropertyName = "Saldo"
+        Me.SaldoDataGridViewTextBoxColumn.HeaderText = "SALDO"
+        Me.SaldoDataGridViewTextBoxColumn.Name = "SaldoDataGridViewTextBoxColumn"
+        Me.SaldoDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'DetalleCtaCteBindingSource
+        '
+        Me.DetalleCtaCteBindingSource.DataMember = "Detalle_CtaCte"
+        Me.DetalleCtaCteBindingSource.DataSource = Me.Cliente_ds
         '
         'Cliente_Cta_Cte_Buscar
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1501, 693)
+        Me.ClientSize = New System.Drawing.Size(1126, 563)
+        Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.BO_cliente_modificar)
-        Me.Controls.Add(Me.GroupBox1)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "Cliente_Cta_Cte_Buscar"
         Me.Text = "Cuentas Corrientes"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.DG_clientes, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabControl1.ResumeLayout(False)
+        Me.TabPage1.ResumeLayout(False)
+        Me.TabPage2.ResumeLayout(False)
+        Me.TabPage2.PerformLayout()
+        CType(Me.DG_Detalle, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ClienteCtaCteBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Cliente_ds, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DetalleCtaCteBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -276,4 +446,18 @@ Partial Class Cliente_Cta_Cte_Buscar
     Friend WithEvents CtaCtetotalDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ClienteCtaCteBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents Cliente_ds As Aplicacion.Cliente_ds
+    Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
+    Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
+    Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
+    Friend WithEvents lbl_limite As System.Windows.Forms.Label
+    Friend WithEvents limite As System.Windows.Forms.Label
+    Friend WithEvents lbl_total As System.Windows.Forms.Label
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents DG_Detalle As System.Windows.Forms.DataGridView
+    Friend WithEvents MovimientosCtaCtefechaDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents MovimientosCtaCteconceptoDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DebeDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents HaberDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents SaldoDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DetalleCtaCteBindingSource As System.Windows.Forms.BindingSource
 End Class

@@ -56,6 +56,21 @@ Public Class CuentaCorriente
 
 
 
+    Public Function CtaCte_Obtener_Movimientos(ByVal CtaCte_id As Integer) As DataSet
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("CtaCte_Obtener_Movimientos", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        comando.Parameters.Add(New OleDb.OleDbParameter("@CtaCte_id", CtaCte_id))
+        Dim ds_JE As New DataSet()
+        Dim da_JE As New OleDbDataAdapter(comando)
+        da_JE.Fill(ds_JE, "CuentaCorriente")
+        dbconn.Close()
+        Return ds_JE
+    End Function
+
     Public Function CtaCte_buscar_id(ByVal CtaCte_id As Integer) As DataSet
         Try
             dbconn.Open()

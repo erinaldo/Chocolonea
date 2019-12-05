@@ -3,9 +3,11 @@ Imports System.Data.OleDb
 Public Class Cliente_Cta_Cte_Buscar
     Dim DAcliente As New Datos.CuentaCorriente
 
+
     Dim busqueda As String = ""
     Dim busqueda_parametro As String = ""
     Dim ds_clie As DataSet
+    Dim ds_CtaCte_Mov As DataSet
 
     Private Sub Cliente_Cta_Cte_Buscar_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Obtener_Clientes()
@@ -61,7 +63,58 @@ Public Class Cliente_Cta_Cte_Buscar
         TextBox1.BackColor = Color.White
     End Sub
 
-    Private Sub BO_cliente_modificar_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BO_cliente_modificar.Click
+    Private Sub Obtener_Movimientos()
 
+        Dim i = 0
+        Dim debe = 0
+        Dim haber = 0
+        Dim Saldo = 0
+
+        ds_CtaCte_Mov = DAcliente.CtaCte_Obtener_Movimientos(DG_clientes.SelectedCells(0).Value)
+
+        lbl_total.Text = ds_CtaCte_Mov.Tables(0).Rows(0).Item("CtaCte_total").ToString
+        limite.Text = ds_CtaCte_Mov.Tables(0).Rows(0).Item("CtaCte_limitedeuda").ToString
+
+        While i < ds_CtaCte_Mov.Tables(0).Rows.Count
+            debe = 0
+            haber = 0
+            Dim newCustomersRow As DataRow = Cliente_ds.Tables("Detalle_CtaCte").NewRow()
+
+            newCustomersRow("MovimientosCtaCte_fecha") = ds_CtaCte_Mov.Tables(0).Rows(i).Item("MovimientosCtaCte_fecha")
+            newCustomersRow("MovimientosCtaCte_concepto") = ds_CtaCte_Mov.Tables(0).Rows(i).Item("MovimientosCtaCte_concepto")
+
+
+            If ds_CtaCte_Mov.Tables(0).Rows(i).Item("MovimientosCtaCte_tipo").ToString = "Ingreso" Then
+                newCustomersRow("debe") = ds_CtaCte_Mov.Tables(0).Rows(i).Item("MovimientosCtaCte_monto")
+                newCustomersRow("haber") = 0
+                debe = ds_CtaCte_Mov.Tables(0).Rows(i).Item("MovimientosCtaCte_monto")
+            Else
+                newCustomersRow("haber") = ds_CtaCte_Mov.Tables(0).Rows(i).Item("MovimientosCtaCte_monto")
+                newCustomersRow("debe") = 0
+                haber = ds_CtaCte_Mov.Tables(0).Rows(i).Item("MovimientosCtaCte_monto")
+            End If
+
+
+            i = i + 1
+
+
+            saldo = saldo + debe - haber
+            newCustomersRow("saldo") = Saldo
+
+            Cliente_ds.Tables("Detalle_CtaCte").Rows.Add(newCustomersRow)
+
+        End While
+        DG_Detalle.DataSource = Cliente_ds.Tables("Detalle_CtaCte")
+
+
+
+
+
+    End Sub
+    Private Sub BO_cliente_modificar_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BO_cliente_modificar.Click
+        Obtener_Movimientos()
+        TabPage1.Parent = Nothing 'oculto pestaña 1
+        TabPage2.Parent = TabControl1 'pongo visible pestaña 2
+        TabControl1.SelectedTab = TabPage2
     End Sub
 End Class
