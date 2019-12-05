@@ -482,6 +482,7 @@ Public Class Busqueda_Productos
                             total = CDec(Venta_Caja_gestion.VentaGestion_DS_PROD.Tables(1).Rows(i).Item("prod_precio_vta"))
                             Venta_Caja_gestion.DataGridView1.Rows(index).Cells("columna_precio_subtotal").Value = CDec(total)   'CDec(Math.Round(total, 2)).ToString("N2")
                             Venta_Caja_gestion.DataGridView1.Rows(index).Cells("columna_codbarra").Value = Venta_Caja_gestion.VentaGestion_DS_PROD.Tables(1).Rows(i).Item("prod_codbarra").ToString
+                            Venta_Caja_gestion.DataGridView1.Rows(index).Cells("descuento").Value = CInt(0)
                             Venta_Caja_gestion.DataGridView1.Rows.Add() 'AGREGO UNO EXTRA PARA EL PROXIMO ITEM
                         End If
                         Encontrado = "si"
@@ -509,6 +510,7 @@ Public Class Busqueda_Productos
                             total = CDec(Venta_Caja_gestion.VentaGestion_DS_PROD.Tables(1).Rows(i).Item("prod_precio_vta_May"))
                             Venta_Caja_gestion.DataGridView1.Rows(index).Cells("columna_precio_subtotal").Value = CDec(total)   'CDec(Math.Round(total, 2)).ToString("N2")
                             Venta_Caja_gestion.DataGridView1.Rows(index).Cells("columna_codbarra").Value = Venta_Caja_gestion.VentaGestion_DS_PROD.Tables(1).Rows(i).Item("prod_codbarra").ToString
+                            Venta_Caja_gestion.DataGridView1.Rows(index).Cells("descuento").Value = CInt(0)
                             Venta_Caja_gestion.DataGridView1.Rows.Add() 'AGREGO UNO EXTRA PARA EL PROXIMO ITEM
                         End If
                         Encontrado = "si"

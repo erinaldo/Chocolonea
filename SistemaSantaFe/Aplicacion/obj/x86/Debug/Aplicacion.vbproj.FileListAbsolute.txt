@@ -1795,3 +1795,6 @@ C:\Git repo nuevo\Chocolonea\SistemaSantaFe\Aplicacion\obj\x86\Debug\Aplicacion.
 C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\Chocolonea\SistemaSantaFe\Aplicacion\obj\x86\Debug\Aplicacion.Vendedor_alta.resources
 C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\Chocolonea\SistemaSantaFe\Aplicacion\obj\x86\Debug\Aplicacion.Vendedor_modificar.resources
 C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\Chocolonea\SistemaSantaFe\Aplicacion\obj\x86\Debug\Aplicacion.Cliente_Cta_Cte_Buscar.resources
+C:\Git repo nuevo\Chocolonea\SistemaSantaFe\Aplicacion\obj\x86\Debug\Aplicacion.Cliente_Cta_Cte_Buscar.resources
+C:\Git repo nuevo\Chocolonea\SistemaSantaFe\Aplicacion\obj\x86\Debug\Aplicacion.Remito.resources
+C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\Chocolonea\SistemaSantaFe\Aplicacion\obj\x86\Debug\Aplicacion.Remito.resources

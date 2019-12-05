@@ -10,7 +10,7 @@
     Dim DS_vendedores As DataSet
     Public Sub Cargar()
         DS_vendedores = daVendedor.Vendedor_obtenertodo 'no tiene proc almacenado
-        DG_usuario.DataSource = DS_vendedores.Tables()
+        DG_usuario.DataSource = DS_vendedores.Tables(0)
     End Sub
 
     Private Sub BO_usuario_nuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BO_usuario_nuevo.Click

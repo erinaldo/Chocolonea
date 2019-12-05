@@ -834,6 +834,14 @@ Partial Public Class Venta_consulta_ds
         
         Private columnventaprod_total As Global.System.Data.DataColumn
         
+        Private columnvendedor_id As Global.System.Data.DataColumn
+        
+        Private columnvendedor_apenom As Global.System.Data.DataColumn
+        
+        Private columnfactura_fecha As Global.System.Data.DataColumn
+        
+        Private columnfactura_id As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -918,6 +926,38 @@ Partial Public Class Venta_consulta_ds
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property vendedor_idColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnvendedor_id
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property vendedor_apenomColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnvendedor_apenom
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property factura_fechaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnfactura_fecha
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property factura_idColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnfactura_id
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -954,9 +994,9 @@ Partial Public Class Venta_consulta_ds
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function Addventa_de_sucursalRow(ByVal ventaprod_fecha As Date, ByVal ventaprod_id As String, ByVal ventaprod_observacion As String, ByVal USU_id As String, ByVal ApellidoyNombre As String, ByVal ventaprod_total As String) As venta_de_sucursalRow
+        Public Overloads Function Addventa_de_sucursalRow(ByVal ventaprod_fecha As Date, ByVal ventaprod_id As String, ByVal ventaprod_observacion As String, ByVal USU_id As String, ByVal ApellidoyNombre As String, ByVal ventaprod_total As String, ByVal vendedor_id As String, ByVal vendedor_apenom As String, ByVal factura_fecha As Date, ByVal factura_id As String) As venta_de_sucursalRow
             Dim rowventa_de_sucursalRow As venta_de_sucursalRow = CType(Me.NewRow,venta_de_sucursalRow)
-            Dim columnValuesArray() As Object = New Object() {ventaprod_fecha, ventaprod_id, ventaprod_observacion, USU_id, ApellidoyNombre, ventaprod_total}
+            Dim columnValuesArray() As Object = New Object() {ventaprod_fecha, ventaprod_id, ventaprod_observacion, USU_id, ApellidoyNombre, ventaprod_total, vendedor_id, vendedor_apenom, factura_fecha, factura_id}
             rowventa_de_sucursalRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowventa_de_sucursalRow)
             Return rowventa_de_sucursalRow
@@ -985,6 +1025,10 @@ Partial Public Class Venta_consulta_ds
             Me.columnUSU_id = MyBase.Columns("USU_id")
             Me.columnApellidoyNombre = MyBase.Columns("ApellidoyNombre")
             Me.columnventaprod_total = MyBase.Columns("ventaprod_total")
+            Me.columnvendedor_id = MyBase.Columns("vendedor_id")
+            Me.columnvendedor_apenom = MyBase.Columns("vendedor_apenom")
+            Me.columnfactura_fecha = MyBase.Columns("factura_fecha")
+            Me.columnfactura_id = MyBase.Columns("factura_id")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1002,6 +1046,14 @@ Partial Public Class Venta_consulta_ds
             MyBase.Columns.Add(Me.columnApellidoyNombre)
             Me.columnventaprod_total = New Global.System.Data.DataColumn("ventaprod_total", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnventaprod_total)
+            Me.columnvendedor_id = New Global.System.Data.DataColumn("vendedor_id", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnvendedor_id)
+            Me.columnvendedor_apenom = New Global.System.Data.DataColumn("vendedor_apenom", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnvendedor_apenom)
+            Me.columnfactura_fecha = New Global.System.Data.DataColumn("factura_fecha", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnfactura_fecha)
+            Me.columnfactura_id = New Global.System.Data.DataColumn("factura_id", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnfactura_id)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2393,6 +2445,68 @@ Partial Public Class Venta_consulta_ds
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property vendedor_id() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableventa_de_sucursal.vendedor_idColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'vendedor_id' de la tabla 'venta_de_sucursal' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableventa_de_sucursal.vendedor_idColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property vendedor_apenom() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableventa_de_sucursal.vendedor_apenomColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'vendedor_apenom' de la tabla 'venta_de_sucursal' es DBNul"& _ 
+                            "l.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableventa_de_sucursal.vendedor_apenomColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property factura_fecha() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableventa_de_sucursal.factura_fechaColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'factura_fecha' de la tabla 'venta_de_sucursal' es DBNull."& _ 
+                            "", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableventa_de_sucursal.factura_fechaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property factura_id() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableventa_de_sucursal.factura_idColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'factura_id' de la tabla 'venta_de_sucursal' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableventa_de_sucursal.factura_idColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function Isventaprod_fechaNull() As Boolean
             Return Me.IsNull(Me.tableventa_de_sucursal.ventaprod_fechaColumn)
         End Function
@@ -2461,6 +2575,54 @@ Partial Public Class Venta_consulta_ds
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub Setventaprod_totalNull()
             Me(Me.tableventa_de_sucursal.ventaprod_totalColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function Isvendedor_idNull() As Boolean
+            Return Me.IsNull(Me.tableventa_de_sucursal.vendedor_idColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub Setvendedor_idNull()
+            Me(Me.tableventa_de_sucursal.vendedor_idColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function Isvendedor_apenomNull() As Boolean
+            Return Me.IsNull(Me.tableventa_de_sucursal.vendedor_apenomColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub Setvendedor_apenomNull()
+            Me(Me.tableventa_de_sucursal.vendedor_apenomColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function Isfactura_fechaNull() As Boolean
+            Return Me.IsNull(Me.tableventa_de_sucursal.factura_fechaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub Setfactura_fechaNull()
+            Me(Me.tableventa_de_sucursal.factura_fechaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function Isfactura_idNull() As Boolean
+            Return Me.IsNull(Me.tableventa_de_sucursal.factura_idColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub Setfactura_idNull()
+            Me(Me.tableventa_de_sucursal.factura_idColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

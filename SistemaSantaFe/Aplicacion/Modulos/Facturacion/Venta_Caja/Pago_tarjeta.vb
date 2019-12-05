@@ -6,6 +6,7 @@
     Public Ser_id
     Public Monto_sin_anticipo
     Dim DAcliente As New Datos.Cliente
+    Dim DAcuentacorriente As New Datos.CuentaCorriente
 
     Private Sub BO_Eliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BO_Eliminar.Click
         Me.Close()
@@ -43,6 +44,8 @@
                     Else
                         venta_tipo_descripcion = "Venta Mayorista-Tarjeta"
                     End If
+                    '//////CHOCO: 03-12-2019 - se agrega el parametro de "Vendedor", en la tabla ventaproducto_alta////////////
+                    Dim vendedor_id As Integer = CInt(Venta_Caja_gestion.ComboBox_vendedor.SelectedValue)
                     Dim ds_Venta As DataSet = DAventa.VentaProducto_alta(CDec(tx_total.Text),
                                                      Now,
                                                      usuario_id,
@@ -51,8 +54,21 @@
                                                      CDec(Venta_Caja_gestion.txt_descuento.Text),
                                                      CDec(Venta_Caja_gestion.txt_desc_porc.Text),
                                                      CDec(Venta_Caja_gestion.ComboBox_iva.SelectedItem),
-                                                      CDec(Venta_Caja_gestion.txt_impuesto_aplicado.Text), venta_tipo_descripcion, 0)
+                                                      CDec(Venta_Caja_gestion.txt_impuesto_aplicado.Text), venta_tipo_descripcion, 0, vendedor_id, "Cobrado")
                     Dim ventaprod_id As Integer = CType(ds_Venta.Tables(0).Rows(0).Item("ventaprod_id"), String)
+                    '/////////////////choco: 04-12-2019 - genero la factura en su correspondiente tabla///////////////////
+                    DAventa.Factura_alta(ventaprod_id, Now)
+
+                    '////////////////aqui cargamos en cuenta corriente, si corresponde - CHOCO: 03-12-2019//////////////////
+                    '///////////lo comento, x q si es pago en efectivo, no se registra en la tabla cuenta corriente//////////
+                    'Dim ds_cuentacorrente As DataSet = DAcuentacorriente.CtaCte_buscar_Cliente(cliente_id)
+                    'If ds_cuentacorrente.Tables(0).Rows.Count <> 0 Then
+                    '    'tiene cuenta y va a pagar en efectivo.
+                    '    Dim CtaCte_id As Integer = ds_cuentacorrente.Tables(0).Rows(0).Item("CtaCte_id")
+                    '    DAcuentacorriente.Venta_CtaCte_alta(ventaprod_id, CtaCte_id)
+                    '    Dim concepto As String = "Cobro comprobante Nº: " + CStr(ventaprod_id)
+                    '    DAcuentacorriente.CtaCte_movimiento_alta(CtaCte_id, "Ingreso", concepto, CDec(tx_total.Text), Now)
+                    'End If
                     '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     'GUARDAR EN TABLA "Venta_Producto_detalle"
                     For Each row As DataGridViewRow In Venta_Caja_gestion.DataGridView1.Rows
@@ -235,7 +251,7 @@
 
             '///////////////TABLA VENTA//////////////////////////////////'
             Dim row_venta As DataRow = facturacion_ds_report.Tables("venta").NewRow()
-            row_venta("nro_factura") = ventaprod_id
+            row_venta("nro_factura") = CInt(Venta_Caja_gestion.lb_factura_vta.Text)
             row_venta("fecha") = Today 'CDate(Venta_Caja_gestion.lb_fecha_vta.Text)
             row_venta("vendedor") = Venta_Caja_gestion.lb_vendedor_vta.Text
             row_venta("tipo_venta") = Venta_Caja_gestion.lb_tipo_vta.Text

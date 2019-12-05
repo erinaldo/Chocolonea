@@ -56,6 +56,21 @@ Public Class CuentaCorriente
 
 
 
+    Public Function CtaCte_Obtener_Movimientos(ByVal CtaCte_id As Integer) As DataSet
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("CtaCte_Obtener_Movimientos", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        comando.Parameters.Add(New OleDb.OleDbParameter("@CtaCte_id", CtaCte_id))
+        Dim ds_JE As New DataSet()
+        Dim da_JE As New OleDbDataAdapter(comando)
+        da_JE.Fill(ds_JE, "CuentaCorriente")
+        dbconn.Close()
+        Return ds_JE
+    End Function
+
     Public Function CtaCte_buscar_id(ByVal CtaCte_id As Integer) As DataSet
         Try
             dbconn.Open()
@@ -89,5 +104,69 @@ Public Class CuentaCorriente
         dbconn.Close()
     End Sub
 
+    Public Function CtaCte_buscar_Cliente(ByVal cliente_id As Integer) As DataSet
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("CtaCte_buscar_Cliente", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        comando.Parameters.Add(New OleDb.OleDbParameter("@CLI_id", cliente_id))
+        Dim ds_JE As New DataSet()
+        Dim da_JE As New OleDbDataAdapter(comando)
+        da_JE.Fill(ds_JE, "CuentaCorriente")
+        dbconn.Close()
+        Return ds_JE
+    End Function
+
+    Public Sub CtaCte_movimiento_alta(ByVal CtaCte_id As Integer, ByVal MovimientosCtaCte_tipo As String, ByVal MovimientosCtaCte_concepto As String,
+                                 ByVal MovimientosCtaCte_monto As Decimal, ByVal MovimientosCtaCte_fecha As DateTime)
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("CtaCte_movimiento_alta", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        comando.Parameters.Add(New OleDb.OleDbParameter("@CtaCte_id", CtaCte_id))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@MovimientosCtaCte_tipo", MovimientosCtaCte_tipo))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@MovimientosCtaCte_concepto", MovimientosCtaCte_concepto))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@MovimientosCtaCte_monto", MovimientosCtaCte_monto))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@MovimientosCtaCte_fecha", MovimientosCtaCte_fecha))
+        Dim ds_JE As New DataSet()
+        Dim da_JE As New OleDbDataAdapter(comando)
+        da_JE.Fill(ds_JE, "CuentaCorriente")
+        dbconn.Close()
+    End Sub
+
+    Public Sub Venta_CtaCte_alta(ByVal factura_id As Integer, ByVal CtaCte_id As Integer)
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("Venta_CtaCte_alta", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        comando.Parameters.Add(New OleDb.OleDbParameter("@factura_id", factura_id))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@CtaCte_id", CtaCte_id))
+
+        Dim ds_JE As New DataSet()
+        Dim da_JE As New OleDbDataAdapter(comando)
+        da_JE.Fill(ds_JE, "CuentaCorriente")
+        dbconn.Close()
+    End Sub
+
+    Public Sub CtaCte_registrar_egreso(ByVal CtaCte_id As Integer, ByVal CtaCte_total As Decimal)
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("CtaCte_registrar_egreso", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        comando.Parameters.Add(New OleDb.OleDbParameter("@CtaCte_id", CtaCte_id))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@CtaCte_total", CtaCte_total))
+        Dim ds_JE As New DataSet()
+        Dim da_JE As New OleDbDataAdapter(comando)
+        da_JE.Fill(ds_JE, "CuentaCorriente")
+        dbconn.Close()
+    End Sub
 
 End Class

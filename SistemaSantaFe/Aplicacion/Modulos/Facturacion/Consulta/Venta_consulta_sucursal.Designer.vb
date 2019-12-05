@@ -26,6 +26,7 @@ Partial Class Venta_consulta_sucursal
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Venta_consulta_sucursal))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.Label_suc = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -35,14 +36,6 @@ Partial Class Venta_consulta_sucursal
         Me.ComboBox_usuarios = New System.Windows.Forms.ComboBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.DG_ventas = New System.Windows.Forms.DataGridView()
-        Me.VentaprodfechaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.VentaprodidColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.VentaprodobservacionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.USUidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ventaprod_total = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ApellidoyNombreDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.VentadesucursalBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Venta_consulta_ds = New Aplicacion.Venta_consulta_ds()
         Me.GroupBox_fechas = New System.Windows.Forms.GroupBox()
         Me.Button_buscar = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -51,17 +44,27 @@ Partial Class Venta_consulta_sucursal
         Me.DateTimePicker_desde = New System.Windows.Forms.DateTimePicker()
         Me.Label_sucursal = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.CajaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.VentadesucursalBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Venta_consulta_ds = New Aplicacion.Venta_consulta_ds()
+        Me.CajaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.factura_fecha = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.factura_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.VentaprodobservacionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.USUidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ventaprod_total = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ApellidoyNombreDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.vendedor_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.vendedor_apenom = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ventaprod_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DG_ventas, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox_fechas.SuspendLayout()
         CType(Me.VentadesucursalBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Venta_consulta_ds, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox_fechas.SuspendLayout()
         CType(Me.CajaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -93,6 +96,19 @@ Partial Class Venta_consulta_sucursal
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Ventas registradas:"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Image = Global.Aplicacion.My.Resources.Resources.Informe
+        Me.Button2.Location = New System.Drawing.Point(953, 515)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(149, 46)
+        Me.Button2.TabIndex = 257
+        Me.Button2.Text = "Ver detalle"
+        Me.Button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.ToolTip1.SetToolTip(Me.Button2, "Ver detalle de venta seleccionada")
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'Label_suc
         '
@@ -191,7 +207,7 @@ Partial Class Venta_consulta_sucursal
         Me.DG_ventas.BackgroundColor = System.Drawing.Color.White
         Me.DG_ventas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.DG_ventas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DG_ventas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.VentaprodfechaDataGridViewTextBoxColumn, Me.VentaprodidColumn, Me.VentaprodobservacionDataGridViewTextBoxColumn, Me.USUidDataGridViewTextBoxColumn, Me.ventaprod_total, Me.ApellidoyNombreDataGridViewTextBoxColumn})
+        Me.DG_ventas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.factura_fecha, Me.factura_id, Me.VentaprodobservacionDataGridViewTextBoxColumn, Me.USUidDataGridViewTextBoxColumn, Me.ventaprod_total, Me.ApellidoyNombreDataGridViewTextBoxColumn, Me.vendedor_id, Me.vendedor_apenom, Me.ventaprod_id})
         Me.DG_ventas.DataSource = Me.VentadesucursalBindingSource
         Me.DG_ventas.Location = New System.Drawing.Point(13, 22)
         Me.DG_ventas.Margin = New System.Windows.Forms.Padding(4)
@@ -205,59 +221,6 @@ Partial Class Venta_consulta_sucursal
         Me.DG_ventas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DG_ventas.Size = New System.Drawing.Size(1076, 294)
         Me.DG_ventas.TabIndex = 240
-        '
-        'VentaprodfechaDataGridViewTextBoxColumn
-        '
-        Me.VentaprodfechaDataGridViewTextBoxColumn.DataPropertyName = "ventaprod_fecha"
-        Me.VentaprodfechaDataGridViewTextBoxColumn.HeaderText = "Fecha"
-        Me.VentaprodfechaDataGridViewTextBoxColumn.Name = "VentaprodfechaDataGridViewTextBoxColumn"
-        Me.VentaprodfechaDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'VentaprodidColumn
-        '
-        Me.VentaprodidColumn.DataPropertyName = "ventaprod_id"
-        Me.VentaprodidColumn.HeaderText = "Código"
-        Me.VentaprodidColumn.Name = "VentaprodidColumn"
-        Me.VentaprodidColumn.ReadOnly = True
-        '
-        'VentaprodobservacionDataGridViewTextBoxColumn
-        '
-        Me.VentaprodobservacionDataGridViewTextBoxColumn.DataPropertyName = "ventaprod_observacion"
-        Me.VentaprodobservacionDataGridViewTextBoxColumn.HeaderText = "Tipo de Venta"
-        Me.VentaprodobservacionDataGridViewTextBoxColumn.Name = "VentaprodobservacionDataGridViewTextBoxColumn"
-        Me.VentaprodobservacionDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'USUidDataGridViewTextBoxColumn
-        '
-        Me.USUidDataGridViewTextBoxColumn.DataPropertyName = "USU_id"
-        Me.USUidDataGridViewTextBoxColumn.HeaderText = "Id usuario"
-        Me.USUidDataGridViewTextBoxColumn.Name = "USUidDataGridViewTextBoxColumn"
-        Me.USUidDataGridViewTextBoxColumn.ReadOnly = True
-        Me.USUidDataGridViewTextBoxColumn.Visible = False
-        '
-        'ventaprod_total
-        '
-        Me.ventaprod_total.DataPropertyName = "ventaprod_total"
-        Me.ventaprod_total.HeaderText = "Total ($)"
-        Me.ventaprod_total.Name = "ventaprod_total"
-        Me.ventaprod_total.ReadOnly = True
-        '
-        'ApellidoyNombreDataGridViewTextBoxColumn
-        '
-        Me.ApellidoyNombreDataGridViewTextBoxColumn.DataPropertyName = "ApellidoyNombre"
-        Me.ApellidoyNombreDataGridViewTextBoxColumn.HeaderText = "Usuario"
-        Me.ApellidoyNombreDataGridViewTextBoxColumn.Name = "ApellidoyNombreDataGridViewTextBoxColumn"
-        Me.ApellidoyNombreDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'VentadesucursalBindingSource
-        '
-        Me.VentadesucursalBindingSource.DataMember = "venta_de_sucursal"
-        Me.VentadesucursalBindingSource.DataSource = Me.Venta_consulta_ds
-        '
-        'Venta_consulta_ds
-        '
-        Me.Venta_consulta_ds.DataSetName = "Venta_consulta_ds"
-        Me.Venta_consulta_ds.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'GroupBox_fechas
         '
@@ -338,23 +301,85 @@ Partial Class Venta_consulta_sucursal
         Me.Label1.TabIndex = 243
         Me.Label1.Text = "Sucursal:"
         '
+        'VentadesucursalBindingSource
+        '
+        Me.VentadesucursalBindingSource.DataMember = "venta_de_sucursal"
+        Me.VentadesucursalBindingSource.DataSource = Me.Venta_consulta_ds
+        '
+        'Venta_consulta_ds
+        '
+        Me.Venta_consulta_ds.DataSetName = "Venta_consulta_ds"
+        Me.Venta_consulta_ds.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'CajaBindingSource
         '
         Me.CajaBindingSource.DataMember = "Caja"
         Me.CajaBindingSource.DataSource = Me.Venta_consulta_ds
         '
-        'Button2
+        'factura_fecha
         '
-        Me.Button2.Image = Global.Aplicacion.My.Resources.Resources.Informe
-        Me.Button2.Location = New System.Drawing.Point(953, 515)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(149, 46)
-        Me.Button2.TabIndex = 257
-        Me.Button2.Text = "Ver detalle"
-        Me.Button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.ToolTip1.SetToolTip(Me.Button2, "Ver detalle de venta seleccionada")
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.factura_fecha.DataPropertyName = "factura_fecha"
+        Me.factura_fecha.HeaderText = "Fecha"
+        Me.factura_fecha.Name = "factura_fecha"
+        Me.factura_fecha.ReadOnly = True
+        '
+        'factura_id
+        '
+        Me.factura_id.DataPropertyName = "factura_id"
+        Me.factura_id.HeaderText = "Código"
+        Me.factura_id.Name = "factura_id"
+        Me.factura_id.ReadOnly = True
+        '
+        'VentaprodobservacionDataGridViewTextBoxColumn
+        '
+        Me.VentaprodobservacionDataGridViewTextBoxColumn.DataPropertyName = "ventaprod_observacion"
+        Me.VentaprodobservacionDataGridViewTextBoxColumn.HeaderText = "Tipo de Venta"
+        Me.VentaprodobservacionDataGridViewTextBoxColumn.Name = "VentaprodobservacionDataGridViewTextBoxColumn"
+        Me.VentaprodobservacionDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'USUidDataGridViewTextBoxColumn
+        '
+        Me.USUidDataGridViewTextBoxColumn.DataPropertyName = "USU_id"
+        Me.USUidDataGridViewTextBoxColumn.HeaderText = "Id usuario"
+        Me.USUidDataGridViewTextBoxColumn.Name = "USUidDataGridViewTextBoxColumn"
+        Me.USUidDataGridViewTextBoxColumn.ReadOnly = True
+        Me.USUidDataGridViewTextBoxColumn.Visible = False
+        '
+        'ventaprod_total
+        '
+        Me.ventaprod_total.DataPropertyName = "ventaprod_total"
+        Me.ventaprod_total.HeaderText = "Total ($)"
+        Me.ventaprod_total.Name = "ventaprod_total"
+        Me.ventaprod_total.ReadOnly = True
+        '
+        'ApellidoyNombreDataGridViewTextBoxColumn
+        '
+        Me.ApellidoyNombreDataGridViewTextBoxColumn.DataPropertyName = "ApellidoyNombre"
+        Me.ApellidoyNombreDataGridViewTextBoxColumn.HeaderText = "Usuario"
+        Me.ApellidoyNombreDataGridViewTextBoxColumn.Name = "ApellidoyNombreDataGridViewTextBoxColumn"
+        Me.ApellidoyNombreDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'vendedor_id
+        '
+        Me.vendedor_id.DataPropertyName = "vendedor_id"
+        Me.vendedor_id.HeaderText = "Cód.Vendedor"
+        Me.vendedor_id.Name = "vendedor_id"
+        Me.vendedor_id.ReadOnly = True
+        Me.vendedor_id.Visible = False
+        '
+        'vendedor_apenom
+        '
+        Me.vendedor_apenom.DataPropertyName = "vendedor_apenom"
+        Me.vendedor_apenom.HeaderText = "Vendedor"
+        Me.vendedor_apenom.Name = "vendedor_apenom"
+        Me.vendedor_apenom.ReadOnly = True
+        '
+        'ventaprod_id
+        '
+        Me.ventaprod_id.DataPropertyName = "ventaprod_id"
+        Me.ventaprod_id.HeaderText = "ventaprod_id"
+        Me.ventaprod_id.Name = "ventaprod_id"
+        Me.ventaprod_id.ReadOnly = True
         '
         'Venta_consulta_sucursal
         '
@@ -377,10 +402,10 @@ Partial Class Venta_consulta_sucursal
         Me.GroupBox2.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         CType(Me.DG_ventas, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.VentadesucursalBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Venta_consulta_ds, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox_fechas.ResumeLayout(False)
         Me.GroupBox_fechas.PerformLayout()
+        CType(Me.VentadesucursalBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Venta_consulta_ds, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CajaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -406,13 +431,16 @@ Partial Class Venta_consulta_sucursal
     Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Label_suc As System.Windows.Forms.Label
-    Friend WithEvents VentaprodfechaDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents VentaprodidColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
+    Friend WithEvents CajaBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents factura_fecha As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents factura_id As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents VentaprodobservacionDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents USUidDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ventaprod_total As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ApellidoyNombreDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
-    Friend WithEvents CajaBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents vendedor_id As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents vendedor_apenom As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ventaprod_id As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class

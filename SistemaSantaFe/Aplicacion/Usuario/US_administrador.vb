@@ -806,4 +806,14 @@ Public Property EnabledCerrar() As Boolean
         Cliente_Cta_Cte_Buscar.Close()
         Cliente_Cta_Cte_Buscar.Show()
     End Sub
+
+    Private Sub VendedorActualizarToolStripMenuItem_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles VendedorActualizarToolStripMenuItem.Click
+        Vendedor_modificar.Close()
+        Vendedor_modificar.Show()
+    End Sub
+
+    Private Sub RemitoToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RemitoToolStripMenuItem.Click
+        Remito.Close()
+        Remito.Show()
+    End Sub
 End Class

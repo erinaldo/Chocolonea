@@ -727,6 +727,17 @@
     <Compile Include="Modulos\Proveedores\Proveedor_modificar.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Modulos\Remito\DS_remito.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_remito.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Remito\Remito.Designer.vb">
+      <DependentUpon>Remito.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Remito\Remito.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Modulos\Servicios\Servicio_Consulta.Designer.vb">
       <DependentUpon>Servicio_Consulta.vb</DependentUpon>
     </Compile>
@@ -1297,6 +1308,9 @@
     <EmbeddedResource Include="Modulos\Proveedores\Proveedor_modificar.resx">
       <DependentUpon>Proveedor_modificar.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modulos\Remito\Remito.resx">
+      <DependentUpon>Remito.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modulos\Servicios\Servicio_Consulta.resx">
       <DependentUpon>Servicio_Consulta.vb</DependentUpon>
     </EmbeddedResource>
@@ -1613,6 +1627,17 @@
     </None>
     <None Include="Modulos\Proveedores\Proveedores_DS.xss">
       <DependentUpon>Proveedores_DS.xsd</DependentUpon>
+    </None>
+    <None Include="Modulos\Remito\DS_remito.xsc">
+      <DependentUpon>DS_remito.xsd</DependentUpon>
+    </None>
+    <None Include="Modulos\Remito\DS_remito.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_remito.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Modulos\Remito\DS_remito.xss">
+      <DependentUpon>DS_remito.xsd</DependentUpon>
     </None>
     <None Include="Modulos\Servicios\Servicio_DS.xsc">
       <DependentUpon>Servicio_DS.xsd</DependentUpon>

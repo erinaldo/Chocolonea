@@ -26,17 +26,19 @@ Partial Class Forma_de_pago_seleccion
         Me.RadioButton_tarjeta = New System.Windows.Forms.RadioButton()
         Me.RadioButton_efectivo = New System.Windows.Forms.RadioButton()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.RadioButton_ctacte = New System.Windows.Forms.RadioButton()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.RadioButton_ctacte)
         Me.GroupBox1.Controls.Add(Me.RadioButton_tarjeta)
         Me.GroupBox1.Controls.Add(Me.RadioButton_efectivo)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(255, 139)
+        Me.GroupBox1.Size = New System.Drawing.Size(255, 176)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Seleccione la forma de pago:"
@@ -69,7 +71,7 @@ Partial Class Forma_de_pago_seleccion
         '
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.Image = Global.Aplicacion.My.Resources.Resources.Pasar
-        Me.Button1.Location = New System.Drawing.Point(148, 161)
+        Me.Button1.Location = New System.Drawing.Point(148, 194)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(119, 46)
         Me.Button1.TabIndex = 4
@@ -77,11 +79,23 @@ Partial Class Forma_de_pago_seleccion
         Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'RadioButton_ctacte
+        '
+        Me.RadioButton_ctacte.AutoSize = True
+        Me.RadioButton_ctacte.Enabled = False
+        Me.RadioButton_ctacte.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RadioButton_ctacte.Location = New System.Drawing.Point(63, 130)
+        Me.RadioButton_ctacte.Name = "RadioButton_ctacte"
+        Me.RadioButton_ctacte.Size = New System.Drawing.Size(119, 29)
+        Me.RadioButton_ctacte.TabIndex = 2
+        Me.RadioButton_ctacte.Text = "Cta. Cte."
+        Me.RadioButton_ctacte.UseVisualStyleBackColor = True
+        '
         'Forma_de_pago_seleccion
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackgroundImage = Global.Aplicacion.My.Resources.Resources.silver_3
-        Me.ClientSize = New System.Drawing.Size(280, 215)
+        Me.ClientSize = New System.Drawing.Size(280, 243)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -99,4 +113,5 @@ Partial Class Forma_de_pago_seleccion
     Friend WithEvents RadioButton_tarjeta As System.Windows.Forms.RadioButton
     Friend WithEvents RadioButton_efectivo As System.Windows.Forms.RadioButton
     Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents RadioButton_ctacte As System.Windows.Forms.RadioButton
 End Class

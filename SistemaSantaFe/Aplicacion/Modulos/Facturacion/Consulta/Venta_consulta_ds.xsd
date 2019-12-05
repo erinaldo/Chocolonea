@@ -42,6 +42,10 @@
               <xs:element name="USU_id" msprop:Generator_ColumnVarNameInTable="columnUSU_id" msprop:Generator_ColumnPropNameInRow="USU_id" msprop:Generator_ColumnPropNameInTable="USU_idColumn" msprop:Generator_UserColumnName="USU_id" type="xs:string" minOccurs="0" />
               <xs:element name="ApellidoyNombre" msprop:Generator_ColumnVarNameInTable="columnApellidoyNombre" msprop:Generator_ColumnPropNameInRow="ApellidoyNombre" msprop:Generator_ColumnPropNameInTable="ApellidoyNombreColumn" msprop:Generator_UserColumnName="ApellidoyNombre" type="xs:string" minOccurs="0" />
               <xs:element name="ventaprod_total" msprop:Generator_ColumnVarNameInTable="columnventaprod_total" msprop:Generator_ColumnPropNameInRow="ventaprod_total" msprop:Generator_ColumnPropNameInTable="ventaprod_totalColumn" msprop:Generator_UserColumnName="ventaprod_total" type="xs:string" minOccurs="0" />
+              <xs:element name="vendedor_id" msprop:Generator_ColumnVarNameInTable="columnvendedor_id" msprop:Generator_ColumnPropNameInRow="vendedor_id" msprop:Generator_ColumnPropNameInTable="vendedor_idColumn" msprop:Generator_UserColumnName="vendedor_id" type="xs:string" minOccurs="0" />
+              <xs:element name="vendedor_apenom" msprop:Generator_ColumnVarNameInTable="columnvendedor_apenom" msprop:Generator_ColumnPropNameInRow="vendedor_apenom" msprop:Generator_ColumnPropNameInTable="vendedor_apenomColumn" msprop:Generator_UserColumnName="vendedor_apenom" type="xs:string" minOccurs="0" />
+              <xs:element name="factura_fecha" msprop:Generator_ColumnVarNameInTable="columnfactura_fecha" msprop:Generator_ColumnPropNameInRow="factura_fecha" msprop:Generator_ColumnPropNameInTable="factura_fechaColumn" msprop:Generator_UserColumnName="factura_fecha" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="factura_id" msprop:Generator_ColumnVarNameInTable="columnfactura_id" msprop:Generator_ColumnPropNameInRow="factura_id" msprop:Generator_ColumnPropNameInTable="factura_idColumn" msprop:Generator_UserColumnName="factura_id" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
