@@ -246,6 +246,29 @@
     <Compile Include="Modulos\Cliente\Cliente_alta_New.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Modulos\Cliente\CtaCte_ajustesaldo.Designer.vb">
+      <DependentUpon>CtaCte_ajustesaldo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Cliente\CtaCte_ajustesaldo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulos\Cliente\CtaCte_buscar_comprobantes.Designer.vb">
+      <DependentUpon>CtaCte_buscar_comprobantes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Cliente\CtaCte_buscar_comprobantes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulos\Cliente\CtaCte_ds.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CtaCte_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Cliente\CtaCte_pago.Designer.vb">
+      <DependentUpon>CtaCte_pago.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Cliente\CtaCte_pago.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Modulos\Cliente\Reporte\Cliente_reporte_ds.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -493,6 +516,18 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CR_comprobante.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Modulos\Facturacion\Reportes\CR_recibo.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CR_recibo.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Modulos\Facturacion\Reportes\CR_remito.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CR_remito.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Modulos\Facturacion\Reportes\Facturacion_ds_report.Designer.vb">
@@ -1108,6 +1143,15 @@
     <EmbeddedResource Include="Modulos\Cliente\Cliente_alta_New.resx">
       <DependentUpon>Cliente_alta_New.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modulos\Cliente\CtaCte_ajustesaldo.resx">
+      <DependentUpon>CtaCte_ajustesaldo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulos\Cliente\CtaCte_buscar_comprobantes.resx">
+      <DependentUpon>CtaCte_buscar_comprobantes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulos\Cliente\CtaCte_pago.resx">
+      <DependentUpon>CtaCte_pago.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modulos\Cliente\Reporte\Cliente_reporte_show.resx">
       <DependentUpon>Cliente_reporte_show.vb</DependentUpon>
     </EmbeddedResource>
@@ -1214,6 +1258,14 @@
     <EmbeddedResource Include="Modulos\Facturacion\Reportes\CR_comprobante.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CR_comprobante.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulos\Facturacion\Reportes\CR_recibo.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CR_recibo.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulos\Facturacion\Reportes\CR_remito.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CR_remito.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Modulos\Facturacion\Reportes\Facturacion_report_show.resx">
       <DependentUpon>Facturacion_report_show.vb</DependentUpon>
@@ -1473,6 +1525,17 @@
     </None>
     <None Include="Modulos\Cliente\Cliente_ds.xss">
       <DependentUpon>Cliente_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Modulos\Cliente\CtaCte_ds.xsc">
+      <DependentUpon>CtaCte_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Modulos\Cliente\CtaCte_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CtaCte_ds.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Modulos\Cliente\CtaCte_ds.xss">
+      <DependentUpon>CtaCte_ds.xsd</DependentUpon>
     </None>
     <None Include="Modulos\Cliente\Reporte\Cliente_reporte_ds.xsc">
       <DependentUpon>Cliente_reporte_ds.xsd</DependentUpon>
@@ -1817,16 +1880,21 @@
     <None Include="Resources\InformeBanco.png" />
     <None Include="Resources\gestion.bmp" />
     <None Include="Resources\Informe.png" />
+    <None Include="Resources\configure.png" />
+    <Content Include="Resources\factura.png" />
+    <Content Include="Resources\factura_30x30.png" />
     <Content Include="Resources\Logo_empresa.png" />
     <None Include="Resources\mas30x30.png" />
     <None Include="Resources\pedidos.png" />
     <None Include="Resources\lOGO_HS.png" />
+    <None Include="Resources\pay wallet.png" />
     <Content Include="Resources\persona.png" />
     <None Include="Resources\Pasar.png" />
     <Content Include="Resources\producto.jpg" />
     <None Include="Resources\search-20x20.bmp" />
     <None Include="Resources\restBackup.png" />
     <None Include="Resources\Servicios.png" />
+    <None Include="Resources\search balance.png" />
     <Content Include="Resources\silver 3.PNG" />
     <None Include="Resources\silver 31.PNG" />
     <Content Include="Resources\SonidoNo.png" />

@@ -1798,3 +1798,6 @@ C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub
 C:\Git repo nuevo\Chocolonea\SistemaSantaFe\Aplicacion\obj\x86\Debug\Aplicacion.Cliente_Cta_Cte_Buscar.resources
 C:\Git repo nuevo\Chocolonea\SistemaSantaFe\Aplicacion\obj\x86\Debug\Aplicacion.Remito.resources
 C:\Users\HamerNoteI7\Documents\Visual Studio 2010\Projects\HamerSoft\Repo_GitHub\Chocolonea\SistemaSantaFe\Aplicacion\obj\x86\Debug\Aplicacion.Remito.resources
+C:\Git repo nuevo\Chocolonea\SistemaSantaFe\Aplicacion\obj\x86\Debug\Aplicacion.CtaCte_pago.resources
+C:\Git repo nuevo\Chocolonea\SistemaSantaFe\Aplicacion\obj\x86\Debug\Aplicacion.CtaCte_ajustesaldo.resources
+C:\Git repo nuevo\Chocolonea\SistemaSantaFe\Aplicacion\obj\x86\Debug\Aplicacion.CtaCte_buscar_comprobantes.resources

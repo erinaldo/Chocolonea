@@ -9,10 +9,6 @@ Public Class Cliente_modificar
     Private Sub Cliente_modificar_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Obtener_Clientes()
 
-
-
-
-
         'Me.Show()
         'TX_ape.Focus()
 

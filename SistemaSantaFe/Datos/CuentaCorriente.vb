@@ -119,8 +119,8 @@ Public Class CuentaCorriente
         Return ds_JE
     End Function
 
-    Public Sub CtaCte_movimiento_alta(ByVal CtaCte_id As Integer, ByVal MovimientosCtaCte_tipo As String, ByVal MovimientosCtaCte_concepto As String,
-                                 ByVal MovimientosCtaCte_monto As Decimal, ByVal MovimientosCtaCte_fecha As DateTime)
+    Public Function CtaCte_movimiento_alta(ByVal CtaCte_id As Integer, ByVal MovimientosCtaCte_tipo As String, ByVal MovimientosCtaCte_concepto As String,
+                                 ByVal MovimientosCtaCte_monto As Decimal, ByVal MovimientosCtaCte_fecha As DateTime) As DataSet
         Try
             dbconn.Open()
         Catch ex As Exception
@@ -136,7 +136,8 @@ Public Class CuentaCorriente
         Dim da_JE As New OleDbDataAdapter(comando)
         da_JE.Fill(ds_JE, "CuentaCorriente")
         dbconn.Close()
-    End Sub
+        Return ds_JE
+    End Function
 
     Public Sub Venta_CtaCte_alta(ByVal factura_id As Integer, ByVal CtaCte_id As Integer)
         Try
@@ -168,5 +169,68 @@ Public Class CuentaCorriente
         da_JE.Fill(ds_JE, "CuentaCorriente")
         dbconn.Close()
     End Sub
+
+    Public Function Recibo_obtener_ultimo() As DataSet
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("Recibo_obtener_ultimo", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        'comando.Parameters.Add(New OleDb.OleDbParameter("@CLI_id", cliente_id))
+        Dim ds_JE As New DataSet()
+        Dim da_JE As New OleDbDataAdapter(comando)
+        da_JE.Fill(ds_JE, "Recibo")
+        dbconn.Close()
+        Return ds_JE
+    End Function
+
+    Public Sub Recibo_alta(ByVal mov_id As Integer, ByVal fecha As DateTime)
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("Recibo_alta", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        comando.Parameters.Add(New OleDb.OleDbParameter("@MovimientosCtaCte_id", mov_id))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@fecha", fecha))
+        
+        Dim ds_JE As New DataSet()
+        Dim da_JE As New OleDbDataAdapter(comando)
+        da_JE.Fill(ds_JE, "Recibo")
+        dbconn.Close()
+
+    End Sub
+
+    Public Function Recibo_obtener_reporte(ByVal recibo_id As Integer) As DataSet
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("Recibo_obtener_reporte", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        comando.Parameters.Add(New OleDb.OleDbParameter("@recibo_id", recibo_id))
+        Dim ds_JE As New DataSet()
+        Dim da_JE As New OleDbDataAdapter(comando)
+        da_JE.Fill(ds_JE, "Recibo")
+        dbconn.Close()
+        Return ds_JE
+    End Function
+
+    Public Function Recibo_recuperar_todos_ctacte(ByVal CtaCte_id As Integer) As DataSet
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("Recibo_recuperar_todos_ctacte", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        comando.Parameters.Add(New OleDb.OleDbParameter("@CtaCte_id", CtaCte_id))
+        Dim ds_JE As New DataSet()
+        Dim da_JE As New OleDbDataAdapter(comando)
+        da_JE.Fill(ds_JE, "Recibo")
+        dbconn.Close()
+        Return ds_JE
+    End Function
+
 
 End Class

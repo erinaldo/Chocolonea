@@ -25,6 +25,7 @@
 
 
         '///////////////TABLA CLIENTE//////////////////////////////////'
+        facturacion_ds_report.Tables("Cliente").Rows.Clear()
         If ds_venta.Tables(0).Rows.Count <> 0 Then 'la tabla es la que tiene asociado venta a un cliente, si el cliente es consumidor final, entonces esta tabla esta vacia
             Dim ds_cliente As DataSet = DAcliente.Cliente_ObtenerDni(CStr(ds_venta.Tables(0).Rows(0).Item("DNI")))
             Dim row_cliente As DataRow = facturacion_ds_report.Tables("Cliente").NewRow()
@@ -37,17 +38,18 @@
             row_cliente("iva_condicion") = ds_cliente.Tables(1).Rows(0).Item("IVA_descripcion").ToString
             facturacion_ds_report.Tables("Cliente").Rows.Add(row_cliente)
         Else
-            Dim row_cliente As DataRow = Facturacion_ds_report.Tables("Cliente").NewRow()
+            Dim row_cliente As DataRow = facturacion_ds_report.Tables("Cliente").NewRow()
             row_cliente("fantasia") = ""
             row_cliente("dni") = ""
             row_cliente("telefono") = ""
             row_cliente("mail") = ""
             row_cliente("iva_condicion") = "Consumidor Final"
-            Facturacion_ds_report.Tables("Cliente").Rows.Add(row_cliente)
+            facturacion_ds_report.Tables("Cliente").Rows.Add(row_cliente)
         End If
 
         '///////////////TABLA SUCURSAL//////////////////////////////////'
-        Dim row_sucursal As DataRow = Facturacion_ds_report.Tables("Sucursal").NewRow()
+        facturacion_ds_report.Tables("Sucursal").Rows.Clear()
+        Dim row_sucursal As DataRow = facturacion_ds_report.Tables("Sucursal").NewRow()
         row_sucursal("sucursal") = ds_venta.Tables(3).Rows(0).Item("sucursal")
         row_sucursal("direccion") = ds_venta.Tables(3).Rows(0).Item("direccion")
         row_sucursal("telefono") = ds_venta.Tables(3).Rows(0).Item("telefono")
@@ -56,15 +58,16 @@
         Facturacion_ds_report.Tables("Sucursal").Rows.Add(row_sucursal)
 
         '///////////////TABLA EMPRESA//////////////////////////////////'
+        facturacion_ds_report.Tables("Empresa").Rows.Clear()
         If ds_venta.Tables(4).Rows.Count <> 0 Then
-            Facturacion_ds_report.Tables("Empresa").Merge(ds_venta.Tables(4))
+            facturacion_ds_report.Tables("Empresa").Merge(ds_venta.Tables(4))
         End If
 
 
 
         '///////////////TABLA VENTA//////////////////////////////////'
         'pregunto por el estado de los table 0 y 1, si 0 esta vacio, los datos estan en table 1, q es consumidor final
-
+        facturacion_ds_report.Tables("venta").Rows.Clear()
         If ds_venta.Tables(0).Rows.Count <> 0 Then
             Dim row_venta As DataRow = Facturacion_ds_report.Tables("venta").NewRow()
             row_venta("nro_factura") = ds_venta.Tables(0).Rows(0).Item("factura_id") 'aqui el id de la factura.
@@ -82,10 +85,9 @@
             Facturacion_ds_report.Tables("venta").Rows.Add(row_venta)
         End If
 
-
         '///////////////TABLA TOTALES APLICADOS//////////////////////////////////'
         'pregunto por el estado de los table 0 y 1, si 0 esta vacio, los datos estan en table 1, q es consumidor final
-
+        facturacion_ds_report.Tables("Totales_aplicados").Rows.Clear()
         If ds_venta.Tables(0).Rows.Count <> 0 Then
             Dim row_totales As DataRow = Facturacion_ds_report.Tables("Totales_aplicados").NewRow()
             row_totales("subtotal") = ds_venta.Tables(0).Rows(0).Item("ventaprod_subtotal")
@@ -108,6 +110,7 @@
 
 
         '///////////////TABLA PRODUCTO AGREGADO//////////////////////////////////'
+        facturacion_ds_report.Tables("Producto_agregado").Rows.Clear()
         'aqui ciclo en la grilla para ir agrendo los row a la tabla producto agregado
         Dim i As Integer = 0
         While i < ds_venta.Tables(2).Rows.Count
@@ -122,6 +125,7 @@
             row_prodADD("codbarra") = ""
             row_prodADD("TURNO_id") = ""
             row_prodADD("descuento") = CDec(ds_venta.Tables(2).Rows(i).Item("descuento"))
+            row_prodADD("grupo_id") = CInt(1)
             Facturacion_ds_report.Tables("Producto_agregado").Rows.Add(row_prodADD)
             i = i + 1
         End While
@@ -137,9 +141,12 @@
         CrReport.Database.Tables("venta").SetDataSource(Facturacion_ds_report.Tables("venta"))
         CrReport.Database.Tables("Producto_agregado").SetDataSource(Facturacion_ds_report.Tables("Producto_agregado"))
         CrReport.Database.Tables("Totales_aplicados").SetDataSource(Facturacion_ds_report.Tables("Totales_aplicados"))
-        Facturacion_report_show.CrystalReportViewer1.ReportSource = CrReport
-        Facturacion_report_show.Show()
-
+        'Facturacion_report_show.CrystalReportViewer1.ReportSource = CrReport
+        Dim numerofactura As String = ds_venta.Tables(1).Rows(0).Item("factura_id")
+        Dim factura_report As New Facturacion_report_show
+        factura_report.CrystalReportViewer1.ReportSource = CrReport
+        factura_report.Text = "Comprobante Nº: " + CStr(numerofactura) + " - Imprimir."
+        factura_report.Show()
     End Sub
 
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
@@ -155,7 +162,13 @@
         crear_reporte(ventaprod_id)
     End Sub
 
-
+    Private Sub Venta_detalle_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
+        If e.KeyCode = Keys.Escape Then
+            Venta_consulta_sucursal.sucursal_id = sucursal_id
+            Venta_consulta_sucursal.Show()
+            Me.Close()
+        End If
+    End Sub
 
     Private Sub Venta_detalle_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         '1) cargo todos los datos en un ds

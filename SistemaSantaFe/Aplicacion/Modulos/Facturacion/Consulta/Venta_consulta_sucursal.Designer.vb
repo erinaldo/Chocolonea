@@ -36,6 +36,8 @@ Partial Class Venta_consulta_sucursal
         Me.ComboBox_usuarios = New System.Windows.Forms.ComboBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.DG_ventas = New System.Windows.Forms.DataGridView()
+        Me.VentadesucursalBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Venta_consulta_ds = New Aplicacion.Venta_consulta_ds()
         Me.GroupBox_fechas = New System.Windows.Forms.GroupBox()
         Me.Button_buscar = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -45,8 +47,6 @@ Partial Class Venta_consulta_sucursal
         Me.Label_sucursal = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.VentadesucursalBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Venta_consulta_ds = New Aplicacion.Venta_consulta_ds()
         Me.CajaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.factura_fecha = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.factura_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -62,9 +62,9 @@ Partial Class Venta_consulta_sucursal
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DG_ventas, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox_fechas.SuspendLayout()
         CType(Me.VentadesucursalBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Venta_consulta_ds, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox_fechas.SuspendLayout()
         CType(Me.CajaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -222,6 +222,16 @@ Partial Class Venta_consulta_sucursal
         Me.DG_ventas.Size = New System.Drawing.Size(1076, 294)
         Me.DG_ventas.TabIndex = 240
         '
+        'VentadesucursalBindingSource
+        '
+        Me.VentadesucursalBindingSource.DataMember = "venta_de_sucursal"
+        Me.VentadesucursalBindingSource.DataSource = Me.Venta_consulta_ds
+        '
+        'Venta_consulta_ds
+        '
+        Me.Venta_consulta_ds.DataSetName = "Venta_consulta_ds"
+        Me.Venta_consulta_ds.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'GroupBox_fechas
         '
         Me.GroupBox_fechas.Controls.Add(Me.Button_buscar)
@@ -301,16 +311,6 @@ Partial Class Venta_consulta_sucursal
         Me.Label1.TabIndex = 243
         Me.Label1.Text = "Sucursal:"
         '
-        'VentadesucursalBindingSource
-        '
-        Me.VentadesucursalBindingSource.DataMember = "venta_de_sucursal"
-        Me.VentadesucursalBindingSource.DataSource = Me.Venta_consulta_ds
-        '
-        'Venta_consulta_ds
-        '
-        Me.Venta_consulta_ds.DataSetName = "Venta_consulta_ds"
-        Me.Venta_consulta_ds.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'CajaBindingSource
         '
         Me.CajaBindingSource.DataMember = "Caja"
@@ -326,7 +326,7 @@ Partial Class Venta_consulta_sucursal
         'factura_id
         '
         Me.factura_id.DataPropertyName = "factura_id"
-        Me.factura_id.HeaderText = "Código"
+        Me.factura_id.HeaderText = "Nº Comprobante"
         Me.factura_id.Name = "factura_id"
         Me.factura_id.ReadOnly = True
         '
@@ -380,6 +380,7 @@ Partial Class Venta_consulta_sucursal
         Me.ventaprod_id.HeaderText = "ventaprod_id"
         Me.ventaprod_id.Name = "ventaprod_id"
         Me.ventaprod_id.ReadOnly = True
+        Me.ventaprod_id.Visible = False
         '
         'Venta_consulta_sucursal
         '
@@ -402,10 +403,10 @@ Partial Class Venta_consulta_sucursal
         Me.GroupBox2.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         CType(Me.DG_ventas, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox_fechas.ResumeLayout(False)
-        Me.GroupBox_fechas.PerformLayout()
         CType(Me.VentadesucursalBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Venta_consulta_ds, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox_fechas.ResumeLayout(False)
+        Me.GroupBox_fechas.PerformLayout()
         CType(Me.CajaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 

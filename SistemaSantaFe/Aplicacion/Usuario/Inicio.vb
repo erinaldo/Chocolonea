@@ -82,7 +82,8 @@
                 '_directamente abre modulo administrador
                 'US_administrador.Show()
                 If USU_id = 3 Then
-                    US_administrador.Show()
+                    'US_administrador.Show() choco: 07-12-2019, antes si eras admin entrabas sin seleccionar terminal, pero eso da error en la validacion de la caja
+                    Seleccion_Terminal.Show()
                 Else
                     Seleccion_Terminal.Show()
                 End If

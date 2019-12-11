@@ -72,6 +72,7 @@ Partial Class US_administrador
         Me.CalculadoraDelSistemaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuMesasNEWToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CierreDeCajaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RemitoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripDropDownButton7 = New System.Windows.Forms.ToolStripDropDownButton()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -123,7 +124,6 @@ Partial Class US_administrador
         Me.Btn_corte_caja = New System.Windows.Forms.Button()
         Me.Label_Suc = New System.Windows.Forms.Label()
         Me.Lbl_Terminal = New System.Windows.Forms.Label()
-        Me.RemitoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -133,12 +133,12 @@ Partial Class US_administrador
         Me.ToolStrip1.BackColor = System.Drawing.Color.Transparent
         Me.ToolStrip1.Dock = System.Windows.Forms.DockStyle.None
         Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator10, Me.ToolStripSeparator4, Me.ToolStripDropDownButton1, Me.ToolStripSeparator2, Me.ToolStripDropDownButton2, Me.ToolStripDropDownButton4, Me.ToolStripSeparator3, Me.ToolStripDropDownButton6, Me.ToolStripSeparator1, Me.ToolStripDropDownButton7, Me.ToolStripSeparator6, Me.ToolStripDropDownButtonServicios, Me.ToolStripSeparator7, Me.ToolStripDropDownButton8, Me.ToolStripSeparator8, Me.ToolStripDropDownButtonConfiguracion, Me.ToolStripSeparator5, Me.ToolStripDropDownButton3, Me.ToolStripSeparator9})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator10, Me.ToolStripDropDownButton1, Me.ToolStripSeparator2, Me.ToolStripDropDownButton2, Me.ToolStripSeparator4, Me.ToolStripDropDownButton4, Me.ToolStripSeparator3, Me.ToolStripDropDownButton6, Me.ToolStripSeparator1, Me.ToolStripDropDownButton7, Me.ToolStripSeparator6, Me.ToolStripDropDownButtonServicios, Me.ToolStripSeparator7, Me.ToolStripDropDownButton8, Me.ToolStripSeparator8, Me.ToolStripDropDownButtonConfiguracion, Me.ToolStripSeparator5, Me.ToolStripDropDownButton3, Me.ToolStripSeparator9})
         Me.ToolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow
         Me.ToolStrip1.Location = New System.Drawing.Point(7, 68)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
-        Me.ToolStrip1.Size = New System.Drawing.Size(81, 648)
+        Me.ToolStrip1.Size = New System.Drawing.Size(81, 665)
         Me.ToolStrip1.TabIndex = 54
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -146,12 +146,12 @@ Partial Class US_administrador
         '
         Me.ToolStripSeparator10.Name = "ToolStripSeparator10"
         Me.ToolStripSeparator10.Size = New System.Drawing.Size(79, 6)
+        Me.ToolStripSeparator10.Visible = False
         '
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(79, 6)
-        Me.ToolStripSeparator4.Visible = False
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(22, 6)
         '
         'ToolStripDropDownButton1
         '
@@ -257,8 +257,7 @@ Partial Class US_administrador
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(79, 6)
-        Me.ToolStripSeparator2.Visible = False
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(22, 6)
         '
         'ToolStripDropDownButton2
         '
@@ -476,6 +475,12 @@ Partial Class US_administrador
         Me.CierreDeCajaToolStripMenuItem.Size = New System.Drawing.Size(238, 24)
         Me.CierreDeCajaToolStripMenuItem.Text = "Cierre de Caja"
         Me.CierreDeCajaToolStripMenuItem.Visible = False
+        '
+        'RemitoToolStripMenuItem
+        '
+        Me.RemitoToolStripMenuItem.Name = "RemitoToolStripMenuItem"
+        Me.RemitoToolStripMenuItem.Size = New System.Drawing.Size(238, 24)
+        Me.RemitoToolStripMenuItem.Text = "Remito"
         '
         'ToolStripSeparator1
         '
@@ -920,12 +925,6 @@ Partial Class US_administrador
         Me.Lbl_Terminal.TabIndex = 60
         Me.Lbl_Terminal.Text = "Lbl_Terminal"
         Me.Lbl_Terminal.Visible = False
-        '
-        'RemitoToolStripMenuItem
-        '
-        Me.RemitoToolStripMenuItem.Name = "RemitoToolStripMenuItem"
-        Me.RemitoToolStripMenuItem.Size = New System.Drawing.Size(238, 24)
-        Me.RemitoToolStripMenuItem.Text = "Remito"
         '
         'US_administrador
         '

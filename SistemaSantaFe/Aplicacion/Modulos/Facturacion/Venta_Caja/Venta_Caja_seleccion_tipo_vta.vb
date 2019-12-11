@@ -45,10 +45,10 @@
             Me.Close()
         Else
             Venta_Caja_gestion.Close()
-            Venta_Caja_gestion.tipo_vta = ComboBox1.Text
-            Venta_Caja_gestion.procedencia = "Remito nuevo"
+            Venta_Caja_gestion.tipo_vta = ComboBox1.Text 'tipo_vta es para q se recuperen los precios minoristas o mayoristas de los productos.
+            Venta_Caja_gestion.procedencia = "Remito nuevo" 'sirve para solo recuperar en grilla los clientes con cuenta corriente.
             Venta_Caja_gestion.Text = "Nuevo Remito"
-            Venta_Caja_gestion.RB_Consumidor.Enabled = False
+            Venta_Caja_gestion.RB_Consumidor.Enabled = False 'los remitos solo se hacen a clientes.
             Venta_Caja_gestion.RB_Cliente.Checked = True
             Venta_Caja_gestion.TabPage1.Text = "Generar remito: Cliente con Cuenta Corriente"
             Venta_Caja_gestion.TabPage2.Text = "Generar remito: Productos"

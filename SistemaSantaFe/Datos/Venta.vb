@@ -552,6 +552,27 @@ Public Class Venta
 
     End Sub
 
+    Public Sub VentaProductoDetalle_eliminar(ByVal ventaprod_id As Integer)
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+
+        Dim comando As New OleDbCommand("VentaProductoDetalle_eliminar", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+
+        comando.Parameters.Add(New OleDb.OleDbParameter("@ventaprod_id", ventaprod_id))
+
+        'el tipo de venta es cliente o consumidor final
+        'el id del cliente es 0 en caso de ser consumidor final
+
+        Dim ds_JE As New DataSet()
+        Dim da_JE As New OleDbDataAdapter(comando)
+        da_JE.Fill(ds_JE, "Venta_Producto")
+        dbconn.Close()
+
+    End Sub
+     
 
 
 
@@ -890,6 +911,59 @@ Public Class Venta
         dbconn.Close()
         Return ds_JE
     End Function
+
+    Public Function Factura_modificar_estado(ByVal ventaprod_id As Integer, ByVal ventaprod_estado As String) As DataSet
+
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("Factura_modificar_estado", dbconn) 'actualiza la tabla 
+        comando.CommandType = CommandType.StoredProcedure
+        comando.Parameters.Add(New OleDb.OleDbParameter("@ventaprod_id", ventaprod_id))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@ventaprod_estado", ventaprod_estado))
+        Dim ds_JE As New DataSet()
+        Dim da_JE As New OleDbDataAdapter(comando)
+        da_JE.Fill(ds_JE, "Venta_Producto")
+        dbconn.Close()
+        Return ds_JE
+    End Function
+
+    Public Function Factura_recuperar_todos_ctacte(ByVal CtaCte_id As Integer) As DataSet
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("Factura_recuperar_todos_ctacte", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        comando.Parameters.Add(New OleDb.OleDbParameter("@CtaCte_id", CtaCte_id))
+        Dim ds_JE As New DataSet()
+        Dim da_JE As New OleDbDataAdapter(comando)
+        da_JE.Fill(ds_JE, "Factura")
+        dbconn.Close()
+        Return ds_JE
+    End Function
+
+    Public Function Factura_recuperar_productos(ByVal factura_id As Integer) As DataSet
+
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+
+        Dim comando As New OleDbCommand("Factura_recuperar_productos", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+
+        comando.Parameters.Add(New OleDb.OleDbParameter("@factura_id", factura_id))
+
+        Dim ds_JE As New DataSet()
+        Dim da_JE As New OleDbDataAdapter(comando)
+        da_JE.Fill(ds_JE, "Factura")
+        dbconn.Close()
+        Return ds_JE
+    End Function
+
+
 #End Region
 
 #Region "Gestión Remito"
@@ -932,6 +1006,105 @@ Public Class Venta
         dbconn.Close()
         Return ds_JE
     End Function
+
+    Public Function Remito_recuperar(ByVal remito_id As Integer) As DataSet
+
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+
+        Dim comando As New OleDbCommand("Remito_recuperar", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+
+        comando.Parameters.Add(New OleDb.OleDbParameter("@remito_id", remito_id))
+        'el tipo de venta es cliente o consumidor final
+        'el id del cliente es 0 en caso de ser consumidor final
+
+        Dim ds_JE As New DataSet()
+        Dim da_JE As New OleDbDataAdapter(comando)
+        da_JE.Fill(ds_JE, "Remito")
+        dbconn.Close()
+        Return ds_JE
+    End Function
+
+    Public Function Remito_recuperar_productos(ByVal remito_id As Integer) As DataSet
+
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+
+        Dim comando As New OleDbCommand("Remito_recuperar_productos", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+
+        comando.Parameters.Add(New OleDb.OleDbParameter("@remito_id", remito_id))
+        'el tipo de venta es cliente o consumidor final
+        'el id del cliente es 0 en caso de ser consumidor final
+
+        Dim ds_JE As New DataSet()
+        Dim da_JE As New OleDbDataAdapter(comando)
+        da_JE.Fill(ds_JE, "Remito")
+        dbconn.Close()
+        Return ds_JE
+    End Function
+
+    Public Function Remito_productos_modificar(ByVal ventaprod_id As Integer, ByVal ventaprod_total As Decimal, ByVal usuario_id As Integer, ByVal ventaprod_tipovta As String, ByVal cliente_id As Integer,
+                                       ByVal ventaprod_subtotal As Decimal, ByVal ventaprod_descuento_pesos As Decimal, ByVal ventaprod_descuento_porcentaje As Decimal,
+                                       ByVal ventaprod_iva_porcentaje As Decimal, ByVal ventaprod_iva_pesos As Decimal, ByVal ventaprod_observacion As String,
+                                       ByVal Servicio_id As Integer, ByVal vendedor_id As Integer, ByVal ventaprod_estado As String) As DataSet
+
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+
+        Dim comando As New OleDbCommand("Remito_productos_modificar", dbconn) 'actualiza la tabla 
+        comando.CommandType = CommandType.StoredProcedure
+
+        comando.Parameters.Add(New OleDb.OleDbParameter("@ventaprod_id", ventaprod_id))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@ventaprod_total", ventaprod_total))
+        'comando.Parameters.Add(New OleDb.OleDbParameter("@ventaprod_fecha", ventaprod_fecha))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@usuario_id", usuario_id))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@ventaprod_tipovta", ventaprod_tipovta))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@cliente_id", cliente_id))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@ventaprod_subtotal", ventaprod_subtotal)) 'este parametro trae el total sumado de productos, sin descuento ni iva aplicado
+        comando.Parameters.Add(New OleDb.OleDbParameter("@ventaprod_descuento_pesos", ventaprod_descuento_pesos))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@ventaprod_descuento_porcentaje", ventaprod_descuento_porcentaje))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@ventaprod_iva_porcentaje", ventaprod_iva_porcentaje))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@ventaprod_iva_pesos", ventaprod_iva_pesos))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@ventaprod_observacion", ventaprod_observacion))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@Servicio_id", Servicio_id))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@vendedor_id", vendedor_id))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@ventaprod_estado", ventaprod_estado))
+
+        'el tipo de venta es cliente o consumidor final
+        'el id del cliente es 0 en caso de ser consumidor final
+
+        Dim ds_JE As New DataSet()
+        Dim da_JE As New OleDbDataAdapter(comando)
+        da_JE.Fill(ds_JE, "Venta_Producto")
+        dbconn.Close()
+        Return ds_JE
+    End Function
+
+    Public Function remito_modificar_estado(ByVal remito_id As Integer, ByVal remito_estado As String) As DataSet
+
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("Remito_modificar_estado", dbconn) 'actualiza la tabla 
+        comando.CommandType = CommandType.StoredProcedure
+        comando.Parameters.Add(New OleDb.OleDbParameter("@remito_id", remito_id))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@remito_estado", remito_estado))
+        Dim ds_JE As New DataSet()
+        Dim da_JE As New OleDbDataAdapter(comando)
+        da_JE.Fill(ds_JE, "Venta_Producto")
+        dbconn.Close()
+        Return ds_JE
+    End Function
+
 
 #End Region
 

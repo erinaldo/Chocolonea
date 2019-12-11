@@ -7,6 +7,13 @@
     Public VentaGestion_DS_PROD As DataSet
     Public tipo_vta As String 'esta variable me sirve para saber con que precio trabajar, mayorista o minorista
     Public tipo_prod
+    Public remito_id As Integer
+    Public USU_id_gen_remito As Integer 'usuario q genero el remito
+    Public fecha_remito As String 'fecha del remito cuando se hizo el alta en bd.
+    Public remito_cliente_id As Integer 'cliente_id, parametro q me lo envia el form Remito
+    Public remiro_vendedor_id As Integer 'vendedor_id parametro q me lo envia el form remito
+    Public remito_ventaprod_id As Integer 'ventaprod_id parametro q me lo envia el form remito
+    Public facturar As String
     Dim DAvendedor As New Datos.Vendedor
     Public procedencia As String 'me sirve para saber si hago factura o bien remito
 #Region "METODOS Y EVENTOS DE LA GRILLA DE PRODUCTOS"
@@ -693,14 +700,15 @@
                     If ds_ctacte.Tables(0).Rows(0).Item("CtaCte_estado") = "Activo" Then
                         'si tiene cta activa, pongo sus datos en el label
                         Label_ctacte.Text = "Cuenta Corriente: " + CStr(ds_ctacte.Tables(0).Rows(0).Item("CtaCte_id"))
-                        Label_saldo.Text = "Saldo: " + CStr(ds_ctacte.Tables(0).Rows(0).Item("CtaCte_total"))
+                        Label_saldo.Text = "Saldo $: " + CStr(ds_ctacte.Tables(0).Rows(0).Item("CtaCte_total"))
+                        label_limite.Text = "Limite $:" + CStr(ds_ctacte.Tables(0).Rows(0).Item("CtaCte_limitedeuda"))
                     Else
                         Label_ctacte.Text = "Cuenta Corriente:"
-                        Label_saldo.Text = "Saldo:"
+                        Label_saldo.Text = "Saldo $:"
                     End If
                 Else
                     Label_ctacte.Text = "Cuenta Corriente:"
-                    Label_saldo.Text = "Saldo:"
+                    Label_saldo.Text = "Saldo $:"
                 End If
             Else
                 lb_fantasia.Text = "- - - -"
@@ -736,8 +744,227 @@
         'cargar en en un combo los vendedores disponibles
         vendedores_obtener()
 
+        'choco: 07-12-2019
+        If procedencia = "Remito modificar" Then
+            'paso directamente a la pestaña 2, recupero productos guardados en la bd, del remito pendiente
+            recuperar_remito_etc()
+        End If
+
     End Sub
 
+
+
+
+
+#Region "Remito modificar"
+    Private Sub recuperar_remito_etc()
+        If RB_Cliente.Checked = True Then
+            'If DG_clientes.CurrentRow.Selected = True Then
+            GroupBox12.Enabled = True 'habilito la pestaña 2
+            GroupBox1.Enabled = False
+            GroupBox2.Enabled = False
+            GroupBox3.Enabled = False
+            TabPage1.Parent = Nothing 'oculto pestaña 1
+            TabPage2.Parent = TabControl1 'pongo visible pestaña 2
+            TabControl1.SelectedTab = TabPage2
+
+            'LIMPIAR LA GRILLA DE PROD AGREGADOS
+            'DataG_lista.DataSource = Nothing
+            DataGridView1.DataSource = Nothing
+            Call habilitar_columnas_edicion()
+            Call Obtener_Productos_Combos()
+            'End If
+        End If
+        'esto va en el evento load del nuevo diseño del modulo
+        DataGridView1.Rows.Add()
+        
+
+        obtener_usuario_sucursal_cliente() 'esto info se carga en los grupbox de la segunda pestaña
+
+        'FILA = 0
+        'CELDA = 2
+        ' DataGridView1.EditMode = DataGridViewEditMode.EditOnEnter
+        ComboBox_iva.SelectedIndex = 0
+        Label_tipo_vta.Text = "Venta " + tipo_vta
+
+        Remito_recuperar_productos()
+
+        DataGridView1.Focus()
+        DataGridView1.Rows(0).Cells("columna_codinterno").Selected = True
+    End Sub
+    Private Sub obtener_usuario_sucursal_cliente()
+        'ojo esto funciona con la referencia al menu...
+        Dim USU_ID As Integer = CInt(USU_id_gen_remito)
+        Dim ds_usuario As DataSet = DAventa.Obtener_usuario_y_sucursal(USU_ID)
+        If ds_usuario.Tables(0).Rows.Count <> 0 Then
+            'cargamos datos en los label
+
+            '-------------GRUPBOX VENTA----------------
+            lb_factura_vta.Text = remito_id
+            Label12.Text = "NºRemito:"
+
+            lb_vendedor_vta.Text = ds_usuario.Tables(0).Rows(0).Item("USU_ape") + ", " + ds_usuario.Tables(0).Rows(0).Item("USU_nom")
+            lb_fecha_vta.Text = fecha_remito  'aqui va fecha recuperada del remito
+
+
+            '-------------GRUPBOX DATOS COMERCIALES---------
+            lb_nombre_sucursal.Text = ds_usuario.Tables(0).Rows(0).Item("sucursal_nombre")
+            lb_direccion_sucursal.Text = ds_usuario.Tables(0).Rows(0).Item("sucursal_direccion")
+            lb_telefono_sucursal.Text = ds_usuario.Tables(0).Rows(0).Item("sucursal_telefono")
+            lb_mail_sucursal.Text = ds_usuario.Tables(0).Rows(0).Item("sucursal_mail")
+
+            '-----------GRUPBOX CLIENTE.
+            If RB_Cliente.Checked = True Then
+                Dim ds As DataSet = DAcliente.Cliente_obtener_info(CInt(remito_cliente_id))
+                lb_fantasia.Text = ds.Tables(0).Rows(0).Item("CLI_Fan").ToString
+                lb_dni_clie.Text = ds.Tables(0).Rows(0).Item("CLI_dni").ToString
+                lb_telef_clie.Text = ds.Tables(0).Rows(0).Item("CLI_tel").ToString
+                lb_mail_clie.Text = ds.Tables(0).Rows(0).Item("CLI_mail").ToString
+                lb_tipoIVA_clie.Text = ds.Tables(0).Rows(0).Item("IVA_Descripcion").ToString
+
+                'choco: 03-12-2019, si tiene cuenta corriente, muestro saldo y un label que diga que es cta cte.
+                Dim ds_ctacte As DataSet = DActacte.CtaCte_buscar_Cliente(remito_cliente_id)
+                If ds_ctacte.Tables(0).Rows.Count <> 0 Then
+                    If ds_ctacte.Tables(0).Rows(0).Item("CtaCte_estado") = "Activo" Then
+                        'si tiene cta activa, pongo sus datos en el label
+                        Label_ctacte.Text = "Cuenta Corriente: " + CStr(ds_ctacte.Tables(0).Rows(0).Item("CtaCte_id"))
+                        Label_saldo.Text = "Saldo: " + CStr(ds_ctacte.Tables(0).Rows(0).Item("CtaCte_total"))
+                    Else
+                        Label_ctacte.Text = "Cuenta Corriente:"
+                        Label_saldo.Text = "Saldo:"
+                    End If
+                Else
+                    Label_ctacte.Text = "Cuenta Corriente:"
+                    Label_saldo.Text = "Saldo:"
+                End If
+            End If
+
+            'ahora selecciono el mismo vendedor
+            ComboBox_vendedor.SelectedValue = remiro_vendedor_id
+            Panel3.Enabled = False
+        End If
+    End Sub
+    Private Sub Remito_recuperar_productos()
+        Dim ds_rem_prod As DataSet = DAventa.Remito_recuperar_productos(remito_id)
+        Dim h As Integer = 0
+        While h < ds_rem_prod.Tables(0).Rows.Count
+            DataGridView1.Rows.Add()
+            DataGridView1.Rows(h).Cells("columna_item").Value = CInt(h + 1)
+            DataGridView1.Rows(h).Cells("columna_prod_id").Value = ds_rem_prod.Tables(0).Rows(h).Item("prod_id").ToString
+            DataGridView1.Rows(h).Cells("columna_codinterno").Value = ds_rem_prod.Tables(0).Rows(h).Item("codigointerno").ToString
+            'VentaGestion_DS_PROD.Tables(1).Rows(i).Item("prod_codinterno").ToString()
+            DataGridView1.Rows(h).Cells("columna_descripcion").Value = ds_rem_prod.Tables(0).Rows(h).Item("ventaprod_descripcion").ToString
+            'VentaGestion_DS_PROD.Tables(1).Rows(i).Item("prod_descripcion").ToString
+            DataGridView1.Rows(h).Cells("columna_detalle").Value = ds_rem_prod.Tables(0).Rows(h).Item("prod_descrilarga").ToString
+            'VentaGestion_DS_PROD.Tables(1).Rows(i).Item("prod_descrilarga").ToString
+            DataGridView1.Rows(h).Cells("columna_cantidad").Value = CDec(ds_rem_prod.Tables(0).Rows(h).Item("ventaprod_cant"))
+            DataGridView1.Rows(h).Cells("columna_precio_unitario").Value = CDec(ds_rem_prod.Tables(0).Rows(h).Item("ventaprod_precio"))
+            'VentaGestion_DS_PROD.Tables(1).Rows(i).Item("prod_precio_vta")
+            DataGridView1.Rows(h).Cells("columna_precio_subtotal").Value = CDec(ds_rem_prod.Tables(0).Rows(h).Item("producto_subtotal"))
+            DataGridView1.Rows(h).Cells("columna_codbarra").Value = ds_rem_prod.Tables(0).Rows(h).Item("prod_codbarra")
+            DataGridView1.Rows(h).Cells("descuento").Value = CDec(ds_rem_prod.Tables(0).Rows(h).Item("ventaprod_descuento_porc")) 'descuento % en 0
+            calcular_totales()
+            Dim IVA As Decimal = CDec(ds_rem_prod.Tables(0).Rows(h).Item("ventaprod_iva_porcentaje"))
+            Dim desc_pesos As Decimal = CDec(ds_rem_prod.Tables(0).Rows(h).Item("ventaprod_descuento_pesos"))
+            Dim desc_porc As Decimal = CDec(ds_rem_prod.Tables(0).Rows(h).Item("ventaprod_descuento_porcentaje"))
+            Remito_aplicar_SU_iva(IVA, desc_pesos, desc_porc)
+
+            h = h + 1
+        End While
+
+
+
+    End Sub
+    Public Sub Remito_aplicar_SU_iva(ByVal IVA As Decimal, ByVal desc_pesos As Decimal, ByVal desc_porc As Decimal)
+        txt_total.Text = 0
+
+        If IVA = "0" And CDec(txt_subtotal.Text) <> 0 Then
+            '///////////////////IMPUESTO////////////////////////////
+            txt_impuesto_aplicado.Text = CDec(0)
+            '//////////////////////////////////////////////////////
+            'como es el 0, debo volver a poner el total sin iva, y si corresponde aplico el descuento
+
+            txt_desc_pesos.Text = (Math.Round(CDec(desc_pesos), 2).ToString("N2"))
+            txt_desc_porc.Text = (Math.Round(CDec(desc_porc), 2).ToString("N2"))
+            'If txt_desc_pesos.Text = "" Then
+            '    txt_desc_pesos.Text = (Math.Round(CDec(0), 2).ToString("N2"))
+            'End If
+
+            Dim calculo_porc As Decimal = (CDec(txt_desc_pesos.Text) * 100) / CDec(txt_subtotal.Text)
+            txt_desc_porc.Text = (Math.Round(CDec(calculo_porc), 2).ToString("N2"))
+
+            '///////////////////////TOTAL A PAGAR/////////////////////////
+            txt_total.Text = CDec(txt_subtotal.Text) - CDec(txt_desc_pesos.Text)
+            txt_total.Text = (Math.Round(CDec(txt_total.Text), 2).ToString("N2"))
+            '////////////////////////////////////////////////////////////
+
+            '///////////////////DESCUENTO//////////////////////////////
+            txt_descuento.Text = (Math.Round(CDec(txt_desc_pesos.Text), 2).ToString("N2"))
+            '/////////////////////////////////////////////////////////
+            'If txt_desc_porc.Text = (Math.Round(CDec(0), 2).ToString("N2")) Then
+            '    calcular_totales()
+            'End If
+            GroupBox_pagar.Text = "Monto a pagar (" + (Math.Round(CDec(txt_desc_porc.Text), 2).ToString("N2")) + "% descuento)"
+            ComboBox_iva.SelectedIndex = 0
+        End If
+        If IVA = "10,5" And CDec(txt_subtotal.Text) <> 0 Then
+            txt_desc_pesos.Text = (Math.Round(CDec(desc_pesos), 2).ToString("N2"))
+            txt_desc_porc.Text = (Math.Round(CDec(desc_porc), 2).ToString("N2"))
+
+            'If txt_desc_pesos.Text = "" Then
+            '    txt_desc_pesos.Text = (Math.Round(CDec(0), 2).ToString("N2"))
+            'End If
+            Dim calculo_porc As Decimal = (CDec(txt_desc_pesos.Text) * 100) / CDec(txt_subtotal.Text)
+            txt_desc_porc.Text = (Math.Round(CDec(calculo_porc), 2).ToString("N2"))
+            '///////////////////////DESCUENTO/////////////////////////
+            'txt_total.Text = CDec(txt_subtotal.Text) - CDec(txt_desc_pesos.Text)
+            'txt_total.Text = (Math.Round(CDec(txt_total.Text), 2).ToString("N2"))
+            txt_descuento.Text = CDec(txt_desc_pesos.Text)
+            txt_descuento.Text = (Math.Round(CDec(txt_descuento.Text), 2).ToString("N2"))
+            '////////////////////////////////////////////////////////
+
+            '////////////////////////////IMPUESTO////////////////////////////////////////
+            'calculo el 10.5% al subtotla de la venta.
+            Dim calculo As Decimal = (CDec(10.5) * CDec(txt_subtotal.Text)) / 100 'esto me da en pesos cuanto se paga
+            txt_impuesto_aplicado.Text = (Math.Round(CDec(calculo), 2).ToString("N2"))
+            '////////////////////////////////////////////////////////////////////////////
+
+            '/////////////////////TOTAL A PAGAR//////////////////////////////////
+            txt_total.Text = CDec(txt_subtotal.Text) - CDec(txt_descuento.Text) + CDec(txt_impuesto_aplicado.Text)
+            txt_total.Text = (Math.Round(CDec(txt_total.Text), 2).ToString("N2"))
+            '////////////////////////////////////////////////////////////////
+            GroupBox_pagar.Text = "Monto a pagar (" + (Math.Round(CDec(txt_desc_porc.Text), 2).ToString("N2")) + "% descuento)"
+            ComboBox_iva.SelectedIndex = 1
+        End If
+        If IVA = "21" And CDec(txt_subtotal.Text) <> 0 Then
+            txt_desc_pesos.Text = (Math.Round(CDec(desc_pesos), 2).ToString("N2"))
+            txt_desc_porc.Text = (Math.Round(CDec(desc_porc), 2).ToString("N2"))
+
+            Dim calculo_porc As Decimal = (CDec(txt_desc_pesos.Text) * 100) / CDec(txt_subtotal.Text)
+            txt_desc_porc.Text = (Math.Round(CDec(calculo_porc), 2).ToString("N2"))
+
+            '///////////////////////DESCUENTO/////////////////////////
+            'txt_total.Text = CDec(txt_subtotal.Text) - CDec(txt_desc_pesos.Text)
+            'txt_total.Text = (Math.Round(CDec(txt_total.Text), 2).ToString("N2"))
+            txt_descuento.Text = CDec(txt_desc_pesos.Text)
+            txt_descuento.Text = (Math.Round(CDec(txt_descuento.Text), 2).ToString("N2"))
+            '////////////////////////////////////////////////////////
+
+            '////////////////////////////IMPUESTO////////////////////////////////////////
+            'aplico el 21% al total de la venta.
+            Dim calculo As Decimal = (CDec(21) * CDec(txt_subtotal.Text)) / 100 'esto me da en pesos cuanto se paga
+            txt_impuesto_aplicado.Text = (Math.Round(CDec(calculo), 2).ToString("N2"))
+            '////////////////////////////////////////////////////////////////////////////
+
+            '/////////////////////TOTAL A PAGAR//////////////////////////////////
+            txt_total.Text = CDec(txt_subtotal.Text) - CDec(txt_descuento.Text) + CDec(txt_impuesto_aplicado.Text)
+            txt_total.Text = (Math.Round(CDec(txt_total.Text), 2).ToString("N2"))
+            '////////////////////////////////////////////////////////////////
+            GroupBox_pagar.Text = "Monto a pagar (" + (Math.Round(CDec(txt_desc_porc.Text), 2).ToString("N2")) + "% descuento)"
+            ComboBox_iva.SelectedIndex = 2
+        End If
+    End Sub
+#End Region
 
     Private Sub DG_clientes_CellClick1(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs)
         'If e.ColumnIndex <> 1 Then Exit Sub
@@ -1424,36 +1651,151 @@
     End Sub
 
 
-
+    Dim APcaja As New Aplicacion.Caja 'la uso para validar la apertura de caja entre otras cosas
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Guardar.Click
-        If DataG_listaTotal.Rows.Count > 0 And txt_total.Text <> "" Then
-            If procedencia = "Venta_Caja_Gestion" Then
-                Forma_de_pago_seleccion.Show()
-            Else
-                If procedencia = "Remito nuevo" Then
-                    Dim result As DialogResult
-                    result = MessageBox.Show("¿Desea generar el remito?", "Sistema de Gestión", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
-                    If result = DialogResult.OK Then
-                        'aqui llamo a la rutina que guarda, pero no va a caja, y el estado de la tabla ventaproducto es "pendiente"
-                        'de momento voy a hacer que reste stock, despues consultamos eso. puede q se deba sumar stock en caso de devolucion. o edicion del remito.
-                        guardar_remito()
-
-
+        If txt_total.Text <> "" Then
+            If DataG_listaTotal.Rows.Count > 0 And CDec(txt_total.Text) <> CDec(0) Then
+                If procedencia = "Venta_Caja_Gestion" Then
+                    Forma_de_pago_seleccion.Show()
+                Else
+                    If procedencia = "Remito nuevo" Then
+                        Dim result As DialogResult
+                        result = MessageBox.Show("¿Desea generar el remito?", "Sistema de Gestión", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
+                        If result = DialogResult.OK Then
+                            'aqui llamo a la rutina que guarda, pero no va a caja, y el estado de la tabla ventaproducto es "pendiente"
+                            'de momento voy a hacer que reste stock, despues consultamos eso. puede q se deba sumar stock en caso de devolucion. o edicion del remito.
+                            guardar_remito()
+                        End If
                     End If
+                    If procedencia = "Remito modificar" Then
+                        'aqui actualizo, y si el usuario desea se genera la factura, ahi indico las formas de pago.
+                        If MessageBox.Show("¿Quiere actualizar el remito?.", "Sistem de Gestión.", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+                            Dim venta_tipo_descripcion As String
+                            If tipo_vta = "Minorista" Then
+                                venta_tipo_descripcion = "Venta Minorista-Efectivo"
+                            Else
+                                venta_tipo_descripcion = "Venta Mayorista-Efectivo"
+                            End If
+                            Dim vendedor_id As Integer = CInt(ComboBox_vendedor.SelectedValue)
 
+                            Dim ds_cuentacorrente As DataSet = DActacte.CtaCte_buscar_Cliente(remito_cliente_id)
+                            If ds_cuentacorrente.Tables(0).Rows.Count <> 0 Then
+                                'valido que el monto total no exceda el limite de deuda
+                                Dim limite_deuda As Decimal = CDec(ds_cuentacorrente.Tables(0).Rows(0).Item("CtaCte_limitedeuda"))
+                                Dim deuda As Decimal = CDec(ds_cuentacorrente.Tables(0).Rows(0).Item("CtaCte_total")) + CDec(txt_total.Text)
+                                If (deuda <= limite_deuda) Or limite_deuda = 0 Then
+                                    DAventa.Remito_productos_modificar(remito_ventaprod_id, CDec(txt_total.Text),
+                                                             USU_id_gen_remito,
+                                                             "Cliente",
+                                                             remito_cliente_id, CDec(txt_subtotal.Text),
+                                                             CDec(txt_descuento.Text),
+                                                             CDec(txt_desc_porc.Text),
+                                                             CDec(ComboBox_iva.SelectedItem),
+                                                              CDec(txt_impuesto_aplicado.Text), venta_tipo_descripcion, 0, vendedor_id, "Pendiente")
+                                    'Actualizar Stock
+                                    Actualizar_stock_remito() 'suma y resta cantidades
+
+                                    'primero elimino los registros q tenia en la tabla venta_producto_detalle
+                                    DAventa.VentaProductoDetalle_eliminar(remito_ventaprod_id)
+
+                                    'ACTUALIZAR EN TABLA "Venta_Producto_detalle"
+                                    For Each row As DataGridViewRow In DataGridView1.Rows
+                                        If row.Cells("columna_prod_id").Value <> 0 Then
+                                            DAventa.VentaProductoDetalle_alta(remito_ventaprod_id, row.Cells(1).Value, row.Cells(5).Value, CDec(row.Cells(7).Value), CDec(row.Cells(8).Value), row.Cells(3).Value, row.Cells(2).Value, 0, CDec(row.Cells(6).Value))
+                                        End If
+                                    Next
+
+                                    'aqui va la llamada al reporte.
+
+
+                                    MessageBox.Show("El remito se modificó correctamente.", "Sistema de Gestión.", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                                    'If MessageBox.Show("¿Desea registrar ingreso y generar factura?.", "Sistema de Gestión.", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = Windows.Forms.DialogResult.Yes Then
+
+                                    '    APcaja.Caja_Validar()
+                                    '    If APcaja.SESION_CAJA = 1 And US_administrador.no_caja <> "deshabilitar" Then '1 = caja nueva, lista para iniciar
+                                    '        MessageBox.Show("Error!,primero debe abrir la caja diaria para registrar la venta", "Sistema de Gestión.", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+                                    '        'Caja_abrir_turno.Close()
+                                    '        'Caja_abrir_turno.Show()
+                                    '    Else
+                                    '        If APcaja.SESION_CAJA = 2 And US_administrador.no_caja <> "deshabilitar" Then
+                                    '            'por aqui continuo con el registro de la factura
+                                    '            facturar = "si" 'valido esto en el form de caja pago, caja tarjeta y forma de pago seleccion.
+                                    '            Forma_de_pago_seleccion.Show()
+                                    '        Else
+                                    '            MessageBox.Show("Error!, No puede registrar la venta, la caja actual esta siendo utilizada por el usuario: " + US_administrador.apellidoynombre, "Sistema de Gestión.", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                    '        End If
+                                    '    End If
+                                    'Else
+                                    '    facturar = "no"
+                                    'End If
+                                Else
+                                    MessageBox.Show("La venta excede el limite de deuda para la cuenta corriente.", "Sistema de Gestión.", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                End If
+                            End If
+                        End If
+                    End If
                 End If
+            Else
+                MessageBox.Show("No se registraron productos", "Sistema de Gestión.")
             End If
-
         Else
-            MessageBox.Show("No se registraron productos", "Sistema de Gestion.")
+            MessageBox.Show("No se registraron productos", "Sistema de Gestión.")
         End If
+    End Sub
+
+    Private Sub Actualizar_stock_remito() 'lo uso cuando entro a editar un remito.
+        'primero actualizo stock + con los valores anteriores del remito.
+        Dim ds_rem_prod As DataSet = DAventa.Remito_recuperar_productos(remito_id)
+        Dim sucursal_id As Integer
+        Dim h As Integer = 0
+        While h < ds_rem_prod.Tables(0).Rows.Count
+            Dim prod_codigo As Integer = ds_rem_prod.Tables(0).Rows(h).Item("codigointerno")
+            sucursal_id = ds_rem_prod.Tables(0).Rows(h).Item("sucursal_id")
+            Dim ds_stock As DataSet = DAproducto.Producto_x_sucursal_buscarcod(prod_codigo, sucursal_id)
+            If ds_stock.Tables(0).Rows.Count <> 0 Then
+                Dim diferencia As Decimal = CDec(ds_stock.Tables(0).Rows(0).Item("ProdxSuc_stock")) + CDec(ds_rem_prod.Tables(0).Rows(h).Item("ventaprod_cant"))
+                If diferencia < 0 Then
+                    diferencia = 0
+                End If
+                Dim diferencia_gondola As Integer = 0
+                Dim cantidad As Integer = 0
+                        DAventa.Venta_actualizar_stock_Caja(prod_codigo, diferencia, diferencia_gondola, sucursal_id)
+            End If
+            h = h + 1
+        End While
+
+
+
+        'luego actualizo con el pedido nuevo.
+        h = 0
+        sucursal_id = ds_rem_prod.Tables(0).Rows(0).Item("sucursal_id")
+        While h < DataGridView1.Rows.Count
+            Dim prod_codigo As Integer = 0
+            If DataGridView1.Rows(h).Cells("columna_codinterno").Value <> "0" Then
+                prod_codigo = CInt(DataGridView1.Rows(h).Cells("columna_codinterno").Value)
+            End If
+            Dim ds_stock As DataSet = DAproducto.Producto_x_sucursal_buscarcod(prod_codigo, sucursal_id)
+            If ds_stock.Tables(0).Rows.Count <> 0 Then
+                Dim diferencia As Decimal = CDec(ds_stock.Tables(0).Rows(0).Item("ProdxSuc_stock")) - CDec(DataGridView1.Rows(h).Cells("columna_cantidad").Value)
+                If diferencia < 0 Then
+                    diferencia = 0
+                End If
+                Dim diferencia_gondola As Integer = 0
+                Dim cantidad As Integer = 0
+                DAventa.Venta_actualizar_stock_Caja(prod_codigo, diferencia, diferencia_gondola, sucursal_id)
+                'MsgBox("actualizo stock de", prod_codigo)
+            End If
+            h = h + 1
+        End While
     End Sub
 
     Private Sub guardar_remito()
         Dim usuario_id As String
         usuario_id = Inicio.USU_id  'obtengo del formulario inicio el id del usuario logueado
-        Dim tipo_vta As String = "Cliente"
+        'Dim tipo_vta As String = "Cliente"
         Dim vendedor_id As Integer = CInt(ComboBox_vendedor.SelectedValue)
         Dim cliente_id As String = DG_clientes.CurrentRow.Cells(0).Value
         Dim venta_tipo_descripcion As String = ""
@@ -1467,11 +1809,11 @@
             'valido que el monto total no exceda el limite de deuda
             Dim limite_deuda As Decimal = CDec(ds_cuentacorrente.Tables(0).Rows(0).Item("CtaCte_limitedeuda"))
             Dim deuda As Decimal = CDec(ds_cuentacorrente.Tables(0).Rows(0).Item("CtaCte_total")) + CDec(txt_total.Text)
-            If deuda <= limite_deuda Then
+            If (deuda <= limite_deuda) Or (limite_deuda = 0) Then
                 Dim ds_Venta As DataSet = DAventa.VentaProducto_alta(CDec(txt_total.Text),
                              Now,
                              usuario_id,
-                             tipo_vta,
+                             "Cliente",
                              cliente_id, CDec(txt_subtotal.Text),
                              CDec(txt_descuento.Text),
                              CDec(txt_desc_porc.Text),
@@ -1497,7 +1839,6 @@
                         DAventa.VentaProductoDetalle_alta(ventaprod_id, row.Cells(1).Value, row.Cells(5).Value, CDec(row.Cells(7).Value), CDec(row.Cells(8).Value), row.Cells(3).Value, row.Cells(2).Value, 0, CDec(row.Cells(6).Value))
                     End If
                 Next
-
                 'aqui hago el descuento de stock...
                 'primero de los productos ....luego de los combos...(ya q estan formados por varios productos)
                 Dim ds_usuario As DataSet = DAventa.Obtener_usuario_y_sucursal(usuario_id)
@@ -1515,7 +1856,6 @@
                         If diferencia < 0 Then
                             diferencia = 0
                         End If
-
                         Dim diferencia_gondola As Integer = 0
                         Dim cantidad As Integer = 0
                         'If ds_stock.Tables(1).Rows.Count <> 0 Then
@@ -1527,11 +1867,9 @@
                         'End If
                         DAventa.Venta_actualizar_stock_Caja(prod_codigo, diferencia, diferencia_gondola, sucursal_id)
                         'MsgBox("actualizo stock de", prod_codigo)
-
                     Else 'si no lo encuentra significa q es un combo o bien una promocion...asi que tengo q actualizar el stock de varios
                         If DataGridView1.Rows(i).Cells("columna_cantidad").Value <> "0" Then
                             'primero lo busco como combo.
-
                             'aqui veo si ponerle el indice _tabla en 2 o 3...dependiendo del procedimiento q tome los recursos el DS_PROD...
                             'son 2 las rutinas....Venta_obtenerProducto_listaregular y [Venta_obtenerProducto_Combos]
                             Dim indice_tabla As Integer = 0
@@ -1571,7 +1909,6 @@
                             Dim LISTA_codinterno As String = (DataGridView1.Rows(i).Cells("columna_prod_id").Value)
                             Dim cantidad_PROMOS As Integer = CInt(DataGridView1.Rows(i).Cells("columna_cantidad").Value)
                             Dim LISTA_ID As Integer = 0
-
                             'Busco el id de la promocion en el ds_promo
                             Dim ii As Integer = 0
                             While ii < VentaGestion_ds_PROMO.Tables(0).Rows.Count
@@ -1581,34 +1918,147 @@
                                 ii = ii + 1
                             End While
                             'Venta_Caja_gestion.Actualizar_Stock_Promocion(LISTA_ID, cantidad_PROMOS)
-
                         End If
                     End If
                     i = i + 1
                 End While
-
                 'aqui llamo a la rutina que me muestra el reporte.
-
-                'crear_reporte(ds_usuario, ventaprod_id)
-
-
+                crear_reporte(ds_usuario, remito_id)
                 MessageBox.Show("El Remito se registró correctamente.", "Sistema de Gestión.", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 'aqui van las rutinas q borran grilla de venta_caja_gestion y dejan todo listo para prox venta.
                 Limpiar()
-
             Else
                 MessageBox.Show("La venta excede el limite de deuda para la cuenta corriente.", "Sistema de Gestión.", MessageBoxButtons.OK, MessageBoxIcon.Error)
-
             End If
         End If
-
-
-
-
-
-
-
     End Sub
+
+    'Dim DAcliente As New Datos.Cliente
+    Dim facturacion_ds_report As New Facturacion_ds_report
+    Private Sub crear_reporte(ByVal ds_usuario As DataSet, ByVal numerofactura As Integer)
+        'pregunto si quiero ver el reporte 
+        'Dim result As DialogResult
+        'result = MessageBox.Show("¿Desea ver el remito generado?.", "Sistema de Gestión.", MessageBoxButtons.OKCancel)
+        'If result = DialogResult.OK Then
+        'primero lleno el dataset y sus respectivas table
+
+        '///////////////TABLA CLIENTE//////////////////////////////////'
+        facturacion_ds_report.Tables("Cliente").Rows.Clear()
+        If lb_dni_clie.Text <> "- - - -" Then
+
+            Dim ds_cliente As DataSet = DAcliente.Cliente_ObtenerDni((lb_dni_clie.Text))
+            Dim row_cliente As DataRow = facturacion_ds_report.Tables("Cliente").NewRow()
+            row_cliente("fantasia") = lb_fantasia.Text
+            row_cliente("dni") = lb_dni_clie.Text
+            row_cliente("telefono") = lb_telef_clie.Text
+            row_cliente("mail") = lb_mail_clie.Text
+            row_cliente("direccion") = ds_cliente.Tables(1).Rows(0).Item("CLI_dir")
+            row_cliente("localidad") = ds_cliente.Tables(1).Rows(0).Item("provincia") + ", " + ds_cliente.Tables(1).Rows(0).Item("Localidad")
+            row_cliente("iva_condicion") = ds_cliente.Tables(1).Rows(0).Item("IVA_descripcion").ToString
+            facturacion_ds_report.Tables("Cliente").Rows.Add(row_cliente)
+        Else
+            'Dim ds_cliente As DataSet = DAcliente.Cliente_ObtenerDni(CInt(Venta_Caja_gestion.lb_dni_clie.Text))
+            Dim row_cliente As DataRow = facturacion_ds_report.Tables("Cliente").NewRow()
+            row_cliente("fantasia") = "" 'Venta_Caja_gestion.lb_fantasia.Text
+            row_cliente("dni") = "" 'Venta_Caja_gestion.lb_dni_clie.Text
+            row_cliente("telefono") = "" 'Venta_Caja_gestion.lb_telef_clie.Text
+            row_cliente("mail") = lb_mail_clie.Text
+            row_cliente("direccion") = ""
+            row_cliente("localidad") = ""
+            row_cliente("iva_condicion") = "Consumidor Final"
+            facturacion_ds_report.Tables("Cliente").Rows.Add(row_cliente)
+        End If
+
+        'Dim ds_cliente As DataSet = DAcliente.Cliente_ObtenerDni(CInt(Venta_Caja_gestion.lb_dni_clie.Text))
+        'Dim row_cliente As DataRow = facturacion_ds_report.Tables("Cliente").NewRow()
+        'row_cliente("fantasia") = Venta_Caja_gestion.lb_fantasia.Text
+        'row_cliente("dni") = Venta_Caja_gestion.lb_dni_clie.Text
+        'row_cliente("telefono") = Venta_Caja_gestion.lb_telef_clie.Text
+        'row_cliente("mail") = Venta_Caja_gestion.lb_mail_clie.Text
+        'row_cliente("direccion") = ds_cliente.Tables(1).Rows(0).Item("CLI_dir")
+        'row_cliente("localidad") = ds_cliente.Tables(1).Rows(0).Item("provincia") + ", " + ds_cliente.Tables(1).Rows(0).Item("Localidad")
+        'facturacion_ds_report.Tables("Cliente").Rows.Add(row_cliente)
+
+        '///////////////TABLA SUCURSAL//////////////////////////////////'
+        facturacion_ds_report.Tables("Sucursal").Rows.Clear()
+        Dim row_sucursal As DataRow = facturacion_ds_report.Tables("Sucursal").NewRow()
+        row_sucursal("sucursal") = lb_nombre_sucursal.Text
+        row_sucursal("direccion") = lb_direccion_sucursal.Text
+        row_sucursal("telefono") = lb_telefono_sucursal.Text
+        row_sucursal("mail") = lb_mail_sucursal.Text
+        row_sucursal("cuit") = "20 - 00000000 - 4"
+        facturacion_ds_report.Tables("Sucursal").Rows.Add(row_sucursal)
+
+        '///////////////TABLA EMPRESA//////////////////////////////////'
+        If ds_usuario.Tables(1).Rows.Count <> 0 Then
+            facturacion_ds_report.Tables("Empresa").Rows.Clear()
+            facturacion_ds_report.Tables("Empresa").Merge(ds_usuario.Tables(1))
+        End If
+
+        '///////////////TABLA VENTA//////////////////////////////////'
+        facturacion_ds_report.Tables("venta").Rows.Clear()
+        Dim row_venta As DataRow = facturacion_ds_report.Tables("venta").NewRow()
+        'row_venta("nro_factura") = Venta_Caja_gestion.lb_factura_vta.Text
+        'row_venta("nro_factura") = ventaprod_id
+        row_venta("nro_factura") = CInt(numerofactura)
+        row_venta("fecha") = Today 'CDate(Venta_Caja_gestion.lb_fecha_vta.Text)
+        row_venta("vendedor") = lb_vendedor_vta.Text
+        row_venta("tipo_venta") = "Cliente"
+        facturacion_ds_report.Tables("venta").Rows.Add(row_venta)
+
+        '///////////////TABLA TOTALES APLICADOS//////////////////////////////////'
+        facturacion_ds_report.Tables("Totales_aplicados").Rows.Clear()
+        Dim row_totales As DataRow = facturacion_ds_report.Tables("Totales_aplicados").NewRow()
+        row_totales("subtotal") = txt_subtotal.Text
+        row_totales("total") = txt_total.Text
+        row_totales("iva") = CDec(ComboBox_iva.SelectedItem)
+        row_totales("descuento_porcentaje") = CDec(txt_desc_porc.Text)
+        row_totales("descuento_pesos") = CDec(txt_desc_pesos.Text)
+        row_totales("iva_pesos") = CDec(txt_impuesto_aplicado.Text)
+        facturacion_ds_report.Tables("Totales_aplicados").Rows.Add(row_totales)
+
+        '///////////////TABLA PRODUCTO AGREGADO//////////////////////////////////'
+        'aqui ciclo en la grilla para ir agrendo los row a la tabla producto agregado
+        facturacion_ds_report.Tables("Producto_agregado").Rows.Clear()
+        Dim i As Integer = 0
+        While i < DataGridView1.Rows.Count
+            If DataGridView1.Rows(i).Cells("columna_descripcion").Value <> "" Then
+                Dim row_prodADD As DataRow = facturacion_ds_report.Tables("Producto_agregado").NewRow()
+                row_prodADD("PROD_id") = DataGridView1.Rows(i).Cells("columna_prod_id").Value
+                row_prodADD("codinterno") = CInt(DataGridView1.Rows(i).Cells("columna_codinterno").Value)
+                row_prodADD("descripcion") = DataGridView1.Rows(i).Cells("columna_descripcion").Value
+                row_prodADD("detalle") = DataGridView1.Rows(i).Cells("columna_detalle").Value
+                row_prodADD("cantidad") = CDec(DataGridView1.Rows(i).Cells("columna_cantidad").Value)
+                row_prodADD("precio_unitario") = CDec(DataGridView1.Rows(i).Cells("columna_precio_unitario").Value)
+                row_prodADD("precio_subtotal") = CDec(DataGridView1.Rows(i).Cells("columna_precio_subtotal").Value)
+                row_prodADD("codbarra") = ""
+                row_prodADD("TURNO_id") = ""
+                '/choco modificacion 01-12-2019: agrego columna descuento
+                row_prodADD("descuento") = CDec(DataGridView1.Rows(i).Cells("descuento").Value)
+                row_prodADD("grupo_id") = CInt(1)
+                facturacion_ds_report.Tables("Producto_agregado").Rows.Add(row_prodADD)
+            End If
+            i = i + 1
+        End While
+
+
+        Dim CrReport As New CrystalDecisions.CrystalReports.Engine.ReportDocument
+        ' Asigno el reporte
+        CrReport = New CrystalDecisions.CrystalReports.Engine.ReportDocument()
+        CrReport.Load(Application.StartupPath & "\..\..\Modulos\Facturacion\Reportes\CR_remito.rpt")
+        CrReport.Database.Tables("Cliente").SetDataSource(facturacion_ds_report.Tables("Cliente"))
+        CrReport.Database.Tables("Sucursal").SetDataSource(facturacion_ds_report.Tables("Sucursal"))
+        CrReport.Database.Tables("Empresa").SetDataSource(facturacion_ds_report.Tables("Empresa"))
+        CrReport.Database.Tables("venta").SetDataSource(facturacion_ds_report.Tables("venta"))
+        CrReport.Database.Tables("Producto_agregado").SetDataSource(facturacion_ds_report.Tables("Producto_agregado"))
+        CrReport.Database.Tables("Totales_aplicados").SetDataSource(facturacion_ds_report.Tables("Totales_aplicados"))
+        Dim remito_report As New Facturacion_report_show
+        remito_report.CrystalReportViewer1.ReportSource = CrReport
+        remito_report.Text = "Remito Nº: " + CStr(numerofactura) + " - Imprimir."
+        remito_report.Show()
+        'End If
+    End Sub
+
 
 
 
@@ -1684,18 +2134,24 @@
     End Sub
 
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
-        Limpiar()
+        If procedencia = "Remito modificar" Then
+            Remito.Show()
+            Me.Close()
+
+        Else
+            Limpiar()
+        End If
     End Sub
 
     Private Sub Quitar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Quitar.Click
-        ''aqui elemino el producto seleccionado de la tabla "DG_ListaProducto" y recalculo el valor q va a ir en la grilla "DG_TOTALES"
+        ''aqui elimino el producto seleccionado de la tabla "DG_ListaProducto" y recalculo el valor q va a ir en la grilla "DG_TOTALES"
 
         Dim pregunta As String = "no" 'esta variable la uso para preg 1 sola vez si estoy seguro de eliminar los elementos seleccionados en la grilla.
 
         If DataGridView1.Rows.Count <> 0 Then
             Dim i As Integer = 0
             While i < DataGridView1.Rows.Count
-                If DataGridView1.Rows(i).Cells("Column1").Value = True Then 'el value en true significa que esta checkeado para eliminar
+                If DataGridView1.Rows(i).Cells("Column1").Value = True And DataGridView1.Rows(i).Cells("columna_codinterno").Value <> "" Then 'el value en true significa que esta checkeado para eliminar
                     If pregunta = "no" Then
                         If MsgBox("Esta seguro que quiere borrar la informacion del item seleccionado?", MsgBoxStyle.YesNo, "Confirmacion") = MsgBoxResult.Yes Then
                             pregunta = "si"
@@ -2585,6 +3041,88 @@
     Private Sub Btn_Vendedor_buscar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Btn_Vendedor_buscar.Click
         Vendedor_modificar.Close()
         Vendedor_modificar.Show()
+
+    End Sub
+
+    Private Sub Btn_facturacion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Btn_facturacion.Click
+        If txt_total.Text <> "" Then
+
+            If DataG_listaTotal.Rows.Count > 0 And CDec(txt_total.Text) <> CDec(0) Then
+                If procedencia = "Venta_Caja_Gestion" Then
+                    Forma_de_pago_seleccion.Show()
+                Else
+                    If procedencia = "Remito modificar" Then
+                        'aqui actualizo, y si el usuario desea se genera la factura, ahi indico las formas de pago.
+                        If MessageBox.Show("¿Desea realizar la facturación del remito actual?.", "Sistema de Gestión.", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+                            Dim venta_tipo_descripcion As String
+                            If tipo_vta = "Minorista" Then
+                                venta_tipo_descripcion = "Venta Minorista-Efectivo"
+                            Else
+                                venta_tipo_descripcion = "Venta Mayorista-Efectivo"
+                            End If
+                            Dim vendedor_id As Integer = CInt(ComboBox_vendedor.SelectedValue)
+
+                            Dim ds_cuentacorrente As DataSet = DActacte.CtaCte_buscar_Cliente(remito_cliente_id)
+                            If ds_cuentacorrente.Tables(0).Rows.Count <> 0 Then
+                                'valido que el monto total no exceda el limite de deuda
+                                Dim limite_deuda As Decimal = CDec(ds_cuentacorrente.Tables(0).Rows(0).Item("CtaCte_limitedeuda"))
+                                Dim deuda As Decimal = CDec(ds_cuentacorrente.Tables(0).Rows(0).Item("CtaCte_total")) + CDec(txt_total.Text)
+                                If (deuda <= limite_deuda) Or limite_deuda = 0 Then
+                                    DAventa.Remito_productos_modificar(remito_ventaprod_id, CDec(txt_total.Text),
+                                                             USU_id_gen_remito,
+                                                             "Cliente",
+                                                             remito_cliente_id, CDec(txt_subtotal.Text),
+                                                             CDec(txt_descuento.Text),
+                                                             CDec(txt_desc_porc.Text),
+                                                             CDec(ComboBox_iva.SelectedItem),
+                                                              CDec(txt_impuesto_aplicado.Text), venta_tipo_descripcion, 0, vendedor_id, "Pendiente")
+                                    'Actualizar Stock
+                                    Actualizar_stock_remito() 'suma y resta cantidades
+
+                                    'primero elimino los registros q tenia en la tabla venta_producto_detalle
+                                    DAventa.VentaProductoDetalle_eliminar(remito_ventaprod_id)
+
+                                    'ACTUALIZAR EN TABLA "Venta_Producto_detalle"
+                                    For Each row As DataGridViewRow In DataGridView1.Rows
+                                        If row.Cells("columna_prod_id").Value <> 0 Then
+                                            DAventa.VentaProductoDetalle_alta(remito_ventaprod_id, row.Cells(1).Value, row.Cells(5).Value, CDec(row.Cells(7).Value), CDec(row.Cells(8).Value), row.Cells(3).Value, row.Cells(2).Value, 0, CDec(row.Cells(6).Value))
+                                        End If
+                                    Next
+                                    'MessageBox.Show("El remito se modificó correctamente.", "Sistema de Gestión.", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                                    'If MessageBox.Show("¿Desea registrar ingreso y generar factura?.", "Sistema de Gestión.", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = Windows.Forms.DialogResult.Yes Then
+
+                                    APcaja.Caja_Validar()
+                                    If APcaja.SESION_CAJA = 1 And US_administrador.no_caja <> "deshabilitar" Then '1 = caja nueva, lista para iniciar
+                                        MessageBox.Show("Error!,primero debe abrir la caja diaria para registrar la venta", "Sistema de Gestión.", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+                                        'Caja_abrir_turno.Close()
+                                        'Caja_abrir_turno.Show()
+                                    Else
+                                        If APcaja.SESION_CAJA = 2 And US_administrador.no_caja <> "deshabilitar" Then
+                                            'por aqui continuo con el registro de la factura
+                                            facturar = "si" 'valido esto en el form de caja pago, caja tarjeta y forma de pago seleccion.
+                                            Forma_de_pago_seleccion.Show()
+                                        Else
+                                            MessageBox.Show("Error!, No puede registrar la venta, la caja actual esta siendo utilizada por el usuario: " + US_administrador.apellidoynombre, "Sistema de Gestión.", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                        End If
+                                    End If
+                                    'Else
+                                    '   facturar = "no"
+                                    'End If
+                                Else
+                                    MessageBox.Show("La venta excede el limite de deuda para la cuenta corriente.", "Sistema de Gestión.", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                End If
+                            End If
+                        End If
+                    End If
+                End If
+            Else
+                MessageBox.Show("No se registraron productos", "Sistema de Gestión.", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        Else
+            MessageBox.Show("No se registraron productos", "Sistema de Gestión.", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
 
     End Sub
 End Class

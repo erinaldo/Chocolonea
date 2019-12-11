@@ -74,10 +74,6 @@
             If ds_terminal.Tables(0).Rows(0).Item("Terminales_estado") = "En espera de turno" Then
             BO_Abrir.Text = "INICIAR TURNO"
         End If
-
-
-
-
     End Sub
 
     Private Sub TextBox1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox1.KeyPress

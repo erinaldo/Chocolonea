@@ -651,6 +651,7 @@ Partial Class Venta_detalle
         Me.ClientSize = New System.Drawing.Size(849, 583)
         Me.Controls.Add(Me.TabControl1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.KeyPreview = True
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.Name = "Venta_detalle"

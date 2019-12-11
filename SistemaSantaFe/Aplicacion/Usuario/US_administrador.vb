@@ -154,6 +154,13 @@ Public Property EnabledCerrar() As Boolean
         Dim result As DialogResult
         result = MessageBox.Show("¿Desea Cerrar la Sesion de Usuario?", "Sistema de Gestión.", MessageBoxButtons.OKCancel)
         If result = DialogResult.OK Then
+            'cierro todos los form que quedaron abiertos.
+            For i = System.Windows.Forms.Application.OpenForms.Count - 1 To 1 Step -1
+                Dim form As Form = System.Windows.Forms.Application.OpenForms(i)
+                If form.Name <> "Inicio" Then
+                    form.Close()
+                End If
+            Next i
             'elimino la relacion de usuario con terminal
             DAterminal.Usuario_x_Terminal_eliminar(Inicio.terminal_id)
             Me.Close()
@@ -598,8 +605,7 @@ Public Property EnabledCerrar() As Boolean
                 Registro_cierre_caja.Close()
                 Registro_cierre_caja.Show()
             Else
-
-                MessageBox.Show("Erro!, No puede acceder a la caja, esta siendo utilizada por el usuario: " + apellidoynombre, "Sistema de Gestión.")
+                MessageBox.Show("Error!, No puede acceder a la caja, esta siendo utilizada por el usuario: " + apellidoynombre, "Sistema de Gestión.", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         End If
 

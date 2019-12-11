@@ -23,23 +23,22 @@ Partial Class Venta_Caja_gestion
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle122 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle124 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle123 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Venta_Caja_gestion))
-        Dim DataGridViewCellStyle131 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle132 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle125 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle126 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle127 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle128 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle129 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle130 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Venta_ds = New Aplicacion.Venta_ds()
         Me.ProductoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.label_hora = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -95,11 +94,14 @@ Partial Class Venta_Caja_gestion
         Me.txt_desc_porc = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
+        Me.Label_remito = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Label25 = New System.Windows.Forms.Label()
         Me.ComboBox_vendedor = New System.Windows.Forms.ComboBox()
         Me.Btn_Vendedor_buscar = New System.Windows.Forms.Button()
         Me.txt_vendedor_codigo = New System.Windows.Forms.TextBox()
         Me.GroupBox13 = New System.Windows.Forms.GroupBox()
+        Me.Btn_facturacion = New System.Windows.Forms.Button()
         Me.lb_tipo_vta = New System.Windows.Forms.Label()
         Me.lb_vendedor_vta = New System.Windows.Forms.Label()
         Me.lb_fecha_vta = New System.Windows.Forms.Label()
@@ -109,6 +111,7 @@ Partial Class Venta_Caja_gestion
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.GroupBox11 = New System.Windows.Forms.GroupBox()
+        Me.label_limite = New System.Windows.Forms.Label()
         Me.Label_saldo = New System.Windows.Forms.Label()
         Me.Label_ctacte = New System.Windows.Forms.Label()
         Me.lb_tipoIVA_clie = New System.Windows.Forms.Label()
@@ -140,6 +143,9 @@ Partial Class Venta_Caja_gestion
         Me.Button3 = New System.Windows.Forms.Button()
         Me.GroupBox12 = New System.Windows.Forms.GroupBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.ProductoagregadoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.ProductosCombosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.columna_item = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.columna_prod_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.columna_codinterno = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -151,10 +157,6 @@ Partial Class Venta_Caja_gestion
         Me.columna_precio_subtotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.columna_codbarra = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.ProductoagregadoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.ProductosCombosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Label25 = New System.Windows.Forms.Label()
         CType(Me.Venta_ds, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProductoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
@@ -209,7 +211,6 @@ Partial Class Venta_Caja_gestion
         '
         'TabPage1
         '
-        Me.TabPage1.Controls.Add(Me.Button1)
         Me.TabPage1.Controls.Add(Me.Button4)
         Me.TabPage1.Controls.Add(Me.label_hora)
         Me.TabPage1.Controls.Add(Me.Label3)
@@ -229,17 +230,6 @@ Partial Class Venta_Caja_gestion
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Venta en Caja: Cliente"
         Me.TabPage1.UseVisualStyleBackColor = True
-        '
-        'Button1
-        '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.Red
-        Me.Button1.Location = New System.Drawing.Point(894, 35)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(149, 61)
-        Me.Button1.TabIndex = 255
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'Button4
         '
@@ -438,10 +428,10 @@ Partial Class Venta_Caja_gestion
         Me.DG_clientes.ReadOnly = True
         Me.DG_clientes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         Me.DG_clientes.RowHeadersVisible = False
-        DataGridViewCellStyle122.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle122.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption
-        DataGridViewCellStyle122.SelectionForeColor = System.Drawing.Color.Black
-        Me.DG_clientes.RowsDefaultCellStyle = DataGridViewCellStyle122
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black
+        Me.DG_clientes.RowsDefaultCellStyle = DataGridViewCellStyle1
         Me.DG_clientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DG_clientes.Size = New System.Drawing.Size(1201, 398)
         Me.DG_clientes.TabIndex = 239
@@ -775,14 +765,14 @@ Partial Class Venta_Caja_gestion
         Me.DataG_listaTotal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataG_listaTotal.ColumnHeadersVisible = False
         Me.DataG_listaTotal.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn3})
-        DataGridViewCellStyle124.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle124.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle124.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle124.ForeColor = System.Drawing.Color.DarkSlateGray
-        DataGridViewCellStyle124.SelectionBackColor = System.Drawing.Color.White
-        DataGridViewCellStyle124.SelectionForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle124.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataG_listaTotal.DefaultCellStyle = DataGridViewCellStyle124
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.DarkSlateGray
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataG_listaTotal.DefaultCellStyle = DataGridViewCellStyle3
         Me.DataG_listaTotal.Location = New System.Drawing.Point(8, 100)
         Me.DataG_listaTotal.Margin = New System.Windows.Forms.Padding(4)
         Me.DataG_listaTotal.Name = "DataG_listaTotal"
@@ -802,10 +792,10 @@ Partial Class Venta_Caja_gestion
         '
         'DataGridViewTextBoxColumn3
         '
-        DataGridViewCellStyle123.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle123.Format = "N2"
-        DataGridViewCellStyle123.NullValue = "0"
-        Me.DataGridViewTextBoxColumn3.DefaultCellStyle = DataGridViewCellStyle123
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.Format = "N2"
+        DataGridViewCellStyle2.NullValue = "0"
+        Me.DataGridViewTextBoxColumn3.DefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridViewTextBoxColumn3.HeaderText = "Valor total"
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
         Me.DataGridViewTextBoxColumn3.ReadOnly = True
@@ -875,6 +865,7 @@ Partial Class Venta_Caja_gestion
         'GroupBox7
         '
         Me.GroupBox7.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox7.Controls.Add(Me.Label_remito)
         Me.GroupBox7.Controls.Add(Me.Panel3)
         Me.GroupBox7.Controls.Add(Me.GroupBox13)
         Me.GroupBox7.Controls.Add(Me.GroupBox11)
@@ -890,6 +881,19 @@ Partial Class Venta_Caja_gestion
         Me.GroupBox7.TabIndex = 261
         Me.GroupBox7.TabStop = False
         '
+        'Label_remito
+        '
+        Me.Label_remito.AutoSize = True
+        Me.Label_remito.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_remito.ForeColor = System.Drawing.Color.Blue
+        Me.Label_remito.Location = New System.Drawing.Point(275, 12)
+        Me.Label_remito.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label_remito.Name = "Label_remito"
+        Me.Label_remito.Size = New System.Drawing.Size(114, 25)
+        Me.Label_remito.TabIndex = 276
+        Me.Label_remito.Text = "Remito Nº:"
+        Me.Label_remito.Visible = False
+        '
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.WhiteSmoke
@@ -902,6 +906,16 @@ Partial Class Venta_Caja_gestion
         Me.Panel3.Size = New System.Drawing.Size(1196, 37)
         Me.Panel3.TabIndex = 275
         Me.ToolTip1.SetToolTip(Me.Panel3, "ingrese cód. vendedor")
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label25.Location = New System.Drawing.Point(16, 10)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(74, 17)
+        Me.Label25.TabIndex = 4
+        Me.Label25.Text = "Vendedor:"
         '
         'ComboBox_vendedor
         '
@@ -936,6 +950,7 @@ Partial Class Venta_Caja_gestion
         'GroupBox13
         '
         Me.GroupBox13.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.GroupBox13.Controls.Add(Me.Btn_facturacion)
         Me.GroupBox13.Controls.Add(Me.lb_tipo_vta)
         Me.GroupBox13.Controls.Add(Me.lb_vendedor_vta)
         Me.GroupBox13.Controls.Add(Me.lb_fecha_vta)
@@ -953,6 +968,22 @@ Partial Class Venta_Caja_gestion
         Me.GroupBox13.TabIndex = 274
         Me.GroupBox13.TabStop = False
         Me.GroupBox13.Text = "Venta"
+        '
+        'Btn_facturacion
+        '
+        Me.Btn_facturacion.BackgroundImage = Global.Aplicacion.My.Resources.Resources.factura
+        Me.Btn_facturacion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Btn_facturacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btn_facturacion.Location = New System.Drawing.Point(287, 14)
+        Me.Btn_facturacion.Margin = New System.Windows.Forms.Padding(4)
+        Me.Btn_facturacion.Name = "Btn_facturacion"
+        Me.Btn_facturacion.Size = New System.Drawing.Size(68, 71)
+        Me.Btn_facturacion.TabIndex = 276
+        Me.Btn_facturacion.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Btn_facturacion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.ToolTip1.SetToolTip(Me.Btn_facturacion, "iniciar facturación")
+        Me.Btn_facturacion.UseVisualStyleBackColor = True
+        Me.Btn_facturacion.Visible = False
         '
         'lb_tipo_vta
         '
@@ -1046,6 +1077,7 @@ Partial Class Venta_Caja_gestion
         'GroupBox11
         '
         Me.GroupBox11.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.GroupBox11.Controls.Add(Me.label_limite)
         Me.GroupBox11.Controls.Add(Me.Label_saldo)
         Me.GroupBox11.Controls.Add(Me.Label_ctacte)
         Me.GroupBox11.Controls.Add(Me.lb_tipoIVA_clie)
@@ -1068,16 +1100,27 @@ Partial Class Venta_Caja_gestion
         Me.GroupBox11.TabStop = False
         Me.GroupBox11.Text = "Cliente"
         '
+        'label_limite
+        '
+        Me.label_limite.AutoSize = True
+        Me.label_limite.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.label_limite.Location = New System.Drawing.Point(263, 68)
+        Me.label_limite.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.label_limite.Name = "label_limite"
+        Me.label_limite.Size = New System.Drawing.Size(61, 17)
+        Me.label_limite.TabIndex = 275
+        Me.label_limite.Text = "Limite $:"
+        '
         'Label_saldo
         '
         Me.Label_saldo.AutoSize = True
         Me.Label_saldo.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_saldo.Location = New System.Drawing.Point(285, 68)
+        Me.Label_saldo.Location = New System.Drawing.Point(263, 48)
         Me.Label_saldo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label_saldo.Name = "Label_saldo"
-        Me.Label_saldo.Size = New System.Drawing.Size(48, 17)
+        Me.Label_saldo.Size = New System.Drawing.Size(60, 17)
         Me.Label_saldo.TabIndex = 274
-        Me.Label_saldo.Text = "Saldo:"
+        Me.Label_saldo.Text = "Saldo $:"
         '
         'Label_ctacte
         '
@@ -1439,33 +1482,43 @@ Partial Class Venta_Caja_gestion
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.columna_item, Me.columna_prod_id, Me.columna_codinterno, Me.columna_descripcion, Me.columna_detalle, Me.columna_cantidad, Me.descuento, Me.columna_precio_unitario, Me.columna_precio_subtotal, Me.columna_codbarra, Me.Column1})
         Me.DataGridView1.DataSource = Me.ProductoagregadoBindingSource
-        DataGridViewCellStyle131.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle131.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle131.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle131.ForeColor = System.Drawing.Color.DarkSlateGray
-        DataGridViewCellStyle131.SelectionBackColor = System.Drawing.Color.Transparent
-        DataGridViewCellStyle131.SelectionForeColor = System.Drawing.SystemColors.WindowFrame
-        DataGridViewCellStyle131.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle131
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle10.ForeColor = System.Drawing.Color.DarkSlateGray
+        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Transparent
+        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.WindowFrame
+        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle10
         Me.DataGridView1.Location = New System.Drawing.Point(4, 21)
         Me.DataGridView1.Margin = New System.Windows.Forms.Padding(4)
         Me.DataGridView1.MultiSelect = False
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersVisible = False
-        DataGridViewCellStyle132.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle132.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle132.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption
-        DataGridViewCellStyle132.SelectionForeColor = System.Drawing.Color.Black
-        Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle132
+        DataGridViewCellStyle11.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption
+        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black
+        Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle11
         Me.DataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
         Me.DataGridView1.Size = New System.Drawing.Size(1193, 230)
         Me.DataGridView1.TabIndex = 0
         '
+        'ProductoagregadoBindingSource
+        '
+        Me.ProductoagregadoBindingSource.DataMember = "Producto_agregado"
+        Me.ProductoagregadoBindingSource.DataSource = Me.Venta_Caja_ds
+        '
+        'ProductosCombosBindingSource
+        '
+        Me.ProductosCombosBindingSource.DataMember = "Productos_Combos"
+        Me.ProductosCombosBindingSource.DataSource = Me.Venta_Caja_ds
+        '
         'columna_item
         '
-        DataGridViewCellStyle125.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.columna_item.DefaultCellStyle = DataGridViewCellStyle125
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.columna_item.DefaultCellStyle = DataGridViewCellStyle4
         Me.columna_item.FillWeight = 106.599!
         Me.columna_item.HeaderText = "Item"
         Me.columna_item.Name = "columna_item"
@@ -1492,15 +1545,15 @@ Partial Class Venta_Caja_gestion
         '
         'columna_descripcion
         '
+        Me.columna_descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.columna_descripcion.DataPropertyName = "descripcion"
-        DataGridViewCellStyle126.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.columna_descripcion.DefaultCellStyle = DataGridViewCellStyle126
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.columna_descripcion.DefaultCellStyle = DataGridViewCellStyle5
         Me.columna_descripcion.FillWeight = 98.90017!
         Me.columna_descripcion.HeaderText = "Descripción"
         Me.columna_descripcion.Name = "columna_descripcion"
         Me.columna_descripcion.ReadOnly = True
         Me.columna_descripcion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.columna_descripcion.Width = 550
         '
         'columna_detalle
         '
@@ -1514,9 +1567,9 @@ Partial Class Venta_Caja_gestion
         'columna_cantidad
         '
         Me.columna_cantidad.DataPropertyName = "cantidad"
-        DataGridViewCellStyle127.Format = "N2"
-        DataGridViewCellStyle127.NullValue = Nothing
-        Me.columna_cantidad.DefaultCellStyle = DataGridViewCellStyle127
+        DataGridViewCellStyle6.Format = "N2"
+        DataGridViewCellStyle6.NullValue = Nothing
+        Me.columna_cantidad.DefaultCellStyle = DataGridViewCellStyle6
         Me.columna_cantidad.FillWeight = 98.90017!
         Me.columna_cantidad.HeaderText = "Cantidad"
         Me.columna_cantidad.Name = "columna_cantidad"
@@ -1526,8 +1579,8 @@ Partial Class Venta_Caja_gestion
         'descuento
         '
         Me.descuento.DataPropertyName = "descuento"
-        DataGridViewCellStyle128.Format = "N2"
-        Me.descuento.DefaultCellStyle = DataGridViewCellStyle128
+        DataGridViewCellStyle7.Format = "N2"
+        Me.descuento.DefaultCellStyle = DataGridViewCellStyle7
         Me.descuento.HeaderText = "Descuento(%)"
         Me.descuento.Name = "descuento"
         Me.descuento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
@@ -1535,9 +1588,9 @@ Partial Class Venta_Caja_gestion
         'columna_precio_unitario
         '
         Me.columna_precio_unitario.DataPropertyName = "precio_unitario"
-        DataGridViewCellStyle129.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        DataGridViewCellStyle129.Format = "N2"
-        Me.columna_precio_unitario.DefaultCellStyle = DataGridViewCellStyle129
+        DataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        DataGridViewCellStyle8.Format = "N2"
+        Me.columna_precio_unitario.DefaultCellStyle = DataGridViewCellStyle8
         Me.columna_precio_unitario.FillWeight = 98.90017!
         Me.columna_precio_unitario.HeaderText = "Precio U."
         Me.columna_precio_unitario.Name = "columna_precio_unitario"
@@ -1548,9 +1601,9 @@ Partial Class Venta_Caja_gestion
         'columna_precio_subtotal
         '
         Me.columna_precio_subtotal.DataPropertyName = "precio_subtotal"
-        DataGridViewCellStyle130.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        DataGridViewCellStyle130.Format = "N2"
-        Me.columna_precio_subtotal.DefaultCellStyle = DataGridViewCellStyle130
+        DataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        DataGridViewCellStyle9.Format = "N2"
+        Me.columna_precio_subtotal.DefaultCellStyle = DataGridViewCellStyle9
         Me.columna_precio_subtotal.FillWeight = 98.90017!
         Me.columna_precio_subtotal.HeaderText = "Subtotal"
         Me.columna_precio_subtotal.Name = "columna_precio_subtotal"
@@ -1567,29 +1620,10 @@ Partial Class Venta_Caja_gestion
         '
         'Column1
         '
-        Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
         Me.Column1.HeaderText = "Quitar"
         Me.Column1.Name = "Column1"
-        '
-        'ProductoagregadoBindingSource
-        '
-        Me.ProductoagregadoBindingSource.DataMember = "Producto_agregado"
-        Me.ProductoagregadoBindingSource.DataSource = Me.Venta_Caja_ds
-        '
-        'ProductosCombosBindingSource
-        '
-        Me.ProductosCombosBindingSource.DataMember = "Productos_Combos"
-        Me.ProductosCombosBindingSource.DataSource = Me.Venta_Caja_ds
-        '
-        'Label25
-        '
-        Me.Label25.AutoSize = True
-        Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label25.Location = New System.Drawing.Point(16, 10)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(74, 17)
-        Me.Label25.TabIndex = 4
-        Me.Label25.Text = "Vendedor:"
+        Me.Column1.Width = 70
         '
         'Venta_Caja_gestion
         '
@@ -1753,7 +1787,16 @@ Partial Class Venta_Caja_gestion
     Friend WithEvents txt_descuento As System.Windows.Forms.TextBox
     Friend WithEvents Label23 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents Label_ctacte As System.Windows.Forms.Label
+    Friend WithEvents Label_saldo As System.Windows.Forms.Label
+    Friend WithEvents Btn_Vendedor_buscar As System.Windows.Forms.Button
+    Friend WithEvents ComboBox_vendedor As System.Windows.Forms.ComboBox
+    Friend WithEvents txt_vendedor_codigo As System.Windows.Forms.TextBox
+    Friend WithEvents Panel3 As System.Windows.Forms.Panel
+    Friend WithEvents Label25 As System.Windows.Forms.Label
+    Friend WithEvents Label_remito As System.Windows.Forms.Label
+    Friend WithEvents label_limite As System.Windows.Forms.Label
+    Friend WithEvents Btn_facturacion As System.Windows.Forms.Button
     Friend WithEvents columna_item As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents columna_prod_id As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents columna_codinterno As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -1765,11 +1808,4 @@ Partial Class Venta_Caja_gestion
     Friend WithEvents columna_precio_subtotal As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents columna_codbarra As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column1 As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents Label_ctacte As System.Windows.Forms.Label
-    Friend WithEvents Label_saldo As System.Windows.Forms.Label
-    Friend WithEvents Btn_Vendedor_buscar As System.Windows.Forms.Button
-    Friend WithEvents ComboBox_vendedor As System.Windows.Forms.ComboBox
-    Friend WithEvents txt_vendedor_codigo As System.Windows.Forms.TextBox
-    Friend WithEvents Panel3 As System.Windows.Forms.Panel
-    Friend WithEvents Label25 As System.Windows.Forms.Label
 End Class
