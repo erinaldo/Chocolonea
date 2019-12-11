@@ -19,6 +19,17 @@ Public Class Seleccion_Terminal
         ds_terminal = DAterminal.Terminal_obtener_todo(suc_id)
 
         If ds_terminal.Tables(0).Rows.Count <> 0 Then 'la tabla 1 trae la empresa con el inner join de la sucursal
+            'primero quito las terminales que estan bloquedas.ç
+            Dim i As Integer = 0
+            While i < ds_terminal.Tables(0).Rows.Count
+                If ds_terminal.Tables(0).Rows(i).Item("Terminales_estado") = "Bloqueado" Then
+                    ds_terminal.Tables(0).Rows.RemoveAt(i)
+                    i = 0 'se reinicia para recorrer nuevamente el datatable
+                Else
+                    i = i + 1
+                End If
+
+            End While
             Dim empresa_id As Integer = 0
             ComboBox_Terminales.DataSource = ds_terminal.Tables(0)
             ComboBox_Terminales.DisplayMember = "Terminales_desc"

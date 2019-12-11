@@ -379,6 +379,41 @@ Public Class Caja
         Return ds_JE
     End Function
 
+    'recuperar para recalcular cuando elimino un ingreso o egreso
+
+    Public Function Caja_recuperar_recalcular(ByVal CAJA_id As Integer) As DataSet
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("Caja_recuperar_recalcular", dbconn)
+        comando.Parameters.Add(New OleDb.OleDbParameter("@CAJA_id", CAJA_id))
+        comando.CommandType = CommandType.StoredProcedure
+        Dim ds_JE As New DataSet()
+        Dim da_JE As New OleDbDataAdapter(comando)
+        da_JE.Fill(ds_JE, "Cajas")
+        dbconn.Close()
+        Return ds_JE
+    End Function
+
+    Public Sub Caja_actualizar_recalcular(ByVal CAJA_id As Integer, ByVal CAJA_ingresos As Decimal, ByVal CAJA_egresos As Decimal, ByVal CAJA_neto As Decimal)
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("Caja_actualizar_recalcular", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        comando.Parameters.Add(New OleDb.OleDbParameter("@CAJA_id", CAJA_id))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@CAJA_montoingresosefectivo", CAJA_ingresos))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@CAJA_montoegresos", CAJA_egresos))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@CAJA_montoneto", CAJA_neto))
+        Dim ds_JE As New DataSet()
+        Dim da_JE As New OleDbDataAdapter(comando)
+        da_JE.Fill(ds_JE, "Caja")
+        dbconn.Close()
+    End Sub
+
+
 
 #End Region
 

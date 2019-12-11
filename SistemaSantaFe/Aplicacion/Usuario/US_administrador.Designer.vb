@@ -26,7 +26,6 @@ Partial Class US_administrador
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(US_administrador))
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripDropDownButton1 = New System.Windows.Forms.ToolStripDropDownButton()
         Me.TurnoGestionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TurnoComunToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -48,6 +47,7 @@ Partial Class US_administrador
         Me.ClienteInformeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BusquedaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CuentaCorrienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripDropDownButton4 = New System.Windows.Forms.ToolStripDropDownButton()
         Me.ListaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListaNuevaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -105,6 +105,9 @@ Partial Class US_administrador
         Me.VendedorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VendedorNuevoToolStripMenuitem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VendedorActualizarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TerminalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TerminalNuevoToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TerminalModificarToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripDropDownButton3 = New System.Windows.Forms.ToolStripDropDownButton()
         Me.HeladeraGondolaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -138,7 +141,7 @@ Partial Class US_administrador
         Me.ToolStrip1.Location = New System.Drawing.Point(7, 68)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
-        Me.ToolStrip1.Size = New System.Drawing.Size(81, 665)
+        Me.ToolStrip1.Size = New System.Drawing.Size(81, 648)
         Me.ToolStrip1.TabIndex = 54
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -147,11 +150,6 @@ Partial Class US_administrador
         Me.ToolStripSeparator10.Name = "ToolStripSeparator10"
         Me.ToolStripSeparator10.Size = New System.Drawing.Size(79, 6)
         Me.ToolStripSeparator10.Visible = False
-        '
-        'ToolStripSeparator4
-        '
-        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(22, 6)
         '
         'ToolStripDropDownButton1
         '
@@ -257,7 +255,7 @@ Partial Class US_administrador
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(22, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(79, 6)
         '
         'ToolStripDropDownButton2
         '
@@ -298,6 +296,11 @@ Partial Class US_administrador
         Me.CuentaCorrienteToolStripMenuItem.Name = "CuentaCorrienteToolStripMenuItem"
         Me.CuentaCorrienteToolStripMenuItem.Size = New System.Drawing.Size(194, 24)
         Me.CuentaCorrienteToolStripMenuItem.Text = "Cuenta Corriente"
+        '
+        'ToolStripSeparator4
+        '
+        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(79, 6)
         '
         'ToolStripDropDownButton4
         '
@@ -574,21 +577,21 @@ Partial Class US_administrador
         'Caja_ToolStripMenuItem1
         '
         Me.Caja_ToolStripMenuItem1.Name = "Caja_ToolStripMenuItem1"
-        Me.Caja_ToolStripMenuItem1.Size = New System.Drawing.Size(179, 24)
+        Me.Caja_ToolStripMenuItem1.Size = New System.Drawing.Size(253, 24)
         Me.Caja_ToolStripMenuItem1.Text = "Cierre de Caja"
         Me.Caja_ToolStripMenuItem1.Visible = False
         '
         'EgresosToolStripMenuItem
         '
         Me.EgresosToolStripMenuItem.Name = "EgresosToolStripMenuItem"
-        Me.EgresosToolStripMenuItem.Size = New System.Drawing.Size(179, 24)
-        Me.EgresosToolStripMenuItem.Text = "Egresos"
+        Me.EgresosToolStripMenuItem.Size = New System.Drawing.Size(253, 24)
+        Me.EgresosToolStripMenuItem.Text = "Registrar Egresos/Ingresos"
         Me.EgresosToolStripMenuItem.Visible = False
         '
         'ConsultarCajasToolStripMenuItem
         '
         Me.ConsultarCajasToolStripMenuItem.Name = "ConsultarCajasToolStripMenuItem"
-        Me.ConsultarCajasToolStripMenuItem.Size = New System.Drawing.Size(179, 24)
+        Me.ConsultarCajasToolStripMenuItem.Size = New System.Drawing.Size(253, 24)
         Me.ConsultarCajasToolStripMenuItem.Text = "Consultar Cajas"
         Me.ConsultarCajasToolStripMenuItem.Visible = False
         '
@@ -601,7 +604,7 @@ Partial Class US_administrador
         '
         Me.ToolStripDropDownButtonConfiguracion.AutoSize = False
         Me.ToolStripDropDownButtonConfiguracion.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripDropDownButtonConfiguracion.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EmpleadoToolStripMenuItem, Me.UsuarioToolStripMenuItem1, Me.CajaConsultaToolStripMenuItem, Me.SucursalesToolStripMenuItem, Me.EmpresaToolStripMenuItem, Me.VendedorToolStripMenuItem})
+        Me.ToolStripDropDownButtonConfiguracion.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EmpleadoToolStripMenuItem, Me.UsuarioToolStripMenuItem1, Me.CajaConsultaToolStripMenuItem, Me.SucursalesToolStripMenuItem, Me.EmpresaToolStripMenuItem, Me.VendedorToolStripMenuItem, Me.TerminalesToolStripMenuItem})
         Me.ToolStripDropDownButtonConfiguracion.Image = CType(resources.GetObject("ToolStripDropDownButtonConfiguracion.Image"), System.Drawing.Image)
         Me.ToolStripDropDownButtonConfiguracion.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.ToolStripDropDownButtonConfiguracion.ImageTransparentColor = System.Drawing.Color.Magenta
@@ -717,6 +720,25 @@ Partial Class US_administrador
         Me.VendedorActualizarToolStripMenuItem.Name = "VendedorActualizarToolStripMenuItem"
         Me.VendedorActualizarToolStripMenuItem.Size = New System.Drawing.Size(144, 24)
         Me.VendedorActualizarToolStripMenuItem.Text = "Actualizar"
+        '
+        'TerminalesToolStripMenuItem
+        '
+        Me.TerminalesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TerminalNuevoToolStripMenuItem2, Me.TerminalModificarToolStripMenuItem2})
+        Me.TerminalesToolStripMenuItem.Name = "TerminalesToolStripMenuItem"
+        Me.TerminalesToolStripMenuItem.Size = New System.Drawing.Size(166, 24)
+        Me.TerminalesToolStripMenuItem.Text = "Terminales"
+        '
+        'TerminalNuevoToolStripMenuItem2
+        '
+        Me.TerminalNuevoToolStripMenuItem2.Name = "TerminalNuevoToolStripMenuItem2"
+        Me.TerminalNuevoToolStripMenuItem2.Size = New System.Drawing.Size(142, 24)
+        Me.TerminalNuevoToolStripMenuItem2.Text = "Nuevo"
+        '
+        'TerminalModificarToolStripMenuItem2
+        '
+        Me.TerminalModificarToolStripMenuItem2.Name = "TerminalModificarToolStripMenuItem2"
+        Me.TerminalModificarToolStripMenuItem2.Size = New System.Drawing.Size(142, 24)
+        Me.TerminalModificarToolStripMenuItem2.Text = "Modificar"
         '
         'ToolStripSeparator5
         '
@@ -1058,4 +1080,7 @@ Partial Class US_administrador
     Friend WithEvents VendedorActualizarToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CuentaCorrienteToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents RemitoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents TerminalesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents TerminalNuevoToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents TerminalModificarToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
 End Class

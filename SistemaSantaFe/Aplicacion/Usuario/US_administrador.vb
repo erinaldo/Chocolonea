@@ -822,4 +822,14 @@ Public Property EnabledCerrar() As Boolean
         Remito.Close()
         Remito.Show()
     End Sub
+
+    Private Sub TerminalNuevoToolStripMenuItem2_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles TerminalNuevoToolStripMenuItem2.Click
+        Terminal_alta.Close()
+        Terminal_alta.Show()
+    End Sub
+
+    Private Sub TerminalModificarToolStripMenuItem2_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles TerminalModificarToolStripMenuItem2.Click
+        Terminal_modificar.Close()
+        Terminal_modificar.Show()
+    End Sub
 End Class

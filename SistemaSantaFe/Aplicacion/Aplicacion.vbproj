@@ -837,6 +837,23 @@
     <Compile Include="Modulos\Terminal\Seleccion_Terminal.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Modulos\Terminal\Terminales_ds.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Terminales_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Terminal\Terminal_alta.Designer.vb">
+      <DependentUpon>Terminal_alta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Terminal\Terminal_alta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulos\Terminal\Terminal_modificar.Designer.vb">
+      <DependentUpon>Terminal_modificar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Terminal\Terminal_modificar.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Modulos\Turno\Turno.vb" />
     <Compile Include="Modulos\Turno\TurnoConsulta_ds.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -1384,6 +1401,12 @@
     <EmbeddedResource Include="Modulos\Terminal\Seleccion_Terminal.resx">
       <DependentUpon>Seleccion_Terminal.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modulos\Terminal\Terminal_alta.resx">
+      <DependentUpon>Terminal_alta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulos\Terminal\Terminal_modificar.resx">
+      <DependentUpon>Terminal_modificar.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modulos\Turno\TurnoFijo_alta.resx">
       <DependentUpon>TurnoFijo_alta.vb</DependentUpon>
     </EmbeddedResource>
@@ -1734,6 +1757,17 @@
     </None>
     <None Include="Modulos\Stock\Stock_DS.xss">
       <DependentUpon>Stock_DS.xsd</DependentUpon>
+    </None>
+    <None Include="Modulos\Terminal\Terminales_ds.xsc">
+      <DependentUpon>Terminales_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Modulos\Terminal\Terminales_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Terminales_ds.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Modulos\Terminal\Terminales_ds.xss">
+      <DependentUpon>Terminales_ds.xsd</DependentUpon>
     </None>
     <None Include="Modulos\Turno\TurnoConsulta_ds.xsc">
       <DependentUpon>TurnoConsulta_ds.xsd</DependentUpon>

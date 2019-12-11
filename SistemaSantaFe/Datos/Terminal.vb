@@ -67,4 +67,80 @@ Public Class Terminal
         dbconn.Close()
     End Sub
 
+    'trae todas las terminales sin distinguir sucursal
+    Public Function Terminal_obtener() As DataSet
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("Terminal_obtener", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        'comando.Parameters.Add(New OleDb.OleDbParameter("sucursal_id", sucursal_id))
+        Dim ds_JE As New DataSet()
+        Dim da_JE As New OleDbDataAdapter(comando)
+        da_JE.Fill(ds_JE, "Terminal")
+        dbconn.Close()
+        Return ds_JE
+    End Function
+
+    Public Function Terminal_validar_alta(ByVal terminal_desc As String) As DataSet
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("Terminal_validar_alta", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        comando.Parameters.Add(New OleDb.OleDbParameter("terminal_desc", terminal_desc))
+        Dim ds_JE As New DataSet()
+        Dim da_JE As New OleDbDataAdapter(comando)
+        da_JE.Fill(ds_JE, "Terminal")
+        dbconn.Close()
+        Return ds_JE
+    End Function
+
+    Public Sub Terminal_alta(ByVal sucursal_id As Integer, ByVal Terminales_desc As String)
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("Terminal_alta", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        comando.Parameters.Add(New OleDb.OleDbParameter("@sucursal_id", sucursal_id))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@Terminales_desc", Terminales_desc))
+        Dim ds_JE As New DataSet()
+        Dim da_JE As New OleDbDataAdapter(comando)
+        da_JE.Fill(ds_JE, "Terminal")
+        dbconn.Close()
+    End Sub
+
+    Public Sub Terminal_modificar(ByVal terminal_id As Integer, ByVal terminal_desc As String)
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("Terminal_modificar", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        comando.Parameters.Add(New OleDb.OleDbParameter("@terminal_id", terminal_id))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@terminal_desc", terminal_desc))
+        Dim ds_JE As New DataSet()
+        Dim da_JE As New OleDbDataAdapter(comando)
+        da_JE.Fill(ds_JE, "Terminal")
+        dbconn.Close()
+    End Sub
+
+    Public Sub Terminal_bloquear_desbloquear(ByVal terminal_id As Integer, ByVal estado As String)
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("Terminal_bloquear_desbloquear", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        comando.Parameters.Add(New OleDb.OleDbParameter("@terminal_id", terminal_id))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@estado", estado))
+        Dim ds_JE As New DataSet()
+        Dim da_JE As New OleDbDataAdapter(comando)
+        da_JE.Fill(ds_JE, "Terminal")
+        dbconn.Close()
+    End Sub
+
 End Class

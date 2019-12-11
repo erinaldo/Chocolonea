@@ -87,14 +87,27 @@
                         End If
                     End If
                     If pregunta = "si" Then
+                        'RECUPERO DE LA BD EL MONTO TOTAL DE LA CAJA, PARA RECALCULAR DEPENDIENDO SI ELIMINO UN INGRESO O EGRESO.
+                        Dim caja_id As Integer = DG_caja.Rows(i).Cells("CAJAIDDataGridViewTextBoxColumn").Value
+                        Dim ds_caja As DataSet = DAcaja.Caja_recuperar_recalcular(caja_id)
+                        Dim total_ingreso As Decimal = ds_caja.Tables(0).Rows(0).Item("CAJA_montoingresosefectivo")
+                        Dim total_egreso As Decimal = ds_caja.Tables(0).Rows(0).Item("CAJA_montoegresos")
+                        Dim total_neto As Decimal = ds_caja.Tables(0).Rows(0).Item("CAJA_montoneto")
+
                         'llamo a la rutina de la capa de datos, para actualizar la bd
                         Dim CAJAdetalle_id As Integer = CInt(DG_caja.Rows(i).Cells("CAJAdetalleidDataGridViewTextBoxColumn").Value)
                         If DG_caja.Rows(i).Cells("CajaTipoMovdescripcionDataGridViewTextBoxColumn").Value = "Ingreso" Then
                             Dim ingreso As Decimal = CDec(DG_caja.Rows(i).Cells("CAJAdetalleingresoDataGridViewTextBoxColumn").Value)
                             DAcaja.Caja_ingreso_eliminar(Inicio.USU_id, ingreso, CAJAdetalle_id, US_administrador.Terminal_id)
+                            Dim nuevo_ingreso As Decimal = total_ingreso - ingreso
+                            Dim nuevo_neto As Decimal = total_neto - ingreso
+                            DAcaja.Caja_actualizar_recalcular(caja_id, nuevo_ingreso, total_egreso, nuevo_neto)
                         Else
                             Dim egreso As Decimal = CDec(DG_caja.Rows(i).Cells("CAJAdetalleegresoDataGridViewTextBoxColumn").Value)
                             DAcaja.Caja_egreso_eliminar(Inicio.USU_id, egreso, CAJAdetalle_id, US_administrador.Terminal_id)
+                            Dim nuevo_egreso As Decimal = total_egreso - egreso
+                            Dim nuevo_neto As Decimal = total_neto + egreso
+                            DAcaja.Caja_actualizar_recalcular(caja_id, total_ingreso, nuevo_egreso, nuevo_neto)
                         End If
                         'primero guardo el nro de item q contiene
                         Dim item As Decimal = DG_caja.CurrentRow.Index

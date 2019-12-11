@@ -329,7 +329,6 @@ Public Class Cliente_alta_New
         combo_Prov.ValueMember = "Prov_id"
         idprov = combo_Prov.SelectedValue
         Obtener_localidades_x_provincias()
-
     End Sub
 
 
