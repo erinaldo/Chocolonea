@@ -164,8 +164,8 @@
 
     Private Sub Venta_detalle_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.Escape Then
-            Venta_consulta_sucursal.sucursal_id = sucursal_id
-            Venta_consulta_sucursal.Show()
+            'Venta_consulta_sucursal.sucursal_id = sucursal_id
+            'Venta_consulta_sucursal.Show()
             Me.Close()
         End If
     End Sub

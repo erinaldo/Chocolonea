@@ -1803,3 +1803,4 @@ C:\Git repo nuevo\Chocolonea\SistemaSantaFe\Aplicacion\obj\x86\Debug\Aplicacion.
 C:\Git repo nuevo\Chocolonea\SistemaSantaFe\Aplicacion\obj\x86\Debug\Aplicacion.CtaCte_buscar_comprobantes.resources
 C:\Git repo nuevo\Chocolonea\SistemaSantaFe\Aplicacion\obj\x86\Debug\Aplicacion.Terminal_alta.resources
 C:\Git repo nuevo\Chocolonea\SistemaSantaFe\Aplicacion\obj\x86\Debug\Aplicacion.Terminal_modificar.resources
+C:\Git repo nuevo\Chocolonea\SistemaSantaFe\Aplicacion\obj\x86\Debug\Aplicacion.Venta_sucursal_resumen.resources

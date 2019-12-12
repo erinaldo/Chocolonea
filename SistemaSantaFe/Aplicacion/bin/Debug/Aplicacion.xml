@@ -6,23 +6,7 @@ Aplicacion
 </name>
 </assembly>
 <members>
-<member name="T:Aplicacion.Terminales_ds.TerminalesDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:Aplicacion.Terminales_ds.TerminalesRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:Aplicacion.Terminales_ds.TerminalesRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:Aplicacion.Terminales_ds">
-	<summary>
-Represents a strongly typed in-memory cache of data.
-</summary>
-</member><member name="T:Aplicacion.Informe_ds.ClienteDataTable">
+<member name="T:Aplicacion.Informe_ds.ClienteDataTable">
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
@@ -131,6 +115,22 @@ Row event argument class
 Row event argument class
 </summary>
 </member><member name="T:Aplicacion.Producto_ds">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:Aplicacion.Terminales_ds.TerminalesDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Aplicacion.Terminales_ds.TerminalesRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Aplicacion.Terminales_ds.TerminalesRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Aplicacion.Terminales_ds">
 	<summary>
 Represents a strongly typed in-memory cache of data.
 </summary>
@@ -502,6 +502,14 @@ Represents the strongly named DataTable class.
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
+</member><member name="T:Aplicacion.Venta_consulta_ds.Resumen_usuariosDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Aplicacion.Venta_consulta_ds.Resumen_vendedoresDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
 </member><member name="T:Aplicacion.Venta_consulta_ds.Venta_consultaRow">
 	<summary>
 Represents strongly named DataRow class.
@@ -518,6 +526,14 @@ Represents strongly named DataRow class.
 	<summary>
 Represents strongly named DataRow class.
 </summary>
+</member><member name="T:Aplicacion.Venta_consulta_ds.Resumen_usuariosRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Aplicacion.Venta_consulta_ds.Resumen_vendedoresRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
 </member><member name="T:Aplicacion.Venta_consulta_ds.Venta_consultaRowChangeEvent">
 	<summary>
 Row event argument class
@@ -531,6 +547,14 @@ Row event argument class
 Row event argument class
 </summary>
 </member><member name="T:Aplicacion.Venta_consulta_ds.Productos_detalle_consultaRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Aplicacion.Venta_consulta_ds.Resumen_usuariosRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Aplicacion.Venta_consulta_ds.Resumen_vendedoresRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>

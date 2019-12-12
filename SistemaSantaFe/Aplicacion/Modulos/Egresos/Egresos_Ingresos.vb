@@ -79,7 +79,7 @@
             While i < DG_caja.Rows.Count
                 If DG_caja.Rows(i).Cells("Column1").Value = True Then 'el value en true significa que esta checkeado para eliminar
                     If pregunta = "no" Then
-                        If MsgBox("Esta seguro que quiere borrar la informacion del item seleccionado?", MsgBoxStyle.YesNo, "Confirmacion") = MsgBoxResult.Yes Then
+                        If MsgBox("Esta seguro que quiere borrar la información del item seleccionado?", MsgBoxStyle.YesNo, "Confirmacion") = MsgBoxResult.Yes Then
                             pregunta = "si"
                         Else
                             'aqui corto el ciclo, ya que se cancelo la eliminacion

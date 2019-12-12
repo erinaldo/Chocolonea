@@ -43,12 +43,6 @@ Partial Class Caja_Consulta_detalle
         Me.TextBox_TOTAL = New System.Windows.Forms.TextBox()
         Me.TextBox_egresos_subtotal = New System.Windows.Forms.TextBox()
         Me.DG_caja = New System.Windows.Forms.DataGridView()
-        Me.CierrecajadetalleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Caja_ds = New Aplicacion.Caja_ds()
-        Me.TextBox_ingresos_efectivo = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
         Me.CAJAdetalleidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CAJAIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CAJAdetalledescripcionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -57,6 +51,12 @@ Partial Class Caja_Consulta_detalle
         Me.CajaTipoMovintDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CajaTipoMovdescripcionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ApeNom = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CierrecajadetalleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Caja_ds = New Aplicacion.Caja_ds()
+        Me.TextBox_ingresos_efectivo = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -307,64 +307,6 @@ Partial Class Caja_Consulta_detalle
         Me.DG_caja.StandardTab = True
         Me.DG_caja.TabIndex = 240
         '
-        'CierrecajadetalleBindingSource
-        '
-        Me.CierrecajadetalleBindingSource.DataMember = "Cierre_caja_detalle"
-        Me.CierrecajadetalleBindingSource.DataSource = Me.Caja_ds
-        '
-        'Caja_ds
-        '
-        Me.Caja_ds.DataSetName = "Caja_ds"
-        Me.Caja_ds.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'TextBox_ingresos_efectivo
-        '
-        Me.TextBox_ingresos_efectivo.BackColor = System.Drawing.SystemColors.Info
-        Me.TextBox_ingresos_efectivo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox_ingresos_efectivo.Location = New System.Drawing.Point(577, 449)
-        Me.TextBox_ingresos_efectivo.Margin = New System.Windows.Forms.Padding(5)
-        Me.TextBox_ingresos_efectivo.Name = "TextBox_ingresos_efectivo"
-        Me.TextBox_ingresos_efectivo.ReadOnly = True
-        Me.TextBox_ingresos_efectivo.Size = New System.Drawing.Size(172, 26)
-        Me.TextBox_ingresos_efectivo.TabIndex = 243
-        Me.TextBox_ingresos_efectivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.Blue
-        Me.Label1.Location = New System.Drawing.Point(392, 455)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(170, 20)
-        Me.Label1.TabIndex = 37
-        Me.Label1.Text = "TOTAL EFECTIVO:"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.ForeColor = System.Drawing.Color.Green
-        Me.Label8.Location = New System.Drawing.Point(819, 455)
-        Me.Label8.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(210, 32)
-        Me.Label8.TabIndex = 242
-        Me.Label8.Text = "TOTAL NETO:"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.ForeColor = System.Drawing.Color.Red
-        Me.Label7.Location = New System.Drawing.Point(397, 517)
-        Me.Label7.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(169, 20)
-        Me.Label7.TabIndex = 241
-        Me.Label7.Text = "TOTAL EGRESOS:"
-        '
         'CAJAdetalleidDataGridViewTextBoxColumn
         '
         Me.CAJAdetalleidDataGridViewTextBoxColumn.DataPropertyName = "CAJAdetalle_id"
@@ -424,6 +366,64 @@ Partial Class Caja_Consulta_detalle
         Me.ApeNom.Name = "ApeNom"
         Me.ApeNom.ReadOnly = True
         '
+        'CierrecajadetalleBindingSource
+        '
+        Me.CierrecajadetalleBindingSource.DataMember = "Cierre_caja_detalle"
+        Me.CierrecajadetalleBindingSource.DataSource = Me.Caja_ds
+        '
+        'Caja_ds
+        '
+        Me.Caja_ds.DataSetName = "Caja_ds"
+        Me.Caja_ds.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'TextBox_ingresos_efectivo
+        '
+        Me.TextBox_ingresos_efectivo.BackColor = System.Drawing.SystemColors.Info
+        Me.TextBox_ingresos_efectivo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox_ingresos_efectivo.Location = New System.Drawing.Point(577, 449)
+        Me.TextBox_ingresos_efectivo.Margin = New System.Windows.Forms.Padding(5)
+        Me.TextBox_ingresos_efectivo.Name = "TextBox_ingresos_efectivo"
+        Me.TextBox_ingresos_efectivo.ReadOnly = True
+        Me.TextBox_ingresos_efectivo.Size = New System.Drawing.Size(172, 26)
+        Me.TextBox_ingresos_efectivo.TabIndex = 243
+        Me.TextBox_ingresos_efectivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.Blue
+        Me.Label1.Location = New System.Drawing.Point(392, 455)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(170, 20)
+        Me.Label1.TabIndex = 37
+        Me.Label1.Text = "TOTAL EFECTIVO:"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.Color.Green
+        Me.Label8.Location = New System.Drawing.Point(819, 455)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(210, 32)
+        Me.Label8.TabIndex = 242
+        Me.Label8.Text = "TOTAL NETO:"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.Red
+        Me.Label7.Location = New System.Drawing.Point(397, 517)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(169, 20)
+        Me.Label7.TabIndex = 241
+        Me.Label7.Text = "TOTAL EGRESOS:"
+        '
         'Caja_Consulta_detalle
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -431,6 +431,7 @@ Partial Class Caja_Consulta_detalle
         Me.Controls.Add(Me.TabControl1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.KeyPreview = True
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.MaximumSize = New System.Drawing.Size(1176, 664)

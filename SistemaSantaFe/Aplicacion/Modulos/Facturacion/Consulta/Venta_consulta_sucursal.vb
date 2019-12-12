@@ -250,4 +250,13 @@
             'crear_reporte(ventaprod_id)
         End If
     End Sub
+
+    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
+        Venta_sucursal_resumen.Close()
+
+        Venta_sucursal_resumen.GroupBox1.Text = "Sucursal: " + Label1.Text
+        Venta_sucursal_resumen.label_fecha.Text = "Desde: " + DateTimePicker_desde.Value.ToShortDateString + " Hasta: " + DateTimePicker_hasta.Value.ToShortDateString
+        Venta_sucursal_resumen.Show()
+
+    End Sub
 End Class

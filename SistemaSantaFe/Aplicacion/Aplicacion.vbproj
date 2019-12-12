@@ -432,6 +432,12 @@
     <Compile Include="Modulos\Facturacion\Consulta\Venta_detalle_servicio.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Modulos\Facturacion\Consulta\Venta_sucursal_resumen.Designer.vb">
+      <DependentUpon>Venta_sucursal_resumen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Facturacion\Consulta\Venta_sucursal_resumen.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Modulos\Facturacion\Mesas\Mesas_gestion_2_New.Designer.vb">
       <DependentUpon>Mesas_gestion_2_New.vb</DependentUpon>
     </Compile>
@@ -1235,6 +1241,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modulos\Facturacion\Consulta\Venta_detalle_servicio.resx">
       <DependentUpon>Venta_detalle_servicio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulos\Facturacion\Consulta\Venta_sucursal_resumen.resx">
+      <DependentUpon>Venta_sucursal_resumen.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modulos\Facturacion\Mesas\Mesas_gestion_2_New.resx">
       <DependentUpon>Mesas_gestion_2_New.vb</DependentUpon>

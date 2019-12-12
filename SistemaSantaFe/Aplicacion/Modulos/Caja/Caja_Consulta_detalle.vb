@@ -3,6 +3,14 @@
     Dim APcaja As New Aplicacion.Caja
     Public caja_id
     Public fechacierre As String
+
+    Private Sub Caja_Consulta_detalle_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
+        If e.KeyCode = Keys.Escape Then
+            Caja_consulta.Close()
+            Caja_consulta.Show()
+            Me.Close()
+        End If
+    End Sub
     Private Sub Caja_Consulta_detalle_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Dim sucursal_id As Integer = Inicio.suc_id 'yo se q esta sucursal tiene la caja abierta...x la validacion del form del q vengo
         Dim usuario_id As Integer = Inicio.USU_id
