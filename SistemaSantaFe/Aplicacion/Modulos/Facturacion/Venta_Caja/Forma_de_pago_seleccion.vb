@@ -82,7 +82,7 @@
                             Dim CtaCte_id As Integer = ds_cuentacorrente.Tables(0).Rows(0).Item("CtaCte_id")
                             DAcuentacorriente.CtaCte_registrar_egreso(CtaCte_id, deuda)
                             DAcuentacorriente.Venta_CtaCte_alta(factura_id, CtaCte_id)
-                            Dim concepto As String = "Comprobante Nº: " + CStr(factura_id)
+                            Dim concepto As String = "Factura Nº: " + CStr(factura_id)
                             DAcuentacorriente.CtaCte_movimiento_alta(CtaCte_id, "Ingreso", concepto, CDec(Venta_Caja_gestion.txt_total.Text), Now)
                             '//////////////////////////////////////////////////////////////////////////////////
                             'GUARDAR EN TABLA "Venta_Producto_detalle"
@@ -365,7 +365,7 @@
                         Dim CtaCte_id As Integer = ds_cuentacorrente.Tables(0).Rows(0).Item("CtaCte_id")
                         DAcuentacorriente.CtaCte_registrar_egreso(CtaCte_id, deuda)
                         DAcuentacorriente.Venta_CtaCte_alta(factura_id, CtaCte_id)
-                        Dim concepto As String = "Comprobante Nº: " + CStr(factura_id)
+                        Dim concepto As String = "Factura Nº: " + CStr(factura_id)
                         DAcuentacorriente.CtaCte_movimiento_alta(CtaCte_id, "Ingreso", concepto, CDec(Venta_Caja_gestion.txt_total.Text), Now)
                         '//////////////////////////////////////////////////////////////////////////////////
                         

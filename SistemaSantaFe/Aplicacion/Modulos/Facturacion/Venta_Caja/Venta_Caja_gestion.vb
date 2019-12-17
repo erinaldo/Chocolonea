@@ -828,14 +828,17 @@
                     If ds_ctacte.Tables(0).Rows(0).Item("CtaCte_estado") = "Activo" Then
                         'si tiene cta activa, pongo sus datos en el label
                         Label_ctacte.Text = "Cuenta Corriente: " + CStr(ds_ctacte.Tables(0).Rows(0).Item("CtaCte_id"))
-                        Label_saldo.Text = "Saldo: " + CStr(ds_ctacte.Tables(0).Rows(0).Item("CtaCte_total"))
+                        Label_saldo.Text = "Saldo $: " + CStr(ds_ctacte.Tables(0).Rows(0).Item("CtaCte_total"))
+                        label_limite.Text = "Limite $:" + CStr(ds_ctacte.Tables(0).Rows(0).Item("CtaCte_limitedeuda"))
                     Else
                         Label_ctacte.Text = "Cuenta Corriente:"
-                        Label_saldo.Text = "Saldo:"
+                        Label_saldo.Text = "Saldo $:"
+                        label_limite.Text = "Limite $:"
                     End If
                 Else
                     Label_ctacte.Text = "Cuenta Corriente:"
-                    Label_saldo.Text = "Saldo:"
+                    Label_saldo.Text = "Saldo $:"
+                    label_limite.Text = "Limite $:"
                 End If
             End If
 
@@ -1313,7 +1316,7 @@
         
     End Sub
 
-    Private Sub vendedores_obtener()
+    Public Sub vendedores_obtener()
         Dim ds_vendedor As DataSet = DAvendedor.Vendedor_obtenertodo()
         'cargo en combo.
         ComboBox_vendedor.DataSource = ds_vendedor.Tables(0)
@@ -1351,24 +1354,42 @@
     End Sub
     Private Sub BO_Aceptar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BO_Aceptar.Click
         If RB_Cliente.Checked = True Then
-            If DG_clientes.CurrentRow.Selected = True Then
-                GroupBox12.Enabled = True 'habilito la pestaña 2
-                GroupBox1.Enabled = False
-                GroupBox2.Enabled = False
-                GroupBox3.Enabled = False
-                TabPage1.Parent = Nothing 'oculto pestaña 1
-                TabPage2.Parent = TabControl1 'pongo visible pestaña 2
-                TabControl1.SelectedTab = TabPage2
+            If DG_clientes.Rows.Count <> 0 Then
+                If DG_clientes.CurrentRow.Selected = True Then
+                    GroupBox12.Enabled = True 'habilito la pestaña 2
+                    GroupBox1.Enabled = False
+                    GroupBox2.Enabled = False
+                    GroupBox3.Enabled = False
+                    TabPage1.Parent = Nothing 'oculto pestaña 1
+                    TabPage2.Parent = TabControl1 'pongo visible pestaña 2
+                    TabControl1.SelectedTab = TabPage2
 
-                'LIMPIAR LA GRILLA DE PROD AGREGADOS
-                'DataG_lista.DataSource = Nothing
-                DataGridView1.DataSource = Nothing
-                Call habilitar_columnas_edicion()
-                Call Obtener_Productos_Combos()
-                'tx_cantidad.Text = 1
+                    'LIMPIAR LA GRILLA DE PROD AGREGADOS
+                    'DataG_lista.DataSource = Nothing
+                    DataGridView1.DataSource = Nothing
+                    Call habilitar_columnas_edicion()
+                    Call Obtener_Productos_Combos()
+                    'tx_cantidad.Text = 1
+
+                    '/////////////////////////////////////////////////////////////////////////
+                    'esto va en el evento load del nuevo diseño del modulo
+                    DataGridView1.Rows.Add()
+                    DataGridView1.Focus()
+                    DataGridView1.Rows(0).Cells("columna_codinterno").Selected = True
+                    obtener_usuario_y_sucursal() 'esto info se carga en los grupbox de la segunda pestaña
+                    'FILA = 0
+                    'CELDA = 2
+                    ' DataGridView1.EditMode = DataGridViewEditMode.EditOnEnter
+                    ComboBox_iva.SelectedIndex = 0
+                    Label_tipo_vta.Text = "Venta " + tipo_vta
+
+                Else
+                    MessageBox.Show("Error, seleccione un cliente", "Sistema de Gestión", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                End If
             Else
-                MessageBox.Show("Error, seleccione un cliente", "Sistema de Gestión")
+                MessageBox.Show("Error, Debe seleccionar un cliente.", "Sistema de Gestión.", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
+            
         Else
             GroupBox12.Enabled = True 'habilito la pestaña 2
             GroupBox1.Enabled = False
@@ -1383,20 +1404,20 @@
             Call habilitar_columnas_edicion()
             Call Obtener_Productos_Combos()
             'tx_cantidad.Text = 1
+
+            '///////////////////////////////////////////////////////////////////////////////////
+            'esto va en el evento load del nuevo diseño del modulo
+            DataGridView1.Rows.Add()
+            DataGridView1.Focus()
+            DataGridView1.Rows(0).Cells("columna_codinterno").Selected = True
+            obtener_usuario_y_sucursal() 'esto info se carga en los grupbox de la segunda pestaña
+            'FILA = 0
+            'CELDA = 2
+            ' DataGridView1.EditMode = DataGridViewEditMode.EditOnEnter
+            ComboBox_iva.SelectedIndex = 0
+            Label_tipo_vta.Text = "Venta " + tipo_vta
         End If
-        'esto va en el evento load del nuevo diseño del modulo
-        DataGridView1.Rows.Add()
-        DataGridView1.Focus()
-
-        DataGridView1.Rows(0).Cells("columna_codinterno").Selected = True
-
-        obtener_usuario_y_sucursal() 'esto info se carga en los grupbox de la segunda pestaña
-
-        'FILA = 0
-        'CELDA = 2
-        ' DataGridView1.EditMode = DataGridViewEditMode.EditOnEnter
-        ComboBox_iva.SelectedIndex = 0
-        Label_tipo_vta.Text = "Venta " + tipo_vta
+        
     End Sub
     Private Sub RB_Si_CheckedChanged_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RB_Si.CheckedChanged
         If RB_Si.Checked = True Then

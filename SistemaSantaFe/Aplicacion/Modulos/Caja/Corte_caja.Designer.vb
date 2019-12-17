@@ -56,11 +56,9 @@ Partial Class Corte_caja
         Me.GroupBox1.Controls.Add(Me.txt_efectivo_esperado)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Location = New System.Drawing.Point(9, 10)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
+        Me.GroupBox1.Location = New System.Drawing.Point(14, 15)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
-        Me.GroupBox1.Size = New System.Drawing.Size(475, 251)
+        Me.GroupBox1.Size = New System.Drawing.Size(659, 386)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Ingrese la siguiente información:"
@@ -69,9 +67,10 @@ Partial Class Corte_caja
         '
         Me.btn_cerrar_caja.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_cerrar_caja.ForeColor = System.Drawing.Color.Green
-        Me.btn_cerrar_caja.Location = New System.Drawing.Point(291, 187)
+        Me.btn_cerrar_caja.Location = New System.Drawing.Point(436, 288)
+        Me.btn_cerrar_caja.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btn_cerrar_caja.Name = "btn_cerrar_caja"
-        Me.btn_cerrar_caja.Size = New System.Drawing.Size(128, 45)
+        Me.btn_cerrar_caja.Size = New System.Drawing.Size(192, 69)
         Me.btn_cerrar_caja.TabIndex = 306
         Me.btn_cerrar_caja.Text = "Cerrar Caja"
         Me.btn_cerrar_caja.UseVisualStyleBackColor = True
@@ -79,8 +78,8 @@ Partial Class Corte_caja
         'Img_ok
         '
         Me.Img_ok.Image = Global.Aplicacion.My.Resources.Resources.GuardarChico
-        Me.Img_ok.Location = New System.Drawing.Point(384, 127)
-        Me.Img_ok.Margin = New System.Windows.Forms.Padding(4)
+        Me.Img_ok.Location = New System.Drawing.Point(576, 195)
+        Me.Img_ok.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.Img_ok.Name = "Img_ok"
         Me.Img_ok.Size = New System.Drawing.Size(20, 20)
         Me.Img_ok.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -93,10 +92,9 @@ Partial Class Corte_caja
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.Blue
-        Me.Label5.Location = New System.Drawing.Point(36, 160)
-        Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label5.Location = New System.Drawing.Point(54, 246)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(289, 13)
+        Me.Label5.Size = New System.Drawing.Size(429, 20)
         Me.Label5.TabIndex = 10
         Me.Label5.Text = "* La diferencia se reflejará en el informe como corte de caja."
         '
@@ -104,10 +102,9 @@ Partial Class Corte_caja
         '
         Me.txt_usuario.AutoSize = True
         Me.txt_usuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_usuario.Location = New System.Drawing.Point(80, 23)
-        Me.txt_usuario.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.txt_usuario.Location = New System.Drawing.Point(120, 35)
         Me.txt_usuario.Name = "txt_usuario"
-        Me.txt_usuario.Size = New System.Drawing.Size(124, 20)
+        Me.txt_usuario.Size = New System.Drawing.Size(197, 29)
         Me.txt_usuario.TabIndex = 9
         Me.txt_usuario.Text = "-----------------------"
         '
@@ -115,9 +112,10 @@ Partial Class Corte_caja
         '
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.Red
-        Me.Button1.Location = New System.Drawing.Point(23, 187)
+        Me.Button1.Location = New System.Drawing.Point(34, 288)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(128, 45)
+        Me.Button1.Size = New System.Drawing.Size(192, 69)
         Me.Button1.TabIndex = 8
         Me.Button1.Text = "Cancelar"
         Me.Button1.UseVisualStyleBackColor = True
@@ -126,9 +124,10 @@ Partial Class Corte_caja
         '
         Me.BO_cerrarturno.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BO_cerrarturno.ForeColor = System.Drawing.Color.SteelBlue
-        Me.BO_cerrarturno.Location = New System.Drawing.Point(157, 187)
+        Me.BO_cerrarturno.Location = New System.Drawing.Point(236, 288)
+        Me.BO_cerrarturno.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.BO_cerrarturno.Name = "BO_cerrarturno"
-        Me.BO_cerrarturno.Size = New System.Drawing.Size(128, 45)
+        Me.BO_cerrarturno.Size = New System.Drawing.Size(192, 69)
         Me.BO_cerrarturno.TabIndex = 7
         Me.BO_cerrarturno.Text = "Cerrar turno"
         Me.BO_cerrarturno.UseVisualStyleBackColor = True
@@ -136,11 +135,10 @@ Partial Class Corte_caja
         'txt_diferencia
         '
         Me.txt_diferencia.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_diferencia.Location = New System.Drawing.Point(113, 123)
-        Me.txt_diferencia.Margin = New System.Windows.Forms.Padding(2)
+        Me.txt_diferencia.Location = New System.Drawing.Point(170, 189)
         Me.txt_diferencia.Name = "txt_diferencia"
         Me.txt_diferencia.ReadOnly = True
-        Me.txt_diferencia.Size = New System.Drawing.Size(265, 26)
+        Me.txt_diferencia.Size = New System.Drawing.Size(396, 35)
         Me.txt_diferencia.TabIndex = 6
         Me.txt_diferencia.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -148,20 +146,18 @@ Partial Class Corte_caja
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(11, 127)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label4.Location = New System.Drawing.Point(16, 195)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(98, 20)
+        Me.Label4.Size = New System.Drawing.Size(147, 29)
         Me.Label4.TabIndex = 5
         Me.Label4.Text = "Diferencia: $"
         '
         'txt_efectivo_actual
         '
         Me.txt_efectivo_actual.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_efectivo_actual.Location = New System.Drawing.Point(200, 93)
-        Me.txt_efectivo_actual.Margin = New System.Windows.Forms.Padding(2)
+        Me.txt_efectivo_actual.Location = New System.Drawing.Point(300, 143)
         Me.txt_efectivo_actual.Name = "txt_efectivo_actual"
-        Me.txt_efectivo_actual.Size = New System.Drawing.Size(178, 26)
+        Me.txt_efectivo_actual.Size = New System.Drawing.Size(265, 35)
         Me.txt_efectivo_actual.TabIndex = 4
         Me.txt_efectivo_actual.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -169,21 +165,19 @@ Partial Class Corte_caja
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(11, 93)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label3.Location = New System.Drawing.Point(16, 143)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(185, 20)
+        Me.Label3.Size = New System.Drawing.Size(275, 29)
         Me.Label3.TabIndex = 3
         Me.Label3.Text = "Efectivo actual en caja: $"
         '
         'txt_efectivo_esperado
         '
         Me.txt_efectivo_esperado.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_efectivo_esperado.Location = New System.Drawing.Point(224, 56)
-        Me.txt_efectivo_esperado.Margin = New System.Windows.Forms.Padding(2)
+        Me.txt_efectivo_esperado.Location = New System.Drawing.Point(336, 86)
         Me.txt_efectivo_esperado.Name = "txt_efectivo_esperado"
         Me.txt_efectivo_esperado.ReadOnly = True
-        Me.txt_efectivo_esperado.Size = New System.Drawing.Size(154, 26)
+        Me.txt_efectivo_esperado.Size = New System.Drawing.Size(229, 35)
         Me.txt_efectivo_esperado.TabIndex = 2
         Me.txt_efectivo_esperado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -191,10 +185,9 @@ Partial Class Corte_caja
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(11, 59)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label2.Location = New System.Drawing.Point(16, 91)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(209, 20)
+        Me.Label2.Size = New System.Drawing.Size(315, 29)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Efectivo esperado en caja: $"
         '
@@ -202,21 +195,19 @@ Partial Class Corte_caja
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(11, 23)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label1.Location = New System.Drawing.Point(16, 35)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(68, 20)
+        Me.Label1.Size = New System.Drawing.Size(102, 29)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Usuario:"
         '
         'Corte_caja
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackgroundImage = Global.Aplicacion.My.Resources.Resources.silver_3
-        Me.ClientSize = New System.Drawing.Size(495, 266)
+        Me.ClientSize = New System.Drawing.Size(687, 409)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "Corte_caja"

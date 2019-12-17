@@ -176,6 +176,7 @@ Partial Class Remito
         Me.RemitoestadoDataGridViewTextBoxColumn.HeaderText = "Estado"
         Me.RemitoestadoDataGridViewTextBoxColumn.Name = "RemitoestadoDataGridViewTextBoxColumn"
         Me.RemitoestadoDataGridViewTextBoxColumn.ReadOnly = True
+        Me.RemitoestadoDataGridViewTextBoxColumn.Visible = False
         '
         'VentaprodidDataGridViewTextBoxColumn
         '

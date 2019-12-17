@@ -365,6 +365,7 @@ Partial Class Gestion_Mercaderia
         Me.DataGridView1.MinimumSize = New System.Drawing.Size(766, 326)
         Me.DataGridView1.MultiSelect = False
         Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
         DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -387,6 +388,7 @@ Partial Class Gestion_Mercaderia
         Me.NDataGridViewTextBoxColumn.FillWeight = 52.36908!
         Me.NDataGridViewTextBoxColumn.HeaderText = "Item"
         Me.NDataGridViewTextBoxColumn.Name = "NDataGridViewTextBoxColumn"
+        Me.NDataGridViewTextBoxColumn.ReadOnly = True
         '
         'CodprodDataGridViewTextBoxColumn
         '
@@ -396,6 +398,7 @@ Partial Class Gestion_Mercaderia
         Me.CodprodDataGridViewTextBoxColumn.FillWeight = 66.34649!
         Me.CodprodDataGridViewTextBoxColumn.HeaderText = "Código"
         Me.CodprodDataGridViewTextBoxColumn.Name = "CodprodDataGridViewTextBoxColumn"
+        Me.CodprodDataGridViewTextBoxColumn.ReadOnly = True
         '
         'DescripcionDataGridViewTextBoxColumn
         '
@@ -405,6 +408,7 @@ Partial Class Gestion_Mercaderia
         Me.DescripcionDataGridViewTextBoxColumn.FillWeight = 301.6104!
         Me.DescripcionDataGridViewTextBoxColumn.HeaderText = "Producto"
         Me.DescripcionDataGridViewTextBoxColumn.Name = "DescripcionDataGridViewTextBoxColumn"
+        Me.DescripcionDataGridViewTextBoxColumn.ReadOnly = True
         '
         'CantidadDataGridViewTextBoxColumn
         '
@@ -414,6 +418,7 @@ Partial Class Gestion_Mercaderia
         Me.CantidadDataGridViewTextBoxColumn.FillWeight = 69.26241!
         Me.CantidadDataGridViewTextBoxColumn.HeaderText = "Cantidad"
         Me.CantidadDataGridViewTextBoxColumn.Name = "CantidadDataGridViewTextBoxColumn"
+        Me.CantidadDataGridViewTextBoxColumn.ReadOnly = True
         '
         'DesdeDataGridViewTextBoxColumn
         '
@@ -423,6 +428,7 @@ Partial Class Gestion_Mercaderia
         Me.DesdeDataGridViewTextBoxColumn.FillWeight = 90.58579!
         Me.DesdeDataGridViewTextBoxColumn.HeaderText = "Origen"
         Me.DesdeDataGridViewTextBoxColumn.Name = "DesdeDataGridViewTextBoxColumn"
+        Me.DesdeDataGridViewTextBoxColumn.ReadOnly = True
         '
         'HaciaDataGridViewTextBoxColumn
         '
@@ -432,12 +438,14 @@ Partial Class Gestion_Mercaderia
         Me.HaciaDataGridViewTextBoxColumn.FillWeight = 93.5929!
         Me.HaciaDataGridViewTextBoxColumn.HeaderText = "Destino"
         Me.HaciaDataGridViewTextBoxColumn.Name = "HaciaDataGridViewTextBoxColumn"
+        Me.HaciaDataGridViewTextBoxColumn.ReadOnly = True
         '
         'Column1
         '
         Me.Column1.FillWeight = 26.23297!
         Me.Column1.HeaderText = ""
         Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
         Me.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         '

@@ -115,7 +115,9 @@ Public Class Vendedor_alta
 
 
             'aqui debo llamar al modulo vendedor modificar.
-            Usuario_modificar.Show()
+            Venta_Caja_gestion.vendedores_obtener()
+
+            Vendedor_modificar.Show()
         End If
     End Sub
 
@@ -163,6 +165,7 @@ Public Class Vendedor_alta
             vendedor_AltaLimpiar()
             MessageBox.Show("El Vendedor fue modificado correctamente.", "Sistema de Gestión", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Me.Close()
+            Venta_Caja_gestion.vendedores_obtener()
             Vendedor_modificar.Show()
         End If
     End Sub
