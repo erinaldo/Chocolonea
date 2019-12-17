@@ -357,8 +357,9 @@ Public Property EnabledCerrar() As Boolean
 
             End If
             If DS_Modulos.Tables(0).Rows(i).Item("USUModulos_descripcion") = "Cliente_Informe" Then
+                'El informe se lo saca del menu 12-12-19
                 ToolStripDropDownButton2.Visible = True '- Icono
-                ClienteInformeToolStripMenuItem.Visible = True
+                ClienteInformeToolStripMenuItem.Visible = False
 
 
             End If
@@ -367,6 +368,16 @@ Public Property EnabledCerrar() As Boolean
                 BusquedaToolStripMenuItem.Visible = True
 
             End If
+
+            If DS_Modulos.Tables(0).Rows(i).Item("USUModulos_descripcion") = "Cliente_CtaCte" Then
+                ToolStripDropDownButton2.Visible = True '- Icono
+
+                'Si usa ctacte se habilitan los remitos sino no
+                CuentaCorrienteToolStripMenuItem.Visible = True
+                RemitoToolStripMenuItem.Visible = True
+
+            End If
+
 
             '___Fin CLiente____
 
