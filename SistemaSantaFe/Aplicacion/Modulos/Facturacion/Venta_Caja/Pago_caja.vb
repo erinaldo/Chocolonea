@@ -64,7 +64,11 @@ Public Class Pago_caja
                     'DAcaja.Caja_Actualizar(CDec(tx_total.Text), Inicio.USU_id)
                     Dim descripcion As String = "Factura Nº" + CStr(factura_id)
                     'OK
-                    DAcaja.Caja_Actualizar2(Inicio.USU_id, descripcion, CDec(tx_total.Text), CDec(0), 1, CDec(0), CDec(tx_total.Text), Now, Inicio.terminal_id, US_administrador.TurnoUsuario_id) '1 es venta
+                    'DAcaja.Caja_Actualizar2(Inicio.USU_id, descripcion, CDec(tx_total.Text), CDec(0), 1, CDec(0), CDec(tx_total.Text), Now, Inicio.terminal_id, US_administrador.TurnoUsuario_id) '1 es venta
+
+                    '////////////choco 17-12-2019///////////////////////
+                    DAcaja.Caja_Actualizar3(Inicio.CAJA_id, Inicio.terminal_id, US_administrador.TurnoUsuario_id, descripcion, CDec(tx_total.Text), CDec(0), 1, CDec(0), CDec(tx_total.Text), Now) '1 es venta
+                    '/////////fin/////////////
 
 
                     'aqui llamo a la rutina que me muestra el reporte.
@@ -118,7 +122,7 @@ Public Class Pago_caja
 
 
                 If CDec(tx_total.Text) = 0 Or CDec(tx_parcial.Text) = 0 Then
-                    MessageBox.Show("El monto total es incorrecto", "Sistema de Gestion.")
+                    MessageBox.Show("El monto total es incorrecto", "Sistema de Gestión.")
                 Else
                     If CDec(tx_parcial.Text) > CDec(tx_total.Text) Or CDec(tx_parcial.Text) = CDec(tx_total.Text) Then
                         'GUARDAR EN TABLA "Venta_Producto"///////////////////////////////////////////////////////////////////////////////////
@@ -223,7 +227,13 @@ Public Class Pago_caja
                             'DAcaja.Caja_Actualizar(CDec(tx_total.Text), Inicio.USU_id)
                             Dim descripcion As String = "Factura Nº" + CStr(factura_id)
                             'OK
-                            DAcaja.Caja_Actualizar2(Inicio.USU_id, descripcion, CDec(tx_total.Text), CDec(0), 1, CDec(0), CDec(tx_total.Text), Now, Inicio.terminal_id, US_administrador.TurnoUsuario_id) '1 es venta
+
+
+                            'DAcaja.Caja_Actualizar2(Inicio.USU_id, descripcion, CDec(tx_total.Text), CDec(0), 1, CDec(0), CDec(tx_total.Text), Now, Inicio.terminal_id, US_administrador.TurnoUsuario_id) '1 es venta
+
+                            '////choco 17-12-2019  aqui lo que hacemos es que registre en caja siempre con el responsable, a pesar de que podemos ingresar con otro usuario, del tipo admin////////////////
+                            DAcaja.Caja_Actualizar3(Inicio.CAJA_id, Inicio.terminal_id, US_administrador.TurnoUsuario_id, descripcion, CDec(tx_total.Text), CDec(0), 1, CDec(0), CDec(tx_total.Text), Now)
+                            '//////////choco fin//////////////////
 
                             'aqui hago el descuento de stock...
                             'primero de los productos ....luego de los combos...(ya q estan formados por varios productos)

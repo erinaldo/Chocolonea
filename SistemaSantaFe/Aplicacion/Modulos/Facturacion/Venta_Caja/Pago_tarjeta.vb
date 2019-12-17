@@ -51,7 +51,11 @@
                     '//////////////////////CAJA///////////////////////////////////
                     Dim descripcion As String = "Factura Nº" + CStr(factura_id)
                     'OK
-                    DAcaja.Caja_Actualizar2(Inicio.USU_id, descripcion, CDec(0), CDec(0), 4, CDec(tx_total.Text), CDec(tx_total.Text), Now, Inicio.terminal_id, US_administrador.TurnoUsuario_id) '4 es tarjeta
+                    'DAcaja.Caja_Actualizar2(Inicio.USU_id, descripcion, CDec(0), CDec(0), 4, CDec(tx_total.Text), CDec(tx_total.Text), Now, Inicio.terminal_id, US_administrador.TurnoUsuario_id) '4 es tarjeta
+
+                    '///////choco 17-12-2019////////////////////
+                    DAcaja.Caja_Actualizar3(Inicio.CAJA_id, Inicio.terminal_id, US_administrador.TurnoUsuario_id, descripcion, CDec(0), CDec(0), 4, CDec(tx_total.Text), CDec(tx_total.Text), Now) '4 es tarjeta
+                    '/////////////fin//////////////////////////////
 
                     DAventa.remito_modificar_estado(Venta_Caja_gestion.remito_id, "Facturado")
 
@@ -155,7 +159,11 @@
                         '//////////////////////CAJA///////////////////////////////////
                         Dim descripcion As String = "Factura Nº" + CStr(factura_id)
                         'OK
-                        DAcaja.Caja_Actualizar2(Inicio.USU_id, descripcion, CDec(0), CDec(0), 4, CDec(tx_total.Text), CDec(tx_total.Text), Now, Inicio.terminal_id, US_administrador.TurnoUsuario_id) '4 es tarjeta
+                        'DAcaja.Caja_Actualizar2(Inicio.USU_id, descripcion, CDec(0), CDec(0), 4, CDec(tx_total.Text), CDec(tx_total.Text), Now, Inicio.terminal_id, US_administrador.TurnoUsuario_id) '4 es tarjeta
+
+                        '//////////////////choco 17-12-2019/////////////////
+                        DAcaja.Caja_Actualizar3(Inicio.CAJA_id, Inicio.terminal_id, US_administrador.TurnoUsuario_id, descripcion, CDec(0), CDec(0), 4, CDec(tx_total.Text), CDec(tx_total.Text), Now) '4 es tarjeta
+                        '///////////////fin//////////////
 
                         '//////////////////////REGISTRO VENTA TARJETA EN TABLA PARTIDA "VENTA_X_TARJETA"
                         DAventa.Venta_x_tarjeta_alta(ventaprod_id, CDec(tx_total.Text), tx_tarjeta.Text, tx_comprobante.Text)

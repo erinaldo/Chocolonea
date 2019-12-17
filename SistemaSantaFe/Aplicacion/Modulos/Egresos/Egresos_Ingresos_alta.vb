@@ -30,10 +30,16 @@
                 '2 es ingreso y 3 es egreso
                 If RadioButton_ingreso.Checked = True Then
                     'OK
-                    DAcaja.Caja_Actualizar2(Inicio.USU_id, descripcion, CDec(TextBox_monto.Text), CDec(0), 2, CDec(0), CDec(TextBox_monto.Text), Now, Inicio.terminal_id, US_administrador.TurnoUsuario_id) '2 es ingreso
+                    '//////choco 17-12-2019 //////////////
+                    DAcaja.Caja_Actualizar3(Inicio.CAJA_id, Inicio.terminal_id, US_administrador.TurnoUsuario_id, descripcion, CDec(TextBox_monto.Text), CDec(0), 2, CDec(0), CDec(TextBox_monto.Text), Now) '2 es ingreso
+                    '//////////////fin/////////////////
+                    'DAcaja.Caja_Actualizar2(Inicio.USU_id, descripcion, CDec(TextBox_monto.Text), CDec(0), 2, CDec(0), CDec(TextBox_monto.Text), Now, Inicio.terminal_id, US_administrador.TurnoUsuario_id) '2 es ingreso
                 Else
                     'OK
-                    DAcaja.Caja_Actualizar2(Inicio.USU_id, descripcion, CDec(0), CDec(TextBox_monto.Text), 3, CDec(0), CDec(0), Now, Inicio.terminal_id, US_administrador.TurnoUsuario_id) '3 es egreso
+                    '///////////choco 17-12-2019/////////////
+                    DAcaja.Caja_Actualizar3(Inicio.CAJA_id, Inicio.terminal_id, US_administrador.TurnoUsuario_id, descripcion, CDec(0), CDec(TextBox_monto.Text), 3, CDec(0), CDec(0), Now) '3 es egreso
+                    '//////fin//////////
+                    'DAcaja.Caja_Actualizar2(Inicio.USU_id, descripcion, CDec(0), CDec(TextBox_monto.Text), 3, CDec(0), CDec(0), Now, Inicio.terminal_id, US_administrador.TurnoUsuario_id) '3 es egreso
                 End If
                 'actualizo en la grilla de el form egresos_ingresos
                 Egresos_Ingresos.cargar_detalle()

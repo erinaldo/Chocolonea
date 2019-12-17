@@ -3113,7 +3113,15 @@
 
                                     'If MessageBox.Show("¿Desea registrar ingreso y generar factura?.", "Sistema de Gestión.", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = Windows.Forms.DialogResult.Yes Then
 
-                                    APcaja.Caja_Validar()
+
+                                    If Inicio.UT_id = 1 Then
+                                        APcaja.Caja_Validar_admin()
+                                    Else
+                                        APcaja.Caja_Validar()
+                                    End If
+
+
+                                    'APcaja.Caja_Validar()
                                     If APcaja.SESION_CAJA = 1 And US_administrador.no_caja <> "deshabilitar" Then '1 = caja nueva, lista para iniciar
                                         MessageBox.Show("Error!,primero debe abrir la caja diaria para registrar la venta", "Sistema de Gestión.", MessageBoxButtons.OK, MessageBoxIcon.Error)
 

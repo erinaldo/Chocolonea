@@ -13,7 +13,7 @@
 
 
         'voy a cargar en la grilla el detalle de la caja
-        Dim ds_caja As DataSet = DAcaja.Caja_obtener_detalle(usuario_id, sucursal_id, US_administrador.TurnoUsuario_id)
+        Dim ds_caja As DataSet = DAcaja.Caja_obtener_detalle(usuario_id, sucursal_id, US_administrador.TurnoUsuario_id, Inicio.CAJA_id)
         If ds_caja.Tables(0).Rows.Count <> 0 Then
             txt_usuario.Text = ds_caja.Tables(0).Rows(0).Item("Usuario").ToString
             txt_efectivo_esperado.Text = ds_caja.Tables(0).Rows(0).Item("CAJA_montoneto")
@@ -30,36 +30,43 @@
     End Sub
 
     Private Sub BO_Abrir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BO_cerrarturno.Click
-       
-        Cerrar_turno()
-        MessageBox.Show("Turno Cerrado Correctamente", "Sistema de Gestión")
-        'elimino la vinculacion de usuario con terminal
-        DAterminal.Usuario_x_Terminal_eliminar(Inicio.terminal_id)
+        If MessageBox.Show("¿Está seguro de cerrar el turno actual?", "Sistema de Gestión.", MessageBoxButtons.YesNo, MessageBoxIcon.Question) Then
+            Cerrar_turno()
+            'MessageBox.Show("Turno Cerrado Correctamente", "Sistema de Gestión")
+            'elimino la vinculacion de usuario con terminal
+            DAterminal.Usuario_x_Terminal_eliminar(Inicio.terminal_id)
 
-        APcaja.Caja_Validar()
-        Me.Close()
-
+            APcaja.Caja_Validar()
+            MessageBox.Show("Turno cerrado correctamente.", "Sistema de Gestión.", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Me.Close()
+        End If
 
 
 
     End Sub
     Private Sub Cerrar_turno()
-        Dim ds_caja As DataSet = DAcaja.TurnoUsuario_Validar(usuario_id, sucursal_id)
+
+        'If MessageBox.Show("¿Está seguro de cerrar el turno actual?", "Sistema de Gestión.", MessageBoxButtons.YesNo, MessageBoxIcon.Question) Then
+        'Dim ds_caja As DataSet = DAcaja.TurnoUsuario_Validar(usuario_id, sucursal_id)
         Dim observacion As String
-        If ds_caja.Tables(0).Rows.Count <> 0 Then
+        'If ds_caja.Tables(0).Rows.Count <> 0 Then
 
-            If txt_diferencia.Text = 0 Then
-                observacion = "Sin Diferencia de Caja"
+        If txt_diferencia.Text = 0 Then
+            observacion = "Sin Diferencia de Caja"
+        Else
+            If txt_diferencia.Text > 0 Then
+                observacion = "Sobrante de Caja"
             Else
-                If txt_diferencia.Text > 0 Then
-                    observacion = "Sobrante de Caja"
-                Else
-                    observacion = "Faltante de Caja"
-                End If
+                observacion = "Faltante de Caja"
             End If
-
-            Dim ds_cerrarTurno As DataSet = DAcaja.TurnoUsuario_CerrarTurno(caja_id, Now, txt_diferencia.Text, observacion, txt_efectivo_esperado.Text, Inicio.terminal_id)
         End If
+
+        Dim ds_cerrarTurno As DataSet = DAcaja.TurnoUsuario_CerrarTurno(caja_id, Now, txt_diferencia.Text, observacion, txt_efectivo_esperado.Text, Inicio.terminal_id)
+        'End If
+
+        'End If
+
+
 
     End Sub
     Public Sub Calcular()
@@ -117,13 +124,18 @@
 
     Dim DAterminal As New Datos.Terminal
     Private Sub btn_cerrar_caja_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_cerrar_caja.Click
-        Cerrar_turno()
-        DAcaja.Caja_cierre(usuario_id, Now, caja_id, Inicio.terminal_id)
-        MessageBox.Show("Caja Cerrada Correctamente", "Sistema de Gestión")
-        'aqui elimino la vinculacion de usuario con terminal
-        DAterminal.Usuario_x_Terminal_eliminar(Inicio.terminal_id)
-        APcaja.Caja_Validar()
-        Me.Close()
+        If MessageBox.Show("¿Está seguro de cerrar la caja actual?", "Sistema de Gestión.", MessageBoxButtons.YesNo, MessageBoxIcon.Question) Then
+            Cerrar_turno()
+            DAcaja.Caja_cierre(Now, caja_id, Inicio.terminal_id)
+            'MessageBox.Show("Caja Cerrada Correctamente", "Sistema de Gestión")
+            'aqui elimino la vinculacion de usuario con terminal
+            DAterminal.Usuario_x_Terminal_eliminar(Inicio.terminal_id)
+            APcaja.Caja_Validar()
+
+            MessageBox.Show("Caja cerrada correctamente.", "Sistema de Gestión.", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Me.Close()
+        End If
+        
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click

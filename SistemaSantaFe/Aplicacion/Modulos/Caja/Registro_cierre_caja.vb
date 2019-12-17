@@ -6,7 +6,12 @@
         Dim sucursal_id As Integer = Inicio.suc_id 'yo se q esta sucursal tiene la caja abierta...x la validacion del form del q vengo
         Dim usuario_id As Integer = Inicio.USU_id
         'voy a cargar en la grilla el detalle de la caja
-        Dim ds_caja As DataSet = DAcaja.Caja_obtener_detalle(usuario_id, sucursal_id, US_administrador.TurnoUsuario_id)
+        Dim ds_caja As DataSet = DAcaja.Caja_obtener_detalle(usuario_id, sucursal_id, US_administrador.TurnoUsuario_id, Inicio.CAJA_id)
+
+        '///////choco 17-12-2019 ahora busco caja por caja_id ...
+
+        '/////////////////////////////////////////////////
+
         If ds_caja.Tables(0).Rows.Count <> 0 Then
             TextBox_montoinicial.Text = CDec(ds_caja.Tables(0).Rows(0).Item("CAJA_montoinicial"))
             Label_usuario.Text = "Usuario: " + ds_caja.Tables(0).Rows(0).Item("Usuario")

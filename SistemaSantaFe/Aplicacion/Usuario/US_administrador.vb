@@ -602,25 +602,39 @@ Public Property EnabledCerrar() As Boolean
 
 
     Private Sub BO_Caja_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BO_Caja.Click
-        'diseño alternativo choco: 04-07-2019////////////////
-        APcaja.Caja_Validar()
-
-
-
-        If APcaja.SESION_CAJA = 1 And no_caja <> "deshabilitar" Then '1 = caja nueva, lista para iniciar
-            Caja_abrir_turno.Close()
-            Caja_abrir_turno.Show()
-        Else
-            If APcaja.SESION_CAJA = 2 And no_caja <> "deshabilitar" Then
-                '2 =  la caja esta abierta y lista para vender
-                Registro_cierre_caja.Close()
-                Registro_cierre_caja.Show()
+        If Inicio.UT_id = 1 Then
+            '//////////choco 17-12-2019//////////////////
+            APcaja.Caja_Validar_admin()
+            If APcaja.SESION_CAJA = 1 And no_caja <> "deshabilitar" Then '1 = caja nueva, lista para iniciar
+                Caja_abrir_turno.Close()
+                Caja_abrir_turno.Show()
             Else
-                MessageBox.Show("Error!, No puede acceder a la caja, esta siendo utilizada por el usuario: " + apellidoynombre, "Sistema de Gestión.", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                If APcaja.SESION_CAJA = 2 And no_caja <> "deshabilitar" Then 'si esta abierta no importa quien sea el responsable. Como admin puedo realizar la venta siempre registrando los ingresos en la caja activa.
+                    '2 =  la caja esta abierta y lista para vender
+                    Registro_cierre_caja.Close()
+                    Registro_cierre_caja.Show()
+                End If
             End If
+            '///////fin 17-12-2019////////////////
+        Else
+            'diseño alternativo choco: 04-07-2019////////////////
+            APcaja.Caja_Validar()
+            If APcaja.SESION_CAJA = 1 And no_caja <> "deshabilitar" Then '1 = caja nueva, lista para iniciar
+                Caja_abrir_turno.Close()
+                Caja_abrir_turno.Show()
+            Else
+                If APcaja.SESION_CAJA = 2 And no_caja <> "deshabilitar" Then
+                    '2 =  la caja esta abierta y lista para vender
+                    Registro_cierre_caja.Close()
+                    Registro_cierre_caja.Show()
+                Else
+                    MessageBox.Show("Error!, No puede acceder a la caja, esta siendo utilizada por el usuario: " + apellidoynombre, "Sistema de Gestión.", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
+            End If
+            '/////////////////////////////////////////////////
         End If
 
-        '/////////////////////////////////////////////////
+
 
         ''esto es lo que funcionaba antes////////no uso turnos///////////////////
         'Registro_inicio_cierre.Show()

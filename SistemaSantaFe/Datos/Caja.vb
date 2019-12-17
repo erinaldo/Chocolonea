@@ -64,14 +64,14 @@ Public Class Caja
     End Sub
 
 
-    Public Sub Caja_cierre(ByVal USU_id As Integer, ByVal CAJA_cierre As DateTime, ByVal Caja_id As Integer, ByVal terminal_id As Integer)
+    Public Sub Caja_cierre(ByVal CAJA_cierre As DateTime, ByVal Caja_id As Integer, ByVal terminal_id As Integer)
         Try
             dbconn.Open()
         Catch ex As Exception
         End Try
         Dim comando As New OleDbCommand("Caja_cierre", dbconn)
         comando.CommandType = CommandType.StoredProcedure
-        comando.Parameters.Add(New OleDb.OleDbParameter("@USU_id", USU_id))
+
         comando.Parameters.Add(New OleDb.OleDbParameter("@CAJA_cierre", CAJA_cierre))
         comando.Parameters.Add(New OleDb.OleDbParameter("@Caja_id", Caja_id))
         comando.Parameters.Add(New OleDb.OleDbParameter("@Terminal_id", terminal_id))
@@ -229,6 +229,41 @@ Public Class Caja
         dbconn.Close()
     End Sub
 
+    'choco 17-12-2019
+    'caja actualizar_3 esta actualiza la caja por id_caja y turno_id 
+    Public Sub Caja_Actualizar3(ByVal CAJA_id As Integer, ByVal terminal_id As Integer, ByVal TurnoUsuario_id As Integer,
+                                ByVal descripcion As String,
+                                ByVal CAJAdetalle_ingreso_efectivo As Decimal,
+                                ByVal CAJAdetalle_egreso As Decimal,
+                                ByVal CajaTipoMov_int As Integer,
+                                ByVal CAJAdetalle_ingreso_tarjeta As Decimal,
+                                ByVal ingreso As Decimal,
+                                ByVal CAJAdetalle_fechahora As DateTime
+                                )
+        Try
+            dbconn.Open()
+        Catch ex As Exception
+        End Try
+        Dim comando As New OleDbCommand("Caja_Actualizar3", dbconn)
+        comando.CommandType = CommandType.StoredProcedure
+        comando.Parameters.Add(New OleDb.OleDbParameter("@CAJA_id", CAJA_id))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@terminal_id", terminal_id))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@TurnoUsuario_id", TurnoUsuario_id)) 'para saber quien vende QUE, en cada turno
+        comando.Parameters.Add(New OleDb.OleDbParameter("@descripcion", descripcion))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@CAJAdetalle_ingreso_efectivo", CAJAdetalle_ingreso_efectivo))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@CAJAdetalle_egreso", CAJAdetalle_egreso))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@CajaTipoMov_int", CajaTipoMov_int))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@CAJAdetalle_ingreso_tarjeta", CAJAdetalle_ingreso_tarjeta))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@ingreso", ingreso)) 'este es el monto de ingreso, puede ser efectivo/tarjeta
+        comando.Parameters.Add(New OleDb.OleDbParameter("@CAJAdetalle_fechahora", CAJAdetalle_fechahora))
+
+        Dim ds_JE As New DataSet()
+        Dim da_JE As New OleDbDataAdapter(comando)
+        da_JE.Fill(ds_JE, "Caja")
+        dbconn.Close()
+    End Sub
+
+
     'choco 18-10-2018 esta rutina consulta el estado de las cajas desde una fecha hasta otra, manda como parametro el id de la sucursal
     Public Function Caja_consultar_caja_sucursal(ByVal sucursal_id As Integer, ByVal fecha_desde As Date, ByVal fecha_hasta As Date, ByVal terminal_id As Integer) As DataSet
         Try
@@ -272,7 +307,7 @@ Public Class Caja
 
 
     'LO USO EN EL MODULO DE CIERRE DE CAJA ABIERTA...ME TRAE TODAS LAS TRANSACCIONES DE UNA CAJA ABIERTA ---OJO ESTADO=1
-    Public Function Caja_obtener_detalle(ByVal USU_id As Integer, ByVal sucursal_id As Integer, ByVal TurnoUsuario_id As Integer) As DataSet
+    Public Function Caja_obtener_detalle(ByVal USU_id As Integer, ByVal sucursal_id As Integer, ByVal TurnoUsuario_id As Integer, ByVal CAJA_id As Integer) As DataSet
         Try
             dbconn.Open()
         Catch ex As Exception
@@ -282,6 +317,7 @@ Public Class Caja
         comando.Parameters.Add(New OleDb.OleDbParameter("@USU_id", USU_id))
         comando.Parameters.Add(New OleDb.OleDbParameter("@sucursal_id", sucursal_id))
         comando.Parameters.Add(New OleDb.OleDbParameter("@TurnoUsuario_id", TurnoUsuario_id))
+        comando.Parameters.Add(New OleDb.OleDbParameter("@CAJA_id", CAJA_id))
         comando.CommandType = CommandType.StoredProcedure
 
         Dim ds_JE As New DataSet()

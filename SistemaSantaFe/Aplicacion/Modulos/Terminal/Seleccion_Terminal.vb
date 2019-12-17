@@ -52,7 +52,7 @@ Public Class Seleccion_Terminal
             Me.Close()
 
         Else
-            If ds.Tables(0).Rows(0).Item("USU_id") = Inicio.USU_id Then
+            If Inicio.UT_id = 1 Then 'si es admin, ingreso siempre
                 'entro
                 Inicio.terminal_id = ComboBox_Terminales.SelectedValue
                 US_administrador.Lbl_Terminal.Text = ComboBox_Terminales.Text
@@ -60,13 +60,24 @@ Public Class Seleccion_Terminal
                 US_administrador.Show()
                 APcaja.Caja_Validar()
                 Me.Close()
-            Else
-                'no entro
-                Dim apellidoynombre As String = ds.Tables(0).Rows(0).Item("ApellidoyNombre")
-                MessageBox.Show("Lo sentimos la terminal se encuentra en uso por el usuario:" + apellidoynombre, "Sistema de Gestión.", MessageBoxButtons.OK)
-                Inicio.Visible = True
-                Me.Close()
+            Else 'si no es admin, que valide el acceso a la terminal
+                If ds.Tables(0).Rows(0).Item("USU_id") = Inicio.USU_id Then
+                    'entro
+                    Inicio.terminal_id = ComboBox_Terminales.SelectedValue
+                    US_administrador.Lbl_Terminal.Text = ComboBox_Terminales.Text
+                    US_administrador.Lbl_Terminal.Visible = True
+                    US_administrador.Show()
+                    APcaja.Caja_Validar()
+                    Me.Close()
+                Else
+                    'no entro
+                    Dim apellidoynombre As String = ds.Tables(0).Rows(0).Item("ApellidoyNombre")
+                    MessageBox.Show("Lo sentimos la terminal se encuentra en uso por el usuario:" + apellidoynombre, "Sistema de Gestión.", MessageBoxButtons.OK)
+                    Inicio.Visible = True
+                    Me.Close()
+                End If
             End If
+            
         End If
 
 
