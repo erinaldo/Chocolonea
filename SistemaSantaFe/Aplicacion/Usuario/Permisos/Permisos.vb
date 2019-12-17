@@ -16,6 +16,7 @@
         CheckBox_cli_Actualizar.Checked = False
         CheckBox_cli_informe.Checked = False
         CheckBox_cli_nuevo.Checked = False
+        CheckBox_cte_cte.Checked = False
         '___________________
 
         '___Confuguracion______
@@ -83,22 +84,22 @@
                 If DS_Modulos.Tables(0).Rows(i).Item("USUModulos_descripcion") = "Cliente_Nuevo" Then
                     CheckBox_cli_nuevo.Checked = True
                 Else
-
-
                 End If
+
                 If DS_Modulos.Tables(0).Rows(i).Item("USUModulos_descripcion") = "Cliente_Informe" Then
                     CheckBox_cli_informe.Checked = True
                 Else
-
-
                 End If
+
                 If DS_Modulos.Tables(0).Rows(i).Item("USUModulos_descripcion") = "Cliente_Actulizar" Then
                     CheckBox_cli_Actualizar.Checked = True
                 Else
-
-
                 End If
 
+                If DS_Modulos.Tables(0).Rows(i).Item("USUModulos_descripcion") = "Cliente_CtaCte" Then
+                    CheckBox_cli_Actualizar.Checked = True
+                Else
+                End If
                 '___Fin CLiente____
 
 
@@ -295,13 +296,13 @@
             CheckBox_cli_informe.Checked = True
             CheckBox_cli_nuevo.Checked = True
             CheckBox_cli_Actualizar.Checked = True
-
-
+            CheckBox_cte_cte.Checked = True
 
         Else
-            CheckBox_cli_informe.Checked = False
-            CheckBox_cli_nuevo.Checked = False
-            CheckBox_cli_Actualizar.Checked = False
+            'CheckBox_cli_informe.Checked = False
+            'CheckBox_cli_nuevo.Checked = False
+            'CheckBox_cli_Actualizar.Checked = False
+            'CheckBox_cte_cte.Checked = False
         End If
     End Sub
 
@@ -330,19 +331,19 @@
 
 
         Else
-            CheckBox_stock_GM.Checked = False
-            CheckBox_stock_Cat.Checked = False
-            CheckBox_Stock_Cons_Mov.Checked = False
+            'CheckBox_stock_GM.Checked = False
+            'CheckBox_stock_Cat.Checked = False
+            'CheckBox_Stock_Cons_Mov.Checked = False
 
-            For Each n As TreeNode In nodes_prod
-                'RecorrerNodos(n)
-                n.Checked = False
-            Next
+            'For Each n As TreeNode In nodes_prod
+            '    'RecorrerNodos(n)
+            '    n.Checked = False
+            'Next
 
-            For Each n As TreeNode In nodes_prov
-                'RecorrerNodos(n)
-                n.Checked = False
-            Next
+            'For Each n As TreeNode In nodes_prov
+            '    'RecorrerNodos(n)
+            '    n.Checked = False
+            'Next
 
         End If
     End Sub
@@ -400,14 +401,14 @@
             Next
 
         Else
-            CheckBox_conf_sucursal.Checked = False
-            CheckBox_conf_empresa.Checked = False
+            'CheckBox_conf_sucursal.Checked = False
+            'CheckBox_conf_empresa.Checked = False
 
 
-            For Each n As TreeNode In nodes
-                'RecorrerNodos(n)
-                n.Checked = False
-            Next
+            'For Each n As TreeNode In nodes
+            '    'RecorrerNodos(n)
+            '    n.Checked = False
+            'Next
         End If
 
     End Sub
@@ -420,8 +421,8 @@
 
 
         Else
-            CheckBox_venta_ventCaja.Checked = False
-            CheckBox_venta_consulta.Checked = False
+            'CheckBox_venta_ventCaja.Checked = False
+            'CheckBox_venta_consulta.Checked = False
 
         End If
     End Sub
@@ -435,9 +436,9 @@
 
 
         Else
-            CheckBox_pedidos_nuevo.Checked = False
-            CheckBox_Pedidos_cons.Checked = False
-            CheckBox_pedidos_recepcion.Checked = False
+            'CheckBox_pedidos_nuevo.Checked = False
+            'CheckBox_Pedidos_cons.Checked = False
+            'CheckBox_pedidos_recepcion.Checked = False
 
 
         End If
@@ -452,8 +453,8 @@
 
 
         Else
-            CheckBox_servicio_nuevo.Checked = False
-            CheckBox_servicio_consulta.Checked = False
+            'CheckBox_servicio_nuevo.Checked = False
+            'CheckBox_servicio_consulta.Checked = False
 
         End If
     End Sub
@@ -465,17 +466,135 @@
             CheckBox_Caja_Consulta.Checked = True
 
         Else
-            CheckBox_caja_cierrecaja.Checked = False
-            CheckBox_Caja_EgreIngr.Checked = False
-            CheckBox_Caja_Consulta.Checked = False
+            'CheckBox_caja_cierrecaja.Checked = False
+            'CheckBox_Caja_EgreIngr.Checked = False
+            'CheckBox_Caja_Consulta.Checked = False
 
         End If
     End Sub
 
+
+
+
+    Private Sub CheckBox_cli_nuevo_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox_cli_nuevo.CheckedChanged
+        If CheckBox_Cli_todos.Checked = True And CheckBox_cli_nuevo.Checked = False Then
+            CheckBox_Cli_todos.Checked = False
+        End If
+
+    End Sub
+
+    Private Sub CheckBox_cli_informe_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox_cli_informe.CheckedChanged
+        If CheckBox_Cli_todos.Checked = True And CheckBox_cli_informe.Checked = False Then
+            CheckBox_Cli_todos.Checked = False
+        End If
+
+    End Sub
+
+    Private Sub CheckBox_cli_Actualizar_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox_cli_Actualizar.CheckedChanged
+        If CheckBox_Cli_todos.Checked = True And CheckBox_cli_Actualizar.Checked = False Then
+            CheckBox_Cli_todos.Checked = False
+        End If
+    End Sub
+
+    Private Sub CheckBox_cte_cte_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox_cte_cte.CheckedChanged
+        If CheckBox_Cli_todos.Checked = True And CheckBox_cte_cte.Checked = False Then
+            CheckBox_Cli_todos.Checked = False
+        End If
+    End Sub
+
+
+
+    Private Sub CheckBox_stock_Cat_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox_stock_Cat.CheckedChanged
+        If CheckBox_stock_todos.Checked = True And CheckBox_stock_Cat.Checked = False Then
+            CheckBox_stock_todos.Checked = False
+        End If
+    End Sub
+
+    Private Sub CheckBox_stock_GM_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox_stock_GM.CheckedChanged
+        If CheckBox_stock_todos.Checked = True And CheckBox_stock_GM.Checked = False Then
+            CheckBox_stock_todos.Checked = False
+        End If
+    End Sub
+
+    Private Sub CheckBox_venta_ventCaja_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox_venta_ventCaja.CheckedChanged
+        If CheckBox_venta_todos.Checked = True And CheckBox_venta_ventCaja.Checked = False Then
+            CheckBox_venta_todos.Checked = False
+        End If
+    End Sub
+
+    Private Sub CheckBox_venta_consulta_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox_venta_consulta.CheckedChanged
+        If CheckBox_venta_todos.Checked = True And CheckBox_venta_consulta.Checked = False Then
+            CheckBox_venta_todos.Checked = False
+        End If
+    End Sub
+
+    Private Sub CheckBox_pedidos_nuevo_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox_pedidos_nuevo.CheckedChanged
+        If CheckBox_pedidos_todos.Checked = True And CheckBox_pedidos_nuevo.Checked = False Then
+            CheckBox_pedidos_todos.Checked = False
+        End If
+    End Sub
+
+    Private Sub CheckBox_Pedidos_cons_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox_Pedidos_cons.CheckedChanged
+        If CheckBox_pedidos_todos.Checked = True And CheckBox_Pedidos_cons.Checked = False Then
+            CheckBox_pedidos_todos.Checked = False
+        End If
+    End Sub
+
+    Private Sub CheckBox_pedidos_recepcion_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox_pedidos_recepcion.CheckedChanged
+        If CheckBox_pedidos_todos.Checked = True And CheckBox_pedidos_recepcion.Checked = False Then
+            CheckBox_pedidos_todos.Checked = False
+        End If
+    End Sub
+
+    Private Sub CheckBox_servicio_nuevo_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox_servicio_nuevo.CheckedChanged
+        If CheckBox_Servicio_todos.Checked = True And CheckBox_servicio_nuevo.Checked = False Then
+            CheckBox_Servicio_todos.Checked = False
+        End If
+    End Sub
+
+    Private Sub CheckBox_servicio_consulta_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox_servicio_consulta.CheckedChanged
+        If CheckBox_Servicio_todos.Checked = True And CheckBox_servicio_consulta.Checked = False Then
+            CheckBox_Servicio_todos.Checked = False
+        End If
+    End Sub
+
+    Private Sub CheckBox_conf_sucursal_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox_conf_sucursal.CheckedChanged
+        If CheckBox_conf_todos.Checked = True And CheckBox_conf_sucursal.Checked = False Then
+            CheckBox_conf_todos.Checked = False
+        End If
+    End Sub
+
+    Private Sub CheckBox_conf_empresa_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox_conf_empresa.CheckedChanged
+        If CheckBox_conf_todos.Checked = True And CheckBox_conf_empresa.Checked = False Then
+            CheckBox_conf_todos.Checked = False
+        End If
+    End Sub
+
+    Private Sub CheckBox_Caja_EgreIngr_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox_Caja_EgreIngr.CheckedChanged
+        If CheckBox_caja_Todos.Checked = True And CheckBox_Caja_EgreIngr.Checked = False Then
+            CheckBox_caja_Todos.Checked = False
+        End If
+    End Sub
+
+    Private Sub CheckBox_Caja_Consulta_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox_Caja_Consulta.CheckedChanged
+        If CheckBox_caja_Todos.Checked = True And CheckBox_Caja_Consulta.Checked = False Then
+            CheckBox_caja_Todos.Checked = False
+        End If
+    End Sub
+
+    Private Sub CheckBox_Stock_Cons_Mov_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox_Stock_Cons_Mov.CheckedChanged
+        If CheckBox_stock_todos.Checked = True And CheckBox_Stock_Cons_Mov.Checked = False Then
+            CheckBox_stock_todos.Checked = False
+        End If
+    End Sub
+
+
+
+
 #End Region
 
     Private Sub btn_guardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_guardar.Click
-        If cb_tipous.SelectedValue = 1 Or cb_tipous.SelectedValue = 2 Then 'EN LA BD 1 ES ADMINISTRADOR Y 2 ES OPERADOR
+        If cb_tipous.SelectedValue = 1 Then 'EN LA BD 1 ES ADMINISTRADOR 
             'If cb_tipous.SelectedValue = 30 Then
             MessageBox.Show("Lo Sentimos no puede eliminar este tipo de usuario", "Sistema de Gestión")
         Else
@@ -491,6 +610,7 @@
                     dausuario.UsuarioModulos_alta(cb_tipous.SelectedValue, "Cliente_Nuevo")
                     dausuario.UsuarioModulos_alta(cb_tipous.SelectedValue, "Cliente_Informe")
                     dausuario.UsuarioModulos_alta(cb_tipous.SelectedValue, "Cliente_Actulizar")
+                    dausuario.UsuarioModulos_alta(cb_tipous.SelectedValue, "Cliente_CtaCte")
                     guardado = 1
                 Else
                     If CheckBox_cli_nuevo.Checked = True Then
@@ -505,6 +625,12 @@
                         dausuario.UsuarioModulos_alta(cb_tipous.SelectedValue, "Cliente_Actulizar")
                         guardado = 1
                     End If
+                    If CheckBox_cte_cte.Checked = True Then
+                        dausuario.UsuarioModulos_alta(cb_tipous.SelectedValue, "Cliente_CtaCte")
+                        guardado = 1
+                    End If
+
+
                 End If
                 '______________FIN CLIENTE_____________
 
@@ -554,7 +680,7 @@
                     'Categoria__________
                     If CheckBox_stock_Cat.Checked = True Then
                         dausuario.UsuarioModulos_alta(cb_tipous.SelectedValue, "Stock_Categoria")
-                        guardado = 1
+                        guardado = 12
                     End If
 
                     'Gestion Mercaderia___________
@@ -676,14 +802,14 @@
 
                 '______Caja_______
                 If CheckBox_caja_Todos.Checked = True Then
-                    dausuario.UsuarioModulos_alta(cb_tipous.SelectedValue, "Caja_CiereCaja")
+                    'dausuario.UsuarioModulos_alta(cb_tipous.SelectedValue, "Caja_CiereCaja")
                     dausuario.UsuarioModulos_alta(cb_tipous.SelectedValue, "Caja_EgreIngr")
                     dausuario.UsuarioModulos_alta(cb_tipous.SelectedValue, "Caja_Consulta")
                     guardado = 1
                 Else
                     If CheckBox_caja_cierrecaja.Checked = True Then
-                        dausuario.UsuarioModulos_alta(cb_tipous.SelectedValue, "Caja_CiereCaja")
-                        guardado = 1
+                        'dausuario.UsuarioModulos_alta(cb_tipous.SelectedValue, "Caja_CiereCaja")
+                        'guardado = 1
                     End If
                     If CheckBox_Caja_EgreIngr.Checked = True Then
                         dausuario.UsuarioModulos_alta(cb_tipous.SelectedValue, "Caja_EgreIngr")
@@ -729,6 +855,11 @@
         TiposUsuarios_Gestion.Close()
         TiposUsuarios_Gestion.Show()
     End Sub
+
+    
+   
+   
+ 
 
     
 End Class
