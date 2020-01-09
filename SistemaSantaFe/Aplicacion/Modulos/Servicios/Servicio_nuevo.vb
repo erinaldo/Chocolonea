@@ -184,36 +184,40 @@
 
         If e.KeyChar = ChrW(Keys.Enter) And e.Handled = False Then
 
+            If TextBox_codprod.Text <> "" Then
+                ds_PROD = DAprod.Producto_x_sucursal_buscarcod(TextBox_codprod.Text, sucursal_id)
+                If ds_PROD.Tables(0).Rows.Count <> 0 Then
 
 
-            ds_PROD = DAprod.Producto_x_sucursal_buscarcod(TextBox_codprod.Text, sucursal_id)
-            If ds_PROD.Tables(0).Rows.Count <> 0 Then
+                    Dim item As Integer
+                    If Servicio_DS.Tables("Servicio_Prod_DS").Rows.Count = 0 Then
+                        item = 1
+                    Else
+                        item = Servicio_DS.Tables("Servicio_Prod_DS").Rows.Count + 1
+                    End If
+
+                    Dim newCustomersRow As DataRow = Servicio_DS.Tables("Servicio_Prod_DS").NewRow()
+                    newCustomersRow("Num") = item
+                    newCustomersRow("Cod_prod") = TextBox_codprod.Text
+                    newCustomersRow("Descripcion") = ds_PROD.Tables(0).Rows(0).Item("prod_descripcion")
+                    newCustomersRow("Cantidad") = "1"
+                    newCustomersRow("Costo") = ds_PROD.Tables(0).Rows(0).Item("prod_precio_vta")
+                    newCustomersRow("Stock") = ds_PROD.Tables(0).Rows(0).Item("ProdxSuc_stock")
+                    newCustomersRow("ProdxSuc_ID") = ds_PROD.Tables(0).Rows(0).Item("ProdxSuc_ID")
+                    Servicio_DS.Tables("Servicio_Prod_DS").Rows.Add(newCustomersRow)
+                    DataGridView1.DataSource = Servicio_DS.Tables("Servicio_Prod_DS")
 
 
-                Dim item As Integer
-                If Servicio_DS.Tables("Servicio_Prod_DS").Rows.Count = 0 Then
-                    item = 1
                 Else
-                    item = Servicio_DS.Tables("Servicio_Prod_DS").Rows.Count + 1
+                    MessageBox.Show("El producto no existe", "Sistema de Gestión.", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 End If
 
-                Dim newCustomersRow As DataRow = Servicio_DS.Tables("Servicio_Prod_DS").NewRow()
-                newCustomersRow("Num") = item
-                newCustomersRow("Cod_prod") = TextBox_codprod.Text
-                newCustomersRow("Descripcion") = ds_PROD.Tables(0).Rows(0).Item("prod_descripcion")
-                newCustomersRow("Cantidad") = "1"
-                newCustomersRow("Costo") = ds_PROD.Tables(0).Rows(0).Item("prod_precio_vta")
-                newCustomersRow("Stock") = ds_PROD.Tables(0).Rows(0).Item("ProdxSuc_stock")
-                newCustomersRow("ProdxSuc_ID") = ds_PROD.Tables(0).Rows(0).Item("ProdxSuc_ID")
-                Servicio_DS.Tables("Servicio_Prod_DS").Rows.Add(newCustomersRow)
-                DataGridView1.DataSource = Servicio_DS.Tables("Servicio_Prod_DS")
-
-
+                Calcular_Totales()
             Else
-                MessageBox.Show("El producto no existe", "Sistema de Gestion.")
+                MessageBox.Show("Ingrese código del producto.", "Sistema de Gestión.", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
 
-            Calcular_Totales()
+            
 
 
         End If
@@ -547,7 +551,7 @@
         DAservicio.Servicio_ActualizarEstado(Servicio_Consulta.serv_id, "FINALIZADO")
         Guardar_BD(procendencia.ToString)
         DAservicio.Actividad_Servicio_alta(usuario_id, sucursal_id, Label_Cod.Text, Now, "SERVICIO FINALIZADO")
-        MessageBox.Show("Venta registrada y Servicio finalizado correctamente.", "Sistema de Gestion.")
+        MessageBox.Show("Venta registrada y Servicio finalizado correctamente.", "Sistema de Gestión.", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Servicio_Consulta.Close()
         Servicio_Consulta.Show()
         Me.Close()

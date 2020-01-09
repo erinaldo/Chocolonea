@@ -122,7 +122,7 @@ Public Class Pago_caja
 
 
                 If CDec(tx_total.Text) = 0 Or CDec(tx_parcial.Text) = 0 Then
-                    MessageBox.Show("El monto total es incorrecto", "Sistema de Gestión.")
+                    MessageBox.Show("El monto total es incorrecto", "Sistema de Gestión.", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Else
                     If CDec(tx_parcial.Text) > CDec(tx_total.Text) Or CDec(tx_parcial.Text) = CDec(tx_total.Text) Then
                         'GUARDAR EN TABLA "Venta_Producto"///////////////////////////////////////////////////////////////////////////////////
@@ -140,12 +140,13 @@ Public Class Pago_caja
                         Dim ds_Venta As DataSet = DAventa.VentaProducto_alta(Monto_sin_anticipo, Now, usuario_id, tipo_vta, cliente_id, 0, 0, 0, 0, 0, venta_tipo_descripcion, Ser_id, vendedor_id, "Cobrado")
                         Dim descripcion As String = "Servicio Nº" + CStr(Ser_id)
                         'OK
-                        DAcaja.Caja_Actualizar2(Inicio.USU_id, descripcion, CDec(tx_total.Text), CDec(0), 1, CDec(0), CDec(tx_total.Text), Now, Inicio.terminal_id, US_administrador.TurnoUsuario_id) '1 es efectivo
+                        'DAcaja.Caja_Actualizar2(Inicio.USU_id, descripcion, CDec(tx_total.Text), CDec(0), 1, CDec(0), CDec(tx_total.Text), Now, Inicio.terminal_id, US_administrador.TurnoUsuario_id) '1 es efectivo
                         'DAcaja.Caja_Actualizar(CDec(tx_total.Text), Inicio.USU_id)
+                        DAcaja.Caja_Actualizar3(Inicio.CAJA_id, Inicio.terminal_id, US_administrador.TurnoUsuario_id, descripcion, CDec(tx_total.Text), CDec(0), 1, CDec(0), CDec(tx_total.Text), Now)
                         Servicio_nuevo.finalizar("form_pago_caja")
                         Me.Close()
                     Else
-                        MessageBox.Show("Error! El monto ingresado es menor al total, por favor modifique", "Sistema de Gestion", MessageBoxButtons.OK)
+                        MessageBox.Show("Error! El monto ingresado es menor al total, por favor modifique", "Sistema de Gestion", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         tx_parcial.Focus()
                         tx_parcial.SelectAll()
                     End If
@@ -163,7 +164,7 @@ Public Class Pago_caja
                     TextBox1.Text = (Math.Round(CDec(0), 2).ToString("N2"))
                 End If
                 If CDec(tx_total.Text) = 0 Or CDec(tx_parcial.Text) = 0 Then
-                    MessageBox.Show("El monto total es incorrecto", "Sistema de Gestion.")
+                    MessageBox.Show("El monto total es incorrecto", "Sistema de Gestion.", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 Else
                     'VALICACIONES
                     If CDec(tx_parcial.Text) > CDec(tx_total.Text) Or CDec(tx_parcial.Text) = CDec(tx_total.Text) Then
@@ -328,7 +329,7 @@ Public Class Pago_caja
                             End While
                             'aqui llamo a la rutina que me muestra el reporte.
                             crear_reporte(ds_usuario, factura_id)
-                            MessageBox.Show("La venta fue registrada correctamente.", "Sistema de Gestion.")
+                            MessageBox.Show("La venta fue registrada correctamente.", "Sistema de Gestión.", MessageBoxButtons.OK, MessageBoxIcon.Information)
                             Venta_Caja_gestion.Limpiar()
 
                             'Dim ruta As String
@@ -341,11 +342,11 @@ Public Class Pago_caja
                             'End If
                             '    End If
                         Else
-                            MessageBox.Show("Error, No hay productos agregados", "Sistema de Gestión")
+                            MessageBox.Show("Error, No hay productos agregados.", "Sistema de Gestión", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                         End If
 
                     Else
-                        MessageBox.Show("Error! El monto ingresado es menor al total, por favor modifique", "Sistema de Gestion", MessageBoxButtons.OK)
+                        MessageBox.Show("Error! El monto ingresado es menor al total, por favor modifique.", "Sistema de Gestión.", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         tx_parcial.Focus()
                         tx_parcial.SelectAll()
                     End If

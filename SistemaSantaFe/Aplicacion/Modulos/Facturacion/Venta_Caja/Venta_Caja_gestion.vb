@@ -22,7 +22,7 @@
         Dim i As Integer = 0
         While i < DataGridView1.Rows.Count
 
-            If DataGridView1.Rows(i).Cells("columna_codinterno").Value = cod_ingresado And DataGridView1.Rows(i).Cells("columna_prod_id").Value <> "" Then 'pregunto por prod_id, para saber si es un producto cargado, cuando la grilla esta vacia encuentra lo primero q tipeo
+            If DataGridView1.Rows(i).Cells("columna_codinterno").Value = CStr(cod_ingresado) And DataGridView1.Rows(i).Cells("columna_prod_id").Value <> "" Then 'pregunto por prod_id, para saber si es un producto cargado, cuando la grilla esta vacia encuentra lo primero q tipeo
                 DataGridView1.Rows(i).Cells("columna_cantidad").Value = CDec(DataGridView1.Rows(i).Cells("columna_cantidad").Value) + 1
                 Dim cantidad As Decimal = CDec(DataGridView1.Rows(i).Cells("columna_cantidad").Value)
                 Dim precio_unitario As Decimal = CDec(DataGridView1.Rows(i).Cells("columna_precio_unitario").Value)
@@ -405,18 +405,18 @@
 
     Private Sub DataGridView1_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellClick
         'NOTA: cuando hago click sobre las celdas q no son editables se cambia el foco a las celdas cod_interno y cantidad 
-        Dim celda_actual As Integer = DataGridView1.CurrentCell.ColumnIndex
-        Select Case celda_actual
-            Case 0
-                SendKeys.Send("{TAB}")
-            Case 3
-                SendKeys.Send("{LEFT}")
-            Case 7
-                SendKeys.Send("{LEFT}")
-            Case 8
-                SendKeys.Send("{LEFT}")
-                SendKeys.Send("{LEFT}")
-        End Select
+        'Dim celda_actual As Integer = DataGridView1.CurrentCell.ColumnIndex
+        'Select Case celda_actual
+        '    Case 0
+        '        SendKeys.Send("{TAB}")
+        '    Case 3
+        '        SendKeys.Send("{LEFT}")
+        '    Case 7
+        '        SendKeys.Send("{LEFT}")
+        '    Case 8
+        '        SendKeys.Send("{LEFT}")
+        '        SendKeys.Send("{LEFT}")
+        'End Select
     End Sub
 
     Private Sub DataGridView1_SelectionChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles DataGridView1.SelectionChanged
@@ -425,43 +425,36 @@
                 'volver a seleccionar anterior
                 DataGridView1.CurrentCell = DataGridView1(2, fila_mover)
                 DataGridView1.CurrentRow.Cells(2).Value = celda_codinterno 'vuelvo a colocar el codinterno 
-
                 'ahora me muevo a la columna de cantidad
                 DataGridView1.CurrentCell = DataGridView1(5, fila_mover)
-
-
-
                 listo = "no"
             End If
 
             If listo = "pasar a descuento" Then
                 DataGridView1.CurrentCell = DataGridView1(6, fila_mover)
-            End If
-
-            If listo = "si, sig fila" Then
-                'valido que no sea la ultima fila de la grilla - choco: 25-06-2019
-                'If DataGridView1.CurrentRow.Index <> DataGridView1.Rows.Count - 1 Then 'si no estoy en la ultima fila, salto a la siguiente
-                'And CDec(DataGridView1.CurrentRow.Cells("columna_cantidad").Value) <> CDec(0)
-                'If DataGridView1.CurrentRow.Cells("columna_codinterno").Value <> "" Then
-                'volver a seleccionar anterior
-                'generar_fila_grid()
-                'solo me muevo si no estoy en la ultima fila
-                'If DataGridView1.CurrentRow.Index < DataGridView1.Rows.Count - 1 Then
-                DataGridView1.CurrentCell = DataGridView1(2, fila_mover + 1)
-                'End If
-                listo = "no"
-                'End If
-                'End If
-
-
-
+                listo = "si, sig fila"
+            Else
+                If listo = "si, sig fila" Then
+                    'valido que no sea la ultima fila de la grilla - choco: 25-06-2019
+                    'If DataGridView1.CurrentRow.Index <> DataGridView1.Rows.Count - 1 Then 'si no estoy en la ultima fila, salto a la siguiente
+                    'And CDec(DataGridView1.CurrentRow.Cells("columna_cantidad").Value) <> CDec(0)
+                    'If DataGridView1.CurrentRow.Cells("columna_codinterno").Value <> "" Then
+                    'volver a seleccionar anterior
+                    'generar_fila_grid()
+                    'solo me muevo si no estoy en la ultima fila
+                    'If DataGridView1.CurrentRow.Index < DataGridView1.Rows.Count - 1 Then
+                    DataGridView1.CurrentCell = DataGridView1(2, fila_mover + 1)
+                    'End If
+                    listo = "no"
+                    'End If
+                    'End If
+                End If
             End If
         Else
             'si no lo encuentra quedar en la misma celda
             'DataGridView1.CurrentCell = DataGridView1(2, fila_mover)
             listo = "no"
         End If
-
     End Sub
 
     Private Sub DataGridView1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles DataGridView1.KeyDown
@@ -480,8 +473,6 @@
                 SendKeys.Send("{TAB}")
             End If
         End If
-
-
         If DataGridView1.CurrentCell.ColumnIndex = 6 Then 'columna descuento, se hacen varios TAB hasta pasar a la siguiente fila
             If e.KeyCode = Keys.Enter Then
                 e.SuppressKeyPress = True
@@ -492,6 +483,40 @@
                 SendKeys.Send("{TAB}")
             End If
         End If
+        If DataGridView1.CurrentCell.ColumnIndex = 7 Then 'columna descuento, se hacen varios TAB hasta pasar a la siguiente fila
+            If e.KeyCode = Keys.Enter Then
+                e.SuppressKeyPress = True
+                SendKeys.Send("{TAB}")
+                'SendKeys.Send("{TAB}")
+                'SendKeys.Send("{TAB}")
+                'SendKeys.Send("{TAB}")
+                'SendKeys.Send("{TAB}")
+            End If
+        End If
+
+        If DataGridView1.CurrentCell.ColumnIndex = 8 Then 'columna descuento, se hacen varios TAB hasta pasar a la siguiente fila
+            If e.KeyCode = Keys.Enter Then
+                e.SuppressKeyPress = True
+                SendKeys.Send("{TAB}")
+                'SendKeys.Send("{TAB}")
+                'SendKeys.Send("{TAB}")
+                'SendKeys.Send("{TAB}")
+                'SendKeys.Send("{TAB}")
+            End If
+        End If
+
+        If DataGridView1.CurrentCell.ColumnIndex = 10 Then 'columna descuento, se hacen varios TAB hasta pasar a la siguiente fila
+            If e.KeyCode = Keys.Enter Then
+                e.SuppressKeyPress = True
+                SendKeys.Send("{TAB}")
+                SendKeys.Send("{TAB}")
+                'SendKeys.Send("{TAB}")
+                'SendKeys.Send("{TAB}")
+                'SendKeys.Send("{TAB}")
+            End If
+        End If
+
+
         'If DataGridView1.CurrentCell.ColumnIndex = 2 And e.KeyCode = Keys.Right Or Keys.Left Then 'esto anula la nav x teclado
         '    e.SuppressKeyPress = True
         'End If
@@ -2196,7 +2221,7 @@
                         'cuando borro reordeno los item..o sea el nro q esta mas a la izquierda
                         Dim a As Integer = 0
                         While a < DataGridView1.Rows.Count
-                            If DataGridView1.Rows(a).Cells(1).Value <> 0 Then
+                            If CStr(DataGridView1.Rows(a).Cells(1).Value) <> "" Then
                                 DataGridView1.Rows(a).Cells(0).Value = a + 1
                             End If
 

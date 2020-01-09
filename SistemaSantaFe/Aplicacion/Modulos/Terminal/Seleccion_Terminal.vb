@@ -48,7 +48,13 @@ Public Class Seleccion_Terminal
             US_administrador.Lbl_Terminal.Text = ComboBox_Terminales.Text
             US_administrador.Lbl_Terminal.Visible = True
             US_administrador.Show()
-            APcaja.Caja_Validar()
+            If Inicio.UT_id = 1 Then
+                APcaja.Caja_Validar_admin()
+            Else
+                APcaja.Caja_Validar()
+            End If
+
+
             Me.Close()
 
         Else
@@ -58,7 +64,8 @@ Public Class Seleccion_Terminal
                 US_administrador.Lbl_Terminal.Text = ComboBox_Terminales.Text
                 US_administrador.Lbl_Terminal.Visible = True
                 US_administrador.Show()
-                APcaja.Caja_Validar()
+                'APcaja.Caja_Validar()
+                APcaja.Caja_Validar_admin()
                 Me.Close()
             Else 'si no es admin, que valide el acceso a la terminal
                 If ds.Tables(0).Rows(0).Item("USU_id") = Inicio.USU_id Then
@@ -77,7 +84,6 @@ Public Class Seleccion_Terminal
                     Me.Close()
                 End If
             End If
-            
         End If
 
 

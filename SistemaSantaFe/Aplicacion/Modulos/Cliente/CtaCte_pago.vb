@@ -97,7 +97,11 @@
             Dim ctacte_nro As String = CStr(Cliente_Cta_Cte_Buscar.txt_ctacte.Text)
             Dim descripcion As String = "Pago a Cuenta Corriente Nº:" + ctacte_nro
             'OK
-            DAcaja.Caja_Actualizar2(Inicio.USU_id, descripcion, CDec(tx_total.Text), CDec(0), 1, CDec(0), CDec(tx_total.Text), Now, Inicio.terminal_id, US_administrador.TurnoUsuario_id) '1 es venta
+            'DAcaja.Caja_Actualizar2(Inicio.USU_id, descripcion, CDec(tx_total.Text), CDec(0), 1, CDec(0), CDec(tx_total.Text), Now, Inicio.terminal_id, US_administrador.TurnoUsuario_id) '1 es venta
+
+            '//////////////////choco 17-12-2019/////////////////
+            DAcaja.Caja_Actualizar3(Inicio.CAJA_id, Inicio.terminal_id, US_administrador.TurnoUsuario_id, descripcion, CDec(tx_total.Text), CDec(0), 1, CDec(0), CDec(tx_total.Text), Now) '1 es venta
+            '///////////////////fin/////////////////////
 
 
             'se debe registrar en movimiento ctacte.
@@ -215,7 +219,11 @@
                 'aqui guardo
                 Dim ctacte_nro As String = CStr(Cliente_Cta_Cte_Buscar.txt_ctacte.Text)
                 Dim descripcion As String = "Pago a Cuenta Corriente Nº:" + ctacte_nro
-                DAcaja.Caja_Actualizar2(Inicio.USU_id, descripcion, CDec(0), CDec(0), 4, CDec(tx_total.Text), CDec(tx_total.Text), Now, Inicio.terminal_id, US_administrador.TurnoUsuario_id) '4 es tarjeta
+                'DAcaja.Caja_Actualizar2(Inicio.USU_id, descripcion, CDec(0), CDec(0), 4, CDec(tx_total.Text), CDec(tx_total.Text), Now, Inicio.terminal_id, US_administrador.TurnoUsuario_id) '4 es tarjeta
+
+                '////////////////////choco 17-12-2019/////////////////////
+                DAcaja.Caja_Actualizar3(Inicio.CAJA_id, Inicio.terminal_id, US_administrador.TurnoUsuario_id, descripcion, CDec(0), CDec(0), 4, CDec(tx_total.Text), CDec(tx_total.Text), Now) '4 es tarjeta
+                '/////////////////////fin////////////////////////////////
 
                 'se debe registrar en movimiento ctacte.
                 Dim cliente_id As Integer = CInt(Cliente_Cta_Cte_Buscar.DG_clientes.CurrentRow.Cells("CLIidDataGridViewTextBoxColumn").Value)
